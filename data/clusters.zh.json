@@ -1,0 +1,35 @@
+{
+  "version": "1.0.0-zh.0",
+  "upstreamVersion": "v1",
+  "clusterCount": 4,
+  "clusters": [
+    {
+      "subject": "Mathematics",
+      "domain": "Addition & Subtraction",
+      "domainZh": "加法与减法",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在学习加减法的基础——理解「合起来」是加、「拿走」是减，能用实物和画图解决 20 以内的简单应用题。"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Addition & Subtraction",
+      "domainZh": "加法与减法",
+      "ageRangeStart": 6,
+      "summary": "您的孩子正在学习 20 以内的进位加法和退位减法，开始理解加减运算的算理，并能用不同方法解决问题。"
+    },
+    {
+      "subject": "Science",
+      "domain": "Animals of the World",
+      "domainZh": "世界各地的动物",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在认识各种各样的动物——它们住在哪里、吃什么、如何保护自己，比如动物的伪装、巢穴和生存本领。"
+    },
+    {
+      "subject": "Science",
+      "domain": "Animals of the World",
+      "domainZh": "世界各地的动物",
+      "ageRangeStart": 6,
+      "summary": "您的孩子正在学习动物的多样性和适应特征——了解不同动物如何通过身体结构和行为来适应环境。"
+    }
+  ]
+}

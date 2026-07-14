@@ -1,0 +1,46 @@
+{
+  "dataset": "Beijing Skill Taxonomy",
+  "datasetZh": "北京版技能分类（中文）",
+  "parentDataset": "Marble Skill Taxonomy",
+  "parentUrl": "https://github.com/withmarbleapp/os-taxonomy",
+  "taxonomyVersion": "v1-zh",
+  "upstreamVersion": "v1",
+  "locale": "zh-CN",
+  "generatedAt": "2026-07-14T00:00:00.000Z",
+  "status": "skeleton — first subjects (Mathematics, Science) in progress",
+  "counts": {
+    "topicsZh": 4,
+    "dependenciesZh": 4,
+    "clustersZh": 4,
+    "cnCurricula": 2,
+    "cnCurriculumEntries": 4
+  },
+  "upstreamCounts": {
+    "topics": 1590,
+    "dependencies": 3221,
+    "clusters": 183
+  },
+  "files": {
+    "topics.zh.json": {
+      "bytes": 3102,
+      "sha256": "b80c45cbce63685b90475d6fa4e1c74b492f76b8e8a55c77088f7e64f8b7b4d7"
+    },
+    "dependencies.zh.json": {
+      "bytes": 835,
+      "sha256": "91bb80102c70d4dd4acb09c5d85d92036c7c3a9411f7ee620417468b650cd969"
+    },
+    "clusters.zh.json": {
+      "bytes": 1359,
+      "sha256": "e8fcd72b6cf5451368a790a764694b9a8c0e0390394efc15aa0d282577fcc76f"
+    },
+    "cn-curriculum-standards.json": {
+      "bytes": 2502,
+      "sha256": "48d877a5c2cf26cc00d059f6284a27d9d24d2ea9bb58ad9238c3f0193ffa02f2"
+    }
+  },
+  "excluded": [
+    "教育部课标原文条款（codes-only，见 PROVENANCE.md）",
+    "语义嵌入向量",
+    "任何儿童/用户数据"
+  ]
+}

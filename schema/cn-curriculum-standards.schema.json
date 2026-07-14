@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://os-taxonomy-beijing.github.io/schema/cn-curriculum-standards.schema.json",
+  "title": "Beijing Skill Taxonomy — 中国教育部课程标准（2022年版，codes-only）",
+  "description": "只收录课标条目的编号/映射键，不收录课标原文条款。textIncluded 必须为 false。",
+  "type": "object",
+  "required": ["curriculumCount", "codesOnlySources", "curricula"],
+  "properties": {
+    "note": { "type": "string" },
+    "upstreamField": {
+      "type": "string",
+      "description": "在 topics.zh.json 中引用本文件条目的字段名：cnStandards"
+    },
+    "codesOnlySources": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "所有源均为 codes-only；本项目不收录任何课标原文"
+    },
+    "curriculumCount": { "type": "integer", "minimum": 0 },
+    "curricula": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["slug", "country", "name", "version", "textIncluded", "topicCount", "topics"],
+        "properties": {
+          "slug": { "type": "string", "pattern": "^moe-2022-" },
+          "country": { "type": "string" },
+          "name": { "type": "string", "description": "课标全称" },
+          "version": { "type": "string", "description": "课标版本年份" },
+          "sourceUrl": { "type": ["string", "null"] },
+          "textIncluded": {
+            "type": "boolean",
+            "description": "必须为 false — 不收录课标原文条款"
+          },
+          "license": { "type": "string" },
+          "topicCount": { "type": "integer", "minimum": 0 },
+          "topics": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["key", "code", "strand"],
+              "properties": {
+                "key": { "type": "string", "pattern": "^moe-2022-" },
+                "code": { "type": "string", "description": "映射编号，如 S1.NA.01" },
+                "strand": {
+                  "type": "string",
+                  "description": "学段/领域标签，如 第一学段/数与代数。这是我们的分类标签，非课标原文"
+                },
+                "note": { "type": "string", "description": "条目含义的简要提示词（非原文）" }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

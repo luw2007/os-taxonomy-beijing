@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://os-taxonomy-beijing.github.io/schema/topics.zh.schema.json",
+  "title": "Beijing Skill Taxonomy — 微主题（中文）",
+  "description": "中文平行文件：只包含中文翻译字段 + 复用上游 mt_ ID。结构字段（type/subject/domain/ageRange/centrality）保留在上游 topics.json，不在此重复。",
+  "type": "object",
+  "required": ["version", "upstreamVersion", "topicCount", "topics"],
+  "properties": {
+    "version": { "type": "string", "description": "中文版的版本号" },
+    "upstreamVersion": { "type": "string", "description": "所基于的上游 Marble 版本，如 v1" },
+    "locale": { "type": "string", "description": "zh-CN" },
+    "topicCount": { "type": "integer", "minimum": 0 },
+    "topics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "description", "evidence"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^mt_",
+            "description": "与上游 topics.json 中完全相同的 ID"
+          },
+          "name": { "type": "string", "description": "中文名称" },
+          "description": { "type": "string", "description": "中文描述" },
+          "evidence": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "掌握证据（中文），数量与顺序与上游 evidence 对齐"
+          },
+          "assessmentPrompt": {
+            "type": ["string", "null"],
+            "description": "评估话术（中文），保留 {{name}} 占位符"
+          },
+          "cnStandards": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "对应的中国教育部课标条目编号键，如 moe-2022-math:S1.NA.01"
+          },
+          "translationStatus": {
+            "type": "string",
+            "enum": ["translated", "reviewed", "machine", "stub"],
+            "description": "翻译质量状态：stub=占位待译 machine=机翻 reviewed=人工校对"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

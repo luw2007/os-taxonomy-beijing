@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+title: "Beijing Skill Taxonomy (zh-CN): 小学学习图谱中文版"
+message: "本项目衍生自 Marble Skill Taxonomy，对齐中国教育部义务教育课程标准（2022年版）。"
+type: dataset
+license: ODbL-1.0
+version: "1.0.0-zh.0"
+date-released: 2026-07-14
+preferred-citation:
+  type: dataset
+  title: "Marble Skill Taxonomy"
+  authors:
+    - name: "Generative Spark, Inc. (Marble)"
+  url: "https://github.com/withmarbleapp/os-taxonomy"
+  version: "v1"
+  date-released: 2026-07-08
+keywords:
+  - curriculum
+  - taxonomy
+  - 小学
+  - 义务教育课程标准
+  - 教育部
+  - prerequisites
+  - knowledge-graph

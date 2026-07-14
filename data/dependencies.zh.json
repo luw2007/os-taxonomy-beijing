@@ -1,0 +1,31 @@
+{
+  "version": "1.0.0-zh.0",
+  "upstreamVersion": "v1",
+  "edgeCount": 4,
+  "dependencies": [
+    {
+      "topicId": "mt_7XcCG43ZZW",
+      "prerequisiteId": "mt_OvyoRo47K-",
+      "strength": "hard",
+      "reason": "把数分解成两部分，需要先理解加法就是「合并」"
+    },
+    {
+      "topicId": "mt_8RmpkDxT9L",
+      "prerequisiteId": "mt_OvyoRo47K-",
+      "strength": "hard",
+      "reason": "读写加号，需要先理解加法的含义"
+    },
+    {
+      "topicId": "mt_a1FdAsRKOF",
+      "prerequisiteId": "mt_OvyoRo47K-",
+      "strength": "soft",
+      "reason": "分数加法是「合并」概念的延伸"
+    },
+    {
+      "topicId": "mt_AF2BeFQwfX",
+      "prerequisiteId": "mt_OvyoRo47K-",
+      "strength": "soft",
+      "reason": "把硬币面值合起来求总数，要用到加法"
+    }
+  ]
+}

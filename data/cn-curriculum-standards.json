@@ -1,0 +1,59 @@
+{
+  "note": "中国教育部《义务教育课程方案和课程标准（2022年版）》条目编号。codes-only：只收录编号/映射键和我们的分类标签，不收录课标原文条款（章节条文、内容要求、学业质量描述等）。如需原文请从教育部官方渠道获取。",
+  "upstreamField": "cnStandards",
+  "codesOnlySources": [
+    "moe-2022-math",
+    "moe-2022-sci"
+  ],
+  "curriculumCount": 2,
+  "curricula": [
+    {
+      "slug": "moe-2022-math",
+      "country": "CN",
+      "name": "义务教育数学课程标准（2022年版）",
+      "version": "2022",
+      "sourceUrl": "http://www.moe.gov.cn/srcsite/A26/s8001/202204/t20220420_619921.html",
+      "textIncluded": false,
+      "license": "Codes/identifiers only — verbatim standard text omitted; this source carries an upstream license that does not permit our redistribution of the full text. See PROVENANCE.md.",
+      "topicCount": 2,
+      "topics": [
+        {
+          "key": "moe-2022-math:S1.NA.01",
+          "code": "S1.NA.01",
+          "strand": "第一学段（1~2年级）/ 数与代数 / 数的运算",
+          "note": "20以内数的认识与加减运算（加法含义：合并）"
+        },
+        {
+          "key": "moe-2022-math:S1.NA.02",
+          "code": "S1.NA.02",
+          "strand": "第一学段（1~2年级）/ 数与代数 / 数的运算",
+          "note": "用加减法解决生活中的简单问题"
+        }
+      ]
+    },
+    {
+      "slug": "moe-2022-sci",
+      "country": "CN",
+      "name": "义务教育科学课程标准（2022年版）",
+      "version": "2022",
+      "sourceUrl": "http://www.moe.gov.cn/srcsite/A26/s8001/202204/t20220420_619921.html",
+      "textIncluded": false,
+      "license": "Codes/identifiers only — verbatim standard text omitted; this source carries an upstream license that does not permit our redistribution of the full text. See PROVENANCE.md.",
+      "topicCount": 2,
+      "topics": [
+        {
+          "key": "moe-2022-sci:S1.O.01",
+          "code": "S1.O.01",
+          "strand": "第一学段（1~2年级）/ 生命科学 / 生物体的稳态与调节",
+          "note": "常见动物的特征和生存需要（住所、食物）"
+        },
+        {
+          "key": "moe-2022-sci:S1.O.03",
+          "code": "S1.O.03",
+          "strand": "第一学段（1~2年级）/ 生命科学 / 生物体的稳态与调节",
+          "note": "动物适应环境的方式（如伪装）"
+        }
+      ]
+    }
+  ]
+}

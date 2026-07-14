@@ -1,0 +1,14 @@
+{
+  "name": "os-taxonomy-beijing",
+  "version": "1.0.0-zh.0",
+  "description": "Marble Skill Taxonomy 的中文衍生版——对齐中国教育部 2022 版课程标准，优先北京小学。",
+  "private": true,
+  "type": "module",
+  "license": "(ODbL-1.0 AND CC-BY-SA-4.0)",
+  "homepage": "https://withmarble.com",
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "sync-upstream": "node scripts/sync-upstream.mjs",
+    "checksum": "node scripts/checksum.mjs"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://os-taxonomy-beijing.github.io/schema/clusters.zh.schema.json",
+  "title": "Beijing Skill Taxonomy — 领域聚类（中文）",
+  "description": "中文平行文件：翻译 summary 为中文（面向中国家长）。",
+  "type": "object",
+  "required": ["version", "upstreamVersion", "clusterCount", "clusters"],
+  "properties": {
+    "version": { "type": "string" },
+    "upstreamVersion": { "type": "string" },
+    "clusterCount": { "type": "integer", "minimum": 0 },
+    "clusters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["subject", "domain", "ageRangeStart", "summary"],
+        "properties": {
+          "subject": { "type": "string", "description": "保持与上游相同的英文 subject，便于匹配" },
+          "domain": { "type": "string", "description": "保持与上游相同的英文 domain" },
+          "domainZh": { "type": ["string", "null"], "description": "中文领域名（可选）" },
+          "ageRangeStart": { "type": "integer" },
+          "summary": { "type": "string", "description": "中文领域摘要" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

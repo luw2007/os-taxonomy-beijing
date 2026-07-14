@@ -1,0 +1,60 @@
+{
+  "version": "1.0.0-zh.0",
+  "upstreamVersion": "v1",
+  "locale": "zh-CN",
+  "topicCount": 4,
+  "topics": [
+    {
+      "id": "mt_OvyoRo47K-",
+      "name": "加法：把两组合在一起",
+      "description": "理解加法是把两组物体合并在一起求总数。例如 3 个孩子来了，又有 2 个加入，一共是 5 个。",
+      "evidence": [
+        "用实物演示「合在一起」的操作并说出总数",
+        "演示「增加」情境（如先有 3 个小朋友，又来了 2 个）",
+        "能解释加法的含义是求「一共多少」"
+      ],
+      "assessmentPrompt": "如果 {{name}} 有 4 辆玩具车，朋友又带来 3 辆，TA 能理解加就是把两堆合在一起，并且说出现在一共有 7 辆吗？",
+      "cnStandards": ["moe-2022-math:S1.NA.01"],
+      "translationStatus": "reviewed"
+    },
+    {
+      "id": "mt_yJmvUCCym7",
+      "name": "10 以内加减法应用题",
+      "description": "用实物或画图，解决 10 以内的加法和减法应用题。",
+      "evidence": [
+        "用计数器解决「有 6 个苹果，吃了 2 个，还剩几个？」",
+        "解决「添上」和「拿走」求结果的题目",
+        "解决「合起来／分开」求总数的题目"
+      ],
+      "assessmentPrompt": "如果你说「篱笆上有 7 只小鸟，飞走了 3 只，还剩几只？」，{{name}} 能用手指、计数器或画图算出来吗？",
+      "cnStandards": ["moe-2022-math:S1.NA.02"],
+      "translationStatus": "reviewed"
+    },
+    {
+      "id": "mt_pwo81ls_J-",
+      "name": "动物的伪装",
+      "description": "了解许多动物会利用伪装——用颜色和花纹融入周围环境——来躲避天敌或悄悄接近猎物。例如叶䗛看起来像树叶，雪兔在冬天会变白。",
+      "evidence": [
+        "解释伪装的含义是「融入周围环境」",
+        "举出至少 3 种会伪装的动物",
+        "说明伪装帮助动物躲避天敌或接近猎物"
+      ],
+      "assessmentPrompt": "如果让 {{name}} 在花园里找一只蚱蜢，TA 能解释之所以很难发现它，是因为它的绿色帮助它藏在草丛里——并说出其他会伪装的动物吗？",
+      "cnStandards": ["moe-2022-sci:S1.O.03"],
+      "translationStatus": "reviewed"
+    },
+    {
+      "id": "mt_oLHXfLujmh",
+      "name": "动物的家",
+      "description": "了解动物会建造或寻找各种各样的家——鸟筑巢、兔子打洞、蜜蜂住蜂巢、寄居蟹用空壳、蜘蛛结网——这些住所保护它们和它们的幼崽。",
+      "evidence": [
+        "说出至少 4 种动物的家（鸟巢、兔洞、蜂巢、蛛网、螺壳、兽穴等）",
+        "解释动物需要家来遮风避雨、保护幼崽",
+        "把常见动物和它们的家对应起来"
+      ],
+      "assessmentPrompt": "如果问 {{name}} 不同动物住在哪里，TA 能描述好几种动物的家——比如鸟巢、兔洞、蜂巢——并说明动物为什么需要住所吗？",
+      "cnStandards": ["moe-2022-sci:S1.O.01"],
+      "translationStatus": "reviewed"
+    }
+  ]
+}

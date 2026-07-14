@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://os-taxonomy-beijing.github.io/schema/dependencies.zh.schema.json",
+  "title": "Beijing Skill Taxonomy — 前置依赖（中文）",
+  "description": "中文平行文件：只翻译 reason 字段，topicId/prerequisiteId/strength 保持与上游一致。",
+  "type": "object",
+  "required": ["version", "upstreamVersion", "edgeCount", "dependencies"],
+  "properties": {
+    "version": { "type": "string" },
+    "upstreamVersion": { "type": "string" },
+    "edgeCount": { "type": "integer", "minimum": 0 },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["topicId", "prerequisiteId", "strength"],
+        "properties": {
+          "topicId": { "type": "string", "pattern": "^mt_" },
+          "prerequisiteId": { "type": "string", "pattern": "^mt_" },
+          "strength": { "type": "string", "enum": ["hard", "soft"] },
+          "reason": { "type": ["string", "null"], "description": "中文依赖说明" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

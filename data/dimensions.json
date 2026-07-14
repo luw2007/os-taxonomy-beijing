@@ -1,0 +1,122 @@
+{
+  "version": "1.0.0",
+  "note": "维度(dimensions)切换配置。每个维度声明对上游微主题的过滤策略。维度是展示层概念——不修改 topics.zh.json 等数据文件,仅在 serve.mjs 合并后的视图上做白名单过滤。判定依据:教育部《义务教育课程方案和课程标准(2022 年版)》小学段(1~6 年级)。yes=中国小学课标核心;partial=部分对应(超纲内容或属初中学段,宽松模式仍展示);no=课标无对应(排除)。",
+  "defaultDimension": "us",
+  "dimensions": {
+    "us": {
+      "label": "美版",
+      "labelEn": "US (Upstream)",
+      "description": "上游 Marble 全部微主题(英美课程体系 NGSS / Common Core / UK NC),不做任何过滤。",
+      "filter": "all"
+    },
+    "bj-primary": {
+      "label": "小学·北京",
+      "labelEn": "Beijing Primary",
+      "description": "只展示能对应到中国小学课标的知识点(宽松模式:含部分对应)。隐藏中国小学课标无对应的内容:History 全科、恐龙/极地/热带雨林、创业、英语写作/书写/思维等。",
+      "filter": "whitelist",
+      "subjects": {
+        "Mathematics": {
+          "mode": "include",
+          "domainNotes": {
+            "Addition & Subtraction": "yes — 1~3 年级核心",
+            "Algebra": "partial — 上游 10~14 岁,属初中;宽松模式保留",
+            "Counting & Cardinality": "yes — 1 年级数的认识",
+            "Data & Statistics": "yes — 统计与概率模块",
+            "Fractions": "yes — 3~6 年级核心",
+            "Geometry": "yes — 图形与几何",
+            "Mathematical Thinking": "partial — 综合与实践/数学思考,偏素养",
+            "Measurement": "yes — 长度/质量/时间/面积/体积",
+            "Multiplication & Division": "yes — 2~4 年级核心",
+            "Number Representation & Place Value": "yes — 1~4 年级十进制",
+            "Probability": "partial — 小学仅可能性初步,深内容属初中;宽松保留",
+            "Ratio & Proportion": "partial — 6 年级有,部分超纲;宽松保留"
+          }
+        },
+        "Science": {
+          "mode": "exclude-domains",
+          "excludedDomains": [
+            "Dinosaurs & Paleontology",
+            "Polar Regions",
+            "Rainforests"
+          ],
+          "domainNotes": {
+            "Animals of the World": "yes — 生物领域",
+            "Dinosaurs & Paleontology": "no — 课标无古生物章节(已排除)",
+            "Earth's Systems": "yes — 地球与宇宙",
+            "Ecosystems & Habitats": "yes — 生物与环境",
+            "Energy": "yes — 物质科学能量",
+            "Forces & Motion": "yes — 力与运动",
+            "Insects & Minibeasts": "yes — 生物多样性",
+            "Matter & Materials": "yes — 物质科学",
+            "Ocean Life": "yes — 归入生物多样性(拓展)",
+            "Organisms & Life Processes": "yes — 生命科学核心",
+            "Polar Regions": "no — 课标无极地章节(已排除)",
+            "Rainforests": "no — 课标无热带雨林章节(已排除)",
+            "Scientific Inquiry": "yes — 科学探究四大目标之一",
+            "Space Exploration": "partial — 偏科普拓展,课标仅含太阳系基础",
+            "Space Systems & Earth's History": "partial — 日地月对应,地质年代超纲",
+            "The Human Body": "yes — 人体与健康",
+            "Volcanoes & Earthquakes": "partial — 地球与宇宙可涉及,偏地理",
+            "Waves, Light & Sound": "yes — 声、光(3~6 简化)",
+            "Weather & Climate": "yes — 天气与气候"
+          }
+        },
+        "Computing": {
+          "mode": "include",
+          "domainNotes": {
+            "Artificial Intelligence": "partial — 2022《信息科技》含人工智能,上游偏社会影响;宽松保留"
+          }
+        },
+        "English": {
+          "mode": "exclude-domains",
+          "excludedDomains": [
+            "Writing Composition",
+            "Handwriting & Transcription",
+            "English Thinking"
+          ],
+          "domainNotes": {
+            "English Thinking": "no — 非课标独立模块(已排除)",
+            "Grammar & Punctuation": "partial — 课标有语法点,深度低;宽松保留",
+            "Handwriting & Transcription": "no — 中国小学英语无独立书写模块(已排除)",
+            "Phonics & Word Reading": "partial — 课标有语音,非自然拼读体系;宽松保留",
+            "Reading Comprehension": "partial — 课标有,语篇量差异大(ESL);宽松保留",
+            "Speaking & Listening": "partial — 课标有听说,课时少;宽松保留",
+            "Spelling & Word Study": "partial — 课标有词汇,拼写强度低;宽松保留",
+            "Vocabulary": "yes — 词汇是课标核心",
+            "Writing Composition": "no — 中国小学英语无 composition 体系(已排除)"
+          }
+        },
+        "Life Skills": {
+          "mode": "exclude-domains",
+          "excludedDomains": [
+            "Entrepreneurship"
+          ],
+          "domainNotes": {
+            "Entrepreneurship": "no — 中国小学无创业教育(已排除)",
+            "Money & Finance": "partial — 数学有认识人民币/购物,财商非独立;宽松保留"
+          }
+        },
+        "Personal & Social Development": {
+          "mode": "include",
+          "domainNotes": {
+            "Emotional Literacy": "partial — 对应道德与法治情感教育 + 心理健康",
+            "Empathy & Social Awareness": "partial — 对应道德与法治",
+            "Friendship & Cooperation": "partial — 对应道德与法治同伴交往",
+            "Responsible Decision-Making": "partial — 对应道德与法治规则/责任",
+            "Self-Awareness": "partial — 心理健康/班会",
+            "Self-Regulation & Resilience": "partial — 心理健康/挫折教育"
+          }
+        },
+        "Learning to Learn": {
+          "mode": "include",
+          "domainNotes": {
+            "Learning to Learn": "partial — 映射综合实践/学习习惯;宽松保留"
+          }
+        }
+      },
+      "excludedSubjects": [
+        "History"
+      ]
+    }
+  }
+}

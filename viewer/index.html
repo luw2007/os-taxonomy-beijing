@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>学习图谱 · Beijing Skill Taxonomy</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <!-- 3D 图谱画布 -->
+  <div id="graph"></div>
+
+  <!-- 加载指示器 -->
+  <div id="loading-overlay">
+    <div class="loading-spinner"></div>
+    <p>正在构建知识图谱…</p>
+  </div>
+
+  <!-- 顶部控制栏 -->
+  <div id="topbar">
+    <div class="topbar-left">
+      <div class="logo">
+        <span class="logo-icon">🕸</span>
+        <div class="logo-text">
+          <strong>学习图谱</strong>
+          <small>1,590 微主题 · 3,221 依赖</small>
+        </div>
+      </div>
+      <div class="search-box">
+        <input type="text" id="search" placeholder="搜索微主题…" autocomplete="off">
+      </div>
+    </div>
+    <div class="topbar-right">
+      <div class="subject-filters" id="subject-filters"></div>
+    </div>
+  </div>
+
+  <!-- 悬停提示 -->
+  <div id="tooltip" class="tooltip hidden"></div>
+
+  <!-- 详情面板 -->
+  <div id="detail-panel" class="hidden">
+    <div class="detail-panel-header">
+      <button class="close-btn" onclick="closeDetail()">✕</button>
+    </div>
+    <div class="detail-panel-body" id="detail-body"></div>
+  </div>
+
+  <!-- 图例 -->
+  <div id="legend"></div>
+
+  <script src="https://unpkg.com/3d-force-graph"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

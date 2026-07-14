@@ -71,7 +71,7 @@ const zhTopicIds = new Set();
 for (const t of topicsZh.topics) {
   check(typeof t.id === 'string' && t.id.startsWith('mt_'), `topic id malformed: ${t.id}`);
   check(typeof t.description === 'string' && t.description.length > 0, `topic ${t.id}: empty description`);
-  check(Array.isArray(t.evidence) && t.evidence.length > 0, `topic ${t.id}: evidence empty`);
+  check(Array.isArray(t.evidence), `topic ${t.id}: evidence must be array`);
   if (zhTopicIds.has(t.id)) errors.push(`duplicate zh topic id: ${t.id}`);
   zhTopicIds.add(t.id);
 

@@ -4,7 +4,7 @@
 把面向英语世界小学生的"学习图谱"翻译为中文，并对齐**中国教育部《义务教育课程方案和
 课程标准（2022 年版）》**，优先覆盖**北京小学**阶段。
 
-> **状态：** `skeleton` · 已翻译微主题：4（数学 2 + 科学 2）· 上游总量：1,590
+> **状态：** `translated` · 已翻译微主题：1,590 / 1,590（100%）· 依赖说明：3,221 / 3,221（100%）
 
 ## 这是什么
 
@@ -111,6 +111,43 @@ node scripts/sync-upstream.mjs --subject Science
 node scripts/checksum.mjs
 ```
 
+### 翻译流水线
+
+用公开翻译 API（Google 免费端点 = Chrome 翻译后端，MyMemory 备选）批量翻译，**不使用模型**：
+
+```bash
+npm run translate                              # 翻译全部（1590 topics + 3221 deps）
+node scripts/translate.mjs --subject Mathematics # 只翻译数学
+node scripts/translate.mjs --limit 10 --dry-run # 试跑 10 条预览
+node scripts/translate.mjs --concurrency 8      # 8 并发（默认 5）
+```
+
+特性：`{{name}}` 占位符保护、术语表后处理（`data/glossary.json`）、断点续传
+（中断后重跑自动跳过已翻译）、Google→MyMemory 自动降级。翻译质量标记为
+`"translationStatus": "machine"`，手工校对过的标 `"reviewed"`（不会被覆盖）。
+
+## 本地知识浏览器
+
+本项目内置一个**零依赖**的 Web 浏览器，可以在本地启动后用浏览器交互式浏览全部知识图谱——
+微主题、依赖关系、领域聚类、课标对齐一目了然。
+
+```bash
+npm start                    # 默认端口 3000，自动从 ../os-taxonomy 读上游
+# 或
+node scripts/serve.mjs --port 8080 --upstream /path/to/os-taxonomy
+```
+
+然后浏览器打开 **http://localhost:3000**：
+
+- **左侧目录树**：按学科 → 领域浏览，显示翻译覆盖率
+- **搜索框**：即时搜索全部微主题（中英文均可）
+- **概览页**：统计卡片 + 学科分布 + 许可证说明
+- **微主题列表**：按学科/领域/翻译状态筛选，卡片式展示
+- **详情页**：完整描述 + 掌握证据 + 评估话术（`{{name}}` 高亮为「孩子名字」）+ 课标对齐 + 前置/后续依赖关系图
+
+浏览器会自动合并上游结构数据（subject/domain/ageRange/type）和中文翻译，
+未翻译的微主题显示英文原文并标注「未译」，已翻译的优先显示中文。
+
 ## 许可证
 
 本项目是 [Marble Skill Taxonomy](https://github.com/withmarbleapp/os-taxonomy)
@@ -138,12 +175,14 @@ node scripts/checksum.mjs
 
 - [x] 项目骨架 + 合规文件 + 校验工具
 - [x] 数学 + 科学示例数据
-- [ ] **数学全部翻译**（上游 503 个微主题）+ 完整课标对齐
-- [ ] **科学全部翻译**（上游 547 个微主题）+ 完整课标对齐
+- [x] **全部翻译**（1,590 微主题 + 3,221 依赖说明，Google API 机翻）
+- [x] 本地知识浏览器（零依赖 Web 服务）
+- [ ] **课标对齐**（机翻文本 → 教育部 2022 版课标编号映射，当前仅 4 条对齐）
+- [ ] **人工校对**（`machine` → `reviewed`，优先数学/科学低龄段）
 - [ ] 英语（需新增国内课标，因中国小学英语非母语）
 - [ ] 道德与法治（中国特有，上游无对应）
 - [ ] 语文（中国特有，上游无对应，含拼音/识字/古诗文）
-- [ ] 自动翻译流水线（术语表 + LLM 批量 + 人工校对流程）
+- [ ] 领域聚类（clusters.zh.json）翻译
 
 ## 贡献
 

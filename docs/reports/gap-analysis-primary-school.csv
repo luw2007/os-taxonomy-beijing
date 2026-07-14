@@ -1,0 +1,44 @@
+gap_id,subject,subject_en,stage,cn_domain,gap_type,upstream_subject,upstream_status,severity,action,note
+G-ZH-01,语文,Chinese,全学段(1~6年级),识字与写字,missing_subject,—,"无（上游为英语母语体系，无中文母语内容）",高,新建学科,含拼音/汉字识记/规范书写/书法基础
+G-ZH-02,语文,Chinese,全学段(1~6年级),阅读与鉴赏,missing_subject,—,无,高,新建学科,含整本书阅读/文学阅读/思辨性阅读
+G-ZH-03,语文,Chinese,全学段(1~6年级),表达与交流,missing_subject,—,无,高,新建学科,含写话(低段)/习作(中高段)/口语交际
+G-ZH-04,语文,Chinese,全学段(1~6年级),梳理与探究,missing_subject,—,无,中,新建学科,跨学科/问题驱动的综合性学习
+G-ZH-05,语文,Chinese,全学段(1~6年级),中华优秀传统文化·古诗文积累,missing_subject,—,无,高,新建学科,分级背诵建议；上游无对应
+G-ZH-06,语文,Chinese,全学段(1~6年级),革命文化与社会主义先进文化,missing_subject,—,无,中,新建学科,中国特有主题
+G-MATH-01,数学,Mathematics,第一学段(1~2年级),综合与实践,missing_domain,Mathematics,"上游无此领域（有 Mathematical Thinking 但非项目式综合实践）",中,新建模块微主题,2022 起始年级提前至一年级；以主题活动为主
+G-MATH-02,数学,Mathematics,第二学段(3~4年级),综合与实践,missing_domain,Mathematics,同上,中,新建模块微主题,以项目学习为主
+G-MATH-03,数学,Mathematics,第三学段(5~6年级),综合与实践,missing_domain,Mathematics,同上,中,新建模块微主题,以项目学习为主
+G-MATH-04,数学,Mathematics,全学段(1~6年级),中华数学文化,missing_domain,Mathematics,上游以英美数学史为主,低,新建模块微主题,如算盘/《九章算术》/古代度量衡
+G-MATH-05,数学,Mathematics,全学段(1~6年级),"数与代数/图形与几何/统计与概率(待翻译)",coverage_pending,Mathematics,"上游 age≤12 共 446 个微主题，已译 2 个(0.4%)",高,翻译即可,翻译上游即可覆盖
+G-SCI-01,科学,Science,全学段(1~6年级),技术与工程,missing_domain,Science,上游无（Computing 仅有 AI）,中,新建模块微主题,设计/制作/工程思维
+G-SCI-02,科学,Science,全学段(1~6年级),人类活动与环境(中国语境),misaligned,Science,"上游生态为英美体系(雨林/极地/海洋)",中,视角调整,补中国本土生态与环境问题
+G-SCI-03,科学,Science,全学段(1~6年级),"物质/生命/地球与宇宙(待翻译)",coverage_pending,Science,"上游 age≤12 共 449 个，已译 2 个(0.4%)",高,翻译即可,
+G-ENG-01,英语,English,第二三学段(3~6年级),课程视角(母语→外语),misaligned,English,"上游为英语母语体系(Phonics/Grammar)，中国小学英语为外语",高,视角调整,需新建国内课标对齐
+G-ENG-02,英语,English,第二三学段(3~6年级),三大主题(人与自我/人与社会/人与自然),missing_domain,English,上游无此主题框架,中,新建模块微主题,
+G-ENG-03,英语,English,第二三学段(3~6年级),语言技能(听/读/看/说/写),misaligned,English,"上游 Speaking&Listening / Reading / Writing 可部分复用",中,视角调整,需调整为外语技能观
+G-ENG-04,英语,English,第二三学段(3~6年级),语言知识/文化知识/学习策略,missing_domain,English,上游 Grammar/Vocabulary 可部分复用,中,新建模块微主题,
+G-ENG-05,英语,English,第二三学段(3~6年级),上游可复用部分(待翻译),coverage_pending,English,"上游 age≤12 共 252 个，可复用约 60%",中,翻译即可,翻译后按外语视角裁剪
+G-MORAL-01,道德与法治,Moral & Rule of Law,全学段(1~6年级),我与自己,missing_subject,—,"无独立学科；仅 PSD 有零散 Self-Awareness",高,新建学科,
+G-MORAL-02,道德与法治,Moral & Rule of Law,全学段(1~6年级),我与他人和集体,missing_subject,—,仅 PSD Friendship/Empathy 部分相关,高,新建学科,
+G-MORAL-03,道德与法治,Moral & Rule of Law,全学段(1~6年级),我与国家,missing_subject,—,"无（国旗国徽国歌/宪法/国家机构/国家安全/民族团结完全缺失）",高,新建学科,中国特有
+G-MORAL-04,道德与法治,Moral & Rule of Law,全学段(1~6年级),我与人类社会,missing_subject,—,无,中,新建学科,
+G-MORAL-05,道德与法治,Moral & Rule of Law,全学段(1~6年级),我们共同的世界,missing_subject,—,无,中,新建学科,
+G-PE-01,体育与健康,PE & Health,全学段(1~6年级),基本运动技能,missing_subject,—,0 命中,高,新建学科,走/跑/跳/投/攀爬钻/滚动
+G-PE-02,体育与健康,PE & Health,全学段(1~6年级),体能,missing_subject,—,0 命中,中,新建学科,
+G-PE-03,体育与健康,PE & Health,全学段(1~6年级),健康教育,missing_subject,—,0 命中,高,新建学科,
+G-PE-04,体育与健康,PE & Health,全学段(1~6年级),专项运动技能,missing_subject,—,0 命中,中,新建学科,球类/田径/体操/武术
+G-PE-05,体育与健康,PE & Health,全学段(1~6年级),跨学科主题学习,missing_subject,—,0 命中,低,新建学科,
+G-ART-01,艺术,Art,全学段(1~6年级),欣赏,missing_subject,—,0 独立内容,高,新建学科,音乐聆听欣赏/美术欣赏评述
+G-ART-02,艺术,Art,全学段(1~6年级),表现,missing_subject,—,0,高,新建学科,演唱演奏/造型表现
+G-ART-03,艺术,Art,全学段(1~6年级),创造,missing_subject,—,0,中,新建学科,编创/设计应用
+G-ART-04,艺术,Art,全学段(1~6年级),联系与融合,missing_subject,—,0,中,新建学科,含戏曲/中华传统艺术
+G-IT-01,信息科技,Information Technology,第二三学段(3~6年级),数据,missing_subject,—,0（Computing 仅 AI）,高,新建学科,数据与编码
+G-IT-02,信息科技,Information Technology,第二三学段(3~6年级),算法,missing_subject,—,0,高,新建学科,身边的算法
+G-IT-03,信息科技,Information Technology,第二三学段(3~6年级),网络,missing_subject,—,0,中,新建学科,
+G-IT-04,信息科技,Information Technology,第二三学段(3~6年级),信息处理,missing_subject,—,0,中,新建学科,
+G-IT-05,信息科技,Information Technology,第二三学段(3~6年级),信息安全与信息社会责任,missing_subject,—,0,高,新建学科,中国语境的数字身份/在线安全
+G-IT-06,信息科技,Information Technology,第二三学段(3~6年级),人工智能,misaligned,Computing,"上游 Computing 有 21 个 AI 微主题(age≤12)，可部分改编复用",中,视角调整,改编上游 AI 内容对齐国内课标
+G-LABOR-01,劳动,Labor,全学段(1~6年级),日常生活劳动,missing_subject,—,0 命中,高,新建学科,清洁卫生/整理收纳/烹饪营养/家用器具
+G-LABOR-02,劳动,Labor,全学段(1~6年级),生产劳动,missing_subject,—,0,中,新建学科,农业/传统工艺/工业/新技术
+G-LABOR-03,劳动,Labor,全学段(1~6年级),服务性劳动,missing_subject,—,0,中,新建学科,现代服务/公益志愿
+G-PRAC-01,综合实践活动,Comprehensive Practical Activity,全学段(1~6年级),综合实践活动,missing_subject,—,0,低,新建学科,2022 起始年级提前至一年级

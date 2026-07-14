@@ -21,6 +21,7 @@ const FILES = [
   'dependencies.zh.json',
   'clusters.zh.json',
   'cn-curriculum-standards.json',
+  'dimensions.json',
 ];
 
 const manifest = JSON.parse(readFileSync(MANIFEST, 'utf8'));

@@ -47,6 +47,11 @@ const zhDeps = load(DATA, 'dependencies.zh.json');
 const zhClusters = load(DATA, 'clusters.zh.json');
 const cnStandards = load(DATA, 'cn-curriculum-standards.json');
 
+// 中国特有微主题（mtc_ 前缀，无上游对应，自带完整结构字段）
+const cnOriginTopics = existsSync(resolve(DATA, 'cn-topics.json'))
+  ? load(DATA, 'cn-topics.json')
+  : null;
+
 // 维度切换配置(可选文件——缺失时只有默认 us 维度)
 const dimensionsConfig = existsSync(resolve(DATA, 'dimensions.json'))
   ? load(DATA, 'dimensions.json')
@@ -110,6 +115,20 @@ for (const id of allIds) {
   }
 }
 
+// 中国特有微主题（mtc_）：自带完整结构字段，直接加入合并视图
+if (cnOriginTopics) {
+  for (const t of cnOriginTopics.topics) {
+    mergedTopics.push({
+      ...t,
+      translated: true,
+      translationStatus: 'cn-origin',
+      subjectZh: subjectZh(t.subject),
+      domainZh: domainZh(t.subject, t.domain),
+      cnOrigin: true, // 标记为中国特有，供维度过滤识别
+    });
+  }
+}
+
 // 合并依赖（中文 reason 优先，上游 fallback）
 const zhDepMap = new Map();
 for (const d of zhDeps.dependencies) {
@@ -155,14 +174,26 @@ const translatedCount = mergedTopics.filter(t => t.translated).length;
 // 维度是展示层概念:在已合并的 mergedTopics 上做白名单过滤,不改数据文件。
 // 每个 topic 预计算它在每个维度下的可见性,供 API 和详情页快速标注。
 function isTopicVisibleInDimension(topic, dim) {
+  // 中国特有主题（mtc_）：按 stage 归属到对应维度
+  if (topic.cnOrigin) {
+    if (!dim || dim.filter === 'all') return false;      // 美版：隐藏所有中国特有主题
+    if (!dim.filter || dim.filter !== 'whitelist') return false;
+    // whitelist 维度：有 cnStage 标注的按学段过滤，无标注的(小学 bj-primary)全可见
+    if (dim.cnStage) {
+      return topic.stage === dim.cnStage;
+    }
+    // bj-primary 没有 cnStage → 显示所有无 stage 标注的(旧小学主题) + stage='小学'
+    return !topic.stage || topic.stage === '小学';
+  }
+  // 上游翻译主题（mt_）：美版全可见
   if (!dim || dim.filter === 'all') return true;
   if (dim.filter !== 'whitelist') return true;
+  // whitelist 维度下的上游主题：bj-primary 按 subjects 白名单过滤；
+  // bj-junior / bj-senior 只含中国特有主题，上游主题一律隐藏
+  if (dim.cnStage) return false;
   const subjCfg = dim.subjects && dim.subjects[topic.subject];
-  // subject 未列入配置 → 排除
   if (!subjCfg) return false;
-  // mode=include:整科纳入(可能含 domain 级标注,但不影响可见性)
   if (subjCfg.mode === 'include') return true;
-  // mode=exclude-domains:排除指定 domain
   if (subjCfg.mode === 'exclude-domains') {
     const excluded = subjCfg.excludedDomains || [];
     return !excluded.includes(topic.domain);
@@ -183,7 +214,10 @@ for (const t of mergedTopics) {
 // 按维度过滤 topic 数组
 function filterTopicsByDimension(topics, dimension) {
   const dim = dimensionsConfig.dimensions[dimension];
-  if (!dim || dim.filter === 'all') return topics;
+  if (!dim || dim.filter === 'all') {
+    // 美版（all）维度：排除中国特有主题（mtc_）
+    return topics.filter(t => !t.cnOrigin);
+  }
   return topics.filter(t => {
     const vis = topicVisibility.get(t.id);
     return vis ? vis[dimension] : isTopicVisibleInDimension(t, dim);
@@ -237,19 +271,26 @@ function apiResponse(pathname, search) {
     };
   }
 
-  // GET /api/topics — 所有 topic（支持 ?dimension=&subject=&domain=&age=&translated=&q= 筛选）
+  // GET /api/topics — 所有 topic（支持 ?dimension=&subject=&domain=&age=&ageRange=&translated=&q= 筛选）
   if (pathname === '/api/topics') {
     // 先按维度白名单过滤,再叠加 subject/domain/age/translated/q 筛选
     let result = filterTopicsByDimension(mergedTopics, dimension);
     const subject = params.get('subject');
     const domain = params.get('domain');
     const age = params.get('age');
+    const ageRange = params.get('ageRange'); // 形如 "4-7",按 ageRangeStart 落入区间
     const translated = params.get('translated');
     const q = params.get('q');
 
     if (subject) result = result.filter(t => t.subject === subject);
     if (domain) result = result.filter(t => t.domain === domain);
     if (age) result = result.filter(t => t.ageRangeStart === parseInt(age, 10));
+    if (ageRange) {
+      const [lo, hi] = ageRange.split('-').map(Number);
+      if (!Number.isNaN(lo) && !Number.isNaN(hi)) {
+        result = result.filter(t => t.ageRangeStart != null && t.ageRangeStart >= lo && t.ageRangeStart <= hi);
+      }
+    }
     if (translated === '1') result = result.filter(t => t.translated);
     if (translated === '0') result = result.filter(t => !t.translated);
     if (q) {

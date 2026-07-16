@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://os-taxonomy-beijing.github.io/schema/topics.cn-origin.schema.json",
+  "title": "Beijing Skill Taxonomy — 中国特有微主题（cn-origin）",
+  "description": "中国特有微主题（mtc_ 前缀），无上游 mt_ 对应。包含完整结构字段（type/subject/domain/ageRange）+ 中文翻译字段。按教育部 2022 版课标小学段生成，codes-only：不含课标原文条款。",
+  "type": "object",
+  "required": ["version", "upstreamVersion", "locale", "topicCount", "topics"],
+  "properties": {
+    "version": { "type": "string", "description": "中文版的版本号" },
+    "upstreamVersion": { "type": "string", "description": "所基于的上游 Marble 版本，如 v1" },
+    "locale": { "type": "string", "description": "zh-CN" },
+    "topicCount": { "type": "integer", "minimum": 0 },
+    "originNote": {
+      "type": "string",
+      "description": "说明本文件收录的是中国特有微主题，无上游 mt_ 对应"
+    },
+    "topics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id", "type", "subject", "domain", "name", "description",
+          "ageRangeStart", "ageRangeEnd", "evidence", "cnStandards", "origin"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^mtc_",
+            "description": "中国特有微主题 ID，mtc_ 前缀（区别于上游翻译的 mt_）"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["CONCEPTUAL", "PROCEDURAL", "REPRESENTATIONAL", "LANGUAGE", "META"],
+            "description": "知识点性质，复用上游 5 类枚举"
+          },
+          "subject": {
+            "type": "string",
+            "description": "英文学科名，与上游 subject 同命名空间（如 Chinese / Moral & Rule of Law）"
+          },
+          "domain": {
+            "type": "string",
+            "description": "英文领域名，学科内的子分类"
+          },
+          "name": { "type": "string", "description": "微主题中文名称" },
+          "description": { "type": "string", "description": "中文描述（自拟教学化表达，非课标原文）" },
+          "ageRangeStart": { "type": "integer", "minimum": 0, "maximum": 18 },
+          "ageRangeEnd": { "type": "integer", "minimum": 0, "maximum": 18 },
+          "centrality": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "图中心度（派生指标）。中国特有主题无上游图，填 0.0"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string" },
+            "description": "掌握证据（中文），至少 1 条"
+          },
+          "assessmentPrompt": {
+            "type": ["string", "null"],
+            "description": "评估话术（中文），保留 {{name}} 占位符"
+          },
+          "cnStandards": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string" },
+            "description": "对应的中国教育部课标条目编号键，至少 1 条"
+          },
+          "origin": {
+            "type": "string",
+            "enum": ["cn_only", "cross_domain", "upstream_adapt"],
+            "description": "来源类型：cn_only=中国特有 / cross_domain=跨领域新建 / upstream_adapt=上游改编"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

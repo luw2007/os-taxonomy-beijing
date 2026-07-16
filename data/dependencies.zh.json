@@ -607,7 +607,7 @@
       "topicId": "mt_1VmTUxBrNd",
       "prerequisiteId": "mt_J03RFlVdas",
       "strength": "hard",
-      "reason": "毕达哥拉斯需要了解三角形角和和性质"
+      "reason": "勾股定理需要了解三角形角和和性质"
     },
     {
       "topicId": "mt_1VSfm9yiLn",
@@ -9727,7 +9727,7 @@
       "topicId": "mt_KB_Czd7RQH",
       "prerequisiteId": "mt_1VmTUxBrNd",
       "strength": "hard",
-      "reason": "三角学通过引入角边关系扩展了毕达哥拉斯"
+      "reason": "三角学通过引入角边关系扩展了勾股定理"
     },
     {
       "topicId": "mt_KB_Czd7RQH",

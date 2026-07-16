@@ -4,7 +4,7 @@
 把面向英语世界小学生的"学习图谱"翻译为中文，并对齐**中国教育部《义务教育课程方案和
 课程标准（2022 年版）》**，优先覆盖**北京小学**阶段。
 
-> **状态：** `translated` · 已翻译微主题：1,590 / 1,590（100%）· 依赖说明：3,221 / 3,221（100%）
+> **状态：** `translated` · 已翻译微主题：1,590 / 1,590（100%）· 中国特有微主题：1,696 · 依赖说明：3,221 / 3,221（100%）
 
 ## 这是什么
 
@@ -40,6 +40,7 @@
 | 文件 | 内容 |
 |---|---|
 | [`data/topics.zh.json`](data/topics.zh.json) | 微主题中文翻译（图**节点**）。复用上游 mt_ ID。 |
+| [`data/cn-topics.json`](data/cn-topics.json) | 中国特有微主题（语文/道法/历史等）。ID 用 mtc_ 前缀。 |
 | [`data/dependencies.zh.json`](data/dependencies.zh.json) | 前置依赖的中文说明（图**边**）。 |
 | [`data/clusters.zh.json`](data/clusters.zh.json) | 领域聚类摘要（面向中国家长）。 |
 | [`data/cn-curriculum-standards.json`](data/cn-curriculum-standards.json) | 中国教育部课标条目编号（**codes-only**，不含原文）。 |
@@ -158,6 +159,7 @@ node scripts/serve.mjs --port 8080 --upstream /path/to/os-taxonomy
 | **数据库** | 集合结构、ID、关系 | [**ODbL 1.0**](LICENSE) — share-alike，商用友好 |
 | **文本** | 中英文教学点、描述、评估话术 | [**CC BY-SA 4.0**](LICENSE-CONTENT) — 署名 + share-alike |
 | **中国课标编号** | 教育部 2022 版课标条目编号 | 各自上游许可证，**codes-only** |
+| **教材衍生微主题** | 参考教材目录结构的知识点名称 | **CC BY-SA 4.0**（仅知识点名称，不含教材原文） |
 
 **关于中国课标**：本项目只收录课标条目的编号/映射键，**不收录课标原文条款**。
 详见 [PROVENANCE.md](PROVENANCE.md)。
@@ -188,3 +190,12 @@ node scripts/serve.mjs --port 8080 --upstream /path/to/os-taxonomy
 
 欢迎贡献翻译、课标对齐、校对。请先阅读 [PROVENANCE.md](PROVENANCE.md) 了解
 codes-only 原则——**不要在 PR 中收录教育部课标的原文条款**。
+
+## 致谢
+
+- [**Marble Skill Taxonomy**](https://github.com/withmarbleapp/os-taxonomy) —
+  本项目的上游，提供了 1,590 个微主题的知识图谱结构（DAG）、ID 体系和依赖关系。
+- [**ChinaTextbook**](https://github.com/TapXWorld/ChinaTextbook) —
+  提供了北京海淀各学段教材 PDF 来源（人教/部编/北师大/中图/鲁科/教科等版本）。
+
+> 教材 PDF 及其 Markdown 转换产物为本地 source 文件，不纳入版本库（见 `.gitignore`）。

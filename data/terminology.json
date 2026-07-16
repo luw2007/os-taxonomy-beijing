@@ -1,0 +1,132 @@
+{
+  "note": "中文数学/科学术语命名规范表（单一事实源）。\n- scripts/translate.mjs 后处理读 en→good 防止重译复发；\n- scripts/term-lint.mjs 读 bad[]→good 扫描已落地译文发现错译；\n- good 名来源：Wikidata enwiki→zh 标题（见 qid）+ 中国教材用名人工复核；\n- status=confirmed 经 Wikidata 与教材双重确认；status=review 为 Wikidata 未直接命中或教材用名待核，需人工评审后改 confirmed。\n增删条目不影响 validate。",
+  "version": "1.0.0",
+  "source": "Wikidata enwiki langlinks + 中国教材用名人工复核",
+  "terms": [
+    {
+      "en": "Pythagorean theorem",
+      "good": "勾股定理",
+      "bad": ["毕达哥拉斯定理", "毕氏定理", "毕达哥拉斯"],
+      "qid": "Q11518",
+      "category": "math",
+      "status": "confirmed"
+    },
+    {
+      "en": "Fundamental theorem of arithmetic",
+      "good": "算术基本定理",
+      "bad": ["唯一因式分解定理"],
+      "qid": "Q670235",
+      "category": "math",
+      "status": "confirmed"
+    },
+    {
+      "en": "Pascal's law",
+      "good": "帕斯卡定律",
+      "bad": ["帕斯卡原理"],
+      "qid": "Q190760",
+      "category": "physics",
+      "status": "confirmed"
+    },
+    {
+      "en": "Principle of moments",
+      "good": "杠杆原理",
+      "bad": ["力矩原理"],
+      "qid": null,
+      "category": "physics",
+      "status": "review",
+      "note": "Wikidata 无权威条目；中国初中物理教材讲力矩平衡时称『杠杆原理』"
+    },
+    {
+      "en": "Ohm's law",
+      "good": "欧姆定律",
+      "bad": [],
+      "qid": "Q41591",
+      "category": "physics",
+      "status": "confirmed"
+    },
+    {
+      "en": "Hooke's law",
+      "good": "胡克定律",
+      "bad": [],
+      "qid": "Q170282",
+      "category": "physics",
+      "status": "confirmed"
+    },
+    {
+      "en": "Newton's laws of motion",
+      "good": "牛顿运动定律",
+      "bad": [],
+      "qid": "Q38433",
+      "category": "physics",
+      "status": "confirmed",
+      "note": "Wikidata 标准名为『牛顿运动定律』；教材口语亦称『牛顿定律』，当前译文可接受"
+    },
+    {
+      "en": "Newton's first law",
+      "good": "牛顿第一定律",
+      "bad": [],
+      "qid": "Q3235671",
+      "category": "physics",
+      "status": "confirmed",
+      "note": "Wikidata 给『牛顿第一运动定律』，教材通用简称『牛顿第一定律』，取后者"
+    },
+    {
+      "en": "Newton's second law",
+      "good": "牛顿第二定律",
+      "bad": [],
+      "qid": "Q2397319",
+      "category": "physics",
+      "status": "confirmed"
+    },
+    {
+      "en": "Newton's third law",
+      "good": "牛顿第三定律",
+      "bad": [],
+      "qid": "Q3235565",
+      "category": "physics",
+      "status": "confirmed"
+    },
+    {
+      "en": "Conservation of energy",
+      "good": "能量守恒定律",
+      "bad": [],
+      "qid": "Q11382",
+      "category": "physics",
+      "status": "confirmed"
+    },
+    {
+      "en": "Snell's law",
+      "good": "斯涅尔定律",
+      "bad": ["斯涅耳定律"],
+      "qid": "Q208391",
+      "category": "physics",
+      "status": "confirmed",
+      "note": "光的折射定量关系；中国高中物理称斯涅尔定律或折射定律"
+    },
+    {
+      "en": "Fermi paradox",
+      "good": "费米悖论",
+      "bad": [],
+      "qid": "Q33580",
+      "category": "astronomy",
+      "status": "confirmed"
+    },
+    {
+      "en": "Central dogma of molecular biology",
+      "good": "中心法则",
+      "bad": [],
+      "qid": "Q47072",
+      "category": "biology",
+      "status": "confirmed"
+    },
+    {
+      "en": "Tsiolkovsky rocket equation",
+      "good": "齐奥尔科夫斯基火箭方程",
+      "bad": [],
+      "qid": "Q834199",
+      "category": "astronomy",
+      "status": "confirmed",
+      "note": "Wikidata 简称『火箭方程』；本数据集保留全称更精确，不改"
+    }
+  ]
+}

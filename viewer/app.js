@@ -1,396 +1,299 @@
-/* === 3D 知识图谱前端 === */
+/* === Beijing Skill Taxonomy 知识浏览器前端 (2D 列表布局) ===
+ * 路由设计:location.hash 是唯一状态源。
+ *   #/                              概览
+ *   #/?dim=bj-primary&subject=Mathematics&ageRange=8-10&q=...   列表(筛选状态)
+ *   #/mt_AzTrT5ySCx                 详情(topic id 唯一定位)
+ *   #/mt_AzTrT5ySCx?dim=bj-primary  详情 + 维度(返回时恢复)
+ * 所有导航函数只改 hash,渲染由 hashchange 统一驱动。
+ */
 'use strict';
 
-// --- 学科配色 ---
-const SUBJECT_COLORS = {
-  'Mathematics': '#4e79a7',
-  'Science': '#59a14f',
-  'English': '#f28e2b',
-  'History': '#e15759',
-  'Computing': '#76b7b2',
-  'Personal & Social Development': '#af7aa1',
-  'Life Skills': '#edc949',
-  'Learning to Learn': '#ff9da7',
+const SUBJECT_ZH = {
+  'Mathematics': '数学', 'Science': '科学', 'English': '英语', 'Computing': '计算机',
+  'History': '历史', 'Learning to Learn': '学习方法', 'Life Skills': '生活技能',
+  'Personal & Social Development': '个人与社会发展',
 };
+const SUBJECT_ZH_FALLBACK = (s) => SUBJECT_ZH[s] || s;
 
-// --- 状态 ---
-let graphData = null;
-let graph = null;
-let graphNodes = [];
-let graphLinks = [];
-let nodeById = new Map();
-let hiddenSubjects = new Set();
-let highlightedNodes = null; // null = 无高亮; Set = 高亮集合
+// --- 路由状态(由 hash 解析而来,只读) ---
+let route = { view: 'overview', id: null, dim: 'us', subject: null, domain: null, ageRange: null, q: null };
+let dimensionsData = null;
+let subjectsTree = null;
 
-// --- API ---
-async function fetchGraph() {
-  const res = await fetch('/api/graph');
+// 年龄段筛选按钮值 → ageRange 区间
+const FILTER_TO_RANGE = { young: '4-7', mid: '8-10', old: '11-15' };
+const RANGE_TO_FILTER = Object.fromEntries(Object.entries(FILTER_TO_RANGE).map(([k, v]) => [v, k]));
+
+async function api(path) {
+  const url = new URL(path, location.origin);
+  url.searchParams.set('dimension', route.dim);
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`API ${path} 返回 ${res.status}`);
   return res.json();
 }
 
-async function fetchTopicDetail(id) {
-  const res = await fetch(`/api/topic/${encodeURIComponent(id)}`);
-  return res.json();
+// === hash 解析与序列化 ===
+function parseHash() {
+  const raw = location.hash.replace(/^#/, '') || '/';
+  const [path, query] = raw.split('?');
+  const params = new URLSearchParams(query || '');
+  // 详情:#/mt_xxx 或 #/mtc_xxx  其余视为概览/列表(#/ 或空)
+  const idMatch = path.match(/^\/(mtc?_[A-Za-z0-9_-]+)$/);
+  return {
+    view: idMatch ? 'detail' : 'list',
+    id: idMatch ? idMatch[1] : null,
+    dim: params.get('dim') || 'us',
+    subject: params.get('subject'),
+    domain: params.get('domain'),
+    ageRange: params.get('ageRange'),
+    q: params.get('q'),
+  };
 }
 
-// --- 初始化 ---
-async function init() {
-  graphData = await fetchGraph();
-  graphNodes = graphData.nodes;
-  graphLinks = graphData.links;
-  for (const n of graphNodes) nodeById.set(n.id, n);
-
-  buildSubjectFilters();
-  buildLegend();
-
-  graph = ForceGraph3D()(document.getElementById('graph'))
-    .graphData({ nodes: [...graphNodes], links: [...graphLinks] })
-    .nodeLabel(null) // 用自定义 tooltip
-    .nodeColor(node => {
-      if (highlightedNodes) {
-        return highlightedNodes.has(node.id) ? SUBJECT_COLORS[node.subject] : '#1a1f27';
-      }
-      return hiddenSubjects.has(node.subject) ? '#1a1f27' : SUBJECT_COLORS[node.subject] || '#888';
-    })
-    .nodeOpacity(0.9)
-    .nodeVal(node => node.val)
-    .nodeResolution(8)
-    .linkColor(link => {
-      if (highlightedNodes) {
-        return (highlightedNodes.has(link.source.id) && highlightedNodes.has(link.target.id))
-          ? 'rgba(88,166,255,0.6)' : 'rgba(48,54,61,0.15)';
-      }
-      return 'rgba(48,54,61,0.25)';
-    })
-    .linkWidth(link => {
-      if (!highlightedNodes) return 0;
-      return (highlightedNodes.has(link.source.id) && highlightedNodes.has(link.target.id)) ? 1.5 : 0;
-    })
-    .linkDirectionalArrowLength(3)
-    .linkDirectionalArrowRelPos(1)
-    .linkDirectionalParticles(0)
-    .backgroundColor('#0d1117')
-    .showNavInfo(false)
-    .warmupTicks(80)
-    .cooldownTicks(100)
-    .onNodeHover(node => {
-      if (node) {
-        showTooltip(node);
-        document.body.style.cursor = 'pointer';
-      } else {
-        hideTooltip();
-        document.body.style.cursor = 'default';
-      }
-    })
-    .onNodeClick(node => {
-      focusNode(node);
-    })
-    .d3Force('charge').strength(-30);
-
-  // 隐藏加载遮罩
-  setTimeout(() => {
-    document.getElementById('loading-overlay').classList.add('hidden');
-  }, 500);
-}
-
-// --- Tooltip ---
-function showTooltip(node) {
-  const tip = document.getElementById('tooltip');
-  const color = SUBJECT_COLORS[node.subject] || '#888';
-  tip.innerHTML = `
-    <div class="tt-name">${escapeHtml(node.name)}</div>
-    <div class="tt-meta">
-      <span class="tt-dot" style="background:${color}"></span>
-      <span>${escapeHtml(node.subjectZh || node.subject)}</span>
-      <span>·</span>
-      <span>${escapeHtml(node.domainZh || node.domain)}</span>
-      <span>·</span>
-      <span>${node.age}-${node.ageEnd} 岁</span>
-    </div>
-  `;
-  tip.classList.remove('hidden');
-  // 跟随鼠标（事件由 3d-force-graph 的 hoverCoordinates 提供）
-}
-
-function hideTooltip() {
-  document.getElementById('tooltip').classList.add('hidden');
-}
-
-// 鼠标移动时更新 tooltip 位置
-document.addEventListener('mousemove', (e) => {
-  const tip = document.getElementById('tooltip');
-  if (!tip.classList.contains('hidden')) {
-    let x = e.clientX + 14;
-    let y = e.clientY + 14;
-    if (x + 280 > window.innerWidth) x = e.clientX - 294;
-    if (y + 80 > window.innerHeight) y = e.clientY - 90;
-    tip.style.left = x + 'px';
-    tip.style.top = y + 'px';
+// 构造 hash(不触发跳转,用于拼链接)
+function buildHash(parts) {
+  const merged = { dim: route.dim, subject: route.subject, domain: route.domain, ageRange: route.ageRange, q: route.q, ...parts };
+  // 清掉空值
+  for (const k of Object.keys(merged)) {
+    if (merged[k] == null || merged[k] === '') delete merged[k];
   }
-});
-
-// --- 聚焦节点 + 显示详情 ---
-function focusNode(node) {
-  // 高亮该节点的依赖路径
-  highlightPath(node.id);
-  // 显示详情面板
-  showDetail(node.id);
-  // 相机聚焦
-  const distance = 120;
-  const destPos = node;
-  graph.cameraPosition(
-    { x: destPos.x, y: destPos.y, z: destPos.z + distance },
-    { x: destPos.x, y: destPos.y, z: destPos.z },
-    1000
-  );
+  const params = new URLSearchParams();
+  for (const [k, v] of Object.entries(merged)) params.set(k, v);
+  const qs = params.toString();
+  const base = parts.id != null ? `/${parts.id}` : '/';
+  return '#' + base + (qs ? '?' + qs : '');
 }
 
-// --- 高亮依赖路径 ---
-function highlightPath(nodeId) {
-  const highlight = new Set([nodeId]);
+// === 导航:只改 hash,不直接渲染(实现见文末 goOverview) ===
 
-  // 前置依赖（递归一层）
-  for (const link of graphLinks) {
-    if (link.target.id === nodeId || link.target === nodeId) {
-      highlight.add(link.source.id || link.source);
+// === 维度切换 ===
+async function loadDimensions() {
+  const res = await fetch('/api/dimensions');
+  if (!res.ok) throw new Error(`/api/dimensions 返回 ${res.status}`);
+  dimensionsData = await res.json();
+  renderDimensionBar();
+}
+
+function renderDimensionBar() {
+  if (!dimensionsData) return;
+  const bar = document.getElementById('dimension-bar');
+  const entries = Object.entries(dimensionsData.dimensions);
+  bar.innerHTML = '<span class="dimension-label">维度</span><div class="dimension-btns">' +
+    entries.map(([id, dim]) => `<button class="dimension-btn ${id === route.dim ? 'active' : ''}" data-dimension="${id}" title="${escapeHtml(dim.description || '')}" onclick="setDimension('${id}')">${escapeHtml(dim.label)}</button>`).join('') +
+    '</div>';
+}
+
+function setDimension(dim) {
+  if (dim === route.dim) return;
+  // 切换维度:清空列表筛选(学科/领域/搜索因目录树变化可能失效),保留在概览
+  location.hash = buildHash({ id: null, dim, subject: null, domain: null, q: null, ageRange: route.ageRange });
+}
+
+// === 年龄段筛选按钮同步 ===
+function syncFilterButtons() {
+  document.querySelectorAll('.filter-btn').forEach(b => {
+    const want = b.dataset.filter === 'all'
+      ? route.ageRange == null
+      : FILTER_TO_RANGE[b.dataset.filter] === route.ageRange;
+    b.classList.toggle('active', want);
+  });
+}
+
+// === 渲染:概览 ===
+async function loadSummary() {
+  const summary = await api('/api/summary');
+  const el = document.getElementById('stats');
+  el.innerHTML = `<div class="stat-line">微主题 <strong>${summary.totalTopics}</strong> · 已译 <strong>${summary.translatedTopics}</strong></div><div class="stat-line">依赖 <strong>${summary.totalDeps}</strong> · 聚类 <strong>${summary.totalClusters}</strong></div><div class="stat-line">${summary.hasUpstream ? '上游 ✓ v' + summary.upstreamVersion : '上游 ✗ 仅中文'}</div>`;
+  if (dimensionsData && dimensionsData.dimensions[route.dim]) {
+    document.getElementById('hero-desc').textContent = dimensionsData.dimensions[route.dim].description || '';
+  }
+  const statsEl = document.getElementById('overview-stats');
+  const pct = summary.totalTopics > 0 ? (summary.translatedTopics / summary.totalTopics * 100).toFixed(1) : 0;
+  statsEl.innerHTML = `<div class="stat-card"><div class="num">${summary.totalTopics}</div><div class="label">微主题总数</div></div><div class="stat-card highlight"><div class="num">${summary.translatedTopics}</div><div class="label">已翻译(${pct}%)</div></div><div class="stat-card"><div class="num">${summary.totalDeps}</div><div class="label">依赖关系</div></div><div class="stat-card"><div class="num">${Object.keys(summary.subjectCounts).length}</div><div class="label">学科</div></div>`;
+  await loadSubjectCards();
+}
+
+async function loadSubjectCards() {
+  const tree = await api('/api/subjects');
+  subjectsTree = tree;
+  const container = document.getElementById('subject-cards');
+  const subjects = Object.entries(tree).sort((a, b) => b[1].count - a[1].count);
+  container.innerHTML = subjects.map(([subject, data]) => {
+    const subjZh = data.subjectZh || SUBJECT_ZH_FALLBACK(subject);
+    const domains = Object.entries(data.domains);
+    const domainPreview = domains.slice(0, 4).map(([d, dd]) => dd.domainZh || d).join(' · ') + (domains.length > 4 ? ' …' : '');
+    return `<a class="subject-card" href="${buildHash({ id: null, subject, domain: null, q: null })}"><h4>${subjZh}</h4><div class="meta"><span>${data.count} 个微主题</span><span>${data.translated} 已译</span><span>${domains.length} 领域</span></div><div class="domains-preview">${domainPreview}</div></a>`;
+  }).join('');
+}
+
+// === 渲染:目录树 ===
+async function loadTree() {
+  if (!subjectsTree) subjectsTree = await api('/api/subjects');
+  const container = document.getElementById('tree');
+  const subjects = Object.entries(subjectsTree).sort((a, b) => b[1].count - a[1].count);
+  container.innerHTML = subjects.map(([subject, data]) => {
+    const subjZh = data.subjectZh || SUBJECT_ZH_FALLBACK(subject);
+    const domains = Object.entries(data.domains).sort((a, b) => b[1].count - a[1].count);
+    const domainItems = domains.map(([domain, dd]) => `<a class="tree-domain" href="${buildHash({ id: null, subject, domain, q: null })}" onclick="event.preventDefault();event.stopPropagation();location.hash='${buildHash({ id: null, subject, domain, q: null })}';"><span>${dd.domainZh || domain}</span><span class="tree-domain-count">${dd.count}</span></a>`).join('');
+    const isCurrent = route.subject === subject && !route.domain;
+    return `<div class="tree-subject ${route.subject === subject ? 'open' : ''}" onclick="toggleSubject(this)"><div class="tree-subject-header ${isCurrent ? 'current' : ''}"><span class="arrow">▶</span><span>${subjZh}</span><span class="tree-subject-count"><span class="translated">${data.translated}</span>/${data.count}</span></div><div class="tree-domains">${domainItems}</div></div>`;
+  }).join('');
+}
+
+function toggleSubject(el) { el.classList.toggle('open'); }
+
+// === 渲染:列表页 ===
+function listTitle() {
+  if (route.q) return `搜索: "${route.q}"`;
+  if (route.subject && subjectsTree) {
+    const sData = subjectsTree[route.subject];
+    const subjZh = (sData && sData.subjectZh) || SUBJECT_ZH_FALLBACK(route.subject);
+    if (route.domain) {
+      const domZh = (sData && sData.domains[route.domain] && sData.domains[route.domain].domainZh) || route.domain;
+      return `${subjZh} / ${domZh}`;
     }
+    return subjZh;
   }
-  // 后续依赖
-  for (const link of graphLinks) {
-    if (link.source.id === nodeId || link.source === nodeId) {
-      highlight.add(link.target.id || link.target);
-    }
-  }
-
-  highlightedNodes = highlight;
-  updateGraphColors();
+  return '全部微主题';
 }
 
-function clearHighlight() {
-  highlightedNodes = null;
-  updateGraphColors();
+async function loadTopicList() {
+  document.getElementById('list-title').textContent = listTitle();
+  const grid = document.getElementById('topic-grid');
+  grid.innerHTML = '<p class="tree-loading">加载中…</p>';
+  const params = new URLSearchParams();
+  if (route.subject) params.set('subject', route.subject);
+  if (route.domain) params.set('domain', route.domain);
+  if (route.ageRange) params.set('ageRange', route.ageRange);
+  if (route.q) params.set('q', route.q);
+  const data = await api(`/api/topics?${params}`);
+  document.getElementById('list-count').textContent = `${data.count} 个`;
+  if (data.topics.length === 0) { grid.innerHTML = '<p style="color:var(--text-muted);padding:20px;">没有匹配的微主题。</p>'; return; }
+  data.topics.sort((a, b) => (a.ageRangeStart || 0) - (b.ageRangeStart || 0));
+  grid.innerHTML = data.topics.map(t => `<a class="topic-card" href="#/${t.id}?dim=${route.dim}"><div class="card-name">${escapeHtml(t.name)}</div><div class="card-desc">${escapeHtml(t.description || '(无描述)')}</div><div class="card-meta"><span class="tag tag-subject">${SUBJECT_ZH_FALLBACK(t.subject)}</span>${t.domainZh ? `<span class="tag tag-age">${escapeHtml(t.domainZh)}</span>` : ''}${t.ageRangeStart != null ? `<span class="tag tag-age">${t.ageRangeStart}-${t.ageRangeEnd} 岁</span>` : ''}</div></a>`).join('');
 }
 
-function updateGraphColors() {
-  graph.nodeColor(graph.nodeColor());
-  graph.linkColor(graph.linkColor());
-  graph.linkWidth(graph.linkWidth());
-}
-
-// --- 详情面板 ---
-async function showDetail(id) {
-  const panel = document.getElementById('detail-panel');
+// === 渲染:详情页 ===
+async function loadDetail() {
   const body = document.getElementById('detail-body');
-  panel.classList.remove('hidden');
-  body.innerHTML = '<p style="color:var(--text-muted);padding:20px;">加载中…</p>';
-
-  const data = await fetchTopicDetail(id);
+  const badges = document.getElementById('detail-badges');
+  body.innerHTML = '<p class="tree-loading">加载中…</p>';
+  badges.innerHTML = '';
+  const data = await api(`/api/topic/${encodeURIComponent(route.id)}`);
   const t = data.topic;
-  const color = SUBJECT_COLORS[t.subject] || '#888';
-
-  // 评估话术：{{name}} → 孩子
-  const assessment = escapeHtml(t.assessmentPrompt || '(无)')
-    .replace(/\{\{name\}\}/g, '<span class="child-name">孩子</span>');
-
-  // 课标
+  const dimHidden = t.dimensionVisible === false;
+  badges.innerHTML = `<span class="tag tag-subject">${SUBJECT_ZH_FALLBACK(t.subject)}</span>${t.domainZh ? `<span class="tag tag-age">${escapeHtml(t.domainZh)}</span>` : ''}${t.ageRangeStart != null ? `<span class="tag tag-age">${t.ageRangeStart}-${t.ageRangeEnd} 岁</span>` : ''}${dimHidden ? `<span class="tag tag-us">美版</span>` : ''}`;
+  const assessment = escapeHtml(t.assessmentPrompt || '(无)').replace(/\{\{name\}\}/g, '<span class="placeholder">孩子名字</span>');
   const standardsHtml = (data.standards && data.standards.length > 0)
-    ? data.standards.map(s => `
-        <div style="padding:10px 14px;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:8px;margin-bottom:6px;">
-          <div style="font-family:monospace;font-size:11px;color:var(--accent);font-weight:600;">${escapeHtml(s.key)}</div>
-          <div style="font-size:12px;color:var(--text-muted);margin:2px 0;">${escapeHtml(s.strand || '')}</div>
-          <div style="font-size:13px;">${escapeHtml(s.note || '')}</div>
-        </div>
-      `).join('')
-    : '<div class="dep-empty">暂无课标对齐</div>';
-
-  body.innerHTML = `
-    <h2>${escapeHtml(t.name)}</h2>
-    <div class="detail-id">${t.id}</div>
-    <div class="detail-tags">
-      <span class="tag" style="border-color:${color}40;color:${color};">${escapeHtml(t.subjectZh || t.subject)}</span>
-      <span class="tag">${escapeHtml(t.domainZh || t.domain)}</span>
-      ${t.ageRangeStart != null ? `<span class="tag">${t.ageRangeStart}-${t.ageRangeEnd} 岁</span>` : ''}
-    </div>
-
-    <div class="detail-section">
-      <h3>📖 描述</h3>
-      <div class="detail-desc">${escapeHtml(t.description || '(无描述)')}</div>
-    </div>
-
-    ${t.evidence && t.evidence.length > 0 ? `
-    <div class="detail-section">
-      <h3>✓ 掌握证据</h3>
-      <ul class="evidence-list">
-        ${t.evidence.map(e => `<li>${escapeHtml(e)}</li>`).join('')}
-      </ul>
-    </div>
-    ` : ''}
-
-    <div class="detail-section">
-      <h3>🎯 评估话术</h3>
-      <div class="assessment-box">${assessment}</div>
-    </div>
-
-    <div class="detail-section">
-      <h3>🔗 前置知识（学这个之前要先掌握）</h3>
-      ${renderDeps(data.prerequisites, 'prerequisite')}
-    </div>
-
-    <div class="detail-section">
-      <h3>🚀 后续知识（学了这个才能学的）</h3>
-      ${renderDeps(data.dependents, 'dependent')}
-    </div>
-
-    <div class="detail-section">
-      <h3>📋 课标对齐</h3>
-      ${standardsHtml}
-    </div>
-  `;
+    ? `<div class="standards-list">${data.standards.map(s => `<div class="standard-item"><div class="std-key">${escapeHtml(s.key)}</div><div class="std-strand">${escapeHtml(s.strand || '')}</div><div class="std-note">${escapeHtml(s.note || '')}</div></div>`).join('')}</div>`
+    : '<p style="color:var(--text-muted);font-size:13px;">暂无中国课标对齐。</p>';
+  // 依赖链接改成 href,可中键打开
+  const depLink = (id) => `#/${id}?dim=${route.dim}`;
+  const prereqHtml = (data.prerequisites && data.prerequisites.length > 0)
+    ? data.prerequisites.map(d => { const pt = d.prerequisiteTopic; const hidden = pt && pt.dimensionVisible === false; return `<a class="dep-link ${hidden ? 'dim-hidden' : ''}" href="${depLink(d.prerequisiteId)}"><span class="dep-name">${pt ? escapeHtml(pt.name) : d.prerequisiteId}</span>${hidden ? '<span class="dim-hidden-tag">美版</span>' : ''}<span class="dep-strength ${d.strength}">${d.strength === 'hard' ? '必须' : '建议'}</span></a>${d.reason ? `<div class="dep-reason">${escapeHtml(d.reason)}</div>` : ''}`; }).join('')
+    : '<p style="color:var(--text-muted);font-size:13px;">无(这是基础知识)</p>';
+  const dependentsHtml = (data.dependents && data.dependents.length > 0)
+    ? data.dependents.map(d => { const dt = d.dependentTopic; const hidden = dt && dt.dimensionVisible === false; return `<a class="dep-link ${hidden ? 'dim-hidden' : ''}" href="${depLink(d.topicId)}"><span class="dep-name">${dt ? escapeHtml(dt.name) : d.topicId}</span>${hidden ? '<span class="dim-hidden-tag">美版</span>' : ''}<span class="dep-strength ${d.strength}">${d.strength === 'hard' ? '必须' : '建议'}</span></a>`; }).join('')
+    : '<p style="color:var(--text-muted);font-size:13px;">无</p>';
+  body.innerHTML = `<h2>${escapeHtml(t.name)}</h2><div class="detail-id">${t.id}</div><div class="detail-section"><h3>📖 描述</h3><div class="detail-desc">${escapeHtml(t.description || '(无描述)')}</div></div>${t.evidence && t.evidence.length > 0 ? `<div class="detail-section"><h3>✓ 掌握证据</h3><ul class="evidence-list">${t.evidence.map(e => `<li>${escapeHtml(e)}</li>`).join('')}</ul></div>` : ''}<div class="detail-section"><h3>🎯 评估话术</h3><div class="assessment-box">${assessment}</div></div><div class="detail-section"><h3>📋 中国课标对齐</h3>${standardsHtml}</div><div class="detail-section"><h3>🔗 知识依赖关系</h3><div class="dep-section"><div class="dep-box"><h4>前置(学这个之前要先掌握)</h4>${prereqHtml}</div><div class="dep-box"><h4>后续(学了这个才能学的)</h4>${dependentsHtml}</div></div></div>`;
 }
 
-function renderDeps(deps, type) {
-  if (!deps || deps.length === 0) {
-    return '<div class="dep-empty">无</div>';
-  }
-  return deps.map(d => {
-    const topic = type === 'prerequisite' ? d.prerequisiteTopic : d.dependentTopic;
-    const targetId = type === 'prerequisite' ? d.prerequisiteId : d.topicId;
-    if (!topic) return '';
-    const color = SUBJECT_COLORS[topic.subject] || '#888';
-    return `
-      <div class="dep-link" onclick="focusNodeById('${targetId}')">
-        <span class="dep-dot" style="background:${color}"></span>
-        <span class="dep-name">${escapeHtml(topic.name)}</span>
-        <span class="dep-strength ${d.strength}">${d.strength === 'hard' ? '必须' : '建议'}</span>
-      </div>
-      ${d.reason ? `<div class="dep-reason">${escapeHtml(d.reason)}</div>` : ''}
-    `;
-  }).join('');
-}
+// === hashchange:唯一渲染入口 ===
+async function render() {
+  route = parseHash();
+  // 同步维度按钮高亮
+  document.querySelectorAll('.dimension-btn').forEach(b => b.classList.toggle('active', b.dataset.dimension === route.dim));
+  // 同步年龄筛选按钮
+  syncFilterButtons();
+  // 概览页:无 subject/domain/q 时视为概览(列表态全空 = 概览)
+  const isOverview = !route.id && !route.subject && !route.domain && !route.q && !route.ageRange;
 
-function focusNodeById(id) {
-  const node = nodeById.get(id);
-  if (node) {
-    // 需要从 Three.js 场景中找到实际节点对象
-    const graphNode = graph.graphData().nodes.find(n => n.id === id);
-    if (graphNode) focusNode(graphNode);
-  }
-}
-
-function closeDetail() {
-  document.getElementById('detail-panel').classList.add('hidden');
-  clearHighlight();
-}
-
-// --- 学科筛选 ---
-function buildSubjectFilters() {
-  const container = document.getElementById('subject-filters');
-  const subjects = Object.keys(SUBJECT_COLORS);
-  // 用 subjects 映射的中文名
-  const subjectZhMap = {};
-  for (const n of graphNodes) {
-    if (!subjectZhMap[n.subject]) subjectZhMap[n.subject] = n.subjectZh || n.subject;
+  if (route.id) {
+    showView('detail');
+    await loadDetail();
+    return;
   }
 
-  container.innerHTML = subjects.map(s => {
-    const zh = subjectZhMap[s] || s;
-    return `
-      <div class="subject-toggle" data-subject="${s}" onclick="toggleSubject('${s}')">
-        <span class="dot" style="background:${SUBJECT_COLORS[s]}"></span>
-        <span>${zh}</span>
-      </div>
-    `;
-  }).join('');
-}
+  // 维度变化或目录树未加载时,重载统计 + 目录树
+  if (subjectsTree == null || subjectsTree.__dim !== route.dim) {
+    subjectsTree = null;
+    await loadSummary();
+    await loadTree();
+    subjectsTree.__dim = route.dim; // 标记当前维度
+  }
 
-function toggleSubject(subject) {
-  const el = document.querySelector(`.subject-toggle[data-subject="${subject}"]`);
-  if (hiddenSubjects.has(subject)) {
-    hiddenSubjects.delete(subject);
-    el.classList.remove('off');
+  if (isOverview) {
+    showView('overview');
   } else {
-    hiddenSubjects.add(subject);
-    el.classList.add('off');
+    showView('list');
+    await loadTopicList();
   }
-  updateGraphColors();
 }
 
-// --- 图例 ---
-function buildLegend() {
-  const legend = document.getElementById('legend');
-  const subjects = Object.keys(SUBJECT_COLORS);
-  const subjectZhMap = {};
-  for (const n of graphNodes) {
-    if (!subjectZhMap[n.subject]) subjectZhMap[n.subject] = n.subjectZh || n.subject;
-  }
-
-  legend.innerHTML = `
-    <div class="legend-title">学科</div>
-    <div class="legend-items">
-      ${subjects.map(s => `
-        <div class="legend-item">
-          <span class="dot" style="background:${SUBJECT_COLORS[s]}"></span>
-          <span>${subjectZhMap[s] || s}</span>
-        </div>
-      `).join('')}
-    </div>
-  `;
+function showView(id) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
 }
 
-// --- 搜索 ---
+// === 搜索框 ===
 let searchTimer;
 document.getElementById('search').addEventListener('input', (e) => {
   clearTimeout(searchTimer);
-  const q = e.target.value.trim().toLowerCase();
-  if (!q) {
-    clearHighlight();
-    return;
-  }
+  const q = e.target.value.trim();
   searchTimer = setTimeout(() => {
-    // 找到匹配的节点
-    const matches = graphNodes.filter(n =>
-      n.name.toLowerCase().includes(q) ||
-      (n.domainZh && n.domainZh.toLowerCase().includes(q)) ||
-      n.id.toLowerCase().includes(q)
-    );
-    if (matches.length > 0) {
-      highlightedNodes = new Set(matches.map(n => n.id));
-      updateGraphColors();
-      // 聚焦第一个匹配
-      const first = graph.graphData().nodes.find(n => n.id === matches[0].id);
-      if (first) {
-        graph.cameraPosition(
-          { x: first.x, y: first.y, z: first.z + 200 },
-          { x: first.x, y: first.y, z: first.z },
-          800
-        );
-      }
-    }
+    // 清空搜索框 → 回到概览(或保留当前学科?这里回到概览)
+    location.hash = buildHash({ id: null, q: q || null, subject: null, domain: null });
   }, 300);
 });
 
-// --- 工具 ---
-function escapeHtml(str) {
-  if (str == null) return '';
-  return String(str)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
+// 搜索框随路由同步:进入列表态且无 q 时清空
+function syncSearchBox() {
+  const inp = document.getElementById('search');
+  if (route.q) { if (inp.value !== route.q) inp.value = route.q; }
+  else if (inp.value) inp.value = '';
 }
 
-// 点击空白处取消高亮
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    closeDetail();
-    document.getElementById('search').value = '';
-    clearHighlight();
-  }
+// === 年龄筛选按钮 ===
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const f = btn.dataset.filter;
+    const ageRange = f === 'all' ? null : FILTER_TO_RANGE[f];
+    // 在当前列表基础上叠加年龄筛选;若在概览页则切到列表
+    location.hash = buildHash({ id: null, ageRange });
+  });
 });
 
-// 启动
-init().catch(err => {
-  console.error('初始化失败:', err);
-  document.getElementById('loading-overlay').innerHTML = `<p style="color:#f85149;">加载失败: ${escapeHtml(err.message)}</p>`;
+// === 返回按钮 ===
+document.getElementById('detail-back').addEventListener('click', () => {
+  // 详情返回:恢复之前的列表/概览(去掉 id)
+  location.hash = buildHash({ id: null });
 });
+
+// 顶部 list 的返回按钮是 <a onclick="goOverview()">
+function goOverview() { location.hash = buildHash({ id: null, subject: null, domain: null, q: null, ageRange: route.ageRange }); }
+
+// === 工具 ===
+function escapeHtml(str) {
+  if (str == null) return '';
+  return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+}
+
+// === 启动 ===
+window.addEventListener('hashchange', () => { render(); syncSearchBox(); });
+
+(async () => {
+  try {
+    await loadDimensions();
+    // 首次加载:若无 hash,设置默认(触发 render);否则直接 render
+    if (!location.hash) {
+      const def = dimensionsData.defaultDimension || 'us';
+      location.hash = `#/?dim=${def}`;
+    } else {
+      await render();
+      syncSearchBox();
+    }
+  } catch (err) {
+    console.error('初始化失败:', err);
+    document.getElementById('stats').innerHTML = `<span style="color:var(--primary);">加载失败: ${err.message}</span>`;
+  }
+})();

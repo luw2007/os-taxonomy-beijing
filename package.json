@@ -12,6 +12,7 @@
     "translate": "node scripts/translate.mjs",
     "validate": "node scripts/validate.mjs",
     "sync-upstream": "node scripts/sync-upstream.mjs",
-    "checksum": "node scripts/checksum.mjs"
+    "checksum": "node scripts/checksum.mjs",
+    "term-lint": "node scripts/term-lint.mjs"
   }
 }

@@ -7,13 +7,14 @@
   "upstreamVersion": "v1",
   "locale": "zh-CN",
   "generatedAt": "2026-07-14T00:00:00.000Z",
-  "status": "skeleton — first subjects (Mathematics, Science) in progress",
+  "status": "zh translation complete + cn-origin (Chinese-specific subjects) added",
   "counts": {
-    "topicsZh": 4,
-    "dependenciesZh": 4,
+    "topicsZh": 1590,
+    "cnTopics": 1696,
+    "dependenciesZh": 3221,
     "clustersZh": 4,
-    "cnCurricula": 2,
-    "cnCurriculumEntries": 4
+    "cnCurricula": 17,
+    "cnCurriculumEntries": 1356
   },
   "upstreamCounts": {
     "topics": 1590,
@@ -22,24 +23,36 @@
   },
   "files": {
     "topics.zh.json": {
-      "bytes": 1248415,
-      "sha256": "a15cfa47f6828e92ed08d631835479f8b7b8eb4715aeff22e63a620121f5cbc2"
+      "bytes": 1248388,
+      "sha256": "4e765f60dd790e0f1d4c5b15212953d6e4a787b6a574450dc6a2007632c7a8e0"
     },
     "dependencies.zh.json": {
-      "bytes": 645553,
-      "sha256": "2057aeab87cfb9c9be1652592f1ec15d1e29be76a80b00e218b36ca78b71a4af"
+      "bytes": 645547,
+      "sha256": "46aa6e0af8eae4293a4e900250942d7023fe7a9bc69b79eb16306cb2fb7d6c2d"
     },
     "clusters.zh.json": {
       "bytes": 1359,
       "sha256": "e8fcd72b6cf5451368a790a764694b9a8c0e0390394efc15aa0d282577fcc76f"
     },
     "cn-curriculum-standards.json": {
-      "bytes": 2502,
-      "sha256": "48d877a5c2cf26cc00d059f6284a27d9d24d2ea9bb58ad9238c3f0193ffa02f2"
+      "bytes": 256795,
+      "sha256": "37f35c22780559e07e849a9ec7f03d71cfcd25b82c88351ddf5a95409232484b"
     },
     "dimensions.json": {
-      "bytes": 6288,
-      "sha256": "45f5bab82f52bc2a4ab3fb297af1555fba4d0b024af30775967aa0521eb567ab"
+      "bytes": 7011,
+      "sha256": "8ea74fce874d5a61bef60219382c87136804d084bd6455fc0e4425068242438e"
+    },
+    "domains.zh.json": {
+      "bytes": 10545,
+      "sha256": "c5b7c58bd1a0506de8ba4d5c374443771dd3a4c5848708935ea1545a6ddf898b"
+    },
+    "cn-topics.json": {
+      "bytes": 1437378,
+      "sha256": "5c55a0af6a551b9299af1aaf0033393e7dc31579a4cab300d0e3bf0ffcbbca16"
+    },
+    "terminology.json": {
+      "bytes": 4001,
+      "sha256": "cc17350162ad533794ebe880a59ad398ae6ed08af7da4759598cbaa8db0bcf54"
     }
   },
   "excluded": [

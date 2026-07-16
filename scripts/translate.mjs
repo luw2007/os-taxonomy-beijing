@@ -71,6 +71,15 @@ if (existsSync(glossaryFile)) {
   glossary = load(DATA, 'glossary.json').terms || {};
 }
 
+// 术语规范表（en→good）：与 glossary 同样做翻译后处理，防止错译复发（如 Pythagorean theorem→勾股定理）
+let terminology = {};
+const terminologyFile = resolve(DATA, 'terminology.json');
+if (existsSync(terminologyFile)) {
+  for (const t of load(DATA, 'terminology.json').terms || []) {
+    if (t.en && t.good) terminology[t.en] = t.good;
+  }
+}
+
 // --- 进度文件（断点续传）---------------------------------------------------
 let progress = { topics: {}, deps: {} };
 if (existsSync(PROGRESS_FILE) && !force && !dryRun) {
@@ -169,8 +178,8 @@ async function translate(text) {
     result = result.replace(/孩子X?名X?/g, '{{name}}');
   }
 
-  // 术语表后处理
-  for (const [en, zh] of Object.entries(glossary)) {
+  // 术语表后处理（通用词 + 术语规范表，en→zh）
+  for (const [en, zh] of Object.entries({ ...glossary, ...terminology })) {
     const re = new RegExp(`\\b${en.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'gi');
     if (re.test(result)) {
       result = result.replace(re, zh);

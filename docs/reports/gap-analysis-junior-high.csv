@@ -1,0 +1,53 @@
+gap_id,subject,subject_en,stage,cn_domain,gap_type,upstream_subject,upstream_status,severity,action,note
+G-JH-ZH-01,语文,Chinese,第四学段(7~9年级),阅读与鉴赏(实用类/论述类/文学作品),misaligned,English,"上游 English Reading Comprehension 仅 2 条 13+(Recall/Discuss)，无法支撑初中实用文/论述文/文学三类阅读体系",高,视角调整,缺小说/散文/议论/实用文体裁细分的初中深度阅读
+G-JH-ZH-02,语文,Chinese,第四学段(7~9年级),表达与交流(写作·复杂记叙/简单议论/实用文),missing_domain,English,"上游 Writing Composition 仅 4 条且 age≤12；初中需复杂记叙/说明/议论/实用文体裁",高,新建模块微主题,议论文与实用文是初中新增核心
+G-JH-ZH-03,语文,Chinese,第四学段(7~9年级),口语交际·讨论演讲与辩论,missing_domain,English,"上游 Speaking&Listening age≤12，无演讲/辩论",中,新建模块微主题,
+G-JH-ZH-04,语文,Chinese,第四学段(7~9年级),古诗文·文言文阅读,missing_subject,—,"上游无中文古诗文；初中需文言文实词虚词/翻译/鉴赏",高,新建学科,中国特有；课标推荐背诵篇目激增
+G-JH-ZH-05,语文,Chinese,第四学段(7~9年级),名著阅读(整本书),missing_domain,—,"上游无中文名著体系；初中要求完整阅读《朝花夕拾》《西游记》《骆驼祥子》《红星照耀中国》等",中,新建模块微主题,
+G-JH-MATH-01,数学,Mathematics,第四学段(7~9年级),数与代数(有理数/实数/代数式),coverage_pending,Mathematics,"上游 Algebra 25 条/Number Representation 52 条，约 60% 可翻译复用",高,翻译即可,有理数运算/整式/分式/二次根式
+G-JH-MATH-02,数学,Mathematics,第四学段(7~9年级),方程与不等式(一元一次/二元一次/一元二次/分式方程/不等式组),coverage_pending,Mathematics,"上游 Algebra 含 Simultaneous Equations(13+)、Quadratic Graphs(13+)",高,翻译即可,但缺一元二次方程/分式方程/不等式组的中国课标编排
+G-JH-MATH-03,数学,Mathematics,第四学段(7~9年级),函数(一次函数/反比例函数/二次函数),misaligned,Mathematics,"上游 Algebra 有 Quadratic Graphs/Scatter Graphs，但缺系统化的三种函数体系",高,视角调整,函数是初中数学主线
+G-JH-MATH-04,数学,Mathematics,第四学段(7~9年级),图形与几何(线段角/三角形/四边形/圆),coverage_pending,Mathematics,"上游 Geometry 69 条含大量三角形/圆/坐标几何，可复用",高,翻译即可,但需对齐中国课标的几何推理体系(定义/判定/性质)
+G-JH-MATH-05,数学,Mathematics,第四学段(7~9年级),图形的变换(平移/轴对称/旋转/相似/锐角三角函数),missing_domain,Mathematics,"上游 Geometry 有 Reflections/Translations，但缺相似三角形/锐角三角函数",高,新建模块微主题,锐角三角函数是中国初中特有(国际多在高中)
+G-JH-MATH-06,数学,Mathematics,第四学段(7~9年级),统计与概率(数据收集/分析/概率),coverage_pending,Mathematics,"上游 Data&Statistics 18/Probability 15，可复用",中,翻译即可,
+G-JH-MATH-07,数学,Mathematics,第四学段(7~9年级),综合与实践(课题学习),missing_domain,Mathematics,"上游 Mathematical Thinking 48 条但非项目式",中,新建模块微主题,2022版强调跨学科项目学习
+G-JH-PHYS-01,物理,Physics,第四学段(7~9年级),物质(形态变化/属性/结构),missing_subject,—,"上游无物理学科；Science/Matter&Materials 仅 40 条且面向小学",高,新建学科,声光热力电是初中核心
+G-JH-PHYS-02,物理,Physics,第四学段(7~9年级),运动和相互作用(机械运动/力/声光电磁),missing_subject,—,"上游 Science/Forces&Motion 27 条含 8 条 13+(Motors/Hooke's Law/Moments)，可部分改编",高,新建学科,上游是 Anglophone 初中科学，非中国物理体系
+G-JH-PHYS-03,物理,Physics,第四学段(7~9年级),能量(机械能/内能/电磁能),missing_subject,—,"上游 Science/Energy 28 条，可部分改编为物理能的概念",高,新建学科,
+G-JH-PHYS-04,物理,Physics,第四学段(7~9年级),实验探究(必做实验),missing_domain,—,"上游 Scientific Inquiry 30 条提供方法论基础，但无中国课标规定的 21 个必做实验",高,新建模块微主题,测量/探究类实验是中国物理课标特色
+G-JH-CHEM-01,化学,Chemistry,第四学段(7~9年级),科学探究与化学实验,missing_subject,—,"上游无化学学科；Science/Matter&Materials 仅涉及物质的简单性质",高,新建学科,实验是化学的灵魂
+G-JH-CHEM-02,化学,Chemistry,第四学段(7~9年级),物质的性质与应用(空气/水/碳/金属/酸碱盐),missing_subject,—,"上游 Science/Matter&Materials 仅 Rec activity series 等零星条目",高,新建学科,酸碱盐是初中化学核心
+G-JH-CHEM-03,化学,Chemistry,第四学段(7~9年级),物质的组成与结构(分子原子离子/元素/化学式),missing_subject,—,"上游无对应",高,新建学科,
+G-JH-CHEM-04,化学,Chemistry,第四学段(7~9年级),物质的化学变化(质量守恒/化学方程式/四大基本反应),missing_subject,—,"上游无对应",高,新建学科,
+G-JH-BIO-01,生物学,Biology,第四学段(7~9年级),生物体的结构层次(细胞/组织/器官/系统),missing_subject,—,"上游 Science/Organisms&Life Processes 63 条含部分细胞/器官内容，可部分改编",高,新建学科,但缺动植物系统发育/人体系统深度
+G-JH-BIO-02,生物学,Biology,第四学段(7~9年级),生物的多样性,coverage_pending,Science,"上游 Animals of the World 27/Ocean Life 27/Insects 22，可大量翻译复用",中,翻译即可,
+G-JH-BIO-03,生物学,Biology,第四学段(7~9年级),生物与环境(生态系统/食物链),coverage_pending,Science,"上游 Ecosystems&Habitats 36 条，可大量翻译复用",中,翻译即可,
+G-JH-BIO-04,生物学,Biology,第四学段(7~9年级),植物的生活,missing_domain,Science,"上游零星植物内容，缺系统化植物生理(光合作用/呼吸/蒸腾)",中,新建模块微主题,
+G-JH-BIO-05,生物学,Biology,第四学段(7~9年级),人体生理与健康,missing_domain,Science,"上游 The Human Body 25 条(小学)，缺初中深度(消化/呼吸/循环/泌尿/神经内分泌系统)",高,新建模块微主题,
+G-JH-BIO-06,生物学,Biology,第四学段(7~9年级),遗传与进化,missing_domain,Science,"上游 13+ 仅 DNA-based species grouping/Cancer&Stem Cells 等零散条目",中,新建模块微主题,
+G-JH-BIO-07,生物学,Biology,第四学段(7~9年级),生物学与社会·跨学科实践,missing_domain,Science,"上游无对应中国课标的跨学科实践模块",低,新建模块微主题,
+G-JH-HIST-01,历史,History,第四学段(7~9年级),中国古代史,missing_domain,History,"上游 History 仅 Ancient Egypt/Greece&Rome/Medieval(90条全是西方古代)，无中国史",高,新建模块微主题,中国史是中国历史课标核心
+G-JH-HIST-02,历史,History,第四学段(7~9年级),中国近代史(1840-1949),missing_subject,—,"上游完全缺失",高,新建学科,鸦片战争至新中国成立
+G-JH-HIST-03,历史,History,第四学段(7~9年级),中国现代史(1949至今),missing_subject,—,"上游完全缺失",高,新建学科,
+G-JH-HIST-04,历史,History,第四学段(7~9年级),世界古代史/近代史/现代史,misaligned,History,"上游 Ancient Egypt 29 + Greece&Rome 29 + Medieval 25 可部分改编为世界古代史；但缺近代/现代史",高,视角调整,工业革命至冷战后的世界史完全缺失
+G-JH-GEO-01,地理,Geography,第四学段(7~9年级),地球与地图,missing_subject,—,"上游无地理学科；Science 中零星地球内容",高,新建学科,经纬网/时区/地图三要素是地理基础
+G-JH-GEO-02,地理,Geography,第四学段(7~9年级),世界地理(大洲/地区/国家),misaligned,Science,"上游 Polar Regions 25/Rainforests 25/Weather&Climate 30 可部分改编，但缺世界大洲系统",高,视角调整,需重建为世界区域地理体系
+G-JH-GEO-03,地理,Geography,第四学段(7~9年级),中国地理(位置/疆域/自然环境/经济/文化),missing_subject,—,"上游完全无中国地理",高,新建学科,中国地理是中国课标核心
+G-JH-GEO-04,地理,Geography,第四学段(7~9年级),乡土地理,missing_subject,—,"上游无对应",低,新建学科,地方特色
+G-JH-ENG-01,英语,English,第四学段(7~9年级),课程视角(三级目标),misaligned,English,"上游 English 286 条为母语体系(Phonics/Grammar/Reading)，中国初中英语为外语三级目标",高,视角调整,需重建为外语技能体系
+G-JH-ENG-02,英语,English,第四学段(7~9年级),语言技能(听说读写看),coverage_pending,English,"上游 Reading 72/Grammar 75/Writing 38/Speaking&Listening 21，约 40% 可翻译复用",中,翻译即可,翻译后按外语视角裁剪
+G-JH-ENG-03,英语,English,第四学段(7~9年级),语言知识(语音/词汇/语法/功能/话题),coverage_pending,English,"上游 Grammar 75/Vocabulary 21/Spelling 24 可大量复用",中,翻译即可,
+G-JH-ENG-04,英语,English,第四学段(7~9年级),三大主题(人与自我/人与社会/人与自然),missing_domain,English,"上游无中国课标的三主题框架，需新建语篇情境",中,新建模块微主题,
+G-JH-ENG-05,英语,English,第四学段(7~9年级),学习策略与文化意识,META,Learning to Learn,"上游 Learning to Learn 18 条 age≤12，可部分复用为学习策略",低,翻译即可,
+G-JH-MORAL-01,道德与法治,Moral & Rule of Law,第四学段(7~9年级),生命安全与健康教育,missing_domain,Personal & Social Development,"上游 PSD/Self-Regulation 17 条 age≤12，缺初中深度的青春期/心理健康/安全教育",中,新建模块微主题,
+G-JH-MORAL-02,道德与法治,Moral & Rule of Law,第四学段(7~9年级),法治教育(宪法/权利义务/国家机构),missing_subject,—,"上游 PSD 无中国法律体系内容",高,新建学科,宪法/民法/刑法是中国法治教育核心
+G-JH-MORAL-03,道德与法治,Moral & Rule of Law,第四学段(7~9年级),国情教育(基本国情/制度/发展道路),missing_subject,—,"上游无中国国情内容",高,新建学科,
+G-JH-MORAL-04,道德与法治,Moral & Rule of Law,第四学段(7~9年级),中华优秀传统文化教育,missing_domain,—,"上游无中国传统文化教育体系",中,新建模块微主题,
+G-JH-MORAL-05,道德与法治,Moral & Rule of Law,第四学段(7~9年级),革命传统教育,missing_subject,—,"上游完全缺失",高,新建学科,中国特有
+G-JH-PE-01,体育与健康,PE & Health,第四学段(7~9年级),运动技能与体能,missing_subject,—,"上游无体育学科",中,新建学科,延续小学体育但增加专项深度
+G-JH-PE-02,体育与健康,PE & Health,第四学段(7~9年级),健康教育(青春期/心理健康),missing_domain,—,"上游无对应初中健康教育",中,新建模块微主题,
+G-JH-ART-01,艺术,Art,第四学段(7~9年级),欣赏·表现·创造·融合,missing_subject,—,"上游无独立艺术内容",低,新建学科,音乐/美术/舞蹈/戏剧/影视
+G-JH-IT-01,信息科技,Information Technology,第四学段(7~9年级),互联网应用与创新,missing_domain,Computing,"上游 Computing 仅有 AI(21 条)，无互联网/物联网/人工智能三大模块",高,新建模块微主题,2022课标初中核心模块
+G-JH-IT-02,信息科技,Information Technology,第四学段(7~9年级),物联网实践与探索,missing_subject,—,"上游无物联网内容",中,新建学科,
+G-JH-IT-03,信息科技,Information Technology,第四学段(7~9年级),人工智能与智慧社会,misaligned,Computing,"上游 Computing/AI 21 条可部分改编，但需对齐中国课标 AI 模块",中,视角调整,
+G-JH-LABOR-01,劳动,Labor,第四学段(7~9年级),日常生活/生产/服务劳动(进阶),missing_subject,—,"上游 Life Skills/Money&Finance 20 条 age≤12",中,新建学科,延续小学但增加职业技能体验

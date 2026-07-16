@@ -2,3 +2,23 @@ node_modules/
 *.log
 .DS_Store
 .zcode/
+__pycache__/
+
+# PDF→MD 转换工具与教材 — 本地 source，不提交
+scripts/pdf2md.py
+scripts/vision_ocr.swift
+scripts/parse-textbooks.mjs
+scripts/compare-textbooks.mjs
+北京/
+北京-md/
+
+# 教材衍生分析产物（含出版社引用，不提交）
+docs/reports/textbook-topics*.json
+docs/reports/textbook-gap-report.csv
+
+# 缓存文件
+data/.terminology-cache.json
+
+# 备份文件
+*.bak
+

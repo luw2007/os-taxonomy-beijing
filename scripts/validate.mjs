@@ -44,6 +44,10 @@ const clustersZh = load(DATA, 'clusters.zh.json');
 const cnStandards = load(DATA, 'cn-curriculum-standards.json');
 const manifest = load(DATA, 'manifest.json');
 
+// 中国特有微主题（可选文件——不存在则跳过校验）
+const cnOriginPath = resolve(DATA, 'cn-topics.json');
+const cnOriginTopics = existsSync(cnOriginPath) ? load(DATA, 'cn-topics.json') : null;
+
 // --- 加载上游（如可用） ---------------------------------------------------
 let upstreamTopics = null;
 let upstreamTopicIds = new Set();
@@ -116,6 +120,34 @@ for (const t of topicsZh.topics) {
 }
 if (danglingCnRefs > 5) errors.push(`…and ${danglingCnRefs - 5} more unknown cnStandard references`);
 
+// --- 4b. 中国特有微主题（cn-origin）完整性 --------------------------------
+const VALID_TYPES = new Set(['CONCEPTUAL', 'PROCEDURAL', 'REPRESENTATIONAL', 'LANGUAGE', 'META']);
+const VALID_ORIGINS = new Set(['cn_only', 'cross_domain', 'upstream_adapt', 'progression', 'textbook']);
+const cnOriginIds = new Set();
+if (cnOriginTopics) {
+  check(cnOriginTopics.topicCount === cnOriginTopics.topics.length,
+    `cn-topics: topicCount ${cnOriginTopics.topicCount} != ${cnOriginTopics.topics.length}`);
+  for (const t of cnOriginTopics.topics) {
+    check(typeof t.id === 'string' && t.id.startsWith('mtc_'), `cn-origin topic id malformed: ${t.id}`);
+    check(VALID_TYPES.has(t.type), `cn-origin topic ${t.id}: invalid type "${t.type}"`);
+    check(VALID_ORIGINS.has(t.origin), `cn-origin topic ${t.id}: invalid origin "${t.origin}"`);
+    check(typeof t.subject === 'string' && t.subject.length > 0, `cn-origin topic ${t.id}: empty subject`);
+    check(typeof t.domain === 'string' && t.domain.length > 0, `cn-origin topic ${t.id}: empty domain`);
+    check(typeof t.description === 'string' && t.description.length > 0, `cn-origin topic ${t.id}: empty description`);
+    check(Array.isArray(t.evidence) && t.evidence.length > 0, `cn-origin topic ${t.id}: evidence must be non-empty array`);
+    check(typeof t.ageRangeStart === 'number' && typeof t.ageRangeEnd === 'number',
+      `cn-origin topic ${t.id}: ageRange must be numbers`);
+    check(t.ageRangeStart <= t.ageRangeEnd, `cn-origin topic ${t.id}: ageRangeStart > ageRangeEnd`);
+    if (cnOriginIds.has(t.id)) errors.push(`duplicate cn-origin topic id: ${t.id}`);
+    cnOriginIds.add(t.id);
+    // cnStandards 引用必须能解析（不校验上游对齐——设计上无上游对应）
+    for (const key of (t.cnStandards ?? [])) {
+      check(cnStandardKeys.has(key),
+        `cn-origin topic ${t.id} references unknown cnStandard ${key}`);
+    }
+  }
+}
+
 // --- 5. 依赖引用完整性 ----------------------------------------------------
 for (const d of depsZh.dependencies) {
   check(d.topicId !== d.prerequisiteId, `self-dependency on ${d.topicId}`);
@@ -157,8 +189,9 @@ if (errors.length) {
   process.exit(1);
 }
 const upstreamNote = hasUpstream ? ' + upstream alignment OK' : ' (上游未找到，跳过对齐检查)';
+const cnOriginNote = cnOriginTopics ? `, ${cnOriginTopics.topics.length} cn-origin topics` : '';
 console.log(
-  `✓ valid — ${topicsZh.topics.length} zh topics, ${depsZh.dependencies.length} zh deps, ` +
+  `✓ valid — ${topicsZh.topics.length} zh topics${cnOriginNote}, ${depsZh.dependencies.length} zh deps, ` +
   `${clustersZh.clusters.length} zh clusters, ${cnStandardKeys.size} cn standards${upstreamNote}.`,
 );
 if (!hasUpstream) {

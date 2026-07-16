@@ -18,10 +18,13 @@ const MANIFEST = resolve(DATA, 'manifest.json');
 
 const FILES = [
   'topics.zh.json',
+  'cn-topics.json',
   'dependencies.zh.json',
   'clusters.zh.json',
   'cn-curriculum-standards.json',
+  'domains.zh.json',
   'dimensions.json',
+  'terminology.json',
 ];
 
 const manifest = JSON.parse(readFileSync(MANIFEST, 'utf8'));

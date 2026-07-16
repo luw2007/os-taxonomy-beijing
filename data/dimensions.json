@@ -117,6 +117,20 @@
       "excludedSubjects": [
         "History"
       ]
+    },
+    "bj-junior": {
+      "label": "初中·北京",
+      "labelEn": "Beijing Junior High",
+      "description": "初中(7~9年级)知识点。新建学科(物理/化学/生物/历史/地理)完整呈现，部分上游数学/科学/英语(改编)保留。隐藏美版独有的非课标内容。",
+      "filter": "whitelist",
+      "cnStage": "初中"
+    },
+    "bj-senior": {
+      "label": "高中·北京",
+      "labelEn": "Beijing Senior High",
+      "description": "高中(10~12年级)必修知识点。几乎全部为新建微主题(数学/物理/化学/生物/思想政治/历史/地理/信息技术/通用技术)，基于初中知识进阶延伸。",
+      "filter": "whitelist",
+      "cnStage": "高中"
     }
   }
 }

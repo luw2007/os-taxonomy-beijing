@@ -20,6 +20,8 @@ const FILES = [
   'topics.zh.json',
   'cn-topics.json',
   'dependencies.zh.json',
+  'cn-dependencies.json',
+  'cn-bridge-dependencies.json',
   'clusters.zh.json',
   'cn-curriculum-standards.json',
   'domains.zh.json',

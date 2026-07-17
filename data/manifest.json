@@ -10,11 +10,12 @@
   "status": "zh translation complete + cn-origin (Chinese-specific subjects) added",
   "counts": {
     "topicsZh": 1590,
-    "cnTopics": 1696,
+    "cnTopics": 2033,
     "dependenciesZh": 3221,
     "clustersZh": 4,
     "cnCurricula": 17,
-    "cnCurriculumEntries": 1356
+    "cnCurriculumEntries": 1356,
+    "cnDeps": 2019
   },
   "upstreamCounts": {
     "topics": 1590,
@@ -43,16 +44,24 @@
       "sha256": "8ea74fce874d5a61bef60219382c87136804d084bd6455fc0e4425068242438e"
     },
     "domains.zh.json": {
-      "bytes": 10545,
-      "sha256": "c5b7c58bd1a0506de8ba4d5c374443771dd3a4c5848708935ea1545a6ddf898b"
+      "bytes": 12241,
+      "sha256": "28dd97a67d8f427212c707ee15778c49dc2ca0b8027a3b322ce083b2b3e74032"
     },
     "cn-topics.json": {
-      "bytes": 1437378,
-      "sha256": "5c55a0af6a551b9299af1aaf0033393e7dc31579a4cab300d0e3bf0ffcbbca16"
+      "bytes": 1735491,
+      "sha256": "1f5023de32a5a6f3ffc56546b5e9ff0ae385ab7bbddf7967cf11bd1b0f80356e"
     },
     "terminology.json": {
       "bytes": 4001,
       "sha256": "cc17350162ad533794ebe880a59ad398ae6ed08af7da4759598cbaa8db0bcf54"
+    },
+    "cn-dependencies.json": {
+      "bytes": 399214,
+      "sha256": "b69b4d9878a75120999052695336c71c81a6bc9e6e70e4c7ce59d2f689eb7190"
+    },
+    "cn-bridge-dependencies.json": {
+      "bytes": 9288,
+      "sha256": "d795b2732fa6e11d18f4a6eb1968069a03bc2fd4e02c132a1e0e70aa5ab29fa1"
     }
   },
   "excluded": [

@@ -48,6 +48,10 @@ const manifest = load(DATA, 'manifest.json');
 const cnOriginPath = resolve(DATA, 'cn-topics.json');
 const cnOriginTopics = existsSync(cnOriginPath) ? load(DATA, 'cn-topics.json') : null;
 
+// 中国特有微主题依赖（可选文件）
+const cnDepsPath = resolve(DATA, 'cn-dependencies.json');
+const cnDeps = existsSync(cnDepsPath) ? load(DATA, 'cn-dependencies.json') : null;
+
 // --- 加载上游（如可用） ---------------------------------------------------
 let upstreamTopics = null;
 let upstreamTopicIds = new Set();
@@ -148,6 +152,54 @@ if (cnOriginTopics) {
   }
 }
 
+// --- 4c. 中国特有微主题依赖（cn-dependencies）完整性 ----------------------
+if (cnDeps) {
+  check(cnDeps.edgeCount === cnDeps.dependencies.length,
+    `cn-dependencies: edgeCount ${cnDeps.edgeCount} != ${cnDeps.dependencies.length}`);
+  const cnDepSeen = new Set();
+  for (const d of cnDeps.dependencies) {
+    check(typeof d.topicId === 'string' && d.topicId.startsWith('mtc_'),
+      `cn-dep: topicId malformed: ${d.topicId}`);
+    check(typeof d.prerequisiteId === 'string' && d.prerequisiteId.startsWith('mtc_'),
+      `cn-dep: prerequisiteId malformed: ${d.prerequisiteId}`);
+    check(d.topicId !== d.prerequisiteId, `cn-dep: self-dependency on ${d.topicId}`);
+    check(d.strength === 'hard' || d.strength === 'soft', `cn-dep: bad strength ${d.strength}`);
+    // 两端必须在 cn-topics 中存在
+    check(cnOriginIds.has(d.topicId), `cn-dep: topicId ${d.topicId} not in cn-topics`);
+    check(cnOriginIds.has(d.prerequisiteId), `cn-dep: prerequisiteId ${d.prerequisiteId} not in cn-topics`);
+    const key = `${d.topicId}->${d.prerequisiteId}`;
+    if (cnDepSeen.has(key)) errors.push(`cn-dep: duplicate edge ${key}`);
+    cnDepSeen.add(key);
+  }
+}
+
+// --- 4d. 上游 mt_ → 中国 mtc_ 桥接依赖完整性 -----------------------------
+const cnBridgeDepsPath = resolve(DATA, 'cn-bridge-dependencies.json');
+const cnBridgeDeps = existsSync(cnBridgeDepsPath) ? load(DATA, 'cn-bridge-dependencies.json') : null;
+if (cnBridgeDeps) {
+  check(cnBridgeDeps.edgeCount === cnBridgeDeps.dependencies.length,
+    `cn-bridge: edgeCount ${cnBridgeDeps.edgeCount} != ${cnBridgeDeps.dependencies.length}`);
+  const bridgeSeen = new Set();
+  for (const d of cnBridgeDeps.dependencies) {
+    check(d.topicId !== d.prerequisiteId, `cn-bridge: self-dependency on ${d.topicId}`);
+    check(d.strength === 'hard' || d.strength === 'soft', `cn-bridge: bad strength ${d.strength}`);
+    // topicId 必须是 mtc_ 且在 cn-topics 中存在
+    check(typeof d.topicId === 'string' && d.topicId.startsWith('mtc_'),
+      `cn-bridge: topicId must be mtc_, got ${d.topicId}`);
+    check(cnOriginIds.has(d.topicId), `cn-bridge: topicId ${d.topicId} not in cn-topics`);
+    // prerequisiteId 必须是 mt_ 且在上游中存在
+    check(typeof d.prerequisiteId === 'string' && d.prerequisiteId.startsWith('mt_'),
+      `cn-bridge: prerequisiteId must be mt_, got ${d.prerequisiteId}`);
+    if (hasUpstream) {
+      check(upstreamTopicIds.has(d.prerequisiteId),
+        `cn-bridge: prerequisiteId ${d.prerequisiteId} not in upstream topics`);
+    }
+    const key = `${d.topicId}->${d.prerequisiteId}`;
+    if (bridgeSeen.has(key)) errors.push(`cn-bridge: duplicate edge ${key}`);
+    bridgeSeen.add(key);
+  }
+}
+
 // --- 5. 依赖引用完整性 ----------------------------------------------------
 for (const d of depsZh.dependencies) {
   check(d.topicId !== d.prerequisiteId, `self-dependency on ${d.topicId}`);
@@ -190,8 +242,9 @@ if (errors.length) {
 }
 const upstreamNote = hasUpstream ? ' + upstream alignment OK' : ' (上游未找到，跳过对齐检查)';
 const cnOriginNote = cnOriginTopics ? `, ${cnOriginTopics.topics.length} cn-origin topics` : '';
+const cnDepsNote = cnDeps ? `, ${cnDeps.dependencies.length} cn-deps` : '';
 console.log(
-  `✓ valid — ${topicsZh.topics.length} zh topics${cnOriginNote}, ${depsZh.dependencies.length} zh deps, ` +
+  `✓ valid — ${topicsZh.topics.length} zh topics${cnOriginNote}, ${depsZh.dependencies.length} zh deps${cnDepsNote}, ` +
   `${clustersZh.clusters.length} zh clusters, ${cnStandardKeys.size} cn standards${upstreamNote}.`,
 );
 if (!hasUpstream) {

@@ -16,7 +16,7 @@ const SUBJECT_ZH = {
 const SUBJECT_ZH_FALLBACK = (s) => SUBJECT_ZH[s] || s;
 
 // --- 路由状态(由 hash 解析而来,只读) ---
-let route = { view: 'overview', id: null, dim: 'us', subject: null, domain: null, ageRange: null, q: null };
+let route = { view: 'overview', id: null, dim: 'us', subject: null, domain: null, ageRange: null, q: null, gapType: null, grade: null };
 let dimensionsData = null;
 let subjectsTree = null;
 
@@ -37,6 +37,15 @@ function parseHash() {
   const raw = location.hash.replace(/^#/, '') || '/';
   const [path, query] = raw.split('?');
   const params = new URLSearchParams(query || '');
+  // 课本对比:#/textbook-gaps
+  if (path === '/textbook-gaps') {
+    return {
+      view: 'textbook-gaps', id: null,
+      dim: params.get('dim') || 'us',
+      subject: params.get('subject'), domain: null, ageRange: null,
+      q: params.get('q'), gapType: params.get('gap_type'), grade: params.get('grade'),
+    };
+  }
   // 详情:#/mt_xxx 或 #/mtc_xxx  其余视为概览/列表(#/ 或空)
   const idMatch = path.match(/^\/(mtc?_[A-Za-z0-9_-]+)$/);
   return {
@@ -47,20 +56,28 @@ function parseHash() {
     domain: params.get('domain'),
     ageRange: params.get('ageRange'),
     q: params.get('q'),
+    gapType: null, grade: null,
   };
 }
 
 // 构造 hash(不触发跳转,用于拼链接)
 function buildHash(parts) {
-  const merged = { dim: route.dim, subject: route.subject, domain: route.domain, ageRange: route.ageRange, q: route.q, ...parts };
-  // 清掉空值
+  const isGap = (parts.view || route.view) === 'textbook-gaps';
+  const merged = isGap
+    ? { dim: route.dim, subject: route.subject, q: route.q, gap_type: route.gapType, grade: route.grade, ...parts }
+    : { dim: route.dim, subject: route.subject, domain: route.domain, ageRange: route.ageRange, q: route.q, ...parts };
+  // 清掉空值与非路由字段
   for (const k of Object.keys(merged)) {
+    if (k === 'view') continue;
     if (merged[k] == null || merged[k] === '') delete merged[k];
   }
   const params = new URLSearchParams();
   for (const [k, v] of Object.entries(merged)) params.set(k, v);
   const qs = params.toString();
-  const base = parts.id != null ? `/${parts.id}` : '/';
+  let base;
+  if (parts.view === 'textbook-gaps') base = '/textbook-gaps';
+  else if (parts.id != null) base = `/${parts.id}`;
+  else base = '/';
   return '#' + base + (qs ? '?' + qs : '');
 }
 
@@ -111,6 +128,7 @@ async function loadSummary() {
   const pct = summary.totalTopics > 0 ? (summary.translatedTopics / summary.totalTopics * 100).toFixed(1) : 0;
   statsEl.innerHTML = `<div class="stat-card"><div class="num">${summary.totalTopics}</div><div class="label">微主题总数</div></div><div class="stat-card highlight"><div class="num">${summary.translatedTopics}</div><div class="label">已翻译(${pct}%)</div></div><div class="stat-card"><div class="num">${summary.totalDeps}</div><div class="label">依赖关系</div></div><div class="stat-card"><div class="num">${Object.keys(summary.subjectCounts).length}</div><div class="label">学科</div></div>`;
   await loadSubjectCards();
+  await loadTextbookGapCards();
 }
 
 async function loadSubjectCards() {
@@ -173,6 +191,95 @@ async function loadTopicList() {
   grid.innerHTML = data.topics.map(t => `<a class="topic-card" href="#/${t.id}?dim=${route.dim}"><div class="card-name">${escapeHtml(t.name)}</div><div class="card-desc">${escapeHtml(t.description || '(无描述)')}</div><div class="card-meta"><span class="tag tag-subject">${SUBJECT_ZH_FALLBACK(t.subject)}</span>${t.domainZh ? `<span class="tag tag-age">${escapeHtml(t.domainZh)}</span>` : ''}${t.ageRangeStart != null ? `<span class="tag tag-age">${t.ageRangeStart}-${t.ageRangeEnd} 岁</span>` : ''}</div></a>`).join('');
 }
 
+// === 渲染:课本目录对比(概览页入口卡) ===
+const GAP_TYPE_LABEL = { missing: '遗漏', covered: '已有', 'textbook-only': '课本独有' };
+const GAP_TYPE_TAG = { missing: 'tag-missing', covered: 'tag-covered', 'textbook-only': 'tag-textbook-only' };
+
+async function loadTextbookGapCards() {
+  const el = document.getElementById('textbook-gaps-cards');
+  const summary = await api('/api/textbook-gaps');
+  if (summary.total === 0) {
+    el.innerHTML = '<p style="color:var(--text-muted);font-size:13px;">课本对比报告尚未生成。</p>';
+    return;
+  }
+  const s = summary.summary;
+  const miss = s.byGapType.missing || 0;
+  const cov = s.byGapType.covered || 0;
+  const tbo = s.byGapType['textbook-only'] || 0;
+  const subjects = Object.entries(s.bySubject).sort((a, b) => b[1] - a[1]).map(([k]) => k).join(' · ');
+  el.innerHTML = `<a class="subject-card" href="${buildHash({ view: 'textbook-gaps', subject: null, domain: null, q: null, gap_type: null, grade: null })}">
+    <h4>课本 vs 微主题</h4>
+    <div class="meta"><span>共 ${summary.total} 条</span><span class="tag ${GAP_TYPE_TAG.missing}">遗漏 ${miss}</span><span class="tag ${GAP_TYPE_TAG.covered}">已有 ${cov}</span><span class="tag ${GAP_TYPE_TAG['textbook-only']}">课本独有 ${tbo}</span></div>
+    <div class="domains-preview">${escapeHtml(subjects)}</div>
+  </a>`;
+}
+
+// === 渲染:课本目录对比(表格视图) ===
+function setGapFilter(key, val) {
+  const patch = key === 'clear' ? { subject: null, gap_type: null, grade: null, q: null }
+    : { [key === 'gap_type' ? 'gapType' : key]: val || null };
+  location.hash = buildHash({ view: 'textbook-gaps', ...patch });
+}
+
+async function loadTextbookGaps() {
+  const table = document.getElementById('gap-table');
+  const countEl = document.getElementById('gap-count');
+  table.innerHTML = '<thead><tr><th>加载中…</th></tr></thead>';
+  const params = new URLSearchParams();
+  if (route.subject) params.set('subject', route.subject);
+  if (route.gapType) params.set('gap_type', route.gapType);
+  if (route.grade) params.set('grade', route.grade);
+  if (route.q) params.set('q', route.q);
+  const data = await api(`/api/textbook-gaps?${params}`);
+  countEl.textContent = `${data.count} / ${data.total} 条`;
+
+  // 筛选条(全量 summary 驱动,不受当前筛选影响)
+  renderGapFilters(data.summary);
+
+  // 搜索框同步
+  const searchInp = document.getElementById('gap-search');
+  if (route.q) { if (searchInp.value !== route.q) searchInp.value = route.q; }
+  else if (searchInp.value) searchInp.value = '';
+
+  if (data.count === 0) {
+    table.innerHTML = '<tbody><tr><td style="color:var(--text-muted);padding:20px;">没有匹配的条目。</td></tr></tbody>';
+    return;
+  }
+
+  // 排序:missing 优先,再按 grade → path
+  const gradeOrder = (g) => (g || '').replace(/年级(上|下)/, (m, s) => `年级${s === '上' ? 0 : 1}`);
+  const sorted = [...data.gaps].sort((a, b) => {
+    if (a.gap_type !== b.gap_type) return a.gap_type === 'missing' ? -1 : 1;
+    const ga = gradeOrder(a.grade), gb = gradeOrder(b.grade);
+    if (ga !== gb) return ga < gb ? -1 : 1;
+    return (a.path || '') < (b.path || '') ? -1 : 1;
+  });
+
+  const rows = sorted.map(g => `<tr>
+    <td><span class="tag ${GAP_TYPE_TAG[g.gap_type] || ''}">${GAP_TYPE_LABEL[g.gap_type] || g.gap_type}</span></td>
+    <td>${escapeHtml(g.subject || '')}</td>
+    <td>${escapeHtml(g.grade || '')}</td>
+    <td class="gap-topic">${escapeHtml(g.topic || '')}<div class="gap-path">${escapeHtml(g.path || '')}</div></td>
+    <td class="gap-textbook">${escapeHtml((g.textbook || '').replace(/\.md$/, ''))}</td>
+  </tr>`).join('');
+  table.innerHTML = `<thead><tr><th>状态</th><th>学科</th><th>年级</th><th>知识点 / 路径</th><th>课本来源</th></tr></thead><tbody>${rows}</tbody>`;
+}
+
+function renderGapFilters(summary) {
+  const el = document.getElementById('gap-filters');
+  const bySubject = Object.entries(summary.bySubject).sort((a, b) => b[1] - a[1]);
+  const byGrade = Object.entries(summary.byGrade).sort((a, b) => a[0] < b[0] ? -1 : 1);
+  const byType = Object.entries(summary.byGapType);
+  // 学科
+  const subjBtns = bySubject.map(([s, n]) => `<button class="filter-btn ${route.subject === s ? 'active' : ''}" onclick="setGapFilter('subject','${s}')">${escapeHtml(s)} <span class="filter-n">${n}</span></button>`).join('');
+  // 年级
+  const gradeBtns = byGrade.map(([g, n]) => `<button class="filter-btn ${route.grade === g ? 'active' : ''}" onclick="setGapFilter('grade','${g}')">${escapeHtml(g)} <span class="filter-n">${n}</span></button>`).join('');
+  // 状态
+  const typeBtns = byType.map(([t, n]) => `<button class="filter-btn ${route.gapType === t ? 'active' : ''}" onclick="setGapFilter('gap_type','${t}')">${escapeHtml(GAP_TYPE_LABEL[t] || t)} <span class="filter-n">${n}</span></button>`).join('');
+  const clearBtn = (route.subject || route.gapType || route.grade) ? `<button class="filter-btn" onclick="setGapFilter('clear')">✕ 清除</button>` : '';
+  el.innerHTML = `<div class="gap-filter-row"><span class="filter-label">状态</span><div class="gap-filter-btns">${typeBtns}</div></div><div class="gap-filter-row"><span class="filter-label">学科</span><div class="gap-filter-btns">${subjBtns}</div></div><div class="gap-filter-row"><span class="filter-label">年级</span><div class="gap-filter-btns">${gradeBtns}</div></div>${clearBtn}`;
+}
+
 // === 渲染:详情页 ===
 async function loadDetail() {
   const body = document.getElementById('detail-body');
@@ -205,6 +312,14 @@ async function render() {
   document.querySelectorAll('.dimension-btn').forEach(b => b.classList.toggle('active', b.dataset.dimension === route.dim));
   // 同步年龄筛选按钮
   syncFilterButtons();
+
+  // 课本目录对比视图
+  if (route.view === 'textbook-gaps') {
+    showView('textbook-gaps');
+    await loadTextbookGaps();
+    return;
+  }
+
   // 概览页:无 subject/domain/q 时视为概览(列表态全空 = 概览)
   const isOverview = !route.id && !route.subject && !route.domain && !route.q && !route.ageRange;
 
@@ -243,6 +358,16 @@ document.getElementById('search').addEventListener('input', (e) => {
   searchTimer = setTimeout(() => {
     // 清空搜索框 → 回到概览(或保留当前学科?这里回到概览)
     location.hash = buildHash({ id: null, q: q || null, subject: null, domain: null });
+  }, 300);
+});
+
+// === 课本对比搜索框 ===
+let gapSearchTimer;
+document.getElementById('gap-search').addEventListener('input', (e) => {
+  clearTimeout(gapSearchTimer);
+  const q = e.target.value.trim();
+  gapSearchTimer = setTimeout(() => {
+    location.hash = buildHash({ view: 'textbook-gaps', q: q || null });
   }, 300);
 });
 

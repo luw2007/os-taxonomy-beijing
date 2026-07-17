@@ -42,6 +42,12 @@
           <div class="subject-cards" id="subject-cards"></div>
         </div>
         <div class="overview-section">
+          <h3>📖 课本目录对比</h3>
+          <div class="subject-cards" id="textbook-gaps-cards">
+            <p style="color:var(--text-muted);font-size:13px;">加载中…</p>
+          </div>
+        </div>
+        <div class="overview-section">
           <h3>许可证</h3>
           <div class="license-info"><table>
             <tr><th>数据库</th><td>ODbL 1.0 — share-alike,商用友好</td></tr>
@@ -64,6 +70,18 @@
           <div class="detail-badges" id="detail-badges"></div>
         </div>
         <div class="detail-body" id="detail-body"></div>
+      </section>
+      <section id="textbook-gaps" class="view">
+        <div class="list-header">
+          <button class="back-btn" onclick="goOverview()">← 返回</button>
+          <h2>📖 课本目录对比</h2>
+          <span class="list-count" id="gap-count"></span>
+        </div>
+        <div class="gap-filters" id="gap-filters"></div>
+        <div class="gap-search"><input type="text" id="gap-search" placeholder="🔍 搜索课本知识点…" autocomplete="off"></div>
+        <div class="gap-table-wrap">
+          <table class="gap-table" id="gap-table"></table>
+        </div>
       </section>
     </main>
   </div>

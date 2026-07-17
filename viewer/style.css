@@ -135,6 +135,30 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC"
 .dep-link.dim-hidden .dep-name { text-decoration: line-through; text-decoration-color: var(--text-muted); }
 .dim-hidden-tag { font-size: 10px; color: var(--orange); border: 1px solid var(--orange); border-radius: 3px; padding: 0 4px; margin-left: 6px; white-space: nowrap; }
 
+/* === 课本目录对比 === */
+.tag-missing { background: var(--primary-light); color: var(--primary); }
+.tag-covered { background: var(--green-light); color: var(--green); }
+.tag-textbook-only { background: var(--orange-light); color: var(--orange); }
+
+.gap-filters { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+.gap-filter-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.gap-filter-btns { display: flex; gap: 6px; flex-wrap: wrap; }
+.gap-filter-row .filter-btn { padding: 4px 10px; font-size: 12px; }
+.gap-filter-row .filter-btn .filter-n { color: var(--text-muted); font-size: 11px; margin-left: 2px; }
+.gap-search { margin-bottom: 14px; }
+.gap-search input { width: 100%; max-width: 360px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 13px; background: var(--bg); color: var(--text); transition: border-color 0.15s; }
+.gap-search input:focus { outline: none; border-color: var(--accent); background: #fff; }
+
+.gap-table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); background: var(--card-bg); }
+.gap-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.gap-table thead th { position: sticky; top: 0; background: var(--bg); color: var(--text-light); font-weight: 500; text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--border); white-space: nowrap; z-index: 1; }
+.gap-table tbody td { padding: 9px 14px; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: top; }
+.gap-table tbody tr:last-child td { border-bottom: none; }
+.gap-table tbody tr:hover { background: var(--bg); }
+.gap-topic { font-weight: 500; min-width: 200px; }
+.gap-path { font-size: 11px; color: var(--text-muted); font-weight: 400; margin-top: 2px; }
+.gap-textbook { font-size: 12px; color: var(--text-light); white-space: nowrap; }
+
 @media (max-width: 900px) {
   #app { flex-direction: column; }
   .sidebar { width: 100%; height: auto; position: relative; }

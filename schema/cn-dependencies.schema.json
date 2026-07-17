@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://os-taxonomy-beijing.github.io/schema/cn-dependencies.schema.json",
+  "title": "Beijing Skill Taxonomy — 中国特有微主题依赖（cn-dependencies）",
+  "description": "mtc_ 主题之间的知识依赖 DAG。topicId depends on prerequisiteId（学 X 前需先掌握 Y）。规则驱动自动生成。",
+  "type": "object",
+  "required": ["version", "edgeCount", "dependencies"],
+  "properties": {
+    "version": { "type": "string" },
+    "upstreamVersion": { "type": "string" },
+    "locale": { "type": "string" },
+    "edgeCount": { "type": "integer", "minimum": 0 },
+    "note": { "type": "string" },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["topicId", "prerequisiteId", "strength"],
+        "properties": {
+          "topicId": {
+            "type": "string",
+            "pattern": "^mtc_",
+            "description": "依赖方（学这个主题需要先掌握 prerequisiteId）"
+          },
+          "prerequisiteId": {
+            "type": "string",
+            "pattern": "^mtc_",
+            "description": "被依赖方（先修知识）"
+          },
+          "strength": {
+            "type": "string",
+            "enum": ["hard", "soft"],
+            "description": "hard=硬前置（必须先学）；soft=软前置（建议先学，渐进）"
+          },
+          "reason": { "type": ["string", "null"], "description": "依赖说明（中文）" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

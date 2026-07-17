@@ -52,6 +52,16 @@ const cnOriginTopics = existsSync(resolve(DATA, 'cn-topics.json'))
   ? load(DATA, 'cn-topics.json')
   : null;
 
+// 中国特有微主题的依赖关系（mtc_ 之间的知识 DAG）
+const cnDeps = existsSync(resolve(DATA, 'cn-dependencies.json'))
+  ? load(DATA, 'cn-dependencies.json')
+  : null;
+
+// 上游 mt_ 与中国 mtc_ 之间的桥接依赖（人工精选）
+const cnBridgeDeps = existsSync(resolve(DATA, 'cn-bridge-dependencies.json'))
+  ? load(DATA, 'cn-bridge-dependencies.json')
+  : null;
+
 // 维度切换配置(可选文件——缺失时只有默认 us 维度)
 const dimensionsConfig = existsSync(resolve(DATA, 'dimensions.json'))
   ? load(DATA, 'dimensions.json')
@@ -66,6 +76,50 @@ const domainZh = (s, d) => domainMap.domains[`${s} / ${d}`] || d;
 const upstreamTopics = hasUpstream ? load(UPSTREAM_DATA, 'topics.json') : null;
 const upstreamDeps = hasUpstream ? load(UPSTREAM_DATA, 'dependencies.json') : null;
 const upstreamClusters = hasUpstream ? load(UPSTREAM_DATA, 'clusters.json') : null;
+
+// --- 课本目录对比报告(textbook-gap-report.csv) ----------------------------
+// 容错 CSV 解析:支持引号包裹字段(本文件无引号,但防后续数据变化)。
+function parseCsv(text) {
+  const rows = [];
+  let row = [], field = '', inQuotes = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i], next = text[i + 1];
+    if (inQuotes) {
+      if (c === '"' && next === '"') { field += '"'; i++; }
+      else if (c === '"') inQuotes = false;
+      else field += c;
+    } else {
+      if (c === '"') inQuotes = true;
+      else if (c === ',') { row.push(field); field = ''; }
+      else if (c === '\n') { row.push(field); rows.push(row); row = []; field = ''; }
+      else if (c === '\r') { /* skip */ }
+      else field += c;
+    }
+  }
+  // 末行(无换行结尾)
+  if (field.length > 0 || row.length > 0) { row.push(field); rows.push(row); }
+  if (rows.length === 0) return [];
+  const header = rows[0];
+  return rows.slice(1)
+    .filter(r => r.length === header.length && r.some(v => v !== ''))
+    .map(r => Object.fromEntries(header.map((h, i) => [h.trim(), r[i]])));
+}
+
+const textbookGapPath = resolve(ROOT, 'docs', 'reports', 'textbook-gap-report.csv');
+const textbookGaps = existsSync(textbookGapPath)
+  ? parseCsv(readFileSync(textbookGapPath, 'utf8'))
+  : [];
+
+// 全量 summary(不受请求筛选影响,供概览页/页头展示总数)
+const textbookGapSummary = (() => {
+  const byGapType = {}, bySubject = {}, byGrade = {};
+  for (const g of textbookGaps) {
+    byGapType[g.gap_type] = (byGapType[g.gap_type] || 0) + 1;
+    bySubject[g.subject] = (bySubject[g.subject] || 0) + 1;
+    byGrade[g.grade] = (byGrade[g.grade] || 0) + 1;
+  }
+  return { total: textbookGaps.length, byGapType, bySubject, byGrade };
+})();
 
 // --- 构建合并视图 ---------------------------------------------------------
 // 上游 topic 提供结构字段（subject/domain/ageRange/type/centrality），
@@ -144,6 +198,14 @@ if (upstreamDeps) {
   }
 } else {
   mergedDeps.push(...zhDeps.dependencies);
+}
+// 中国特有微主题的依赖（mtc_ 之间）
+if (cnDeps) {
+  mergedDeps.push(...cnDeps.dependencies);
+}
+// 上游 mt_ → 中国 mtc_ 桥接依赖
+if (cnBridgeDeps) {
+  mergedDeps.push(...cnBridgeDeps.dependencies);
 }
 
 // 合并 cluster（中文 summary 优先）
@@ -405,6 +467,32 @@ function apiResponse(pathname, search) {
       links,
       subjects: domainMap.subjects,
     };
+  }
+
+  // GET /api/textbook-gaps — 课本目录对比(支持 ?stage=&subject=&gap_type=&grade=&q=)
+  if (pathname === '/api/textbook-gaps') {
+    if (textbookGaps.length === 0) {
+      return { total: 0, count: 0, summary: textbookGapSummary, gaps: [] };
+    }
+    let result = textbookGaps;
+    const stage = params.get('stage');
+    const subject = params.get('subject');
+    const gapType = params.get('gap_type');
+    const grade = params.get('grade');
+    const q = params.get('q');
+    if (stage) result = result.filter(g => g.stage === stage);
+    if (subject) result = result.filter(g => g.subject === subject);
+    if (gapType) result = result.filter(g => g.gap_type === gapType);
+    if (grade) result = result.filter(g => g.grade === grade);
+    if (q) {
+      const ql = q.toLowerCase();
+      result = result.filter(g =>
+        (g.topic && g.topic.toLowerCase().includes(ql)) ||
+        (g.path && g.path.toLowerCase().includes(ql)) ||
+        (g.textbook && g.textbook.toLowerCase().includes(ql))
+      );
+    }
+    return { total: textbookGaps.length, count: result.length, summary: textbookGapSummary, gaps: result };
   }
 
   return null;

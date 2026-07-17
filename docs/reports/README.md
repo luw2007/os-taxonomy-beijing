@@ -24,11 +24,30 @@
 | `gap-analysis-primary-school.csv` | 小学 Gap 主表 | 43 条 |
 | `proposed-topics-primary-school.csv` | 小学微主题草案 | 132 条 |
 | `gap-analysis-junior-high.csv` | 初中 Gap 主表 | 52 条 |
-| `proposed-topics-junior-high.csv` | 初中微主题草案 | 115 条 |
+| `proposed-topics-junior-high.csv` | 初中微主题草案 | 354 条 |
 | `gap-analysis-senior-high.csv` | 高中 Gap 主表 | 35 条 |
-| `proposed-topics-senior-high.csv` | 高中微主题草案 | 86 条 |
+| `proposed-topics-senior-high.csv` | 高中微主题草案 | 188 条 |
+| `textbook-gap-report.csv` | 课本目录 vs 课标微主题对比 | 1684 条 |
+| `textbook-topics.json` | 全量课本目录知识点（北京课本解析） | — |
+| `textbook-topics-物理.json` | 物理课本目录知识点 | — |
+| `textbook-topics-化学.json` | 化学课本目录知识点 | — |
 
 各 stage 的 gap 表与 proposed 表通过 `gap_id` ↔ `source_gap_id` 关联。
+
+## 草案 → 落地的粒度拆解
+
+proposed CSV 共 674 条草案（小学 132 + 初中 354 + 高中 188），但实际落地到
+`data/cn-topics.json` 的微主题有 **1696 条**。差异来自两个拆解过程：
+
+1. **微技能级粒度拆解**：proposed CSV 的一条草案（如"物理·物态变化"）落地时按
+   课标内容要求拆解为多条可独立评估的微技能（熔化凝固 / 汽化液化 / 升华凝华），
+   每条 `description` 聚焦一个单一概念、`evidence` 可观测、`assessment_prompt` 可评估。
+2. **课本补充知识点**（`origin: textbook`，共 855 条）：来自 `textbook-gap-report.csv` +
+   `textbook-topics.json` 的北京课本目录解析，覆盖课本有但课标微主题遗漏的具体知识点
+   （如"物理八年级上·运动的快慢""化学九年级·金属的化学性质"）。
+
+落地后 cn-topics 的 origin 分布：`cn_only` 532 / `textbook` 855 / `progression` 162 /
+`upstream_adapt` 120 / `cross_domain` 27。
 
 ## 与上游 os-taxonomy 的关系
 
@@ -149,18 +168,24 @@
 
 ## 与项目现有数据的关系
 
-- 现有 `data/cn-curriculum-standards.json` 仅有数学(S1.NA)、科学(S1.O) 各 2 条。本报告的编号方案是其**扩展草案**，
-  落地时需在 `data/cn-curriculum-standards.json` 新增对应学科的 curricula 与 entries（仍遵守 `textIncluded: false`）。
-- proposed 主题的 `mtc_` id 为**新建**，不与上游 `mt_` 关联——它们是中国特有或跨领域新建，上游无对应节点。
+- `data/cn-curriculum-standards.json` 已落地 **17 套课标 / 1356 条编号**，覆盖小学到高中全部学科
+  （语文/数学/科学/英语/物理/化学/生物/历史/地理/道德与法治/思想政治/体育/艺术/信息科技/劳动/通用技术/综合实践），
+  均遵守 `textIncluded: false`（codes-only）。
+- `data/cn-topics.json` 已落地 **1696 条中国特有微主题**（`mtc_` 前缀），不与上游 `mt_` 关联——
+  它们是中国特有、跨领域新建、进阶延伸或课本补充的主题。
 - 上游 `mt_` 翻译对应 gap 表中 `coverage_pending` 类型，走 `scripts/sync-upstream.mjs` 翻译流程，
   **不在本报告的 proposed 范围内**——本报告只产出"上游没有、需新建"的主题。
 
-## 后续落地路径
+## 落地状态
 
-1. 评审 proposed-topics，确认保留 / 修改 / 剔除条目
-2. 为新学科在 `data/cn-curriculum-standards.json` 新增 curricula + 编号 entries（codes-only）
-3. 把认可的 `mtc_` 主题写入中国原生数据文件 `data/cn-topics.json`（已落地，见 `data/AGENTS.md` 命名规范）
-4. 为新主题补充依赖关系（`dependencies`）和聚类摘要（`clusters`），并接入 `scripts/validate.mjs` 校验
+| 步骤 | 状态 |
+|---|---|
+| proposed-topics 草案生成（小学 132 + 初中 354 + 高中 188 = 674 条） | ✅ 完成 |
+| 微技能级粒度拆解（674 条 → 1696 条） | ✅ 完成 |
+| 课本补充知识点（textbook origin，855 条） | ✅ 完成 |
+| 课标编号落地（17 套 / 1356 条） | ✅ 完成 |
+| 依赖关系 + 聚类摘要 | ⬜ 待补 |
+| 接入 `scripts/validate.mjs` 完整校验 | ✅ 完成 |
 
 ## 合规说明
 

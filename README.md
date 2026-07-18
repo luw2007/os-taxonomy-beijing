@@ -4,7 +4,7 @@
 把面向英语世界小学生的"学习图谱"翻译为中文，并对齐**中国教育部《义务教育课程方案和
 课程标准（2022 年版）》**，优先覆盖**北京小学**阶段。
 
-> **状态：** `translated` · 已翻译微主题：1,590 / 1,590（100%）· 中国特有微主题：1,696 · 依赖说明：3,221 / 3,221（100%）
+> **状态：** `translated` · 已翻译微主题：1,590 / 1,590（100%）· 中国特有微主题：1,640 · 上游依赖：3,221 / 3,221（100%）· 中国特有依赖：2,543（LLM 重建）
 
 ## 这是什么
 
@@ -127,6 +127,37 @@ node scripts/translate.mjs --concurrency 8      # 8 并发（默认 5）
 （中断后重跑自动跳过已翻译）、Google→MyMemory 自动降级。翻译质量标记为
 `"translationStatus": "machine"`，手工校对过的标 `"reviewed"`（不会被覆盖）。
 
+### 中国特有依赖图（cn-dependencies）重建
+
+`data/cn-dependencies.json` 描述 `mtc_` 中国特有微主题之间的知识依赖，由三层建图
+叠加而成（密度 1.55 边/主题，达上游 2.03 的 77%）：
+
+1. **LLM 桶内语义边**（主体）：按 `subject|domain|stage` 分桶，大桶滑窗（窗口 25、
+   步长 15），逐桶调 LLM 判断"先修关系"。Prompt 强调区分「先修 vs 相关」，避免
+   把平行技能（加法↔减法）误连为先修。
+2. **ageRange 相邻链**（L1/L2，规则）：同 `subject|domain` 内按年龄排序连相邻节点，
+   保留教学顺序（如笔画→偏旁→间架结构）。
+3. **跨 domain 先修链**（L3，规则）：`scripts/_rule-deps.mjs` 的 `DOMAIN_PREREQ_CHAINS`
+   定义跨知识领域先修（如「数与代数」→「方程」）。
+
+后处理：环检测（破 LLM 产生的 A→B→A）、跨平行子领域错边过滤（剔除美术↔音乐、
+体操↔球类等 domain 分类缺陷导致的伪先修）、幻觉端点过滤。
+
+```bash
+# 先拷贝 .env 填 LLM 配置（OpenAI 兼容接口）
+cp .env.example .env
+
+node scripts/build-deps-llm.mjs --plan      # 只看分桶 + prompt 样本（首次必跑）
+node scripts/build-deps-llm.mjs --dry-run   # 调模型但不写盘，结果在 data/.llm-deps-work/
+node scripts/build-deps-llm.mjs             # 正式写盘
+node scripts/build-deps-llm.mjs --only-bucket Chinese_Literacy-_-Handwriting_小学  # 单桶重跑
+```
+
+raw 响应缓存在 `data/.llm-deps-work/raw/`（gitignore），支持断点续跑。
+配套的数据治理脚本：`scripts/normalize-cn-domains.mjs`（domain 命名归一化）、
+`scripts/dedupe-cn-topics.mjs`（清理 splitFrom 残留重复节点）。
+
+
 ## 本地知识浏览器
 
 本项目内置一个**零依赖**的 Web 浏览器，可以在本地启动后用浏览器交互式浏览全部知识图谱——
@@ -179,12 +210,12 @@ node scripts/serve.mjs --port 8080 --upstream /path/to/os-taxonomy
 - [x] 数学 + 科学示例数据
 - [x] **全部翻译**（1,590 微主题 + 3,221 依赖说明，Google API 机翻）
 - [x] 本地知识浏览器（零依赖 Web 服务）
-- [ ] **课标对齐**（机翻文本 → 教育部 2022 版课标编号映射，当前仅 4 条对齐）
+- [x] **课标对齐**（17 套教育部 2022 版课标，1,356 条 codes-only 映射）
+- [x] **中国特有微主题**（1,640 个 `mtc_` 主题，覆盖语文/道法/物理/化学/生物/历史/地理/政治/通用技术等）
+- [x] **中国特有依赖图重建**（LLM 逐桶语义建图 + 规则边，2,543 条，密度 1.55）
 - [ ] **人工校对**（`machine` → `reviewed`，优先数学/科学低龄段）
-- [ ] 英语（需新增国内课标，因中国小学英语非母语）
-- [ ] 道德与法治（中国特有，上游无对应）
-- [ ] 语文（中国特有，上游无对应，含拼音/识字/古诗文）
 - [ ] 领域聚类（clusters.zh.json）翻译
+- [ ] bridge 依赖扩展（mt_↔mtc_ 跨图桥接，当前 47 条）
 
 ## 贡献
 

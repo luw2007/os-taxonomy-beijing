@@ -6,16 +6,16 @@
   "taxonomyVersion": "v1-zh",
   "upstreamVersion": "v1",
   "locale": "zh-CN",
-  "generatedAt": "2026-07-14T00:00:00.000Z",
-  "status": "zh translation complete + cn-origin (Chinese-specific subjects) added",
+  "generatedAt": "2026-07-18T00:00:00.000Z",
+  "status": "zh translation + cn-origin + LLM-rebuilt cn-dependencies (domain normalized, deduped, bucketed semantic prereqs)",
   "counts": {
     "topicsZh": 1590,
-    "cnTopics": 2033,
+    "cnTopics": 1640,
     "dependenciesZh": 3221,
     "clustersZh": 4,
     "cnCurricula": 17,
     "cnCurriculumEntries": 1356,
-    "cnDeps": 2019
+    "cnDeps": 2537
   },
   "upstreamCounts": {
     "topics": 1590,
@@ -44,20 +44,20 @@
       "sha256": "8ea74fce874d5a61bef60219382c87136804d084bd6455fc0e4425068242438e"
     },
     "domains.zh.json": {
-      "bytes": 12241,
-      "sha256": "28dd97a67d8f427212c707ee15778c49dc2ca0b8027a3b322ce083b2b3e74032"
+      "bytes": 11904,
+      "sha256": "74a0e815ac53fac471b6dc5ad567207e484c79a708a67656d20793b87485d904"
     },
     "cn-topics.json": {
-      "bytes": 1735491,
-      "sha256": "1f5023de32a5a6f3ffc56546b5e9ff0ae385ab7bbddf7967cf11bd1b0f80356e"
+      "bytes": 1382498,
+      "sha256": "b3724d05a6c519924383ff3b97489f04c5f3cc1c925ccdf0509a8981d1013f3d"
     },
     "terminology.json": {
       "bytes": 4001,
       "sha256": "cc17350162ad533794ebe880a59ad398ae6ed08af7da4759598cbaa8db0bcf54"
     },
     "cn-dependencies.json": {
-      "bytes": 399214,
-      "sha256": "b69b4d9878a75120999052695336c71c81a6bc9e6e70e4c7ce59d2f689eb7190"
+      "bytes": 486805,
+      "sha256": "f9858f269c524687e25e16340fa76f1f4d6f172a75d109756391b2288b5c1f8d"
     },
     "cn-bridge-dependencies.json": {
       "bytes": 9288,

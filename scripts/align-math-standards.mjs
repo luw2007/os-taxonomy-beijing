@@ -71,6 +71,8 @@ const DOMAIN_TO_FIELD = {
   'Counting & Cardinality': 'NA', 'Ratio & Proportion': 'NA', 'Algebra': 'NA',
   'Measurement': 'GE', 'Geometry': 'GE',
   'Data & Statistics': 'SP', 'Probability': 'SP',
+  // Mathematical Thinking（问题解决/推理/数学联系）映射到综合实践 CP
+  'Mathematical Thinking': 'CP',
 };
 
 // 筛选要处理的 mt_ 节点：小学数学 + 中文已翻译

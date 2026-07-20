@@ -9704,7 +9704,9 @@
         "按形状的结构属性（边数、直角、平行线）对形状进行分类"
       ],
       "assessmentPrompt": "当{{name}} 进行乘法或处理更大的数字时，他们是否使用他们所知道的位值或数字关系来简化计算 - 例如将 24 × 3 分解为 20 × 3 + 4 × 3？",
-      "cnStandards": [],
+      "cnStandards": [
+        "moe-2022-math:S1.CP.01"
+      ],
       "translationStatus": "machine"
     },
     {
@@ -9743,7 +9745,9 @@
         "根据测量数据创建线图，并用它来回答有关现实世界情况的问题"
       ],
       "assessmentPrompt": "当{{name}}解决现实生活中的数学问题时——比如计算一个项目需要多少布料——他们能否选择正确的表示形式（图表、表格、方程）并解释答案在真实情况下的含义？",
-      "cnStandards": [],
+      "cnStandards": [
+        "moe-2022-math:S1.CP.02"
+      ],
       "translationStatus": "machine"
     },
     {
@@ -9834,7 +9838,9 @@
         "从 8×5=40 加 8×2=16 推导出 8×7 并将该策略描述为通用方法"
       ],
       "assessmentPrompt": "当{{name}}注意到一种模式时——比如乘以4相当于翻倍两倍——他们是否会利用这种概括来更有效地解决类似的问题？",
-      "cnStandards": [],
+      "cnStandards": [
+        "moe-2022-math:S2.CP.01"
+      ],
       "translationStatus": "machine"
     },
     {
@@ -9925,7 +9931,9 @@
         "使用百分比条形模型查找销售价格并以英镑解释答案"
       ],
       "assessmentPrompt": "当{{name}}解决现实世界的数学问题时——比如缩放食谱或转换单位——他们是否会选择合理的表示形式，进行数学计算，然后解释结果在实际情况下意味着什么？",
-      "cnStandards": [],
+      "cnStandards": [
+        "moe-2022-math:S2.CP.02"
+      ],
       "translationStatus": "machine"
     },
     {
@@ -9977,7 +9985,9 @@
         "在最终确定之前，使用估计来检查小数除法答案是否合理"
       ],
       "assessmentPrompt": "当{{name}}面临涉及代数、比率或具有多个步骤的分数的复杂数学问题时，他们是否会将其分解为可管理的部分，估计什么是合理的，并使用不同的方法验证他们的答案？",
-      "cnStandards": [],
+      "cnStandards": [
+        "moe-2022-math:S3.CP.02"
+      ],
       "translationStatus": "machine"
     },
     {
@@ -10042,7 +10052,9 @@
         "确定测量结果是否应四舍五入以及精确度如何"
       ],
       "assessmentPrompt": "当{{name}}使用数学来解决一个实际问题时——比如计算容器的体积或计算百分比折扣——他们是否决定他们的答案需要有多精确并解释它在上下文中的含义？",
-      "cnStandards": [],
+      "cnStandards": [
+        "moe-2022-math:S3.CP.02"
+      ],
       "translationStatus": "machine"
     },
     {

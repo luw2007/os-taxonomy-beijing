@@ -7,7 +7,7 @@
   "upstreamVersion": "v1",
   "locale": "zh-CN",
   "generatedAt": "2026-07-20T00:00:00.000Z",
-  "status": "v1.2-zh: DAG fixed + review gate + nodeKind/centrality + stage bridges + C1a math standards alignment (329/398 aligned, 68 low-confidence excluded)",
+  "status": "v1.2-zh.0: DAG + review gate + nodeKind/centrality + stage bridges + C1a math alignment (335/446 aligned incl Mathematical Thinking, 109 low excluded)",
   "counts": {
     "topicsZh": 1590,
     "cnTopics": 1640,
@@ -16,9 +16,10 @@
     "cnCurricula": 17,
     "cnCurriculumEntries": 1423,
     "cnDeps": 2262,
-    "alignedMathHigh": 213,
-    "alignedMathMedium": 116,
-    "alignedMathLowExcluded": 68
+    "alignedMathHigh": 215,
+    "alignedMathMedium": 120,
+    "alignedMathLowExcluded": 109,
+    "alignedMathTotal": 446
   },
   "upstreamCounts": {
     "topics": 1590,
@@ -27,8 +28,8 @@
   },
   "files": {
     "topics.zh.json": {
-      "bytes": 1261468,
-      "sha256": "4976c642f782c01a0c1b1f8dedf7291bd45902da543ca5d02891d5e3611132c5"
+      "bytes": 1261708,
+      "sha256": "680613a4e582932751a371c2d1b73b2175bc4c0f6bf431234820b0ad08286312"
     },
     "dependencies.zh.json": {
       "bytes": 645547,

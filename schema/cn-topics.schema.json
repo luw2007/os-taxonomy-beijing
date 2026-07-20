@@ -76,6 +76,19 @@
             "type": "string",
             "enum": ["cn_only", "cross_domain", "upstream_adapt", "textbook", "progression"],
             "description": "来源类型：cn_only=中国特有 / cross_domain=跨领域新建 / upstream_adapt=上游改编 / textbook=教材衍生（仅知识点名称）/ progression=学段进阶新建"
+          },
+          "stage": {
+            "type": "string",
+            "enum": ["小学", "初中", "高中"],
+            "description": "学段（中国教育体系：小学/初中/高中）"
+          },
+          "splitFrom": {
+            "type": ["string", "null"],
+            "description": "分裂来源：该节点从哪个 mtc_ 分裂而来（split-compound-topics 脚本产生）"
+          },
+          "splitPart": {
+            "type": ["string", "null"],
+            "description": "分裂部分标记（a/b/c，复合主题拆分后的序号）"
           }
         },
         "additionalProperties": false

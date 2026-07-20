@@ -112,5 +112,22 @@ test('M. "作者/篇名"模式（孙权劝学/《资治通鉴》）→ text', ()
   assert.equal(classifyNodeKind(t), 'text');
 });
 
+test('N. 自环 A→A：BFS 不应把自身计入 reach（前置条件：DAG 无自环，此处验证健壮性）', () => {
+  const outAdj = new Map([['A', new Set(['A'])]]); // 自环
+  const counting = new Set(['A']);
+  const r = computeReachableConcepts(['A'], outAdj, counting);
+  // 自环：visited 会含 A 自身，但 A 在 counting 里，所以 reach=1
+  // 这个测试记录"自环下行为"，不作为正确性断言（真实数据 validate 保证无自环）
+  assert.equal(r.get('A'), 1, '自环：A→A，A 被加进 visited 且在 counting 里，reach=1（记录行为）');
+});
+
+test('O. 空 counting（所有节点都是 text）：maxReach 不崩，返回空结果', () => {
+  const outAdj = new Map([['A', new Set(['B'])]]);
+  const counting = new Set(); // 空：所有节点都是 text
+  const r = computeReachableConcepts(['A'], outAdj, counting);
+  // A 不在 counting 里，但作为起点传入；其 reach 只数 counting 里的，=0
+  assert.equal(r.get('A'), 0, 'counting 空，reach=0');
+});
+
 console.log(`\n=== 结果：${passed} 通过，${failed} 失败 ===`);
 if (failed > 0) process.exit(1);

@@ -7,7 +7,7 @@
   "upstreamVersion": "v1",
   "locale": "zh-CN",
   "generatedAt": "2026-07-20T00:00:00.000Z",
-  "status": "zh translation + cn-origin + LLM-rebuilt cn-dependencies (v1.1: DAG fixed via global SCC break-cycles, reviewStatus field added)",
+  "status": "v1.2-zh: DAG fixed + review gate + nodeKind/centrality + stage bridges + C1a math standards alignment (329/398 aligned, 68 low-confidence excluded)",
   "counts": {
     "topicsZh": 1590,
     "cnTopics": 1640,
@@ -15,7 +15,10 @@
     "clustersZh": 4,
     "cnCurricula": 17,
     "cnCurriculumEntries": 1356,
-    "cnDeps": 2254
+    "cnDeps": 2254,
+    "alignedMathHigh": 213,
+    "alignedMathMedium": 116,
+    "alignedMathLowExcluded": 68
   },
   "upstreamCounts": {
     "topics": 1590,
@@ -24,8 +27,8 @@
   },
   "files": {
     "topics.zh.json": {
-      "bytes": 1248388,
-      "sha256": "4e765f60dd790e0f1d4c5b15212953d6e4a787b6a574450dc6a2007632c7a8e0"
+      "bytes": 1261468,
+      "sha256": "4976c642f782c01a0c1b1f8dedf7291bd45902da543ca5d02891d5e3611132c5"
     },
     "dependencies.zh.json": {
       "bytes": 645547,
@@ -36,8 +39,8 @@
       "sha256": "e8fcd72b6cf5451368a790a764694b9a8c0e0390394efc15aa0d282577fcc76f"
     },
     "cn-curriculum-standards.json": {
-      "bytes": 270025,
-      "sha256": "8093b05936a606ef8851a898669fe0fd0f2b2dc803acb5f5fe9697a97d222724"
+      "bytes": 274900,
+      "sha256": "c929a8e4068a796c216c3118a5616b7432ef7861f6a8c4c3f98c81e3a21f44d3"
     },
     "dimensions.json": {
       "bytes": 7011,

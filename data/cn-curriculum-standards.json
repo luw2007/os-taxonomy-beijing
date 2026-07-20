@@ -5838,13 +5838,13 @@
           "key": "moe-2022-math:S1.CP.01",
           "code": "S1.CP.01",
           "strand": "(moe-2022-math / S1.CP.01)",
-          "note": ""
+          "note": "→ Math in classroom/real-life contexts (count, compare, sort objects)"
         },
         {
           "key": "moe-2022-math:S1.CP.02",
           "code": "S1.CP.02",
           "strand": "(moe-2022-math / S1.CP.02)",
-          "note": ""
+          "note": "→ Math in shopping/money contexts (RMB notes, pay & make change)"
         },
         {
           "key": "moe-2022-math:S1.NA.01",
@@ -5862,49 +5862,49 @@
           "key": "moe-2022-math:S2.CMC.01",
           "code": "S2.CMC.01",
           "strand": "(moe-2022-math / S2.CMC.01)",
-          "note": ""
+          "note": "→ Chinese math culture: abacus structure & bead-counting method"
         },
         {
           "key": "moe-2022-math:S2.CP.01",
           "code": "S2.CP.01",
           "strand": "(moe-2022-math / S2.CP.01)",
-          "note": ""
+          "note": "→ Real-world projects on calendar & time (year/month/day, 24-hour clock)"
         },
         {
           "key": "moe-2022-math:S2.CP.02",
           "code": "S2.CP.02",
           "strand": "(moe-2022-math / S2.CP.02)",
-          "note": ""
+          "note": "→ Real-world projects: budgeting & multi-criteria decision making"
         },
         {
           "key": "moe-2022-math:S3.CMC.01",
           "code": "S3.CMC.01",
           "strand": "(moe-2022-math / S3.CMC.01)",
-          "note": ""
+          "note": "→ History of Chinese weights & Measures; unified measurement units"
         },
         {
           "key": "moe-2022-math:S3.CMC.02",
           "code": "S3.CMC.02",
           "strand": "(moe-2022-math / S3.CMC.02)",
-          "note": ""
+          "note": "→ Classic Chinese math problems (e.g. chicken-and-rabbit in same cage)"
         },
         {
           "key": "moe-2022-math:S3.CMC.03",
           "code": "S3.CMC.03",
           "strand": "(moe-2022-math / S3.CMC.03)",
-          "note": ""
+          "note": "→ History of pi (Zu Chongzhi); ancient Chinese circle geometry"
         },
         {
           "key": "moe-2022-math:S3.CP.01",
           "code": "S3.CP.01",
           "strand": "(moe-2022-math / S3.CP.01)",
-          "note": ""
+          "note": "→ Project-based data investigation (survey design, real-life statistics)"
         },
         {
           "key": "moe-2022-math:S3.CP.02",
           "code": "S3.CP.02",
           "strand": "(moe-2022-math / S3.CP.02)",
-          "note": ""
+          "note": "→ Real-world projects (sports statistics, environmental design, finance)"
         },
         {
           "key": "moe-2022-math:S4.CP.01",
@@ -6336,403 +6336,403 @@
           "key": "moe-2022-math:S1.NA.03",
           "code": "S1.NA.03",
           "strand": "第一学段（1~2年级）/ 数与代数 / 数的认识",
-          "note": ""
+          "note": "→ Number composition & decomposition (number bonds, part-part-whole within 10)"
         },
         {
           "key": "moe-2022-math:S1.NA.04",
           "code": "S1.NA.04",
           "strand": "第一学段（1~2年级）/ 数与代数 / 数的认识",
-          "note": ""
+          "note": "→ Place value & counting units (tens and ones; read/write numbers within 100)"
         },
         {
           "key": "moe-2022-math:S1.NA.05",
           "code": "S1.NA.05",
           "strand": "第一学段（1~2年级）/ 数与代数 / 数的认识",
-          "note": ""
+          "note": "→ Compare & order numbers (greater/smaller, ascending/descending within 100)"
         },
         {
           "key": "moe-2022-math:S1.NA.06",
           "code": "S1.NA.06",
           "strand": "第一学段（1~2年级）/ 数与代数 / 数的运算",
-          "note": ""
+          "note": "→ Fluent add/subtract within 20 (mental math, make-ten strategy)"
         },
         {
           "key": "moe-2022-math:S1.NA.07",
           "code": "S1.NA.07",
           "strand": "第一学段（1~2年级）/ 数与代数 / 数的运算",
-          "note": ""
+          "note": "→ Two-digit add/subtract within 100 (column method with regrouping)"
         },
         {
           "key": "moe-2022-math:S1.NA.08",
           "code": "S1.NA.08",
           "strand": "第一学段（1~2年级）/ 数与代数 / 数量关系",
-          "note": ""
+          "note": "→ Represent relations with symbols (=, <, >) and simple equations"
         },
         {
           "key": "moe-2022-math:S1.NA.09",
           "code": "S1.NA.09",
           "strand": "第一学段（1~2年级）/ 数与代数 / 数量关系",
-          "note": ""
+          "note": "→ Inverse relation of add & subtract; commutative property of addition"
         },
         {
           "key": "moe-2022-math:S1.NA.10",
           "code": "S1.NA.10",
           "strand": "第一学段（1~2年级）/ 数与代数 / 探索规律",
-          "note": ""
+          "note": "→ Patterns: repeating & growing patterns in numbers and shapes"
         },
         {
           "key": "moe-2022-math:S1.GE.01",
           "code": "S1.GE.01",
           "strand": "第一学段（1~2年级）/ 图形与几何 / 图形的认识",
-          "note": ""
+          "note": "→ Recognize 3-D shapes (cube, cuboid, cylinder, sphere, cone)"
         },
         {
           "key": "moe-2022-math:S1.GE.02",
           "code": "S1.GE.02",
           "strand": "第一学段（1~2年级）/ 图形与几何 / 图形的认识",
-          "note": ""
+          "note": "→ Recognize 2-D shapes (rectangle, square, triangle, circle)"
         },
         {
           "key": "moe-2022-math:S1.GE.03",
           "code": "S1.GE.03",
           "strand": "第一学段（1~2年级）/ 图形与几何 / 图形的认识",
-          "note": ""
+          "note": "→ Compose & decompose shapes; identify shape features & faces"
         },
         {
           "key": "moe-2022-math:S1.GE.04",
           "code": "S1.GE.04",
           "strand": "第一学段（1~2年级）/ 图形与几何 / 测量",
-          "note": ""
+          "note": "→ Length: compare, estimate & measure (ruler, cm and m)"
         },
         {
           "key": "moe-2022-math:S1.GE.05",
           "code": "S1.GE.05",
           "strand": "第一学段（1~2年级）/ 图形与几何 / 测量",
-          "note": ""
+          "note": "→ Compare weight & capacity; estimate non-standard measurements"
         },
         {
           "key": "moe-2022-math:S1.GE.06",
           "code": "S1.GE.06",
           "strand": "第一学段（1~2年级）/ 图形与几何 / 图形的位置",
-          "note": ""
+          "note": "→ Position & direction (up/down, left/right, front/behind)"
         },
         {
           "key": "moe-2022-math:S1.SP.01",
           "code": "S1.SP.01",
           "strand": "第一学段（1~2年级）/ 统计与概率 / 数据分类",
-          "note": ""
+          "note": "→ Classify objects by a single attribute (color, shape, size)"
         },
         {
           "key": "moe-2022-math:S1.SP.02",
           "code": "S1.SP.02",
           "strand": "第一学段（1~2年级）/ 统计与概率 / 数据分类",
-          "note": ""
+          "note": "→ Classify by multiple attributes; record & represent categories"
         },
         {
           "key": "moe-2022-math:S1.SP.03",
           "code": "S1.SP.03",
           "strand": "第一学段（1~2年级）/ 统计与概率 / 数据收集",
-          "note": ""
+          "note": "→ Collect & record simple data (tally marks, surveys among classmates)"
         },
         {
           "key": "moe-2022-math:S2.NA.01",
           "code": "S2.NA.01",
           "strand": "第二学段（3~4年级）/ 数与代数 / 数的认识",
-          "note": ""
+          "note": "→ Numbers within 10000 (place value to thousands; read/write/represent)"
         },
         {
           "key": "moe-2022-math:S2.NA.02",
           "code": "S2.NA.02",
           "strand": "第二学段（3~4年级）/ 数与代数 / 数的认识",
-          "note": ""
+          "note": "→ Large numbers to hundred millions (亿); place value, rounding & estimation"
         },
         {
           "key": "moe-2022-math:S2.NA.03",
           "code": "S2.NA.03",
           "strand": "第二学段（3~4年级）/ 数与代数 / 数的认识",
-          "note": ""
+          "note": "→ Fractions: meaning, numerator/denominator, equivalent fractions"
         },
         {
           "key": "moe-2022-math:S2.NA.04",
           "code": "S2.NA.04",
           "strand": "第二学段（3~4年级）/ 数与代数 / 数的认识",
-          "note": ""
+          "note": "→ Decimals: meaning & properties (place value to hundredths; money context)"
         },
         {
           "key": "moe-2022-math:S2.NA.05",
           "code": "S2.NA.05",
           "strand": "第二学段（3~4年级）/ 数与代数 / 数的运算",
-          "note": ""
+          "note": "→ Multi-digit multiplication (2-3 digits × 1-2 digits)"
         },
         {
           "key": "moe-2022-math:S2.NA.06",
           "code": "S2.NA.06",
           "strand": "第二学段（3~4年级）/ 数与代数 / 数的运算",
-          "note": ""
+          "note": "→ Division (2-3 digits ÷ 1-2 digits; with remainder; trial quotient)"
         },
         {
           "key": "moe-2022-math:S2.NA.07",
           "code": "S2.NA.07",
           "strand": "第二学段（3~4年级）/ 数与代数 / 数的运算",
-          "note": ""
+          "note": "→ Four-operation mixed calculations (order of operations, brackets)"
         },
         {
           "key": "moe-2022-math:S2.NA.08",
           "code": "S2.NA.08",
           "strand": "第二学段（3~4年级）/ 数与代数 / 数的运算",
-          "note": ""
+          "note": "→ Simple fraction & decimal add/subtract (like denominators)"
         },
         {
           "key": "moe-2022-math:S2.NA.09",
           "code": "S2.NA.09",
           "strand": "第二学段（3~4年级）/ 数与代数 / 数量关系",
-          "note": ""
+          "note": "→ Properties of operations (commutative, associative, distributive)"
         },
         {
           "key": "moe-2022-math:S2.NA.10",
           "code": "S2.NA.10",
           "strand": "第二学段（3~4年级）/ 数与代数 / 数量关系",
-          "note": ""
+          "note": "→ Multiplicative comparison (times); add/subtract inverse relations"
         },
         {
           "key": "moe-2022-math:S2.NA.11",
           "code": "S2.NA.11",
           "strand": "第二学段（3~4年级）/ 数与代数 / 探索规律",
-          "note": ""
+          "note": "→ Patterns in number sequences (arithmetic term-to-term rules)"
         },
         {
           "key": "moe-2022-math:S2.GE.01",
           "code": "S2.GE.01",
           "strand": "第二学段（3~4年级）/ 图形与几何 / 图形的认识",
-          "note": ""
+          "note": "→ Triangles: classification by sides and angles; angle sum"
         },
         {
           "key": "moe-2022-math:S2.GE.02",
           "code": "S2.GE.02",
           "strand": "第二学段（3~4年级）/ 图形与几何 / 图形的认识",
-          "note": ""
+          "note": "→ Quadrilaterals (parallelogram, trapezoid, rectangle, square hierarchy)"
         },
         {
           "key": "moe-2022-math:S2.GE.03",
           "code": "S2.GE.03",
           "strand": "第二学段（3~4年级）/ 图形与几何 / 图形的认识",
-          "note": ""
+          "note": "→ Angles: acute, right, obtuse, straight; measure with protractor"
         },
         {
           "key": "moe-2022-math:S2.GE.04",
           "code": "S2.GE.04",
           "strand": "第二学段（3~4年级）/ 图形与几何 / 测量",
-          "note": ""
+          "note": "→ Perimeter of plane figures (especially rectangles & squares)"
         },
         {
           "key": "moe-2022-math:S2.GE.05",
           "code": "S2.GE.05",
           "strand": "第二学段（3~4年级）/ 图形与几何 / 测量",
-          "note": ""
+          "note": "→ Area concept; area of rectangles & squares (cm², dm², m²)"
         },
         {
           "key": "moe-2022-math:S2.GE.06",
           "code": "S2.GE.06",
           "strand": "第二学段（3~4年级）/ 图形与几何 / 测量",
-          "note": ""
+          "note": "→ Area unit conversion; perimeter-area distinction; compound figures"
         },
         {
           "key": "moe-2022-math:S2.GE.07",
           "code": "S2.GE.07",
           "strand": "第二学段（3~4年级）/ 图形与几何 / 图形的运动",
-          "note": ""
+          "note": "→ Transformations: translation, rotation, axial (line) symmetry"
         },
         {
           "key": "moe-2022-math:S2.GE.08",
           "code": "S2.GE.08",
           "strand": "第二学段（3~4年级）/ 图形与几何 / 图形的位置",
-          "note": ""
+          "note": "→ Direction & location (eight compass directions; describe routes)"
         },
         {
           "key": "moe-2022-math:S2.SP.01",
           "code": "S2.SP.01",
           "strand": "第二学段（3~4年级）/ 统计与概率 / 数据收集",
-          "note": ""
+          "note": "→ Collect data (surveys, simple experiments; frequency tables)"
         },
         {
           "key": "moe-2022-math:S2.SP.02",
           "code": "S2.SP.02",
           "strand": "第二学段（3~4年级）/ 统计与概率 / 数据整理与表达",
-          "note": ""
+          "note": "→ Organize data in frequency tables & bar charts"
         },
         {
           "key": "moe-2022-math:S2.SP.03",
           "code": "S2.SP.03",
           "strand": "第二学段（3~4年级）/ 统计与概率 / 数据整理与表达",
-          "note": ""
+          "note": "→ Average (mean) of a data set; represent with bar chart"
         },
         {
           "key": "moe-2022-math:S2.SP.04",
           "code": "S2.SP.04",
           "strand": "第二学段（3~4年级）/ 统计与概率 / 数据分析",
-          "note": ""
+          "note": "→ Interpret data: compare categories, draw simple conclusions"
         },
         {
           "key": "moe-2022-math:S2.SP.05",
           "code": "S2.SP.05",
           "strand": "第二学段（3~4年级）/ 统计与概率 / 随机现象",
-          "note": ""
+          "note": "→ Randomness & possibility (certain, possible, impossible)"
         },
         {
           "key": "moe-2022-math:S3.NA.01",
           "code": "S3.NA.01",
           "strand": "第三学段（5~6年级）/ 数与代数 / 数的认识",
-          "note": ""
+          "note": "→ Factors, multiples, primes & composites (number theory basics)"
         },
         {
           "key": "moe-2022-math:S3.NA.02",
           "code": "S3.NA.02",
           "strand": "第三学段（5~6年级）/ 数与代数 / 数的认识",
-          "note": ""
+          "note": "→ Greatest common factor & least common multiple"
         },
         {
           "key": "moe-2022-math:S3.NA.03",
           "code": "S3.NA.03",
           "strand": "第三学段（5~6年级）/ 数与代数 / 数的认识",
-          "note": ""
+          "note": "→ Fractions: meaning, equivalent fractions, simplification & comparison"
         },
         {
           "key": "moe-2022-math:S3.NA.04",
           "code": "S3.NA.04",
           "strand": "第三学段（5~6年级）/ 数与代数 / 数的认识",
-          "note": ""
+          "note": "→ Decimals, fractions & percentages: meaning & conversion"
         },
         {
           "key": "moe-2022-math:S3.NA.05",
           "code": "S3.NA.05",
           "strand": "第三学段（5~6年级）/ 数与代数 / 数的运算",
-          "note": ""
+          "note": "→ Add & subtract fractions (like and unlike denominators)"
         },
         {
           "key": "moe-2022-math:S3.NA.06",
           "code": "S3.NA.06",
           "strand": "第三学段（5~6年级）/ 数与代数 / 数的运算",
-          "note": ""
+          "note": "→ Multiply & divide fractions"
         },
         {
           "key": "moe-2022-math:S3.NA.07",
           "code": "S3.NA.07",
           "strand": "第三学段（5~6年级）/ 数与代数 / 数的运算",
-          "note": ""
+          "note": "→ Four operations with decimals"
         },
         {
           "key": "moe-2022-math:S3.NA.08",
           "code": "S3.NA.08",
           "strand": "第三学段（5~6年级）/ 数与代数 / 数的运算",
-          "note": ""
+          "note": "→ Estimation & flexible computation strategies"
         },
         {
           "key": "moe-2022-math:S3.NA.09",
           "code": "S3.NA.09",
           "strand": "第三学段（5~6年级）/ 数与代数 / 数量关系",
-          "note": ""
+          "note": "→ Ratio: meaning, simplification & basic ratio relations"
         },
         {
           "key": "moe-2022-math:S3.NA.10",
           "code": "S3.NA.10",
           "strand": "第三学段（5~6年级）/ 数与代数 / 数量关系",
-          "note": ""
+          "note": "→ Direct & inverse proportion; scale"
         },
         {
           "key": "moe-2022-math:S3.NA.11",
           "code": "S3.NA.11",
           "strand": "第三学段（5~6年级）/ 数与代数 / 数量关系",
-          "note": ""
+          "note": "→ Equations & variables (represent unknowns, solve linear equations)"
         },
         {
           "key": "moe-2022-math:S3.NA.12",
           "code": "S3.NA.12",
           "strand": "第三学段（5~6年级）/ 数与代数 / 探索规律",
-          "note": ""
+          "note": "→ Patterns & generalization (numeric & geometric sequences)"
         },
         {
           "key": "moe-2022-math:S3.GE.01",
           "code": "S3.GE.01",
           "strand": "第三学段（5~6年级）/ 图形与几何 / 图形的认识",
-          "note": ""
+          "note": "→ Circle: center, radius, diameter, arc & central angle"
         },
         {
           "key": "moe-2022-math:S3.GE.02",
           "code": "S3.GE.02",
           "strand": "第三学段（5~6年级）/ 图形与几何 / 图形的认识",
-          "note": ""
+          "note": "→ Sectors; composite plane figures; classify & decompose"
         },
         {
           "key": "moe-2022-math:S3.GE.03",
           "code": "S3.GE.03",
           "strand": "第三学段（5~6年级）/ 图形与几何 / 图形的认识",
-          "note": ""
+          "note": "→ Prisms & cubes (and cylinders): faces, edges, vertices, nets"
         },
         {
           "key": "moe-2022-math:S3.GE.04",
           "code": "S3.GE.04",
           "strand": "第三学段（5~6年级）/ 图形与几何 / 测量",
-          "note": ""
+          "note": "→ Circumference of circle (π); perimeter of curved figures"
         },
         {
           "key": "moe-2022-math:S3.GE.05",
           "code": "S3.GE.05",
           "strand": "第三学段（5~6年级）/ 图形与几何 / 测量",
-          "note": ""
+          "note": "→ Area of circle, sector & composite figures"
         },
         {
           "key": "moe-2022-math:S3.GE.06",
           "code": "S3.GE.06",
           "strand": "第三学段（5~6年级）/ 图形与几何 / 测量",
-          "note": ""
+          "note": "→ Surface area & volume of prisms, cubes & cylinders"
         },
         {
           "key": "moe-2022-math:S3.GE.07",
           "code": "S3.GE.07",
           "strand": "第三学段（5~6年级）/ 图形与几何 / 图形的运动",
-          "note": ""
+          "note": "→ Enlargement & reduction of figures; scale drawings"
         },
         {
           "key": "moe-2022-math:S3.GE.08",
           "code": "S3.GE.08",
           "strand": "第三学段（5~6年级）/ 图形与几何 / 图形的位置",
-          "note": ""
+          "note": "→ Location on a grid (number pairs; coordinate-style positions)"
         },
         {
           "key": "moe-2022-math:S3.SP.01",
           "code": "S3.SP.01",
           "strand": "第三学段（5~6年级）/ 统计与概率 / 数据收集",
-          "note": ""
+          "note": "→ Design surveys & collect representative data"
         },
         {
           "key": "moe-2022-math:S3.SP.02",
           "code": "S3.SP.02",
           "strand": "第三学段（5~6年级）/ 统计与概率 / 数据整理与表达",
-          "note": ""
+          "note": "→ Statistical charts: bar charts & broken-line (line) graphs"
         },
         {
           "key": "moe-2022-math:S3.SP.03",
           "code": "S3.SP.03",
           "strand": "第三学段（5~6年级）/ 统计与概率 / 数据整理与表达",
-          "note": ""
+          "note": "→ Sector (pie) charts; choose appropriate chart type"
         },
         {
           "key": "moe-2022-math:S3.SP.04",
           "code": "S3.SP.04",
           "strand": "第三学段（5~6年级）/ 统计与概率 / 数据分析",
-          "note": ""
+          "note": "→ Average, median & mode; interpret & compare data sets"
         },
         {
           "key": "moe-2022-math:S3.SP.05",
           "code": "S3.SP.05",
           "strand": "第三学段（5~6年级）/ 统计与概率 / 随机现象",
-          "note": ""
+          "note": "→ Probability of simple events (qualitative & quantitative size)"
         },
         {
           "key": "moe-2022-math:S3.SP.06",
           "code": "S3.SP.06",
           "strand": "第三学段（5~6年级）/ 统计与概率 / 随机现象",
-          "note": ""
+          "note": "→ Fairness & equally likely outcomes; expected frequency"
         }
       ]
     },

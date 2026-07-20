@@ -1,0 +1,36 @@
+Beijing Skill Taxonomy (zh-CN)
+Third-party notices and attribution
+
+1. Marble Skill Taxonomy
+
+This project is derived from Marble Skill Taxonomy v1.
+Copyright © Generative Spark, Inc. (Marble).
+https://withmarble.com
+https://github.com/withmarbleapp/os-taxonomy
+
+The upstream database is available under ODbL 1.0. Marble-authored textual
+content is available under CC BY-SA 4.0. This project translates and adapts
+that material under the same respective licenses.
+
+2. Chinese curriculum references
+
+Curriculum source names refer to publications of the Ministry of Education of
+the People's Republic of China. This repository publishes project-defined
+mapping identifiers and classification labels, not the curriculum standards'
+verbatim requirements or achievement-level prose. Upstream rights are not
+relicensed by this project.
+
+3. Textbook-derived metadata
+
+Local textbook source files were obtained through the public ChinaTextbook
+repository:
+https://github.com/TapXWorld/ChinaTextbook
+
+The released Git repository does not contain those textbook PDFs or converted
+Markdown files. `data/cn-topics.json` nevertheless contains textbook-derived
+knowledge-topic metadata, including 209 records classified as specific reading
+texts; some retain work titles and author attributions. Those third-party facts
+and any underlying rights are excluded from this project's CC BY-SA grant.
+No publisher, author, Ministry, Marble, or ChinaTextbook endorsement is implied.
+
+See PROVENANCE.md and LICENSES.md for the complete scope boundaries.

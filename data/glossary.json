@@ -1,6 +1,6 @@
 {
   "note": "学科术语对照表。翻译 API 结果后做后处理替换，保证跨条目一致性。增删条目不影响 validate。",
-  "version": "1.0.0",
+  "version": "1.2.0-zh.0",
   "terms": {
     "Addition": "加法",
     "Subtraction": "减法",

@@ -3,11 +3,11 @@
   "datasetZh": "北京版技能分类（中文）",
   "parentDataset": "Marble Skill Taxonomy",
   "parentUrl": "https://github.com/withmarbleapp/os-taxonomy",
-  "taxonomyVersion": "v1-zh",
+  "taxonomyVersion": "1.2.0-zh.0",
   "upstreamVersion": "v1",
   "locale": "zh-CN",
   "generatedAt": "2026-07-20T00:00:00.000Z",
-  "status": "v1.2-zh.0: DAG + review gate + nodeKind/centrality + stage bridges + C1a math alignment (335/446 aligned incl Mathematical Thinking, 109 low excluded)",
+  "status": "1.2.0-zh.0: DAG + review gate + nodeKind/centrality + stage bridges + C1a math alignment (335/446 aligned incl Mathematical Thinking, 109 low excluded)",
   "counts": {
     "topicsZh": 1590,
     "cnTopics": 1640,
@@ -29,43 +29,43 @@
   "files": {
     "topics.zh.json": {
       "bytes": 1261708,
-      "sha256": "680613a4e582932751a371c2d1b73b2175bc4c0f6bf431234820b0ad08286312"
+      "sha256": "2c74a9ade215251bc5b423410b8ae545e4a97f41c0fb2e656d274220127ceb26"
     },
     "dependencies.zh.json": {
       "bytes": 645547,
-      "sha256": "46aa6e0af8eae4293a4e900250942d7023fe7a9bc69b79eb16306cb2fb7d6c2d"
+      "sha256": "f0ac0eddcd44ed409162b2bab1103f0d89ec0eb8c1153861dc781b1289a0d341"
     },
     "clusters.zh.json": {
       "bytes": 1359,
-      "sha256": "e8fcd72b6cf5451368a790a764694b9a8c0e0390394efc15aa0d282577fcc76f"
+      "sha256": "35e4e663927c487f4e942c24744b992b5aa9dcf357645fa8efa5b1d9d4ebf6ee"
     },
     "cn-curriculum-standards.json": {
       "bytes": 274900,
       "sha256": "c929a8e4068a796c216c3118a5616b7432ef7861f6a8c4c3f98c81e3a21f44d3"
     },
     "dimensions.json": {
-      "bytes": 7011,
-      "sha256": "8ea74fce874d5a61bef60219382c87136804d084bd6455fc0e4425068242438e"
+      "bytes": 7016,
+      "sha256": "138d492cdafcce012a5c12e6b8ae04f279f0d8687ea179b9e14126a4aaba22cb"
     },
     "domains.zh.json": {
-      "bytes": 11904,
-      "sha256": "74a0e815ac53fac471b6dc5ad567207e484c79a708a67656d20793b87485d904"
+      "bytes": 11909,
+      "sha256": "bea9cef7a82dc36e088e7412a556be34bfcfc8aab8574df31f3274af5fbf9721"
     },
     "cn-topics.json": {
-      "bytes": 1437951,
-      "sha256": "0c8ec332a66eea9d78fee4f99d6ad215bc4aec42ff138476fb6b14c67fa28650"
+      "bytes": 1437953,
+      "sha256": "f3f2a867c8248eb100986f9c4dd0ef1bad7394e424aeb95c3ae0b46711e167c9"
     },
     "terminology.json": {
-      "bytes": 4001,
-      "sha256": "cc17350162ad533794ebe880a59ad398ae6ed08af7da4759598cbaa8db0bcf54"
+      "bytes": 4006,
+      "sha256": "2c631de7157436f5c732b6ed4fa83447c52fe4e00a7ac6ef0278ed19cdc3c2a8"
     },
     "cn-dependencies.json": {
       "bytes": 510155,
-      "sha256": "e109ad8b25dc25fe39ec9da4f96c8ea62bbd78785e6a96c54bdabe52200c53ae"
+      "sha256": "81b602a2c3b1140436717a1811bee34356ce8fdbb5e472b558d63cb635562978"
     },
     "cn-bridge-dependencies.json": {
       "bytes": 10886,
-      "sha256": "43373cd8f97e4b966d7984eb899f3c33b1870583e29ac5bcfba8d09968fb090e"
+      "sha256": "38019fda24bb746f6e28dd9c83e9dd097df79fc2de599a4276e84c258e207eb3"
     }
   },
   "excluded": [

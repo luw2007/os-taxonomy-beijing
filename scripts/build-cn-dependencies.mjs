@@ -216,7 +216,7 @@ function stageLabel(stage) {
 // ========== 输出 ==========
 const depArray = [...deps.values()];
 const output = {
-  version: '1.0.0-zh.0',
+  version: '1.2.0-zh.0',
   upstreamVersion: 'v1',
   locale: 'zh-CN',
   edgeCount: depArray.length,

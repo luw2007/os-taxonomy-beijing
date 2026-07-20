@@ -2,10 +2,12 @@
 
 本项目是 [Marble Skill Taxonomy](https://github.com/withmarbleapp/os-taxonomy) 的中文衍生项目。
 
-中文翻译的教学点文本、中文领域摘要，以及任何由本项目作者原创的内容，
+中文翻译的 Marble 教学点文本、中文领域摘要，以及本项目作者有权许可的原创内容，
 均在 CC BY-SA 4.0 下发布（见 [LICENSE-CONTENT](LICENSE-CONTENT)）。
 中文版数据库（集合结构、ID、topic↔topic 和 topic↔standard 关系）在 ODbL 1.0 下
-发布（见 [LICENSE](LICENSE)）。
+发布（见 [LICENSE](LICENSE)）。项目代码在 MIT 下发布（见 [LICENSE-CODE](LICENSE-CODE)）。
+各路径和材料类型的准确许可边界见 [LICENSES.md](LICENSES.md)，第三方署名见
+[NOTICE](NOTICE)。
 
 **`data/cn-curriculum-standards.json` 是特殊的。** 这些标准来源于中国教育部的
 《义务教育课程方案和课程标准（2022 年版）》，本项目**不拥有、也不能再授权**其原文。
@@ -57,20 +59,19 @@
 来源：[ChinaTextbook](https://github.com/TapXWorld/ChinaTextbook) 提供的
 北京海淀各版本教材 PDF（人教/部编/北师大/中图/鲁科/教科等）。
 
-- **性质**：`cn-topics.json` 中 `origin: textbook` 的微主题，其知识结构
+- **性质**：`cn-topics.json` 当前包含 809 条 `origin: textbook` 微主题，其知识结构
   （章节标题、教学单元划分）参考了教材目录体系，以填充上游 Marble 未覆盖的
-  中国特有学科（语文、道法、历史等）和初高中进阶内容。
-- **出版社版权说明**：教材本身是各出版社的版权出版物。本项目**不收录教材原文**
-  （PDF 及其 Markdown 转换产物仅作为本地 source，不纳入版本库）。公开发布的
-  `cn-topics.json` 中：
-  - `description` / `evidence` / `assessmentPrompt` 均为本项目作者原创的
-    模板化教学描述，非教材原文。
-  - `name` 字段仅保留知识点名称（如"运动的描述""长度和时间的测量"），
-    **已清除**教材特有的课文标题+作者署名（如"春/ 朱自清"）及出版社路径信息
-    （`textbookSource` / `textbookPath` / `textbookGrade` 字段）。
-  - 知识点名称属于教学事实（非创造性表达），以 CC BY-SA 4.0 发布。
-- **教材 PDF/MD**：不纳入版本库（见 `.gitignore` 中 `北京/` 和 `北京-md/`），
-  仅供本地知识图谱构建参考。
+  中国特有学科和初高中进阶内容。
+- **公开范围**：教材 PDF、Markdown 转换产物、出版社路径和年级路径不纳入版本库；
+  `textbookSource` / `textbookPath` / `textbookGrade` 字段也未发布。
+- **具体阅读文本**：809 条教材来源节点中有 209 条 `nodeKind: text` 记录，保留了
+  教材目录中的作品标题，部分描述同时保留作者署名；相关依赖理由也可能引用这些标题。
+  项目不再声称这些元数据已被清除。
+- **许可边界**：本项目自拟的模板化 `description` / `evidence` / `assessmentPrompt`
+  不复制教材正文；但作品标题、作者署名、教材目录选择与编排所涉及的第三方权利不由
+  本项目再许可，明确排除于本项目的 CC BY-SA 授权。权利仍归各作者、出版社或其他
+  权利人所有。
+- **本地来源**：教材 PDF/MD 仅供本地知识图谱构建参考，不纳入 Git 发布物。
 
 ---
 
@@ -96,10 +97,10 @@
 
 任何使用本项目的方式必须同时署名两个来源：
 
-> Beijing Skill Taxonomy (zh-CN, v1-zh) · 衍生自 Marble Skill Taxonomy (v1)，
+> Beijing Skill Taxonomy (zh-CN, v1.2.0-zh.0) · 衍生自 Marble Skill Taxonomy (v1)，
 > © Generative Spark, Inc. (Marble) · https://withmarble.com ·
-> 数据库 ODbL 1.0，文本 CC BY-SA 4.0。
+> 数据库 ODbL 1.0，项目有权许可的文本 CC BY-SA 4.0，代码 MIT。
 > 课程标准编号来源于中华人民共和国教育部《义务教育课程方案和课程标准
-> （2022 年版）》。
+> （2022 年版）》；教材来源元数据的第三方权利不由本项目再许可。
 
 正式引用格式见 [CITATION.cff](CITATION.cff)。

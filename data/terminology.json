@@ -1,6 +1,6 @@
 {
   "note": "中文数学/科学术语命名规范表（单一事实源）。\n- scripts/translate.mjs 后处理读 en→good 防止重译复发；\n- scripts/term-lint.mjs 读 bad[]→good 扫描已落地译文发现错译；\n- good 名来源：Wikidata enwiki→zh 标题（见 qid）+ 中国教材用名人工复核；\n- status=confirmed 经 Wikidata 与教材双重确认；status=review 为 Wikidata 未直接命中或教材用名待核，需人工评审后改 confirmed。\n增删条目不影响 validate。",
-  "version": "1.0.0",
+  "version": "1.2.0-zh.0",
   "source": "Wikidata enwiki langlinks + 中国教材用名人工复核",
   "terms": [
     {

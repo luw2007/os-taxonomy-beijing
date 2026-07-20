@@ -1,9 +1,9 @@
 {
-  "version": "1.0.0-zh.0",
+  "version": "1.2.0-zh.0",
   "upstreamVersion": "1.0.0",
   "locale": "zh-CN",
   "topicCount": 1640,
-  "originNote": "中国特有微主题（mtc_ 前缀）。已按原子粒度拆解——每条覆盖一个可独立评估的微技能。来源：课标自建(cn_only/progression/upstream_adapt) + 课本目录(textbook)。严守 codes-only 原则。 | 含「和/与」的复合微主题已按微技能粒度拆分（A类拆分/B类保留/C类课文标题剔除）。",
+  "originNote": "中国特有微主题（mtc_ 前缀）。已按原子粒度拆解——每条覆盖一个可独立评估的微技能。来源：课标自建(cn_only/progression/upstream_adapt) + 课本目录(textbook)。严守 codes-only 原则。教材来源节点包含具体阅读文本元数据，第三方权利不由本项目再许可；详见 PROVENANCE.md。",
   "topics": [
     {
       "id": "mtc_001",

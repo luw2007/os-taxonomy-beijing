@@ -4,7 +4,7 @@
 把面向英语世界小学生的"学习图谱"翻译为中文，并对齐**中国教育部《义务教育课程方案和
 课程标准（2022 年版）》**，优先覆盖**北京小学**阶段。
 
-> **状态：** `v1.1` · 已翻译微主题：1,590 / 1,590（100%）· 中国特有微主题：1,640 · 上游依赖：3,221 / 3,221（100%）· 中国特有依赖：2,254（DAG 已破环）· 审核覆盖率：56.7%（1,278 reviewed / 976 machine）
+> **状态：** `v1.2.0-zh.0` · 已翻译微主题：1,590 / 1,590（100%）· 中国特有微主题：1,640 · 上游依赖：3,221 / 3,221（100%）· 中国特有依赖：2,262（DAG 已破环）· 审核覆盖率：56.9%（1,286 reviewed / 976 machine）
 
 ## 这是什么
 
@@ -121,7 +121,7 @@ node scripts/checksum.mjs
 ```bash
 node scripts/snapshot.mjs --label pre-v1.2   # 快照当前数据
 node scripts/snapshot.mjs --list             # 列出所有快照
-node scripts/snapshot.mjs --diff data/.snapshots/20260720-121037-pre-v1.1  # 对比差异
+node scripts/snapshot.mjs --diff data/.snapshots/20260720-121037-pre-v1.2  # 对比差异
 ```
 
 快照存在 `data/.snapshots/`（gitignore，不入版本库）。配合 `git tag data-snapshot-xxx` 做双重保护。
@@ -196,27 +196,29 @@ node scripts/serve.mjs --port 8080 --upstream /path/to/os-taxonomy
 
 ## 许可证
 
-本项目是 [Marble Skill Taxonomy](https://github.com/withmarbleapp/os-taxonomy)
-（© Generative Spark, Inc.）的衍生作品，**继承其双层许可证**：
+本项目按材料类型分层许可，完整的逐路径边界见 [LICENSES.md](LICENSES.md)，
+第三方署名与权利保留见 [NOTICE](NOTICE)：
 
 | 层 | 内容 | 许可证 |
 |---|---|---|
+| **代码** | `scripts/`、`viewer/`、schema 与构建文件 | [**MIT**](LICENSE-CODE) |
 | **数据库** | 集合结构、ID、关系 | [**ODbL 1.0**](LICENSE) — share-alike，商用友好 |
-| **文本** | 中英文教学点、描述、评估话术 | [**CC BY-SA 4.0**](LICENSE-CONTENT) — 署名 + share-alike |
-| **中国课标编号** | 教育部 2022 版课标条目编号 | 各自上游许可证，**codes-only** |
-| **教材衍生微主题** | 参考教材目录结构的知识点名称 | **CC BY-SA 4.0**（仅知识点名称，不含教材原文） |
+| **文本** | Marble 中文译文及本项目有权许可的原创文本 | [**CC BY-SA 4.0**](LICENSE-CONTENT) — 署名 + share-alike |
+| **中国课标编号** | 项目自建映射键，不含课标原文 | 上游权利不由本项目再许可 |
+| **教材来源元数据** | 809 个教材来源节点，含 209 个具体阅读文本节点 | 作品标题、作者署名及教材编排的第三方权利不由本项目再许可 |
 
-**关于中国课标**：本项目只收录课标条目的编号/映射键，**不收录课标原文条款**。
-详见 [PROVENANCE.md](PROVENANCE.md)。
+本项目不发布教育部课标原文、教材 PDF 或 Markdown 转换产物。详见
+[PROVENANCE.md](PROVENANCE.md)。
 
 ### 署名
 
-使用本项目必须同时署名上游和课标来源：
+使用上游 Marble 数据和文本时必须保留以下署名：
 
-> Beijing Skill Taxonomy (zh-CN, v1-zh) · 衍生自 Marble Skill Taxonomy (v1)，
+> Beijing Skill Taxonomy (zh-CN, v1.2.0-zh.0) · 衍生自 Marble Skill Taxonomy (v1)，
 > © Generative Spark, Inc. (Marble) · https://withmarble.com ·
-> ODbL 1.0（数据库）+ CC BY-SA 4.0（文本）。
-> 课程标准编号来源于教育部《义务教育课程方案和课程标准（2022年版）》。
+> 数据库 ODbL 1.0，项目有权许可的文本 CC BY-SA 4.0，代码 MIT。
+> 课程标准编号来源于教育部《义务教育课程方案和课程标准（2022年版）》；
+> 教材来源元数据的第三方权利不由本项目再许可。
 
 ## Roadmap
 
@@ -224,12 +226,12 @@ node scripts/serve.mjs --port 8080 --upstream /path/to/os-taxonomy
 - [x] 数学 + 科学示例数据
 - [x] **全部翻译**（1,590 微主题 + 3,221 依赖说明，Google API 机翻）
 - [x] 本地知识浏览器（零依赖 Web 服务）
-- [x] **课标对齐**（17 套教育部 2022 版课标，1,356 条 codes-only 映射）
+- [x] **课标对齐**（17 套教育部课程标准，1,423 条 codes-only 映射）
 - [x] **中国特有微主题**（1,640 个 `mtc_` 主题，覆盖语文/道法/物理/化学/生物/历史/地理/政治/通用技术等）
-- [x] **中国特有依赖图重建**（LLM 逐桶语义建图 + 规则边，2,543 条，密度 1.55）
-- [x] **v1.1：DAG 完整性修复**（全局 SCC 破环，删 283 条反平行/成环边，密度 1.377，0 环；`validate --dag` 断言）
-- [x] **v1.1：审核闸门**（每条边加 `reviewStatus`；规则边 `reviewed` 1,278 条 / LLM 边 `machine` 976 条；viewer 默认只展示已审核边，未审核边降级为"AI 推测·未核对"）
-- [ ] **人工校对**（`machine` → `reviewed`，优先数学/科学低龄段，当前覆盖率 56.7%）
+- [x] **中国特有依赖图重建**（LLM 逐桶语义建图 + 规则边，当前 2,262 条）
+- [x] **v1.2：DAG 完整性修复**（全局 SCC 破环，0 含环 SCC；`validate --dag` 断言）
+- [x] **v1.2：审核闸门**（每条边加 `reviewStatus`；规则边 `reviewed` 1,286 条 / LLM 边 `machine` 976 条；viewer 默认只展示已审核边，未审核边降级为“AI 推测·未核对”）
+- [ ] **人工校对**（`machine` → `reviewed`，优先数学/科学低龄段，当前覆盖率 56.9%）
 - [ ] 领域聚类（clusters.zh.json）翻译
 - [ ] bridge 依赖扩展（mt_↔mtc_ 跨图桥接，当前 47 条）
 

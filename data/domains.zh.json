@@ -1,6 +1,6 @@
 {
   "note": "学科领域中文翻译映射。键格式为 'Subject / Domain'，值为 { domainZh, subjectZh }。serve.mjs 合并上游数据时自动应用。",
-  "version": "1.0.0",
+  "version": "1.2.0-zh.0",
   "subjects": {
     "Computing": "计算机",
     "English": "英语",

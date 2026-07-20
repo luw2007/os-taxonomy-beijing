@@ -4,7 +4,7 @@
 把面向英语世界小学生的"学习图谱"翻译为中文，并对齐**中国教育部《义务教育课程方案和
 课程标准（2022 年版）》**，优先覆盖**北京小学**阶段。
 
-> **状态：** `translated` · 已翻译微主题：1,590 / 1,590（100%）· 中国特有微主题：1,640 · 上游依赖：3,221 / 3,221（100%）· 中国特有依赖：2,543（LLM 重建）
+> **状态：** `v1.1` · 已翻译微主题：1,590 / 1,590（100%）· 中国特有微主题：1,640 · 上游依赖：3,221 / 3,221（100%）· 中国特有依赖：2,254（DAG 已破环）· 审核覆盖率：56.7%（1,278 reviewed / 976 machine）
 
 ## 这是什么
 
@@ -42,6 +42,8 @@
 | [`data/topics.zh.json`](data/topics.zh.json) | 微主题中文翻译（图**节点**）。复用上游 mt_ ID。 |
 | [`data/cn-topics.json`](data/cn-topics.json) | 中国特有微主题（语文/道法/历史等）。ID 用 mtc_ 前缀。 |
 | [`data/dependencies.zh.json`](data/dependencies.zh.json) | 前置依赖的中文说明（图**边**）。 |
+| [`data/cn-dependencies.json`](data/cn-dependencies.json) | 中国特有微主题之间的依赖 DAG（**已破环**）。每条边带 `reviewStatus`：`reviewed`=已审核（默认展示）/`machine`=AI 推测未审核（降级显示）/`rejected`=已拒绝（隐藏）。 |
+| [`data/cn-bridge-dependencies.json`](data/cn-bridge-dependencies.json) | 上游 mt_ 与中国 mtc_ 跨图桥接依赖。 |
 | [`data/clusters.zh.json`](data/clusters.zh.json) | 领域聚类摘要（面向中国家长）。 |
 | [`data/cn-curriculum-standards.json`](data/cn-curriculum-standards.json) | 中国教育部课标条目编号（**codes-only**，不含原文）。 |
 | [`data/manifest.json`](data/manifest.json) | 计数 + SHA-256 校验和。 |
@@ -111,6 +113,18 @@ node scripts/sync-upstream.mjs --subject Science
 ```bash
 node scripts/checksum.mjs
 ```
+
+### 数据快照
+
+修改核心数据文件前，建议先快照备份（作为回滚点）：
+
+```bash
+node scripts/snapshot.mjs --label pre-v1.2   # 快照当前数据
+node scripts/snapshot.mjs --list             # 列出所有快照
+node scripts/snapshot.mjs --diff data/.snapshots/20260720-121037-pre-v1.1  # 对比差异
+```
+
+快照存在 `data/.snapshots/`（gitignore，不入版本库）。配合 `git tag data-snapshot-xxx` 做双重保护。
 
 ### 翻译流水线
 
@@ -213,7 +227,9 @@ node scripts/serve.mjs --port 8080 --upstream /path/to/os-taxonomy
 - [x] **课标对齐**（17 套教育部 2022 版课标，1,356 条 codes-only 映射）
 - [x] **中国特有微主题**（1,640 个 `mtc_` 主题，覆盖语文/道法/物理/化学/生物/历史/地理/政治/通用技术等）
 - [x] **中国特有依赖图重建**（LLM 逐桶语义建图 + 规则边，2,543 条，密度 1.55）
-- [ ] **人工校对**（`machine` → `reviewed`，优先数学/科学低龄段）
+- [x] **v1.1：DAG 完整性修复**（全局 SCC 破环，删 283 条反平行/成环边，密度 1.377，0 环；`validate --dag` 断言）
+- [x] **v1.1：审核闸门**（每条边加 `reviewStatus`；规则边 `reviewed` 1,278 条 / LLM 边 `machine` 976 条；viewer 默认只展示已审核边，未审核边降级为"AI 推测·未核对"）
+- [ ] **人工校对**（`machine` → `reviewed`，优先数学/科学低龄段，当前覆盖率 56.7%）
 - [ ] 领域聚类（clusters.zh.json）翻译
 - [ ] bridge 依赖扩展（mt_↔mtc_ 跨图桥接，当前 47 条）
 

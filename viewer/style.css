@@ -135,6 +135,55 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC"
 .dep-link.dim-hidden .dep-name { text-decoration: line-through; text-decoration-color: var(--text-muted); }
 .dim-hidden-tag { font-size: 10px; color: var(--orange); border: 1px solid var(--orange); border-radius: 3px; padding: 0 4px; margin-left: 6px; white-space: nowrap; }
 
+/* === 审核闸门: AI 推测(未审核)关联的降级样式 === */
+/* 强度标签: reviewed 边保持原 .hard/.soft 配色;machine 边统一灰色 + 虚线 */
+.dep-strength.unverified {
+  background: #9ca3af;
+  color: #fff;
+  border: 1px dashed rgba(0, 0, 0, 0.25);
+  font-size: 10px;
+  cursor: help;
+}
+/* 整条 machine 链接卡片降级: 半透明 + 虚线左边框,与 reviewed 边明显区分 */
+.dep-link.machine {
+  opacity: 0.7;
+  border-left: 3px dashed #9ca3af;
+  border-style: dashed;
+}
+.dep-link.machine:hover { opacity: 1; }
+
+/* "仅显示已审核关联" toggle */
+.review-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  margin-bottom: 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--text-light);
+  cursor: pointer;
+  user-select: none;
+}
+.review-toggle input { cursor: pointer; margin: 0; }
+.review-toggle span { line-height: 1.4; }
+.review-toggle-hint {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+/* 空态提示 */
+.dep-empty { color: var(--text-muted); font-size: 13px; padding: 4px 0; }
+.dep-empty-toggle {
+  color: var(--accent);
+  cursor: pointer;
+  margin-left: 6px;
+  text-decoration: underline dashed;
+}
+
 /* === 课本目录对比 === */
 .tag-missing { background: var(--primary-light); color: var(--primary); }
 .tag-covered { background: var(--green-light); color: var(--green); }

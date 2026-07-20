@@ -28,3 +28,6 @@ data/.llm-deps-work/
 # 备份文件
 *.bak
 
+
+# 数据快照（本地保护，不入版本库）
+data/.snapshots/

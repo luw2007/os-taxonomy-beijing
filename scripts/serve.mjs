@@ -208,6 +208,30 @@ if (cnBridgeDeps) {
   mergedDeps.push(...cnBridgeDeps.dependencies);
 }
 
+// --- 审核状态(reviewStatus)规范化 -----------------------------------------
+// 三态: machine(LLM/规则产出,未人工审核) / reviewed(人工通过) / rejected(人工拒绝)
+// 字段缺失(老数据)按 machine 处理。rejected 永不返回给前端。
+const REVIEW_DEFAULT = 'machine';
+const reviewStatus = (d) => (d && (d.reviewStatus === 'machine' || d.reviewStatus === 'reviewed' || d.reviewStatus === 'rejected'))
+  ? d.reviewStatus
+  : REVIEW_DEFAULT;
+
+// 审核覆盖率统计(用于启动日志)
+const reviewCounts = { reviewed: 0, machine: 0, rejected: 0 };
+for (const d of mergedDeps) reviewCounts[reviewStatus(d)]++;
+
+// 按审核状态过滤依赖:
+//   review === 'all'      → 返回所有非 rejected 边(reviewed + machine)
+//   其他(默认/缺省/'reviewed') → 只返回 reviewed
+// rejected 在任何模式下都不返回。
+function filterDepsByReview(deps, reviewParam) {
+  if (reviewParam === 'all') return deps.filter(d => reviewStatus(d) !== 'rejected');
+  return deps.filter(d => reviewStatus(d) === 'reviewed');
+}
+
+// 把单条依赖规范化为对外 API 的形态(带 reviewStatus,缺失补 machine)
+const withReviewStatus = (d) => ({ ...d, reviewStatus: reviewStatus(d) });
+
 // 合并 cluster（中文 summary 优先）
 const zhClusterMap = new Map();
 for (const c of zhClusters.clusters) {
@@ -368,12 +392,15 @@ function apiResponse(pathname, search) {
   }
 
   // GET /api/topic/:id — 单个 topic 详情 + 依赖关系(详情页本身不过滤,可查看任意 topic)
+  //   ?review=all       返回所有非 rejected 边(含 machine)
+  //   其他(默认)        只返回 reviewed(rejected 永不返回)
   const topicMatch = pathname.match(/^\/api\/topic\/(.+)$/);
   if (topicMatch) {
     const id = decodeURIComponent(topicMatch[1]);
     const topic = mergedTopics.find(t => t.id === id);
     if (!topic) return { error: 'topic not found', id };
 
+    const reviewParam = params.get('review'); // 'all' 看全部非 rejected,缺省只看 reviewed
     const dimCfg = dimensionsConfig.dimensions[dimension];
     // 关联 topic 标注当前维度可见性
     const annotate = (t) => t ? {
@@ -381,14 +408,16 @@ function apiResponse(pathname, search) {
       dimensionVisible: dimCfg ? isTopicVisibleInDimension(t, dimCfg) : true,
     } : null;
 
-    // 找该 topic 的前置依赖和被依赖
-    const prerequisites = mergedDeps
-      .filter(d => d.topicId === id)
-      .map(d => ({ ...d, prerequisiteTopic: annotate(mergedTopics.find(t => t.id === d.prerequisiteId)) }));
+    // 找该 topic 的前置依赖和被依赖(按 review 过滤,带 reviewStatus,rejected 永不返回)
+    const prerequisites = filterDepsByReview(
+      mergedDeps.filter(d => d.topicId === id),
+      reviewParam
+    ).map(d => withReviewStatus({ ...d, prerequisiteTopic: annotate(mergedTopics.find(t => t.id === d.prerequisiteId)) }));
 
-    const dependents = mergedDeps
-      .filter(d => d.prerequisiteId === id)
-      .map(d => ({ ...d, dependentTopic: annotate(mergedTopics.find(t => t.id === d.topicId)) }));
+    const dependents = filterDepsByReview(
+      mergedDeps.filter(d => d.prerequisiteId === id),
+      reviewParam
+    ).map(d => withReviewStatus({ ...d, dependentTopic: annotate(mergedTopics.find(t => t.id === d.topicId)) }));
 
     // 课标详情
     const standards = (topic.cnStandards ?? []).map(key => {
@@ -439,7 +468,10 @@ function apiResponse(pathname, search) {
   }
 
   // GET /api/graph — 3D 力导向图数据（nodes + links）
+  //   ?review=all  返回所有非 rejected 边(含 machine);默认只返回 reviewed。
+  //   rejected 永不返回。每条 link 带 reviewStatus(缺失补 machine)。
   if (pathname === '/api/graph') {
+    const reviewParam = params.get('review');
     const nodeById = new Map();
     for (const t of mergedTopics) {
       nodeById.set(t.id, {
@@ -455,13 +487,15 @@ function apiResponse(pathname, search) {
       });
     }
     const nodes = [...nodeById.values()];
-    const links = mergedDeps
-      .filter(d => nodeById.has(d.topicId) && nodeById.has(d.prerequisiteId))
-      .map(d => ({
-        source: d.prerequisiteId,
-        target: d.topicId,
-        strength: d.strength,
-      }));
+    const links = filterDepsByReview(
+      mergedDeps.filter(d => nodeById.has(d.topicId) && nodeById.has(d.prerequisiteId)),
+      reviewParam
+    ).map(d => ({
+      source: d.prerequisiteId,
+      target: d.topicId,
+      strength: d.strength,
+      reviewStatus: reviewStatus(d),
+    }));
     return {
       nodes,
       links,
@@ -566,6 +600,7 @@ server.listen(port, () => {
   console.log(`  ▸ 知识总量:    ${mergedTopics.length} 个微主题`);
   console.log(`  ▸ 已翻译:      ${translatedCount} 个`);
   console.log(`  ▸ 依赖关系:    ${mergedDeps.length} 条`);
+  console.log(`  ▸ 审核覆盖率:  reviewed ${reviewCounts.reviewed} / machine ${reviewCounts.machine} / rejected ${reviewCounts.rejected}`);
   console.log(`  ▸ 领域聚类:    ${mergedClusters.length} 个`);
   console.log(`  ▸ 中国课标:    ${cnStandards.curricula.length} 套`);
   console.log(`  ▸ 维度切换:    ${Object.values(dimensionsConfig.dimensions).map(d => d.label).join(' / ')}（默认 ${dimensionsConfig.dimensions[dimensionsConfig.defaultDimension]?.label}）`);

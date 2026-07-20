@@ -10,9 +10,12 @@
  *   5. dependencies.zh.json 的每个 topicId/prerequisiteId 存在于上游
  *   6. 课标文件的 codes-only 不变量（textIncluded 必须为 false，无 data 字段）
  *   7. manifest.json 的 SHA-256 校验和
+ *   8. cn-dependencies 的 DAG 不变量（无环）—— 默认开启，硬约束
+ *   9. cn-dependencies 的 reviewStatus 字段合法性 + 覆盖率报告
  *
- *   node scripts/validate.mjs [--upstream <path>]
+ *   node scripts/validate.mjs [--upstream <path>] [--no-dag]
  *     --upstream  上游 os-taxonomy 仓库的路径（默认 ../os-taxonomy）
+ *     --no-dag    跳过 DAG 断言（仅紧急情况，正常不应使用）
  */
 
 import { createHash } from 'node:crypto';
@@ -23,10 +26,11 @@ import { fileURLToPath } from 'node:url';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = resolve(ROOT, 'data');
 
-// --- 解析 --upstream 参数 -------------------------------------------------
+// --- 解析 --upstream / --no-dag 参数 -------------------------------------
 let upstreamPath = resolve(ROOT, '..', 'os-taxonomy');
 const upIdx = process.argv.indexOf('--upstream');
 if (upIdx !== -1 && process.argv[upIdx + 1]) upstreamPath = process.argv[upIdx + 1];
+const skipDag = process.argv.includes('--no-dag');
 
 const UPSTREAM_DATA = resolve(upstreamPath, 'data');
 const hasUpstream = existsSync(resolve(UPSTREAM_DATA, 'topics.json'));
@@ -157,6 +161,11 @@ if (cnDeps) {
   check(cnDeps.edgeCount === cnDeps.dependencies.length,
     `cn-dependencies: edgeCount ${cnDeps.edgeCount} != ${cnDeps.dependencies.length}`);
   const cnDepSeen = new Set();
+  const VALID_REVIEW_STATUS = new Set(['machine', 'reviewed', 'rejected']);
+  const reviewCounts = { machine: 0, reviewed: 0, rejected: 0 };
+  // DAG 校验用的邻接表（仅当 !skipDag）
+  const dagAdj = new Map();
+  const dagNodes = new Set();
   for (const d of cnDeps.dependencies) {
     check(typeof d.topicId === 'string' && d.topicId.startsWith('mtc_'),
       `cn-dep: topicId malformed: ${d.topicId}`);
@@ -164,13 +173,52 @@ if (cnDeps) {
       `cn-dep: prerequisiteId malformed: ${d.prerequisiteId}`);
     check(d.topicId !== d.prerequisiteId, `cn-dep: self-dependency on ${d.topicId}`);
     check(d.strength === 'hard' || d.strength === 'soft', `cn-dep: bad strength ${d.strength}`);
+    // reviewStatus 合法性（缺失视为 machine，向后兼容）
+    const rs = d.reviewStatus ?? 'machine';
+    check(VALID_REVIEW_STATUS.has(d.reviewStatus || 'machine'),
+      `cn-dep ${d.topicId}->${d.prerequisiteId}: illegal reviewStatus "${d.reviewStatus}"`);
+    reviewCounts[rs] = (reviewCounts[rs] || 0) + 1;
     // 两端必须在 cn-topics 中存在
     check(cnOriginIds.has(d.topicId), `cn-dep: topicId ${d.topicId} not in cn-topics`);
     check(cnOriginIds.has(d.prerequisiteId), `cn-dep: prerequisiteId ${d.prerequisiteId} not in cn-topics`);
     const key = `${d.topicId}->${d.prerequisiteId}`;
     if (cnDepSeen.has(key)) errors.push(`cn-dep: duplicate edge ${key}`);
     cnDepSeen.add(key);
+    // 收集 DAG 结构（rejected 边不计入图，因为它们不会展示）
+    if (rs !== 'rejected') {
+      if (!dagAdj.has(d.prerequisiteId)) dagAdj.set(d.prerequisiteId, []);
+      dagAdj.get(d.prerequisiteId).push(d.topicId);
+      dagNodes.add(d.topicId);
+      dagNodes.add(d.prerequisiteId);
+    }
   }
+
+  // --- 4c-2. DAG 不变量：cn-dependencies 必须无环 --------------------------
+  // 用 Kahn 拓扑排序独立验证（不依赖 break-cycles.mjs，防止实现 bug 自欺）
+  if (!skipDag) {
+    const indeg = new Map();
+    for (const n of dagNodes) indeg.set(n, 0);
+    for (const [, succ] of dagAdj) for (const w of succ) indeg.set(w, (indeg.get(w) || 0) + 1);
+    const queue = [];
+    for (const n of dagNodes) if (indeg.get(n) === 0) queue.push(n);
+    let sorted = 0;
+    while (queue.length) {
+      const v = queue.shift();
+      sorted++;
+      for (const w of dagAdj.get(v) || []) {
+        indeg.set(w, indeg.get(w) - 1);
+        if (indeg.get(w) === 0) queue.push(w);
+      }
+    }
+    const inCycle = dagNodes.size - sorted;
+    check(inCycle === 0,
+      `cn-deps DAG 破坏：${inCycle} 个节点处于环中（拓扑排序无法排出）。运行 node scripts/break-cycles.mjs 修复。`);
+  }
+
+  // 审核覆盖率（信息性，不阻断）
+  const total = cnDeps.dependencies.length;
+  const reviewedPct = total > 0 ? (100 * reviewCounts.reviewed / total).toFixed(1) : '0';
+  console.log(`  📋 审核覆盖率: reviewed ${reviewCounts.reviewed} / machine ${reviewCounts.machine} / rejected ${reviewCounts.rejected}（已审核 ${reviewedPct}%）`);
 }
 
 // --- 4d. 上游 mt_ → 中国 mtc_ 桥接依赖完整性 -----------------------------

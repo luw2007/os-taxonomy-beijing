@@ -6,8 +6,8 @@
   "taxonomyVersion": "v1-zh",
   "upstreamVersion": "v1",
   "locale": "zh-CN",
-  "generatedAt": "2026-07-18T00:00:00.000Z",
-  "status": "zh translation + cn-origin + LLM-rebuilt cn-dependencies (domain normalized, deduped, bucketed semantic prereqs)",
+  "generatedAt": "2026-07-20T00:00:00.000Z",
+  "status": "zh translation + cn-origin + LLM-rebuilt cn-dependencies (v1.1: DAG fixed via global SCC break-cycles, reviewStatus field added)",
   "counts": {
     "topicsZh": 1590,
     "cnTopics": 1640,
@@ -15,7 +15,7 @@
     "clustersZh": 4,
     "cnCurricula": 17,
     "cnCurriculumEntries": 1356,
-    "cnDeps": 2537
+    "cnDeps": 2254
   },
   "upstreamCounts": {
     "topics": 1590,
@@ -56,8 +56,8 @@
       "sha256": "cc17350162ad533794ebe880a59ad398ae6ed08af7da4759598cbaa8db0bcf54"
     },
     "cn-dependencies.json": {
-      "bytes": 486805,
-      "sha256": "f9858f269c524687e25e16340fa76f1f4d6f172a75d109756391b2288b5c1f8d"
+      "bytes": 508114,
+      "sha256": "c6e927d0bc0c32e5f0829b79a56f537072378a89772a44d30b1d73accf56db82"
     },
     "cn-bridge-dependencies.json": {
       "bytes": 9288,

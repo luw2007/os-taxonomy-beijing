@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://os-taxonomy-beijing.github.io/schema/cn-dependencies.schema.json",
   "title": "Beijing Skill Taxonomy — 中国特有微主题依赖（cn-dependencies）",
-  "description": "mtc_ 主题之间的知识依赖 DAG。topicId depends on prerequisiteId（学 X 前需先掌握 Y）。规则驱动自动生成。",
+  "description": "mtc_ 主题之间的知识依赖 DAG（无环）。topicId depends on prerequisiteId（学 X 前需先掌握 Y）。reviewStatus 标识每条边的人工审核状态：machine=LLM/规则产出未审核，reviewed=已审核，rejected=已拒绝。默认 viewer 只展示 reviewed 边给儿童。",
   "type": "object",
   "required": ["version", "edgeCount", "dependencies"],
   "properties": {
@@ -32,7 +32,12 @@
             "enum": ["hard", "soft"],
             "description": "hard=硬前置（必须先学）；soft=软前置（建议先学，渐进）"
           },
-          "reason": { "type": ["string", "null"], "description": "依赖说明（中文）" }
+          "reason": { "type": ["string", "null"], "description": "依赖说明（中文）" },
+          "reviewStatus": {
+            "type": "string",
+            "enum": ["machine", "reviewed", "rejected"],
+            "description": "审核状态：machine=LLM/规则产出未审核（默认 viewer 降级显示为\"AI 推测·未核对\"）；reviewed=已审核（默认展示，可显示\"必须先学/建议先学\"）；rejected=已拒绝（永不展示）。缺失视为 machine（向后兼容）。"
+          }
         },
         "additionalProperties": false
       }

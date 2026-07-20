@@ -13,7 +13,11 @@
  * 三种运行模式：
  *   --plan      只输出分桶统计 + 前 3 桶完整 prompt，不调模型（首次必跑，审 prompt）
  *   --dry-run   调模型，raw 响应写 data/.llm-deps-work/raw/，不合并不写 cn-deps
- *   （默认）    调模型 → 合并去重 → 环检测 → 与规则边合并 → 写 cn-dependencies.json
+ *   （默认）    调模型 → 合并去重 → 与规则边合并 → 全局破环 → 写 cn-dependencies.json
+ *
+ * 破环：三层边最终合并后，调用 break-cycles.mjs 的 breakCycles() 做全局 SCC 破环。
+ *   旧版的 removeCycles 有 3 个 bug（_weak 字段未赋值/pass<10 上限/先破环后合并导致重新成环），
+ *   已删除，改为只在 finalEdges 产生后破一次。
  *
  * 可选：
  *   --only-bucket <name>   只重跑指定桶（name = 桶 slug，见 --plan 输出）
@@ -323,83 +327,6 @@ function mergeAndDedupe(results, validIds) {
   return merged;
 }
 
-// 环检测：DFS 找环，丢弃每个环中"votes 最弱"的边
-function removeCycles(edges) {
-  // 建 adjacency
-  const adj = new Map();
-  const edgeMap = new Map(); // "a->b" → edge
-  for (const e of edges) {
-    if (!adj.has(e.prerequisiteId)) adj.set(e.prerequisiteId, []);
-    adj.get(e.prerequisiteId).push(e.topicId);
-    edgeMap.set(`${e.prerequisiteId}->${e.topicId}`, e);
-  }
-  // 反复找环并删边
-  const removed = [];
-  let changed = true;
-  let pass = 0;
-  while (changed && pass < 10) {
-    changed = false;
-    pass++;
-    const visiting = new Set();
-    const visited = new Set();
-    const stack = [];
-    const cycleEdge = findCycleEdge(adj, edgeMap);
-    if (cycleEdge) {
-      const key = `${cycleEdge.prerequisiteId}->${cycleEdge.topicId}`;
-      removed.push({ ...cycleEdge, removedReason: 'cycle' });
-      edgeMap.delete(key);
-      // 从 adj 删
-      const arr = adj.get(cycleEdge.prerequisiteId);
-      if (arr) {
-        const i = arr.indexOf(cycleEdge.topicId);
-        if (i >= 0) arr.splice(i, 1);
-      }
-      changed = true;
-    }
-  }
-  return { kept: [...edgeMap.values()], removed };
-}
-
-function findCycleEdge(adj, edgeMap) {
-  const WHITE = 0, GRAY = 1, BLACK = 2;
-  const color = new Map();
-  const path = [];
-  let cycleEdge = null;
-  const nodes = new Set([...adj.keys(), ...[...edgeMap.values()].map(e => e.topicId)]);
-  function dfs(u) {
-    if (cycleEdge) return;
-    color.set(u, GRAY);
-    path.push(u);
-    for (const v of (adj.get(u) || [])) {
-      if (cycleEdge) return;
-      const c = color.get(v) || WHITE;
-      if (c === GRAY) {
-        // 找到环 v...u→v，返回环里 votes 最弱的边
-        const cycleStart = path.indexOf(v);
-        const cycleNodes = path.slice(cycleStart);
-        let weakest = null;
-        for (let i = 0; i < cycleNodes.length; i++) {
-          const a = cycleNodes[i];
-          const b = i + 1 < cycleNodes.length ? cycleNodes[i + 1] : v;
-          // 注意 edge 方向是 prerequisite->topic，即 a 是 prerequisite
-          const e = edgeMap.get(`${a}->${b}`) || edgeMap.get(`${b}->${a}`);
-          if (e && (!weakest || e._weak > (weakest._weak || 0))) weakest = e;
-        }
-        if (weakest) cycleEdge = weakest;
-        return;
-      }
-      if (c === WHITE) dfs(v);
-    }
-    color.set(u, BLACK);
-    path.pop();
-  }
-  for (const n of nodes) {
-    if ((color.get(n) || WHITE) === WHITE) dfs(n);
-    if (cycleEdge) break;
-  }
-  return cycleEdge;
-}
-
 // ========== 跨子领域错边过滤 ==========
 // 问题：部分 domain 桶把不同艺术/体育门类塞进同桶（如 Art/Appreciation 混了
 // 音乐和美术节点），LLM 忠实地在桶内建边，产出跨门类的伪先修（如"美术→音乐"）。
@@ -441,6 +368,7 @@ function filterCrossSubfieldEdges(edges, idToName) {
 
 // ========== 规则边（L1/L2 ageRange 相邻链 + L3 跨 domain 先修链）==========
 import { DOMAIN_PREREQ_CHAINS, buildRuleEdges, buildAgeChainEdges } from './_rule-deps.mjs';
+import { breakCycles } from './break-cycles.mjs';
 
 // ========== 主流程 ==========
 async function main() {
@@ -490,14 +418,10 @@ async function main() {
   console.log(`  raw 边总数(含滑窗重复): ${rawEdgeCount}`);
   console.log(`  去重后 LLM 边: ${llmEdges.length}`);
 
-  // 环检测
-  const { kept: cycleKept, removed: cycleRemoved } = removeCycles(llmEdges);
-  console.log(`  环检测: 丢弃 ${cycleRemoved.length} 条`);
-
-  // 错边过滤：剔除跨平行子领域的 LLM 硬凑边
-  // （如 美术→音乐、体操→球类，这些是 domain 分类把不同门类塞进同桶导致的）
+  // 跨子领域错边过滤：剔除 LLM 硬凑的跨门类伪先修（如美术→音乐、体操→球类）
+  // 这些是 domain 分类把不同门类塞进同桶导致的，先于环检测处理
   const idToName = new Map(topics.map(t => [t.id, t.name]));
-  const { kept: acyclicEdges, removed: crossRemoved } = filterCrossSubfieldEdges(cycleKept, idToName);
+  const { kept: filteredEdges, removed: crossRemoved } = filterCrossSubfieldEdges(llmEdges, idToName);
   console.log(`  跨子领域过滤: 丢弃 ${crossRemoved.length} 条`);
 
   // 规则边 L1+L2：桶内 ageRange 相邻链（教学顺序，与 LLM 语义边互补）
@@ -510,18 +434,23 @@ async function main() {
 
   // 合并三层：LLM 语义边 + ageRange 链 + 跨 domain 链
   // 优先级：LLM > L3 > L1/L2（同一条边若多源都有，保留 reason 最详细的）
-  const all = [...ageChainEdges, ...ruleEdges, ...acyclicEdges];
+  const all = [...ageChainEdges, ...ruleEdges, ...filteredEdges];
   const finalMap = new Map();
   for (const e of all) {
     const key = `${e.topicId}->${e.prerequisiteId}`;
     if (!finalMap.has(key)) finalMap.set(key, e);
   }
-  const finalEdges = [...finalMap.values()];
-  console.log(`  最终边: ${finalEdges.length} (密度 ${(finalEdges.length / topics.length).toFixed(2)} 边/主题，对比上游 2.03)`);
+  let finalEdges = [...finalMap.values()];
+  console.log(`  合并后(破环前): ${finalEdges.length} (密度 ${(finalEdges.length / topics.length).toFixed(2)} 边/主题)`);
+
+  // 全局破环（必须在三层边最终合并后执行，旧版先破环再合并会导致重新成环）
+  const { kept: acyclicEdges, removed: cycleRemoved } = breakCycles(finalEdges);
+  finalEdges = acyclicEdges;
+  console.log(`  全局破环: 丢弃 ${cycleRemoved.length} 条（最终 ${finalEdges.length} 边，密度 ${(finalEdges.length / topics.length).toFixed(2)}）`);
 
   if (mode === 'dry-run') {
     // 给每条边标注来源，便于审查
-    const llmKeys = new Set(acyclicEdges.map(e => `${e.topicId}->${e.prerequisiteId}`));
+    const llmKeys = new Set(filteredEdges.map(e => `${e.topicId}->${e.prerequisiteId}`));
     const annotated = finalEdges.map(e => {
       const key = `${e.topicId}->${e.prerequisiteId}`;
       const sources = [];

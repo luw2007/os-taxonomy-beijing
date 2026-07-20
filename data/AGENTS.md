@@ -75,6 +75,8 @@ ID 前缀与文件来源标记一致：`mt_` → `.zh.json`，`mtc_` → `cn-` �
 | `glossary.json` | 无标记（配置） | ✓ 合规 |
 | `manifest.json` | 无标记（元数据） | ✓ 合规 |
 | `cn-topics.json` | `cn-` 前缀（中国原生） | ✓ 合规 |
+| `cn-dependencies.json` | `cn-` 前缀（中国原生） | ✓ 合规（DAG 已破环，每边带 `reviewStatus`） |
+| `cn-bridge-dependencies.json` | `cn-` 前缀（中国原生） | ✓ 合规（mt_↔mtc_ 跨图桥接） |
 
 ## 配套规则
 

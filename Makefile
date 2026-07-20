@@ -1,5 +1,6 @@
 .PHONY: all install serve translate validate checksum term-lint check clean help
 .PHONY: normalize-domains dedupe-topics build-deps deps-plan deps-dryrun
+.PHONY: snapshot snapshot-pre snapshot-list snapshot-diff
 
 NODE ?= node
 
@@ -79,6 +80,23 @@ term-lint-fix:
 check: checksum validate term-lint-strict
 	@echo "✓ 全量校验通过（checksum + validate + term-lint strict）"
 
+# --- 数据快照（本地备份，gitignore，作为大改动前的回滚点）---
+#   make snapshot              默认标签 manual
+#   make snapshot-pre          发版前快照（SNAPSHOT_LABEL=pre-v1.2 make snapshot-pre）
+#   make snapshot-list         列出所有快照（含边数/节点数）
+#   make snapshot-diff         对比最新快照与当前数据
+snapshot:
+	$(NODE) scripts/snapshot.mjs --label manual
+
+snapshot-pre:
+	$(NODE) scripts/snapshot.mjs --label "$$SNAPSHOT_LABEL"
+
+snapshot-list:
+	$(NODE) scripts/snapshot.mjs --list
+
+snapshot-diff:
+	@node scripts/snapshot.mjs --diff $$(ls -1d data/.snapshots/*/ | tail -1)
+
 # --- 清理 ---
 clean:
 	@rm -f data/.terminology-cache.json data/.translate-progress.json
@@ -111,3 +129,9 @@ help:
 	@echo "    make term-lint-strict     术语检查（命中即失败，CI 用）"
 	@echo "    make check                全量校验（checksum + validate + term-lint strict）"
 	@echo "    make clean                清理缓存文件"
+	@echo ""
+	@echo "  数据快照（本地备份）："
+	@echo "    make snapshot             创建快照（默认标签 manual）"
+	@echo "    make snapshot-pre         发版前快照（SNAPSHOT_LABEL=pre-v1.2）"
+	@echo "    make snapshot-list        列出所有快照（含边数/节点数）"
+	@echo "    make snapshot-diff        对比最新快照与当前数据"

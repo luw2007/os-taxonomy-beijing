@@ -131,6 +131,7 @@ if (danglingCnRefs > 5) errors.push(`…and ${danglingCnRefs - 5} more unknown c
 // --- 4b. 中国特有微主题（cn-origin）完整性 --------------------------------
 const VALID_TYPES = new Set(['CONCEPTUAL', 'PROCEDURAL', 'REPRESENTATIONAL', 'LANGUAGE', 'META']);
 const VALID_NODE_KINDS = new Set(['concept', 'text', 'skill']);
+const VALID_REVIEW_STATUS = new Set(['machine', 'reviewed', 'rejected']);
 const VALID_ORIGINS = new Set(['cn_only', 'cross_domain', 'upstream_adapt', 'progression', 'textbook']);
 const cnOriginIds = new Set();
 if (cnOriginTopics) {
@@ -172,7 +173,6 @@ if (cnDeps) {
   check(cnDeps.edgeCount === cnDeps.dependencies.length,
     `cn-dependencies: edgeCount ${cnDeps.edgeCount} != ${cnDeps.dependencies.length}`);
   const cnDepSeen = new Set();
-  const VALID_REVIEW_STATUS = new Set(['machine', 'reviewed', 'rejected']);
   const reviewCounts = { machine: 0, reviewed: 0, rejected: 0 };
   // DAG 校验用的邻接表（仅当 !skipDag）
   const dagAdj = new Map();
@@ -242,6 +242,11 @@ if (cnBridgeDeps) {
   for (const d of cnBridgeDeps.dependencies) {
     check(d.topicId !== d.prerequisiteId, `cn-bridge: self-dependency on ${d.topicId}`);
     check(d.strength === 'hard' || d.strength === 'soft', `cn-bridge: bad strength ${d.strength}`);
+    // reviewStatus 合法性（与 cn-deps 一致）
+    if (d.reviewStatus !== undefined) {
+      check(VALID_REVIEW_STATUS.has(d.reviewStatus),
+        `cn-bridge ${d.topicId}->${d.prerequisiteId}: illegal reviewStatus "${d.reviewStatus}"`);
+    }
     // topicId 必须是 mtc_ 且在 cn-topics 中存在
     check(typeof d.topicId === 'string' && d.topicId.startsWith('mtc_'),
       `cn-bridge: topicId must be mtc_, got ${d.topicId}`);

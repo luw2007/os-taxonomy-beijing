@@ -63,8 +63,8 @@
       "sha256": "e109ad8b25dc25fe39ec9da4f96c8ea62bbd78785e6a96c54bdabe52200c53ae"
     },
     "cn-bridge-dependencies.json": {
-      "bytes": 9288,
-      "sha256": "d795b2732fa6e11d18f4a6eb1968069a03bc2fd4e02c132a1e0e70aa5ab29fa1"
+      "bytes": 10886,
+      "sha256": "43373cd8f97e4b966d7984eb899f3c33b1870583e29ac5bcfba8d09968fb090e"
     }
   },
   "excluded": [

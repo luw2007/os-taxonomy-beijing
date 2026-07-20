@@ -9,283 +9,330 @@
       "topicId": "mtc_246",
       "prerequisiteId": "mt_9QzSnn8m80",
       "strength": "soft",
-      "reason": "上游的正负数概念是中国有理数运算的知识基础"
+      "reason": "上游的正负数概念是中国有理数运算的知识基础",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_262",
       "prerequisiteId": "mt_uESbzWCZIq",
       "strength": "soft",
-      "reason": "上游的因式分解方法是中国因式分解教学的直接来源"
+      "reason": "上游的因式分解方法是中国因式分解教学的直接来源",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_268",
       "prerequisiteId": "mt_QhFEDyIwSO",
       "strength": "soft",
-      "reason": "上游的解线性方程是中国一元一次方程的核心方法"
+      "reason": "上游的解线性方程是中国一元一次方程的核心方法",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_270",
       "prerequisiteId": "mt_mqgu72aCMz",
       "strength": "soft",
-      "reason": "上游的联立方程是中国二元一次方程组的解法基础"
+      "reason": "上游的联立方程是中国二元一次方程组的解法基础",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_280",
       "prerequisiteId": "mt_WBdHkc2HTf",
       "strength": "soft",
-      "reason": "上游的线性函数图像是中国一次函数的图像与性质基础"
+      "reason": "上游的线性函数图像是中国一次函数的图像与性质基础",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_287",
       "prerequisiteId": "mt_GZuoYaDdWd",
       "strength": "soft",
-      "reason": "上游的二次函数图像是中国二次函数的图像分析基础"
+      "reason": "上游的二次函数图像是中国二次函数的图像分析基础",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_257",
       "prerequisiteId": "mt_FX4a2Q8XXN",
       "strength": "soft",
-      "reason": "上游的展开括号是中国整式乘法的直接对应"
+      "reason": "上游的展开括号是中国整式乘法的直接对应",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_264",
       "prerequisiteId": "mt_FbDKeLfBCo",
       "strength": "soft",
-      "reason": "上游的等价分数概念是中国分式运算的基础"
+      "reason": "上游的等价分数概念是中国分式运算的基础",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_292",
       "prerequisiteId": "mt_u23IGDxOpk",
       "strength": "soft",
-      "reason": "上游的平行线是中国平行线性质的几何基础"
+      "reason": "上游的平行线是中国平行线性质的几何基础",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_294",
       "prerequisiteId": "mt_J03RFlVdas",
       "strength": "soft",
-      "reason": "上游的三角形内角和是中国三角形全等的预备知识"
+      "reason": "上游的三角形内角和是中国三角形全等的预备知识",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_313",
       "prerequisiteId": "mt_KB_Czd7RQH",
       "strength": "soft",
-      "reason": "上游的三角函数基础是中国锐角三角函数的直接对应"
+      "reason": "上游的三角函数基础是中国锐角三角函数的直接对应",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_317",
       "prerequisiteId": "mt_Cg8VPguS_V",
       "strength": "soft",
-      "reason": "上游的平均数计算是中国数据分析统计量的基础"
+      "reason": "上游的平均数计算是中国数据分析统计量的基础",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_323",
       "prerequisiteId": "mt_Zt30Gxi-qp",
       "strength": "soft",
-      "reason": "上游的简单概率计算是中国列举法求概率的方法基础"
+      "reason": "上游的简单概率计算是中国列举法求概率的方法基础",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_613",
       "prerequisiteId": "mt_1YwOCMMwD8",
       "strength": "soft",
-      "reason": "上游的集合与韦恩图是中国高中集合概念的直接引入"
+      "reason": "上游的集合与韦恩图是中国高中集合概念的直接引入",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_320",
       "prerequisiteId": "mt_BdAeZJUOir",
       "strength": "soft",
-      "reason": "上游的相关性散点图与中国方差/数据分析的统计基础"
+      "reason": "上游的相关性散点图与中国方差/数据分析的统计基础",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_179",
       "prerequisiteId": "mt_-p_xp4hMvh",
       "strength": "soft",
-      "reason": "上游的摩擦力是中国摩擦力知识的直接对应"
+      "reason": "上游的摩擦力是中国摩擦力知识的直接对应",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_176",
       "prerequisiteId": "mt_AvrQauS_zX",
       "strength": "soft",
-      "reason": "上游的重力与下落物体是中国重力概念的基础"
+      "reason": "上游的重力与下落物体是中国重力概念的基础",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_184",
       "prerequisiteId": "mt_3WMADSy0mA",
       "strength": "soft",
-      "reason": "上游的平衡力是中国二力平衡条件的基础"
+      "reason": "上游的平衡力是中国二力平衡条件的基础",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_182",
       "prerequisiteId": "mt_tXxxCFl32J",
       "strength": "soft",
-      "reason": "上游的牛顿定律是中国牛顿第一定律的理论基础"
+      "reason": "上游的牛顿定律是中国牛顿第一定律的理论基础",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_185",
       "prerequisiteId": "mt_fkwcCB5px7",
       "strength": "soft",
-      "reason": "上游的流体压强是中国压强概念的直接来源"
+      "reason": "上游的流体压强是中国压强概念的直接来源",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_205",
       "prerequisiteId": "mt_2bnXrfS4Iq",
       "strength": "soft",
-      "reason": "上游的电流与电压是中国电流电压电阻的基础概念"
+      "reason": "上游的电流与电压是中国电流电压电阻的基础概念",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_858",
       "prerequisiteId": "mt_H3ZDK0EYNV",
       "strength": "soft",
-      "reason": "上游的欧姆定律是中国电流与电压电阻关系的直接对应"
+      "reason": "上游的欧姆定律是中国电流与电压电阻关系的直接对应",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_195",
       "prerequisiteId": "mt_VBl1T1sFCM",
       "strength": "soft",
-      "reason": "上游的振动与声音是中国声音的产生与传播的基础"
+      "reason": "上游的振动与声音是中国声音的产生与传播的基础",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_201",
       "prerequisiteId": "mt_gLy3ZgZWiN",
       "strength": "soft",
-      "reason": "上游的光的反射是中国光的反射定律的基础"
+      "reason": "上游的光的反射是中国光的反射定律的基础",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_220",
       "prerequisiteId": "mt_Jvg_r4yWaY",
       "strength": "soft",
-      "reason": "上游的能量储存是中国动能与势能的概念基础"
+      "reason": "上游的能量储存是中国动能与势能的概念基础",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_226",
       "prerequisiteId": "mt_DI1cyAyGyN",
       "strength": "soft",
-      "reason": "上游的加热实验是中国比热容概念的直接方法来源"
+      "reason": "上游的加热实验是中国比热容概念的直接方法来源",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_215",
       "prerequisiteId": "mt_56aspHjU19",
       "strength": "soft",
-      "reason": "上游的磁场是中国电流磁效应的基础"
+      "reason": "上游的磁场是中国电流磁效应的基础",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_362",
       "prerequisiteId": "mt_Z_Wu_77ybI",
       "strength": "soft",
-      "reason": "上游的原子元素是中国分子原子概念的基础"
+      "reason": "上游的原子元素是中国分子原子概念的基础",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_707",
       "prerequisiteId": "mt_wfEfQuHOG-",
       "strength": "soft",
-      "reason": "上游的元素周期表是中国原子结构与元素周期律的预备知识"
+      "reason": "上游的元素周期表是中国原子结构与元素周期律的预备知识",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_904",
       "prerequisiteId": "mt_AN2kJE6I0s",
       "strength": "soft",
-      "reason": "上游的酸碱与pH值是中国常见的酸的基础"
+      "reason": "上游的酸碱与pH值是中国常见的酸的基础",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_375",
       "prerequisiteId": "mt_ehC1wsdmUz",
       "strength": "soft",
-      "reason": "上游的质量守恒定律是中国化学反应的理论基础"
+      "reason": "上游的质量守恒定律是中国化学反应的理论基础",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_337",
       "prerequisiteId": "mt_LKagN9GJPX",
       "strength": "soft",
-      "reason": "上游的地球大气是中国空气的组成的基础知识"
+      "reason": "上游的地球大气是中国空气的组成的基础知识",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_342",
       "prerequisiteId": "mt_Mf-T-fYRLX",
       "strength": "soft",
-      "reason": "上游的溶解是中国溶液概念的基础"
+      "reason": "上游的溶解是中国溶液概念的基础",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_853",
       "prerequisiteId": "mt_b6kZgqolEd",
       "strength": "soft",
-      "reason": "上游的粒子模型是中国分子热运动的基础模型"
+      "reason": "上游的粒子模型是中国分子热运动的基础模型",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_377",
       "prerequisiteId": "mt_bABr-c2DfV",
       "strength": "soft",
-      "reason": "上游的动植物细胞结构是中国细胞观察的直接来源"
+      "reason": "上游的动植物细胞结构是中国细胞观察的直接来源",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_400",
       "prerequisiteId": "mt_zM5vu31jgl",
       "strength": "soft",
-      "reason": "上游的光合作用是中国植物的光合作用的直接对应"
+      "reason": "上游的光合作用是中国植物的光合作用的直接对应",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_401",
       "prerequisiteId": "mt_mquPi2IP-J",
       "strength": "soft",
-      "reason": "上游的有氧呼吸是中国植物的呼吸作用的基础"
+      "reason": "上游的有氧呼吸是中国植物的呼吸作用的基础",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_403",
       "prerequisiteId": "mt_QhLAeAlHI0",
       "strength": "soft",
-      "reason": "上游的均衡饮食是中国食物中的营养物质的基础"
+      "reason": "上游的均衡饮食是中国食物中的营养物质的基础",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_409",
       "prerequisiteId": "mt_BX4D8cCFtQ",
       "strength": "soft",
-      "reason": "上游的循环系统是中国血液循环的基础"
+      "reason": "上游的循环系统是中国血液循环的基础",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_411",
       "prerequisiteId": "mt_qzbgwaUQOA",
       "strength": "soft",
-      "reason": "上游的神经系统是中国神经系统的组成的基础"
+      "reason": "上游的神经系统是中国神经系统的组成的基础",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_415",
       "prerequisiteId": "mt_6aJUzBYGNs",
       "strength": "soft",
-      "reason": "上游的染色体基因DNA是中国基因与遗传的直接对应"
+      "reason": "上游的染色体基因DNA是中国基因与遗传的直接对应",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_421",
       "prerequisiteId": "mt_FuVEZ1Ac9s",
       "strength": "soft",
-      "reason": "上游的自然选择是中国生物的进化的理论基础"
+      "reason": "上游的自然选择是中国生物的进化的理论基础",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_385",
       "prerequisiteId": "mt_EygMHKs8Ed",
       "strength": "soft",
-      "reason": "上游的食物链是中国生态系统食物链的基础"
+      "reason": "上游的食物链是中国生态系统食物链的基础",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_575",
       "prerequisiteId": "mt_mB7DVai-Uf",
       "strength": "soft",
-      "reason": "上游的听力与回应是中国英语听力关键信息获取的基础"
+      "reason": "上游的听力与回应是中国英语听力关键信息获取的基础",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_584",
       "prerequisiteId": "mt_enj1sMcfOT",
       "strength": "soft",
-      "reason": "上游的时态系统是中国英语语法常用时态的直接对应"
+      "reason": "上游的时态系统是中国英语语法常用时态的直接对应",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_578",
       "prerequisiteId": "mt_Qxyikkkzam",
       "strength": "soft",
-      "reason": "上游的说服性写作是中国英语观点表达的体裁来源"
+      "reason": "上游的说服性写作是中国英语观点表达的体裁来源",
+      "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_580",
       "prerequisiteId": "mt_OLwNsTI6C7",
       "strength": "soft",
-      "reason": "上游的学术词汇是中国英语阅读理解的基础"
+      "reason": "上游的学术词汇是中国英语阅读理解的基础",
+      "reviewStatus": "reviewed"
     }
   ]
 }

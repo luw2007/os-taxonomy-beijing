@@ -188,7 +188,7 @@ ${nodeList}
 // 截断 JSON 修复：LLM 输出被 max_tokens 截断时，尝试截到最后一个完整对象
 // 输入形如 {"alignments": [{"id":"a",...}, {"id":"b",...}, {"id":"c"(截断
 // 输出 {"alignments": [{"id":"a",...}, {"id":"b",...}]}
-function repairTruncatedJson(text) {
+export function repairTruncatedJson(text) {
   // 找最后一个完整对象的结尾 "},", " }\n]" 或 "}"
   const lastComplete = text.lastIndexOf('},');
   if (lastComplete < 0) return null;

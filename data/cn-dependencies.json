@@ -2,7 +2,7 @@
   "version": "1.0.0-zh.0",
   "upstreamVersion": "v1",
   "locale": "zh-CN",
-  "edgeCount": 2254,
+  "edgeCount": 2262,
   "note": "mtc_ 主题知识依赖 DAG。LLM 逐桶语义建图(桶内先修) + 规则跨domain先修链。详见 scripts/build-deps-llm.mjs。",
   "dependencies": [
     {
@@ -15782,6 +15782,62 @@
       "strength": "hard",
       "reason": "理解三维打印机的操作是进行三维扫描与打印的前提。",
       "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_553",
+      "prerequisiteId": "mtc_047",
+      "strength": "soft",
+      "reason": "小学\"宪法是根本大法\"建立宪法概念，初中\"宪法的地位\"深化其法律层级",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "topicId": "mtc_554",
+      "prerequisiteId": "mtc_048",
+      "strength": "soft",
+      "reason": "小学\"公民的基本权利与义务\"建立权利意识，初中深化具体权利内容",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "topicId": "mtc_555",
+      "prerequisiteId": "mtc_048",
+      "strength": "soft",
+      "reason": "小学\"公民的基本权利与义务\"建立义务意识，初中深化具体义务内容",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "topicId": "mtc_559",
+      "prerequisiteId": "mtc_057",
+      "strength": "soft",
+      "reason": "小学\"法治观念·规则\"建立规则意识，初中\"预防违法犯罪\"延展到法律后果",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "topicId": "mtc_516",
+      "prerequisiteId": "mtc_018",
+      "strength": "soft",
+      "reason": "小学\"文学阅读·人物形象分析\"初步分析人物，初中\"小说·人物形象分析\"深化方法",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "topicId": "mtc_512",
+      "prerequisiteId": "mtc_014",
+      "strength": "soft",
+      "reason": "小学\"段落大意的概括\"训练信息提取，初中\"说明文·说明对象\"应用于文体阅读",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "topicId": "mtc_523",
+      "prerequisiteId": "mtc_021",
+      "strength": "soft",
+      "reason": "小学\"习作·把一件事写清楚\"建立记叙基础，初中\"记叙文写作·选材立意\"进阶",
+      "reviewStatus": "reviewed"
+    },
+    {
+      "topicId": "mtc_537",
+      "prerequisiteId": "mtc_031",
+      "strength": "soft",
+      "reason": "小学\"古诗·节奏与意境初感\"建立感悟，初中\"古诗文·诗意理解\"系统分析",
+      "reviewStatus": "reviewed"
     }
   ]
 }

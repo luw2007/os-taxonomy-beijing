@@ -482,7 +482,7 @@
       "description": "能不拘形式地写下见闻感受和想象，把一件事情的起因经过结果写清楚，语句通顺。",
       "ageRangeStart": 8,
       "ageRangeEnd": 10,
-      "centrality": 0.038462,
+      "centrality": 0.192308,
       "evidence": [
         "能按顺序写清楚一件事",
         "能分段叙述",
@@ -528,7 +528,7 @@
       "description": "认真倾听别人讲话，不打断，能听懂并记住主要内容。",
       "ageRangeStart": 6,
       "ageRangeEnd": 10,
-      "centrality": 0.076923,
+      "centrality": 0.230769,
       "evidence": [
         "能认真听完别人的话不插嘴",
         "能复述别人说的要点",
@@ -552,7 +552,7 @@
       "description": "能用几句连贯的话清楚地表达自己的想法，让别人听明白。",
       "ageRangeStart": 6,
       "ageRangeEnd": 10,
-      "centrality": 0.057692,
+      "centrality": 0.211538,
       "evidence": [
         "能清楚地说出自己的想法",
         "能把一件事说完整有条理",
@@ -645,7 +645,7 @@
       "description": "背诵课标推荐的浅近古诗，读出节奏，初步感受诗歌的画面和韵律。",
       "ageRangeStart": 6,
       "ageRangeEnd": 8,
-      "centrality": 0.211538,
+      "centrality": 0.269231,
       "evidence": [
         "能背诵指定的古诗",
         "能读出停顿节奏",
@@ -668,7 +668,7 @@
       "description": "背诵课标推荐的古诗和浅近文言片段，能借助注释了解大意。",
       "ageRangeStart": 8,
       "ageRangeEnd": 10,
-      "centrality": 0.057692,
+      "centrality": 0.115385,
       "evidence": [
         "能背诵指定篇目",
         "能借助注释说大意",
@@ -714,7 +714,7 @@
       "description": "感受古诗的节奏美和意境美，通过想象把文字变成画面，体会诗人的情怀。",
       "ageRangeStart": 8,
       "ageRangeEnd": 12,
-      "centrality": 0.038462,
+      "centrality": 0.096154,
       "evidence": [
         "能按节奏读古诗",
         "能用语言描述诗中的画面",
@@ -1040,7 +1040,7 @@
       "description": "认识国旗、国徽、国歌，了解它们是国家象征，懂得尊敬和爱护。",
       "ageRangeStart": 6,
       "ageRangeEnd": 8,
-      "centrality": 0.307692,
+      "centrality": 0.442308,
       "evidence": [
         "能认出国旗国徽",
         "会唱国歌并保持肃立",
@@ -1063,7 +1063,7 @@
       "description": "知道自己是中国人，了解首都北京，初步建立作为一个中国人的认同感。",
       "ageRangeStart": 6,
       "ageRangeEnd": 8,
-      "centrality": 0.115385,
+      "centrality": 0.25,
       "evidence": [
         "能说出祖国的全称和首都",
         "能说出几个中国的代表性事物",
@@ -1086,7 +1086,7 @@
       "description": "初步了解宪法是国家的根本大法，具有最高的法律效力。",
       "ageRangeStart": 10,
       "ageRangeEnd": 12,
-      "centrality": 0.057692,
+      "centrality": 0.192308,
       "evidence": [
         "能说出宪法是根本大法",
         "能说明宪法在国家法律中的地位",
@@ -1110,7 +1110,7 @@
       "description": "知道公民享有基本权利，也要履行基本义务，懂得权利和义务是统一的。",
       "ageRangeStart": 10,
       "ageRangeEnd": 12,
-      "centrality": 0.038462,
+      "centrality": 0.134615,
       "evidence": [
         "能举例说明公民享有的权利",
         "能举例说明公民应尽的义务",
@@ -1182,7 +1182,7 @@
       "description": "了解中华优秀传统文化的代表，增强文化自信和对民族文化的认同。",
       "ageRangeStart": 8,
       "ageRangeEnd": 12,
-      "centrality": 0.096154,
+      "centrality": 0.230769,
       "evidence": [
         "能说出几种传统文化代表",
         "能讲一个文化故事",
@@ -1320,7 +1320,7 @@
       "description": "初步建立法治观念，理解规则和法律对生活的作用，养成守法的意识。",
       "ageRangeStart": 8,
       "ageRangeEnd": 12,
-      "centrality": 0.076923,
+      "centrality": 0.211538,
       "evidence": [
         "能区分规则和法律的不同",
         "能说出法律的作用",

@@ -46,10 +46,15 @@
           "ageRangeStart": { "type": "integer", "minimum": 0, "maximum": 18 },
           "ageRangeEnd": { "type": "integer", "minimum": 0, "maximum": 18 },
           "centrality": {
-            "type": "number",
+            "type": ["number", "null"],
             "minimum": 0,
             "maximum": 1,
-            "description": "图中心度（派生指标）。中国特有主题无上游图，填 0.0"
+            "description": "核心度（派生指标）：从该节点可达的 concept/skill 节点数 / maxReach，归一化到 [0,1]。text 节点为 null（不参与 centrality 计算）。由 scripts/compute-centrality.mjs 生成。"
+          },
+          "nodeKind": {
+            "type": "string",
+            "enum": ["concept", "text", "skill"],
+            "description": "节点语义类型（用于 centrality 过滤、学习路径推荐）：concept=可抽象迁移的知识点；text=具体课文/案例（centrality=null）；skill=程序性技能。由 scripts/backfill-node-kind.mjs 回填。"
           },
           "evidence": {
             "type": "array",
@@ -69,8 +74,8 @@
           },
           "origin": {
             "type": "string",
-            "enum": ["cn_only", "cross_domain", "upstream_adapt"],
-            "description": "来源类型：cn_only=中国特有 / cross_domain=跨领域新建 / upstream_adapt=上游改编"
+            "enum": ["cn_only", "cross_domain", "upstream_adapt", "textbook", "progression"],
+            "description": "来源类型：cn_only=中国特有 / cross_domain=跨领域新建 / upstream_adapt=上游改编 / textbook=教材衍生（仅知识点名称）/ progression=学段进阶新建"
           }
         },
         "additionalProperties": false

@@ -130,6 +130,7 @@ if (danglingCnRefs > 5) errors.push(`…and ${danglingCnRefs - 5} more unknown c
 
 // --- 4b. 中国特有微主题（cn-origin）完整性 --------------------------------
 const VALID_TYPES = new Set(['CONCEPTUAL', 'PROCEDURAL', 'REPRESENTATIONAL', 'LANGUAGE', 'META']);
+const VALID_NODE_KINDS = new Set(['concept', 'text', 'skill']);
 const VALID_ORIGINS = new Set(['cn_only', 'cross_domain', 'upstream_adapt', 'progression', 'textbook']);
 const cnOriginIds = new Set();
 if (cnOriginTopics) {
@@ -138,6 +139,16 @@ if (cnOriginTopics) {
   for (const t of cnOriginTopics.topics) {
     check(typeof t.id === 'string' && t.id.startsWith('mtc_'), `cn-origin topic id malformed: ${t.id}`);
     check(VALID_TYPES.has(t.type), `cn-origin topic ${t.id}: invalid type "${t.type}"`);
+    // nodeKind 必须合法（缺失不报错但统计，便于渐进回填）
+    if (t.nodeKind !== undefined) {
+      check(VALID_NODE_KINDS.has(t.nodeKind),
+        `cn-origin topic ${t.id}: invalid nodeKind "${t.nodeKind}"（合法值：concept/text/skill）`);
+    }
+    // centrality 校验：concept/skill 应有数值；text 应为 null
+    if (t.centrality !== null && t.centrality !== undefined) {
+      check(typeof t.centrality === 'number' && t.centrality >= 0 && t.centrality <= 1,
+        `cn-origin topic ${t.id}: centrality ${t.centrality} must be in [0,1] or null`);
+    }
     check(VALID_ORIGINS.has(t.origin), `cn-origin topic ${t.id}: invalid origin "${t.origin}"`);
     check(typeof t.subject === 'string' && t.subject.length > 0, `cn-origin topic ${t.id}: empty subject`);
     check(typeof t.domain === 'string' && t.domain.length > 0, `cn-origin topic ${t.id}: empty domain`);

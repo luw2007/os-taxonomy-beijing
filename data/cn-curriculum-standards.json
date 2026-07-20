@@ -5832,7 +5832,7 @@
       "sourceUrl": "http://www.moe.gov.cn/srcsite/A26/s8001/202204/t20220420_619921.html",
       "textIncluded": false,
       "license": "Codes/identifiers only — verbatim standard text omitted; this source carries an upstream license that does not permit our redistribution of the full text. See PROVENANCE.md.",
-      "topicCount": 83,
+      "topicCount": 150,
       "topics": [
         {
           "key": "moe-2022-math:S1.CP.01",
@@ -5850,13 +5850,13 @@
           "key": "moe-2022-math:S1.NA.01",
           "code": "S1.NA.01",
           "strand": "第一学段（1~2年级）/ 数与代数 / 数的运算",
-          "note": "20以内数的认识与加减运算（加法含义：合并）"
+          "note": "→ Numbers within 20, addition & subtraction meaning (combine)"
         },
         {
           "key": "moe-2022-math:S1.NA.02",
           "code": "S1.NA.02",
           "strand": "第一学段（1~2年级）/ 数与代数 / 数的运算",
-          "note": "用加减法解决生活中的简单问题"
+          "note": "→ Apply add/subtract to simple real-world problems"
         },
         {
           "key": "moe-2022-math:S2.CMC.01",
@@ -6330,6 +6330,408 @@
           "key": "moe-2022-math:SH.数与代数.14",
           "code": "SH.数与代数.14",
           "strand": "(moe-2022-math / SH.数与代数.14)",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S1.NA.03",
+          "code": "S1.NA.03",
+          "strand": "第一学段（1~2年级）/ 数与代数 / 数的认识",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S1.NA.04",
+          "code": "S1.NA.04",
+          "strand": "第一学段（1~2年级）/ 数与代数 / 数的认识",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S1.NA.05",
+          "code": "S1.NA.05",
+          "strand": "第一学段（1~2年级）/ 数与代数 / 数的认识",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S1.NA.06",
+          "code": "S1.NA.06",
+          "strand": "第一学段（1~2年级）/ 数与代数 / 数的运算",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S1.NA.07",
+          "code": "S1.NA.07",
+          "strand": "第一学段（1~2年级）/ 数与代数 / 数的运算",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S1.NA.08",
+          "code": "S1.NA.08",
+          "strand": "第一学段（1~2年级）/ 数与代数 / 数量关系",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S1.NA.09",
+          "code": "S1.NA.09",
+          "strand": "第一学段（1~2年级）/ 数与代数 / 数量关系",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S1.NA.10",
+          "code": "S1.NA.10",
+          "strand": "第一学段（1~2年级）/ 数与代数 / 探索规律",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S1.GE.01",
+          "code": "S1.GE.01",
+          "strand": "第一学段（1~2年级）/ 图形与几何 / 图形的认识",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S1.GE.02",
+          "code": "S1.GE.02",
+          "strand": "第一学段（1~2年级）/ 图形与几何 / 图形的认识",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S1.GE.03",
+          "code": "S1.GE.03",
+          "strand": "第一学段（1~2年级）/ 图形与几何 / 图形的认识",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S1.GE.04",
+          "code": "S1.GE.04",
+          "strand": "第一学段（1~2年级）/ 图形与几何 / 测量",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S1.GE.05",
+          "code": "S1.GE.05",
+          "strand": "第一学段（1~2年级）/ 图形与几何 / 测量",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S1.GE.06",
+          "code": "S1.GE.06",
+          "strand": "第一学段（1~2年级）/ 图形与几何 / 图形的位置",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S1.SP.01",
+          "code": "S1.SP.01",
+          "strand": "第一学段（1~2年级）/ 统计与概率 / 数据分类",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S1.SP.02",
+          "code": "S1.SP.02",
+          "strand": "第一学段（1~2年级）/ 统计与概率 / 数据分类",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S1.SP.03",
+          "code": "S1.SP.03",
+          "strand": "第一学段（1~2年级）/ 统计与概率 / 数据收集",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S2.NA.01",
+          "code": "S2.NA.01",
+          "strand": "第二学段（3~4年级）/ 数与代数 / 数的认识",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S2.NA.02",
+          "code": "S2.NA.02",
+          "strand": "第二学段（3~4年级）/ 数与代数 / 数的认识",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S2.NA.03",
+          "code": "S2.NA.03",
+          "strand": "第二学段（3~4年级）/ 数与代数 / 数的认识",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S2.NA.04",
+          "code": "S2.NA.04",
+          "strand": "第二学段（3~4年级）/ 数与代数 / 数的认识",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S2.NA.05",
+          "code": "S2.NA.05",
+          "strand": "第二学段（3~4年级）/ 数与代数 / 数的运算",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S2.NA.06",
+          "code": "S2.NA.06",
+          "strand": "第二学段（3~4年级）/ 数与代数 / 数的运算",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S2.NA.07",
+          "code": "S2.NA.07",
+          "strand": "第二学段（3~4年级）/ 数与代数 / 数的运算",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S2.NA.08",
+          "code": "S2.NA.08",
+          "strand": "第二学段（3~4年级）/ 数与代数 / 数的运算",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S2.NA.09",
+          "code": "S2.NA.09",
+          "strand": "第二学段（3~4年级）/ 数与代数 / 数量关系",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S2.NA.10",
+          "code": "S2.NA.10",
+          "strand": "第二学段（3~4年级）/ 数与代数 / 数量关系",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S2.NA.11",
+          "code": "S2.NA.11",
+          "strand": "第二学段（3~4年级）/ 数与代数 / 探索规律",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S2.GE.01",
+          "code": "S2.GE.01",
+          "strand": "第二学段（3~4年级）/ 图形与几何 / 图形的认识",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S2.GE.02",
+          "code": "S2.GE.02",
+          "strand": "第二学段（3~4年级）/ 图形与几何 / 图形的认识",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S2.GE.03",
+          "code": "S2.GE.03",
+          "strand": "第二学段（3~4年级）/ 图形与几何 / 图形的认识",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S2.GE.04",
+          "code": "S2.GE.04",
+          "strand": "第二学段（3~4年级）/ 图形与几何 / 测量",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S2.GE.05",
+          "code": "S2.GE.05",
+          "strand": "第二学段（3~4年级）/ 图形与几何 / 测量",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S2.GE.06",
+          "code": "S2.GE.06",
+          "strand": "第二学段（3~4年级）/ 图形与几何 / 测量",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S2.GE.07",
+          "code": "S2.GE.07",
+          "strand": "第二学段（3~4年级）/ 图形与几何 / 图形的运动",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S2.GE.08",
+          "code": "S2.GE.08",
+          "strand": "第二学段（3~4年级）/ 图形与几何 / 图形的位置",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S2.SP.01",
+          "code": "S2.SP.01",
+          "strand": "第二学段（3~4年级）/ 统计与概率 / 数据收集",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S2.SP.02",
+          "code": "S2.SP.02",
+          "strand": "第二学段（3~4年级）/ 统计与概率 / 数据整理与表达",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S2.SP.03",
+          "code": "S2.SP.03",
+          "strand": "第二学段（3~4年级）/ 统计与概率 / 数据整理与表达",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S2.SP.04",
+          "code": "S2.SP.04",
+          "strand": "第二学段（3~4年级）/ 统计与概率 / 数据分析",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S2.SP.05",
+          "code": "S2.SP.05",
+          "strand": "第二学段（3~4年级）/ 统计与概率 / 随机现象",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S3.NA.01",
+          "code": "S3.NA.01",
+          "strand": "第三学段（5~6年级）/ 数与代数 / 数的认识",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S3.NA.02",
+          "code": "S3.NA.02",
+          "strand": "第三学段（5~6年级）/ 数与代数 / 数的认识",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S3.NA.03",
+          "code": "S3.NA.03",
+          "strand": "第三学段（5~6年级）/ 数与代数 / 数的认识",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S3.NA.04",
+          "code": "S3.NA.04",
+          "strand": "第三学段（5~6年级）/ 数与代数 / 数的认识",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S3.NA.05",
+          "code": "S3.NA.05",
+          "strand": "第三学段（5~6年级）/ 数与代数 / 数的运算",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S3.NA.06",
+          "code": "S3.NA.06",
+          "strand": "第三学段（5~6年级）/ 数与代数 / 数的运算",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S3.NA.07",
+          "code": "S3.NA.07",
+          "strand": "第三学段（5~6年级）/ 数与代数 / 数的运算",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S3.NA.08",
+          "code": "S3.NA.08",
+          "strand": "第三学段（5~6年级）/ 数与代数 / 数的运算",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S3.NA.09",
+          "code": "S3.NA.09",
+          "strand": "第三学段（5~6年级）/ 数与代数 / 数量关系",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S3.NA.10",
+          "code": "S3.NA.10",
+          "strand": "第三学段（5~6年级）/ 数与代数 / 数量关系",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S3.NA.11",
+          "code": "S3.NA.11",
+          "strand": "第三学段（5~6年级）/ 数与代数 / 数量关系",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S3.NA.12",
+          "code": "S3.NA.12",
+          "strand": "第三学段（5~6年级）/ 数与代数 / 探索规律",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S3.GE.01",
+          "code": "S3.GE.01",
+          "strand": "第三学段（5~6年级）/ 图形与几何 / 图形的认识",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S3.GE.02",
+          "code": "S3.GE.02",
+          "strand": "第三学段（5~6年级）/ 图形与几何 / 图形的认识",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S3.GE.03",
+          "code": "S3.GE.03",
+          "strand": "第三学段（5~6年级）/ 图形与几何 / 图形的认识",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S3.GE.04",
+          "code": "S3.GE.04",
+          "strand": "第三学段（5~6年级）/ 图形与几何 / 测量",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S3.GE.05",
+          "code": "S3.GE.05",
+          "strand": "第三学段（5~6年级）/ 图形与几何 / 测量",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S3.GE.06",
+          "code": "S3.GE.06",
+          "strand": "第三学段（5~6年级）/ 图形与几何 / 测量",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S3.GE.07",
+          "code": "S3.GE.07",
+          "strand": "第三学段（5~6年级）/ 图形与几何 / 图形的运动",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S3.GE.08",
+          "code": "S3.GE.08",
+          "strand": "第三学段（5~6年级）/ 图形与几何 / 图形的位置",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S3.SP.01",
+          "code": "S3.SP.01",
+          "strand": "第三学段（5~6年级）/ 统计与概率 / 数据收集",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S3.SP.02",
+          "code": "S3.SP.02",
+          "strand": "第三学段（5~6年级）/ 统计与概率 / 数据整理与表达",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S3.SP.03",
+          "code": "S3.SP.03",
+          "strand": "第三学段（5~6年级）/ 统计与概率 / 数据整理与表达",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S3.SP.04",
+          "code": "S3.SP.04",
+          "strand": "第三学段（5~6年级）/ 统计与概率 / 数据分析",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S3.SP.05",
+          "code": "S3.SP.05",
+          "strand": "第三学段（5~6年级）/ 统计与概率 / 随机现象",
+          "note": ""
+        },
+        {
+          "key": "moe-2022-math:S3.SP.06",
+          "code": "S3.SP.06",
+          "strand": "第三学段（5~6年级）/ 统计与概率 / 随机现象",
           "note": ""
         }
       ]
@@ -8298,13 +8700,13 @@
           "key": "moe-2022-sci:S1.O.01",
           "code": "S1.O.01",
           "strand": "第一学段（1~2年级）/ 生命科学 / 生物体的稳态与调节",
-          "note": "常见动物的特征和生存需要（住所、食物）"
+          "note": "→ Common animal features & survival needs (shelter, food)"
         },
         {
           "key": "moe-2022-sci:S1.O.03",
           "code": "S1.O.03",
           "strand": "第一学段（1~2年级）/ 生命科学 / 生物体的稳态与调节",
-          "note": "动物适应环境的方式（如伪装）"
+          "note": "→ Animal adaptation to environment (e.g. camouflage)"
         },
         {
           "key": "moe-2022-sci:S1.TE.01",

@@ -9,7 +9,7 @@
 
 ### DAG 完整性修复（P0/v1.1）
 - **破环**：删 283 条成环边（含 200 反平行对），密度 1.55→1.377，0 含环 SCC。删除旧 `removeCycles` 的 3 个 bug（`_weak` 未赋值/`pass<10` 上限/先破环后合并导致重新成环），重写为 `scripts/break-cycles.mjs`（迭代 Tarjan + 贪心评分，全局破环）。
-- **审核闸门**：每条依赖边加 `reviewStatus`（machine/reviewed/rejected）。规则边标 reviewed（1278）/ LLM 边标 machine（976），覆盖率 56.9%。viewer 默认只展示 reviewed，machine 边降级为"AI 推测·未核对"。
+- **审核闸门**：每条依赖边加 `reviewStatus`（machine/reviewed/rejected）。规则边标 reviewed（1286）/ LLM 边标 machine（976），覆盖率 56.9%。viewer 默认只展示 reviewed，machine 边降级为"AI 推测·未核对"。
 - **快照机制**：`scripts/snapshot.mjs`（--list/--diff）+ Makefile 目标 + git tag `data-snapshot-v1-pre-fix`。
 
 ### 核心度 + 节点类型（B1）

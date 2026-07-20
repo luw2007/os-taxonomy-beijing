@@ -31,3 +31,9 @@ data/.llm-deps-work/
 
 # 数据快照（本地保护，不入版本库）
 data/.snapshots/
+
+# LLM 对齐中间产物（含 raw 响应）
+data/.align-work/
+# .env 备份（含 API key）
+.env.backup-*
+.env.backup

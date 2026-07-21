@@ -33,6 +33,15 @@ test('filters the sequence to nodes matching the subject filter, respecting depe
   const seq = buildPathSequence(nodes, edges, { subject: 'math' });
   assert.deepEqual(seq, ['B', 'A', 'D']);
 });
+test('orders independent ready nodes alongside dependency roots', () => {
+  const seq = buildPathSequence({
+    A: ['后续', 'math', 8],
+    B: ['前置', 'math', 7],
+    C: ['独立', 'math', 6],
+  }, [{ f: 'B', t: 'A' }], { subject: 'math' });
+  assert.deepEqual(seq, ['C', 'B', 'A']);
+});
+
 
 test('filters the sequence to nodes matching the age filter', () => {
   const seq = buildPathSequence(nodes, edges, { age: 8 });
@@ -52,7 +61,7 @@ test('breaks ties deterministically by age, then Chinese name, then id', () => {
 test('includes every matching node exactly once even when the graph contains a cycle', () => {
   const cyclicEdges = [{ f: 'A', t: 'B' }, { f: 'B', t: 'A' }];
   const seq = buildPathSequence(nodes, cyclicEdges, { subject: 'math' });
-  assert.deepEqual(seq, ['B', 'A', 'D']);
+  assert.deepEqual(seq, ['D', 'B', 'A']);
   assert.equal(seq.length, new Set(seq).size);
 });
 

@@ -2,7 +2,7 @@
   "version": "1.2.0-zh.0",
   "upstreamVersion": "1.0.0",
   "locale": "zh-CN",
-  "topicCount": 1818,
+  "topicCount": 1820,
   "originNote": "中国特有微主题（mtc_ 前缀）。已按原子粒度拆解——每条覆盖一个可独立评估的微技能。来源：课标自建(cn_only/progression/upstream_adapt) + 课本目录(textbook)。严守 codes-only 原则。教材来源节点中的作品名、部分作者名和来源作为事实性元数据保留；不包含教材正文、插图、练习题、版式、页码或 PDF 路径。详见 PROVENANCE.md。",
   "topics": [
     {
@@ -19244,23 +19244,23 @@
       "type": "CONCEPTUAL",
       "subject": "General Technology",
       "domain": "Technology & Design",
-      "name": "结构",
-      "description": "理解结构的基本概念和受力特点，了解结构的类型（实体结构、框架结构、壳体结构），理解影响结构稳定性的因素（重心位置、支撑面大小、结构形状），能进行简单的结构设计。",
+      "name": "结构的类型与基本概念",
+      "description": "区分实体结构、框架结构、壳体结构，理解结构的基本概念。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
       "centrality": 0.230769,
       "evidence": [
-        "能区分三种基本结构类型",
-        "能分析影响结构稳定性的因素",
-        "能进行简单的结构设计"
+        "能说出三种结构类型的特点",
+        "能举例说明不同结构类型"
       ],
-      "assessmentPrompt": "让 {{name}} 分析一把四条腿的椅子怎样设计更稳固，说说影响结构稳定性的因素有哪些。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出三种结构类型的特点",
       "cnStandards": [
         "moe-2022-gt:SH.TD2.01"
       ],
       "origin": "cn_only",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_835",
@@ -42453,6 +42453,54 @@
       "nodeKind": "skill",
       "granularity": "split-45min",
       "splitFrom": "mtc_841"
+    },
+    {
+      "id": "mtc_2277",
+      "type": "CONCEPTUAL",
+      "subject": "General Technology",
+      "domain": "Technology & Design",
+      "name": "结构受力与稳定性",
+      "description": "分析结构受力特点，理解影响稳定性的因素（重心、支撑面、形状）。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 17,
+      "centrality": 0.230769,
+      "evidence": [
+        "能画出简单结构的受力示意图",
+        "能分析影响结构稳定性的因素"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能画出简单结构的受力示意图",
+      "cnStandards": [
+        "moe-2022-gt:SH.TD2.01"
+      ],
+      "origin": "cn_only",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_834"
+    },
+    {
+      "id": "mtc_2278",
+      "type": "CONCEPTUAL",
+      "subject": "General Technology",
+      "domain": "Technology & Design",
+      "name": "简单结构设计",
+      "description": "运用结构知识进行简单结构设计，考虑稳定性和受力。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 17,
+      "centrality": 0.230769,
+      "evidence": [
+        "能设计并画出草图",
+        "能说明设计中如何保证稳定性"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能设计并画出草图",
+      "cnStandards": [
+        "moe-2022-gt:SH.TD2.01"
+      ],
+      "origin": "cn_only",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_834"
     }
   ]
 }

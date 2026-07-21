@@ -176,7 +176,21 @@ body.sb-open #graph-pane { left: 290px; }
 .me { background: var(--card-bg); border: 2px solid var(--accent); border-radius: 12px; padding: 18px 20px; box-shadow: var(--shadow-lg); }
 .me .nm { font-size: 18px; font-weight: 700; line-height: 1.4; }
 .me .meta { margin: 8px 0 12px; display: flex; gap: 6px; flex-wrap: wrap; }
-.me .desc { font-size: 13px; color: var(--text-light); line-height: 1.7; }
+.me .me-detail { font-size: 13px; }
+.me-sec { margin-top: 12px; }
+.me-sec:first-child { margin-top: 4px; }
+.me-sec h4 { font-size: 12px; color: var(--text-muted); font-weight: 600; margin-bottom: 5px; }
+.me-desc { color: var(--text-light); line-height: 1.7; }
+.me-evi { list-style: none; }
+.me-evi li { color: var(--text-light); line-height: 1.6; padding-left: 16px; position: relative; margin-bottom: 3px; }
+.me-evi li::before { content: '✓'; position: absolute; left: 0; color: var(--green); }
+.me-assess { background: var(--primary-light); border-radius: 8px; padding: 10px 12px; color: var(--text); line-height: 1.6; }
+.me-ph { background: var(--primary); color: #fff; border-radius: 4px; padding: 0 5px; font-size: 12px; }
+.me-std { background: var(--bg); border-radius: 7px; padding: 8px 10px; margin-bottom: 6px; }
+.me-std-k { font-family: ui-monospace, "SF Mono", monospace; font-size: 11.5px; color: var(--accent); display: block; }
+.me-std-s { font-size: 11.5px; color: var(--text-muted); display: block; margin-top: 2px; }
+.me-std-n { font-size: 11.5px; color: var(--text-light); display: block; margin-top: 2px; }
+.me-empty { font-size: 12.5px; color: var(--text-muted); padding: 8px 0; }
 .me .lk { font-size: 12.5px; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--border); display: flex; gap: 16px; flex-wrap: wrap; }
 .me .lk a { color: var(--accent); cursor: pointer; text-decoration: none; }
 .me .lk a:hover { text-decoration: underline; }

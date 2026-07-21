@@ -448,6 +448,25 @@ function column(edges, myId, dir) {
   return { html: html || `<p class="empty">${dir === 'pre' ? '无——这是起点知识' : '暂无后续记录'}</p>`, count: items.length, xCount: xs.length };
 }
 
+// 中央卡完整详情: 描述 + 掌握证据 + 评估话术 + 课标对齐(数据来自 /api/topic/:id)
+function renderMeDetail(d) {
+  const t = d.topic || {};
+  let html = '';
+  if (t.description) html += `<div class="me-sec"><div class="me-desc">${esc(t.description)}</div></div>`;
+  if (t.evidence && t.evidence.length) {
+    html += `<div class="me-sec"><h4>✓ 掌握证据</h4><ul class="me-evi">${t.evidence.map(e => `<li>${esc(e)}</li>`).join('')}</ul></div>`;
+  }
+  if (t.assessmentPrompt) {
+    const a = esc(t.assessmentPrompt).replace(/\{\{name\}\}/g, '<span class="me-ph">孩子名字</span>');
+    html += `<div class="me-sec"><h4>🎯 评估话术</h4><div class="me-assess">${a}</div></div>`;
+  }
+  if (d.standards && d.standards.length) {
+    html += `<div class="me-sec"><h4>📋 中国课标对齐</h4>${d.standards.map(s =>
+      `<div class="me-std"><span class="me-std-k">${esc(s.key)}</span>${s.strand ? `<span class="me-std-s">${esc(s.strand)}</span>` : ''}${s.note ? `<span class="me-std-n">${esc(s.note)}</span>` : ''}</div>`).join('')}</div>`;
+  }
+  return html || '<p class="me-empty">(暂无详情)</p>';
+}
+
 function show(id, pushTrail = true) {
   const me = N(id); if (!me) return;
   curId = id;
@@ -465,17 +484,19 @@ function show(id, pushTrail = true) {
   document.getElementById('me').innerHTML = `<div class="me">
     <div class="nm">${esc(me.name)}</div>
     <div class="meta"><span class="tag">${sz(me.subject)}</span>${me.age >= 0 ? `<span class="tag">${me.age}岁</span>` : ''}${isM ? '<span class="tag ok">已掌握</span>' : ''}</div>
-    <div class="desc" id="me-desc">加载描述…</div>
+    <div class="me-detail" id="me-detail"><div class="skel skel-card" style="height:80px"></div></div>
     <div class="lk"><a id="me-toggle">${isM ? '↩︎ 取消掌握标记' : '✓ 标记为已掌握'}</a><a id="me-graph-link">在图谱中查看 ↗</a></div>
   </div>`;
   document.getElementById('me-toggle').addEventListener('click', () => toggleMastered(id));
   document.getElementById('me-graph-link').addEventListener('click', () => showGraphTopic(id));
   fetch(`/api/topic/${encodeURIComponent(id)}`).then(r => r.json()).then(d => {
-    const el = document.getElementById('me-desc');
-    if (el && curId === id) el.textContent = d.topic?.description || '(无描述)';
+    if (curId !== id) return;
+    const el = document.getElementById('me-detail');
+    if (el) el.innerHTML = renderMeDetail(d);
   }).catch(() => {
-    const el = document.getElementById('me-desc');
-    if (el && curId === id) el.textContent = '(描述加载失败)';
+    if (curId !== id) return;
+    const el = document.getElementById('me-detail');
+    if (el) el.innerHTML = '<p class="me-empty">详情加载失败</p>';
   });
   renderTrail();
   document.querySelectorAll('.cols .tcard').forEach(c => c.addEventListener('click', () => show(c.dataset.id)));

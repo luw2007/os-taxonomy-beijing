@@ -15,6 +15,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { dirname, resolve, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createServer } from 'node:http';
+import { createResolver } from './llm-resolve.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = resolve(ROOT, 'data');
@@ -231,6 +232,43 @@ function filterDepsByReview(deps, reviewParam) {
 
 // 把单条依赖规范化为对外 API 的形态(带 reviewStatus,缺失补 machine)
 const withReviewStatus = (d) => ({ ...d, reviewStatus: reviewStatus(d) });
+
+// --- 「知识脉络」页数据(紧凑格式,一次性喂给前端) ----------------------------
+// 只是 mergedTopics/mergedDeps 的序列化视图,不含任何新逻辑。
+// nodes: id → [name, subject, ageRangeStart];  edges: {f,t,r,x,m}
+//   x=1 跨学科边  m=1 未审核(machine)边  rejected 边不输出
+const pathData = (() => {
+  const nodes = {};
+  const subjMap = new Map();
+  for (const t of mergedTopics) {
+    nodes[t.id] = [t.name, t.subject, t.ageRangeStart ?? -1];
+    subjMap.set(t.id, t.subject);
+  }
+  const edges = [];
+  for (const d of mergedDeps) {
+    const rs = reviewStatus(d);
+    if (rs === 'rejected') continue;
+    const s1 = subjMap.get(d.prerequisiteId), s2 = subjMap.get(d.topicId);
+    if (!s1 || !s2) continue;
+    edges.push({ f: d.prerequisiteId, t: d.topicId, r: d.reason || '', x: s1 !== s2 ? 1 : 0, m: rs === 'reviewed' ? 0 : 1 });
+  }
+  // preset 入口: 跨学科度最高的节点(排除 Learning to Learn 的元技能噪音)
+  const xdeg = new Map();
+  for (const e of edges) {
+    if (!e.x) continue;
+    if (subjMap.get(e.f) === 'Learning to Learn' || subjMap.get(e.t) === 'Learning to Learn') continue;
+    xdeg.set(e.f, (xdeg.get(e.f) || 0) + 1);
+    xdeg.set(e.t, (xdeg.get(e.t) || 0) + 1);
+  }
+  const presets = [...xdeg.entries()].sort((a, b) => b[1] - a[1]).slice(0, 5).map(([id]) => id);
+  return { subjects: domainMap.subjects, nodes, edges, presets };
+})();
+
+// --- AI 标记解析(实验功能,DEEPSEEK_API_KEY 缺失时自动禁用) -----------------
+const llmResolve = createResolver(
+  mergedTopics.map(t => ({ id: t.id, name: t.name, subject: t.subject, age: t.ageRangeStart })),
+  subjectZh
+);
 
 // 合并 cluster（中文 summary 优先）
 const zhClusterMap = new Map();
@@ -467,6 +505,11 @@ function apiResponse(pathname, search) {
     return tree;
   }
 
+  // GET /api/path-data — 「知识脉络」页全量紧凑数据(nodes/edges/presets)
+  if (pathname === '/api/path-data') {
+    return pathData;
+  }
+
   // GET /api/graph — 3D 力导向图数据（nodes + links）
   //   ?review=all  返回所有非 rejected 边(含 machine);默认只返回 reviewed。
   //   rejected 永不返回。每条 link 带 reviewStatus(缺失补 machine)。
@@ -559,6 +602,30 @@ const server = createServer((req, res) => {
   const url = new URL(req.url, `http://localhost:${port}`);
   const pathname = url.pathname;
 
+  // POST /api/resolve — AI 标记解析(实验)。同源无需 CORS。
+  if (req.method === 'POST' && pathname === '/api/resolve') {
+    if (!llmResolve) {
+      res.writeHead(503, { 'Content-Type': 'application/json; charset=utf-8' });
+      res.end(JSON.stringify({ error: 'AI 解析未启用(缺少 DEEPSEEK_API_KEY)' }));
+      return;
+    }
+    let body = '';
+    req.on('data', (c) => { body += c; if (body.length > 64 * 1024) req.destroy(); });
+    req.on('end', async () => {
+      try {
+        const { text, profile } = JSON.parse(body);
+        if (!text || typeof text !== 'string') throw new Error('缺少 text');
+        const result = await llmResolve(text.slice(0, 500), profile);
+        res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+        res.end(JSON.stringify(result));
+      } catch (e) {
+        res.writeHead(500, { 'Content-Type': 'application/json; charset=utf-8' });
+        res.end(JSON.stringify({ error: e.message }));
+      }
+    });
+    return;
+  }
+
   try {
     // API 路由
     if (pathname.startsWith('/api/')) {
@@ -604,6 +671,7 @@ server.listen(port, () => {
   console.log(`  ▸ 领域聚类:    ${mergedClusters.length} 个`);
   console.log(`  ▸ 中国课标:    ${cnStandards.curricula.length} 套`);
   console.log(`  ▸ 维度切换:    ${Object.values(dimensionsConfig.dimensions).map(d => d.label).join(' / ')}（默认 ${dimensionsConfig.dimensions[dimensionsConfig.defaultDimension]?.label}）`);
+  console.log(`  ▸ AI 标记解析: ${llmResolve ? '✓ 已启用(deepseek-v4-flash)' : '✗ 未启用(缺 DEEPSEEK_API_KEY)'}`);
   console.log(`  ▸ 上游数据:    ${hasUpstream ? '✓ 已加载' : '✗ 未找到（仅显示中文数据）'}`);
   if (hasUpstream) console.log(`                ${upstreamPath}`);
   console.log('');

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>知识脉络 · Beijing Skill Taxonomy</title>
+<link rel="stylesheet" href="/path.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="sb-toggle" id="sb-toggle" title="目录">☰</button>
+    <a class="brand" href="#" onclick="return false">
+      <h1>🧭 知识脉络</h1><span class="sub">实验功能</span>
+    </a>
+    <nav class="tabs">
+      <button class="tab-btn active" id="tab-path" data-tab="path">📍 知识脉络</button>
+      <button class="tab-btn" id="tab-graph" data-tab="graph">🗺 知识图谱</button>
+    </nav>
+    <span class="topbar-spacer"></span>
+    <span class="ub-profile" id="ub-profile"></span>
+    <button class="ub-btn" id="ub-profile-btn"></button>
+    <button class="ub-btn" id="ub-memory">🗂 本地记忆</button>
+    <button class="ub-btn" id="ub-agreement">📄 协议</button>
+    <button class="ub-btn danger" id="ub-wipe">🗑 清除数据</button>
+  </div>
+</header>
+
+<!-- 共享侧边栏: 搜索 + 维度 + 学科目录树,两个 tab 通用,可收起 -->
+<aside id="sidebar">
+  <div class="sb-search">
+    <input id="q" placeholder="🔍 搜知识点,如:分数、摩擦…" autocomplete="off">
+    <div id="sugg"></div>
+  </div>
+  <div class="sb-dims" id="sb-dims"></div>
+  <nav class="sb-tree" id="sb-tree"><p class="sb-loading">加载目录…</p></nav>
+</aside>
+
+<!-- 知识图谱子页(iframe 懒加载主 viewer,复用本页顶栏/用户体系) -->
+<div id="graph-pane" hidden>
+  <iframe id="graph-frame" title="知识图谱"></iframe>
+</div>
+
+<div class="main" id="path-pane">
+
+  <!-- 学习面板 -->
+  <div class="panel">
+    <div class="section-title">✍️ 记录已掌握的知识</div>
+    <div class="mark-row">
+      <textarea id="mark-input" placeholder="用自己的话说,如:孩子会两位数乘法和分数初步认识,拼音全部掌握了"></textarea>
+      <button id="mark-btn">AI 解析</button>
+    </div>
+    <p class="mark-hint"><kbd>⌘/Ctrl + Enter</kbd> 快速解析 · 一次可说多个知识点 · 顺带说的孩子情况(年龄/年级/地区)会被记住,只存在你的浏览器里</p>
+    <div id="confirm-area" hidden></div>
+    <div id="mastered-wrap" hidden>
+      <div id="mastered-bar"></div>
+    </div>
+  </div>
+
+  <!-- 推荐 -->
+  <div class="panel" id="next-panel" hidden>
+    <div class="section-title">🚀 接下来可以学 <span class="n" id="next-n"></span><span class="next-toggle" id="next-toggle"></span></div>
+    <div class="next-grid" id="next-grid"></div>
+  </div>
+
+  <!-- 图谱探索 -->
+  <div class="section-title" style="margin-top:28px">🔍 知识点脉络探索</div>
+  <div class="explorer-head">
+    <span class="preset-lbl">从这里开始,或用左侧目录/搜索:</span>
+    <span id="presets"></span>
+  </div>
+  <div id="trail"></div>
+
+  <div class="cols">
+    <div class="col">
+      <div class="col-h">⬅️ 学它之前,要先会 <span class="n" id="n-pre"></span></div>
+      <div id="pre"><div class="skel skel-card"></div><div class="skel skel-card"></div></div>
+    </div>
+    <div class="col">
+      <div class="col-h">📍 当前知识点</div>
+      <div id="me"><div class="skel skel-me"></div></div>
+    </div>
+    <div class="col">
+      <div class="col-h">学了它,才能学 ➡️ <span class="n" id="n-post"></span></div>
+      <div id="post"><div class="skel skel-card"></div><div class="skel skel-card"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- 用户协议 -->
+<div class="modal-mask" id="agreement-mask" hidden>
+  <div class="modal">
+    <h3>📄 用户协议(实验功能)</h3>
+    <div class="modal-body">
+      <p><b>这是一个实验性功能,可能随时下线。</b></p>
+      <p>1. <b>数据只存你本地。</b>你标记的知识点、孩子的画像信息(年龄、年级、地区等)全部只保存在你浏览器的 localStorage 里,不上传、不建账号、没有服务器数据库。换浏览器或清缓存即丢失。</p>
+      <p>2. <b>AI 解析需要把你输入的文字发给大模型。</b>点「AI 解析」时,你输入的描述(以及已有画像,用于理解语境)会发送给 DeepSeek API 处理,用完即弃。不要输入真实姓名、联系方式等敏感信息。</p>
+      <p>3. <b>AI 结果仅供参考。</b>知识点匹配与学习建议由 AI 推测,未经教师审核,不构成教育建议。</p>
+      <p>4. 你可以随时通过顶栏「清除数据」删除本地全部记录。</p>
+    </div>
+    <div class="modal-actions">
+      <button class="btn primary" id="agree-btn">同意并继续</button>
+      <button class="btn" id="disagree-btn">不同意</button>
+    </div>
+  </div>
+</div>
+
+<!-- 用户档案管理 -->
+<div class="modal-mask" id="profile-mask" hidden>
+  <div class="modal">
+    <h3>👥 用户档案</h3>
+    <div class="modal-body"><p>同一浏览器可以给不同的人建档案(比如家里两个孩子),已掌握知识点和画像各自独立,互不影响。只存本地。</p></div>
+    <div class="profile-list" id="profile-list"></div>
+    <div class="profile-add">
+      <input id="profile-new-name" placeholder="新档案名字,如:哥哥、妹妹、小明" maxlength="12">
+      <button class="btn primary" id="profile-add-btn">+ 新建</button>
+    </div>
+    <div class="modal-actions"><button class="btn" id="profile-close">关闭</button></div>
+  </div>
+</div>
+
+<!-- 本地记忆 -->
+<div class="modal-mask" id="memory-mask" hidden>
+  <div class="modal">
+    <h3>🗂 本地记忆(全部存在你的浏览器里)</h3>
+    <div class="modal-body" id="memory-body"></div>
+    <div class="modal-actions">
+      <button class="btn" id="memory-close">关闭</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+<script src="/path.js"></script>
+</body>
+</html>

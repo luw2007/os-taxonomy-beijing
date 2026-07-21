@@ -275,17 +275,19 @@ body.sb-open #graph-pane { left: 290px; }
   .mobile-shell {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    min-height: 100dvh;
+    position: fixed;
+    inset: 0;
     background: var(--bg);
     padding-top: env(safe-area-inset-top);
+    overflow: hidden;
   }
 
+  .mobile-header { position: sticky; top: 0; z-index: 20; background: var(--card-bg); border-bottom: 1px solid var(--border); padding: 10px 16px; display: flex; flex-direction: column; gap: 8px; }
   /* --- 头部: 筛选 + 登录/AI 入口 --- */
   .mobile-field { flex: 1; display: flex; flex-direction: column; gap: 2px; font-size: 11px; color: var(--text-light); }
   .mobile-header-row { display: flex; gap: 8px; align-items: center; }
   .mobile-field-label { padding-left: 2px; }
-  .mobile-select { font: inherit; font-size: 13px; min-height: 44px; padding: 0 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--card-bg); color: var(--text); }
+  .mobile-select { -webkit-appearance: none; appearance: none; font: inherit; font-size: 13px; height: 44px; min-height: 44px; padding: 0 30px 0 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--card-bg); color: var(--text); }
   .mobile-select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
   .mobile-btn { min-height: 44px; min-width: 44px; padding: 0 14px; font-size: 13px; font-weight: 500; border: 1px solid var(--border); border-radius: 8px; background: var(--card-bg); color: var(--text); cursor: pointer; flex: 1; }
   .mobile-btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
@@ -312,6 +314,7 @@ body.sb-open #graph-pane { left: 290px; }
   .mobile-decision-btn { flex: 1; min-height: 44px; min-width: 44px; font-size: 14px; font-weight: 600; border-radius: 10px; cursor: pointer; }
   .mobile-decision-mastered { border: 1px solid var(--green); background: var(--green); color: #fff; }
   .mobile-decision-review { border: 1px solid var(--border); background: var(--card-bg); color: var(--text); }
+  .mobile-undo-btn { flex-basis: 100%; border: 1px solid var(--border); background: var(--card-bg); color: var(--text-light); }
   .mobile-undo-btn[hidden] { display: none; }
 
   .mobile-stepper { display: flex; align-items: center; gap: 8px; }
@@ -322,6 +325,7 @@ body.sb-open #graph-pane { left: 290px; }
 
   /* --- AI 弹窗: 移动端变为底部抽屉 --- */
   .mobile-ai-mask { align-items: flex-end; }
+  .mobile-ai-sheet { width: 100%; max-width: none; border-radius: 16px 16px 0 0; max-height: 80vh; padding-bottom: calc(22px + env(safe-area-inset-bottom)); }
   .mobile-ai-note { margin-top: 8px; color: var(--text-light); font-size: 12px; }
 
   /* --- 底部导航 --- */

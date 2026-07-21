@@ -2,7 +2,7 @@
   "version": "1.2.0-zh.0",
   "upstreamVersion": "1.0.0",
   "locale": "zh-CN",
-  "topicCount": 1801,
+  "topicCount": 1818,
   "originNote": "中国特有微主题（mtc_ 前缀）。已按原子粒度拆解——每条覆盖一个可独立评估的微技能。来源：课标自建(cn_only/progression/upstream_adapt) + 课本目录(textbook)。严守 codes-only 原则。教材来源节点中的作品名、部分作者名和来源作为事实性元数据保留；不包含教材正文、插图、练习题、版式、页码或 PDF 路径。详见 PROVENANCE.md。",
   "topics": [
     {
@@ -13473,23 +13473,24 @@
       "type": "PROCEDURAL",
       "subject": "English",
       "domain": "Speaking",
-      "name": "英语·口语·日常情境对话",
-      "description": "能在购物、问路、就餐等熟悉情境中进行简单的英语对话，做到语音语调基本正确、应答得体。",
+      "name": "英语·口语·购物情境对话",
+      "description": "在购物情境中进行简单英语对话，掌握常用购物用语和应答。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": 0,
       "evidence": [
-        "能在熟悉情境中发起和维持对话",
-        "能运用得体的应答语句",
-        "能做到语音语调基本正确"
+        "能使用购物常用句型（如询问价格、颜色、尺寸）",
+        "能完成买卖双方的角色扮演对话",
+        "语音语调基本正确"
       ],
-      "assessmentPrompt": "和 {{name}} 用英语模拟在商店购物的一段对话，检查他的应答是否得体。",
+      "assessmentPrompt": "让 {{name}} 展示：能使用购物常用句型（如询问价格、颜色、尺寸）",
       "cnStandards": [
         "moe-2022-english:S4.SK.02"
       ],
       "origin": "upstream_adapt",
       "stage": "初中",
-      "nodeKind": "skill"
+      "nodeKind": "skill",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_578",
@@ -13634,23 +13635,24 @@
       "type": "LANGUAGE",
       "subject": "English",
       "domain": "Grammar",
-      "name": "英语·语法·常用基本时态（一般现在/过去/将来/进行）",
-      "description": "掌握一般现在时、一般过去时、一般将来时和现在进行时的构成和用法，能在语境中正确选用时态。",
+      "name": "英语·语法·一般现在时",
+      "description": "掌握一般现在时的构成（主语+动词原形/三单）和用法（习惯、事实）。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": 0.173077,
       "evidence": [
-        "能说出四种基本时态的构成和用法",
-        "能正确使用动词形式变化",
-        "能根据语境选择合适的时态"
+        "能说出一般现在时的构成和标志词",
+        "能正确使用动词的三单形式变化",
+        "能用一般现在时描述日常习惯"
       ],
-      "assessmentPrompt": "让 {{name}} 分别用一般现在时描述日常、一般过去时描述昨天的事、现在进行时描述此刻在做的事。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出一般现在时的构成和标志词",
       "cnStandards": [
         "moe-2022-english:S4.KN.01"
       ],
       "origin": "upstream_adapt",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_585",
@@ -13680,23 +13682,24 @@
       "type": "LANGUAGE",
       "subject": "English",
       "domain": "Grammar",
-      "name": "英语·语法·被动语态",
-      "description": "掌握被动语态（be+过去分词）的构成，能在一般现在时、一般过去时和一般将来时中正确运用被动语态。",
+      "name": "英语·语法·一般现在时的被动语态",
+      "description": "掌握一般现在时被动语态的构成（am/is/are+过去分词）和用法。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
       "centrality": 0,
       "evidence": [
-        "能说出被动语态的构成和用法",
-        "能在几种常用时态中正确使用被动语态",
-        "能完成主动句和被动句的转换"
+        "能写出一般现在时被动语态的肯定否定疑问句",
+        "能完成主动句到被动句的转换（一般现在时）",
+        "能在语境中选择正确语态"
       ],
-      "assessmentPrompt": "给 {{name}} 几个主动句，请他把它们改成被动语态。",
+      "assessmentPrompt": "让 {{name}} 展示：能写出一般现在时被动语态的肯定否定疑问句",
       "cnStandards": [
         "moe-2022-english:S4.KN.01"
       ],
       "origin": "upstream_adapt",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_587",
@@ -13795,69 +13798,72 @@
       "type": "LANGUAGE",
       "subject": "English",
       "domain": "Themes: Self",
-      "name": "英语·人与自我（学习与生活）",
-      "description": "围绕人与自我主题（学校生活、学习习惯、个人兴趣、梦想与未来），综合运用英语进行听说读写。",
+      "name": "英语·人与自我·学校生活",
+      "description": "围绕学校生活话题，综合运用英语进行听说读写。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
       "centrality": 0,
       "evidence": [
-        "能用英语谈论学校生活和学习习惯",
-        "能表达个人兴趣梦想和未来计划",
-        "能就自我发展话题进行交流"
+        "能用英语描述校园环境和日常活动",
+        "能听懂并参与学校生活相关对话",
+        "能写出简短学校生活短文"
       ],
-      "assessmentPrompt": "让 {{name}} 用英语说说自己的学校生活和梦想，以及实现梦想的计划。",
+      "assessmentPrompt": "让 {{name}} 展示：能用英语描述校园环境和日常活动",
       "cnStandards": [
         "moe-2022-english:S4.THM.01"
       ],
       "origin": "upstream_adapt",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_592",
       "type": "LANGUAGE",
       "subject": "English",
       "domain": "Themes: Society",
-      "name": "英语·人与社会（规则与公益）",
-      "description": "围绕人与社会主题（社会规则、公益志愿、文化差异、中外节日），综合运用英语交流，培养社会责任和跨文化意识。",
+      "name": "英语·人与社会·社会规则",
+      "description": "围绕社会规则话题，综合运用英语进行听说读写。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
       "centrality": 0,
       "evidence": [
-        "能用英语谈论社会规则和公益活动",
-        "能比较中外文化和节日差异",
-        "能就社会话题发表简短看法"
+        "能用英语谈论交通规则、校规等",
+        "能听懂规则相关对话",
+        "能写出遵守规则的倡议"
       ],
-      "assessmentPrompt": "让 {{name}} 用英语说说为什么要做志愿者，再比较一个中外节日的不同。",
+      "assessmentPrompt": "让 {{name}} 展示：能用英语谈论交通规则、校规等",
       "cnStandards": [
         "moe-2022-english:S4.THM.02"
       ],
       "origin": "upstream_adapt",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_593",
       "type": "LANGUAGE",
       "subject": "English",
       "domain": "Themes: Nature",
-      "name": "英语·人与自然（环保）",
-      "description": "围绕人与自然主题（环境保护、自然灾害、科技发展），综合运用英语交流，培养可持续发展意识。",
+      "name": "英语·人与自然·环境保护",
+      "description": "围绕环境保护话题，综合运用英语进行听说读写。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
       "centrality": 0,
       "evidence": [
-        "能用英语谈论环境保护问题和做法",
-        "能描述自然灾害及其应对",
-        "能就科技发展表达看法"
+        "能用英语谈论环保问题和措施",
+        "能阅读环保短文并提取信息",
+        "能写出环保倡议或建议"
       ],
-      "assessmentPrompt": "让 {{name}} 用英语说说我们能为保护环境做什么。",
+      "assessmentPrompt": "让 {{name}} 展示：能用英语谈论环保问题和措施",
       "cnStandards": [
         "moe-2022-english:S4.THM.03"
       ],
       "origin": "upstream_adapt",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_594",
@@ -19353,23 +19359,23 @@
       "type": "CONCEPTUAL",
       "subject": "English",
       "domain": "Integrated Language Use",
-      "name": "阅读·批判性阅读与深层评价",
-      "description": "在阅读较长较难语篇的基础上进行批判性阅读，能区分事实与观点，能辨别论证的逻辑和证据的可靠性，能对文本的观点和写作手法进行评价，形成独立理性的判断。",
+      "name": "区分事实与观点",
+      "description": "学习识别文本中事实陈述与观点表述，区分客观信息和主观判断。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
       "centrality": 0.038462,
       "evidence": [
-        "能区分文本中的事实与观点",
-        "能分析论证的逻辑链条和证据可靠性",
-        "能对文本进行批判性评价"
+        "能标注段落中的事实与观点",
+        "能在阅读中准确区分两类句子"
       ],
-      "assessmentPrompt": "给 {{name}} 一篇英语议论文，请他区分事实与观点，评价论证是否充分，并说出自己的判断。",
+      "assessmentPrompt": "让 {{name}} 展示：能标注段落中的事实与观点",
       "cnStandards": [
         "moe-2022-english:SH.IU.02"
       ],
       "origin": "progression",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_840",
@@ -19399,23 +19405,23 @@
       "type": "PROCEDURAL",
       "subject": "English",
       "domain": "Integrated Language Use",
-      "name": "写作·思辨表达",
-      "description": "在复杂语篇写作中运用思辨能力表达有深度的观点，能综合运用各类复杂句型（名词性从句、定语从句、状语从句）和非谓语动词增强表达力，语言准确流畅。",
+      "name": "提出有深度的观点并论证",
+      "description": "学习在写作中提出有深度的观点，并用充分理由和例证进行论证。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
       "centrality": 0,
       "evidence": [
-        "能在写作中提出有深度的观点并充分论证",
-        "能综合运用各类从句和非谓语动词",
-        "能做到语言准确流畅"
+        "能针对话题写出有立场的段落",
+        "能使用因果、对比等论证方法"
       ],
-      "assessmentPrompt": "请 {{name}} 就 Is social media good or bad for teenagers? 写一篇英语议论文，要求使用至少三种复合句型。",
+      "assessmentPrompt": "让 {{name}} 展示：能针对话题写出有立场的段落",
       "cnStandards": [
         "moe-2022-english:SH.IU.04"
       ],
       "origin": "progression",
       "stage": "高中",
-      "nodeKind": "skill"
+      "nodeKind": "skill",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1950",
@@ -42024,6 +42030,429 @@
       "nodeKind": "text",
       "granularity": "split-45min",
       "splitFrom": "mtc_1505"
+    },
+    {
+      "id": "mtc_2260",
+      "type": "PROCEDURAL",
+      "subject": "English",
+      "domain": "Speaking",
+      "name": "英语·口语·问路情境对话",
+      "description": "在问路情境中进行简单英语对话，掌握方向、地点表达和礼貌应答。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": 0,
+      "evidence": [
+        "能使用问路和指路的常用表达",
+        "能在模拟地图中完成问路对话",
+        "语音语调基本正确"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能使用问路和指路的常用表达",
+      "cnStandards": [
+        "moe-2022-english:S4.SK.02"
+      ],
+      "origin": "upstream_adapt",
+      "stage": "初中",
+      "nodeKind": "skill",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_577"
+    },
+    {
+      "id": "mtc_2261",
+      "type": "PROCEDURAL",
+      "subject": "English",
+      "domain": "Speaking",
+      "name": "英语·口语·就餐情境对话",
+      "description": "在就餐情境中进行简单英语对话，掌握点餐、询问菜品、结账等用语。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": 0,
+      "evidence": [
+        "能使用点餐和应答常用句型",
+        "能模拟餐厅点餐和结账对话",
+        "语音语调基本正确"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能使用点餐和应答常用句型",
+      "cnStandards": [
+        "moe-2022-english:S4.SK.02"
+      ],
+      "origin": "upstream_adapt",
+      "stage": "初中",
+      "nodeKind": "skill",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_577"
+    },
+    {
+      "id": "mtc_2262",
+      "type": "LANGUAGE",
+      "subject": "English",
+      "domain": "Grammar",
+      "name": "英语·语法·一般过去时",
+      "description": "掌握一般过去时的构成（主语+动词过去式）和用法（过去动作/状态）。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": 0.173077,
+      "evidence": [
+        "能说出一般过去时的构成和标志词",
+        "能正确使用动词的过去式变化（规则/不规则）",
+        "能用一般过去时描述过去事件"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出一般过去时的构成和标志词",
+      "cnStandards": [
+        "moe-2022-english:S4.KN.01"
+      ],
+      "origin": "upstream_adapt",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_584"
+    },
+    {
+      "id": "mtc_2263",
+      "type": "LANGUAGE",
+      "subject": "English",
+      "domain": "Grammar",
+      "name": "英语·语法·一般将来时",
+      "description": "掌握一般将来时的构成（will+动词原形/be going to+动词原形）和用法（预测/计划）。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": 0.173077,
+      "evidence": [
+        "能说出一般将来时的两种构成和区别",
+        "能根据语境选择will或be going to",
+        "能用一般将来时表达计划与预测"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出一般将来时的两种构成和区别",
+      "cnStandards": [
+        "moe-2022-english:S4.KN.01"
+      ],
+      "origin": "upstream_adapt",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_584"
+    },
+    {
+      "id": "mtc_2264",
+      "type": "LANGUAGE",
+      "subject": "English",
+      "domain": "Grammar",
+      "name": "英语·语法·现在进行时",
+      "description": "掌握现在进行时的构成（am/is/are+动词ing）和用法（正在进行的动作）。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": 0.173077,
+      "evidence": [
+        "能说出现在进行时的构成和标志词",
+        "能正确使用现在分词变化规则",
+        "能用现在进行时描述正在发生的动作"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出现在进行时的构成和标志词",
+      "cnStandards": [
+        "moe-2022-english:S4.KN.01"
+      ],
+      "origin": "upstream_adapt",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_584"
+    },
+    {
+      "id": "mtc_2265",
+      "type": "LANGUAGE",
+      "subject": "English",
+      "domain": "Grammar",
+      "name": "英语·语法·一般过去时的被动语态",
+      "description": "掌握一般过去时被动语态的构成（was/were+过去分词）和用法。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 15,
+      "centrality": 0,
+      "evidence": [
+        "能写出一般过去时被动语态的肯定否定疑问句",
+        "能完成主动句到被动句的转换（一般过去时）",
+        "能在语境中正确使用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能写出一般过去时被动语态的肯定否定疑问句",
+      "cnStandards": [
+        "moe-2022-english:S4.KN.01"
+      ],
+      "origin": "upstream_adapt",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_586"
+    },
+    {
+      "id": "mtc_2266",
+      "type": "LANGUAGE",
+      "subject": "English",
+      "domain": "Grammar",
+      "name": "英语·语法·一般将来时的被动语态",
+      "description": "掌握一般将来时被动语态的构成（will be+过去分词）和用法。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 15,
+      "centrality": 0,
+      "evidence": [
+        "能写出一般将来时被动语态的肯定否定疑问句",
+        "能完成主动句到被动句的转换（一般将来时）",
+        "能在语境中正确使用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能写出一般将来时被动语态的肯定否定疑问句",
+      "cnStandards": [
+        "moe-2022-english:S4.KN.01"
+      ],
+      "origin": "upstream_adapt",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_586"
+    },
+    {
+      "id": "mtc_2267",
+      "type": "LANGUAGE",
+      "subject": "English",
+      "domain": "Themes: Self",
+      "name": "英语·人与自我·学习习惯",
+      "description": "围绕学习习惯话题，综合运用英语进行听说读写。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 15,
+      "centrality": 0,
+      "evidence": [
+        "能用英语谈论学习方法和习惯",
+        "能阅读学习习惯相关短文并提取信息",
+        "能就学习习惯发表观点"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能用英语谈论学习方法和习惯",
+      "cnStandards": [
+        "moe-2022-english:S4.THM.01"
+      ],
+      "origin": "upstream_adapt",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_591"
+    },
+    {
+      "id": "mtc_2268",
+      "type": "LANGUAGE",
+      "subject": "English",
+      "domain": "Themes: Self",
+      "name": "英语·人与自我·个人兴趣",
+      "description": "围绕个人兴趣话题，综合运用英语进行听说读写。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 15,
+      "centrality": 0,
+      "evidence": [
+        "能用英语表达个人爱好和兴趣",
+        "能听懂兴趣相关的对话",
+        "能写出介绍兴趣的短文"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能用英语表达个人爱好和兴趣",
+      "cnStandards": [
+        "moe-2022-english:S4.THM.01"
+      ],
+      "origin": "upstream_adapt",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_591"
+    },
+    {
+      "id": "mtc_2269",
+      "type": "LANGUAGE",
+      "subject": "English",
+      "domain": "Themes: Self",
+      "name": "英语·人与自我·梦想与未来",
+      "description": "围绕梦想与未来话题，综合运用英语进行听说读写。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 15,
+      "centrality": 0,
+      "evidence": [
+        "能用英语谈论未来职业和梦想",
+        "能阅读梦想话题短文并理解主旨",
+        "能写出关于未来计划的短文"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能用英语谈论未来职业和梦想",
+      "cnStandards": [
+        "moe-2022-english:S4.THM.01"
+      ],
+      "origin": "upstream_adapt",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_591"
+    },
+    {
+      "id": "mtc_2270",
+      "type": "LANGUAGE",
+      "subject": "English",
+      "domain": "Themes: Society",
+      "name": "英语·人与社会·公益志愿",
+      "description": "围绕公益志愿话题，综合运用英语进行听说读写。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 15,
+      "centrality": 0,
+      "evidence": [
+        "能用英语讨论志愿者活动和公益项目",
+        "能阅读公益志愿短文并回答问题",
+        "能写出志愿活动邀请或计划"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能用英语讨论志愿者活动和公益项目",
+      "cnStandards": [
+        "moe-2022-english:S4.THM.02"
+      ],
+      "origin": "upstream_adapt",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_592"
+    },
+    {
+      "id": "mtc_2271",
+      "type": "LANGUAGE",
+      "subject": "English",
+      "domain": "Themes: Society",
+      "name": "英语·人与社会·文化差异",
+      "description": "围绕文化差异话题，综合运用英语进行听说读写。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 15,
+      "centrality": 0,
+      "evidence": [
+        "能用英语比较中外文化差异（如饮食、礼仪）",
+        "能听懂文化差异相关对话",
+        "能写出介绍文化差异的短文"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能用英语比较中外文化差异（如饮食、礼仪）",
+      "cnStandards": [
+        "moe-2022-english:S4.THM.02"
+      ],
+      "origin": "upstream_adapt",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_592"
+    },
+    {
+      "id": "mtc_2272",
+      "type": "LANGUAGE",
+      "subject": "English",
+      "domain": "Themes: Society",
+      "name": "英语·人与社会·中外节日",
+      "description": "围绕中外节日话题，综合运用英语进行听说读写。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 15,
+      "centrality": 0,
+      "evidence": [
+        "能用英语描述节日习俗和活动",
+        "能听懂节日相关对话",
+        "能写出节日介绍或邀请函"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能用英语描述节日习俗和活动",
+      "cnStandards": [
+        "moe-2022-english:S4.THM.02"
+      ],
+      "origin": "upstream_adapt",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_592"
+    },
+    {
+      "id": "mtc_2273",
+      "type": "LANGUAGE",
+      "subject": "English",
+      "domain": "Themes: Nature",
+      "name": "英语·人与自然·自然灾害",
+      "description": "围绕自然灾害话题，综合运用英语进行听说读写。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 15,
+      "centrality": 0,
+      "evidence": [
+        "能用英语描述常见自然灾害及应对",
+        "能听懂自然灾害相关报道",
+        "能写出自然灾害安全指南"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能用英语描述常见自然灾害及应对",
+      "cnStandards": [
+        "moe-2022-english:S4.THM.03"
+      ],
+      "origin": "upstream_adapt",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_593"
+    },
+    {
+      "id": "mtc_2274",
+      "type": "LANGUAGE",
+      "subject": "English",
+      "domain": "Themes: Nature",
+      "name": "英语·人与自然·科技发展",
+      "description": "围绕科技发展话题，综合运用英语进行听说读写。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 15,
+      "centrality": 0,
+      "evidence": [
+        "能用英语谈论科技产品及其影响",
+        "能阅读科技短文并理解观点",
+        "能写出对科技发展的看法"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能用英语谈论科技产品及其影响",
+      "cnStandards": [
+        "moe-2022-english:S4.THM.03"
+      ],
+      "origin": "upstream_adapt",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_593"
+    },
+    {
+      "id": "mtc_2275",
+      "type": "CONCEPTUAL",
+      "subject": "English",
+      "domain": "Integrated Language Use",
+      "name": "分析论证逻辑与批判性评价",
+      "description": "分析论证的逻辑链条、证据可靠性，并对文本观点和写作手法进行评价。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 17,
+      "centrality": 0.038462,
+      "evidence": [
+        "能画出论证结构图",
+        "能评价证据的充分性和逻辑的严密性"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能画出论证结构图",
+      "cnStandards": [
+        "moe-2022-english:SH.IU.02"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_839"
+    },
+    {
+      "id": "mtc_2276",
+      "type": "PROCEDURAL",
+      "subject": "English",
+      "domain": "Integrated Language Use",
+      "name": "综合运用复杂句型与非谓语动词",
+      "description": "学习在写作中正确运用名词性从句、定语从句、状语从句和非谓语动词，提升语言表达力。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 17,
+      "centrality": 0,
+      "evidence": [
+        "能在段落中恰当运用三种以上从句",
+        "能使用非谓语动词简化句子"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能在段落中恰当运用三种以上从句",
+      "cnStandards": [
+        "moe-2022-english:SH.IU.04"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "skill",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_841"
     }
   ]
 }

@@ -2,7 +2,7 @@
   "version": "1.2.0-zh.0",
   "upstreamVersion": "1.0.0",
   "locale": "zh-CN",
-  "topicCount": 2003,
+  "topicCount": 2008,
   "originNote": "中国特有微主题（mtc_ 前缀）。已按原子粒度拆解——每条覆盖一个可独立评估的微技能。来源：课标自建(cn_only/progression/upstream_adapt) + 课本目录(textbook)。严守 codes-only 原则。教材来源节点中的作品名、部分作者名和来源作为事实性元数据保留；不包含教材正文、插图、练习题、版式、页码或 PDF 路径。详见 PROVENANCE.md。",
   "topics": [
     {
@@ -18445,23 +18445,23 @@
       "type": "CONCEPTUAL",
       "subject": "Politics",
       "domain": "Politics & Rule of Law",
-      "name": "人民当家作主的制度",
-      "description": "了解人民代表大会制度、政党制度、民族区域自治制度和基层群众自治制度，理解我国社会主义民主政治的特点和优势。",
+      "name": "中国共产党领导的多党合作和政治协商制度",
+      "description": "了解政党制度的内容、特点和优势，包括人民政协的职能。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": 0.923077,
       "evidence": [
-        "能说出人民代表大会制度的内容",
-        "能说明多党合作制度和民族区域自治的特点",
-        "能理解社会主义民主的优越性"
+        "能说明多党合作制度的内容",
+        "能说明人民政协的性质和职能"
       ],
-      "assessmentPrompt": "让 {{name}} 说说我国的人民代表大会制度有什么特点，它与西方议会制有什么不同。",
+      "assessmentPrompt": "让 {{name}} 展示：能说明多党合作制度的内容",
       "cnStandards": [
         "moe-2022-pol:SH.PF.02"
       ],
       "origin": "progression",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_798",
@@ -18560,23 +18560,23 @@
       "type": "CONCEPTUAL",
       "subject": "Politics",
       "domain": "Philosophy & Culture",
-      "name": "辩证法·矛盾的观点",
-      "description": "理解矛盾的对立统一，理解矛盾的普遍性和特殊性及其关系，理解主要矛盾和次要矛盾、矛盾的主要方面和次要方面，能运用矛盾分析法（两点论与重点论统一）分析问题。",
+      "name": "矛盾的基本属性与普遍性和特殊性",
+      "description": "理解矛盾的对立统一、普遍性和特殊性及其相互关系。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
       "centrality": 0.192308,
       "evidence": [
-        "能说明矛盾的普遍性和特殊性",
-        "能区分主次矛盾和矛盾的主次方面",
-        "能运用两点论和重点论分析问题"
+        "能说明矛盾的对立统一",
+        "能说明矛盾的普遍性与特殊性及其关系"
       ],
-      "assessmentPrompt": "让 {{name}} 用矛盾的普遍性和特殊性关系原理，说明「具体问题具体分析」的重要性。",
+      "assessmentPrompt": "让 {{name}} 展示：能说明矛盾的对立统一",
       "cnStandards": [
         "moe-2022-pol:SH.PC.04"
       ],
       "origin": "cn_only",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_803",
@@ -35054,46 +35054,46 @@
       "type": "CONCEPTUAL",
       "subject": "Politics",
       "domain": "Socialism with Chinese Characteristics",
-      "name": "我国的社会主义市场经济体制",
-      "description": "理解我国的社会主义市场经济体制的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "市场调节与市场体系",
+      "description": "市场如何配置资源、市场机制、市场体系的构成。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
       "centrality": 0.019231,
       "evidence": [
-        "能说出我国的社会主义市场经济体制的基本内容",
-        "能运用我国的社会主义市场经济体制的知识分析相关问题",
-        "能结合实例说明我国的社会主义市场经济体制的意义或应用"
+        "能说出市场调节的优点和局限性",
+        "能举例说明市场体系的构成"
       ],
-      "assessmentPrompt": "让 {name} 说说我国的社会主义市场经济体制的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出市场调节的优点和局限性",
       "cnStandards": [
         "moe-2022-pol:SH.生产资料.02"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1564",
       "type": "CONCEPTUAL",
       "subject": "Politics",
       "domain": "Economy & Society",
-      "name": "我国的个人收入分配",
-      "description": "理解我国的个人收入分配与社会保障的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "我国的个人收入分配制度",
+      "description": "按劳分配为主体、多种分配方式并存，收入分配公平。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
       "centrality": 0.692308,
       "evidence": [
-        "能说出我国的个人收入分配与社会保障的基本内容",
-        "能运用我国的个人收入分配与社会保障的知识分析相关问题",
-        "能结合实例说明我国的个人收入分配与社会保障的意义或应用"
+        "能说出按劳分配的基本内容和意义",
+        "能分析初次分配和再分配的措施"
       ],
-      "assessmentPrompt": "让 {name} 说说我国的个人收入分配与社会保障的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出按劳分配的基本内容和意义",
       "cnStandards": [
         "moe-2022-pol:SH.经济发展.01"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1565",
@@ -47023,6 +47023,126 @@
       "nodeKind": "concept",
       "granularity": "split-45min",
       "splitFrom": "mtc_890"
+    },
+    {
+      "id": "mtc_2462",
+      "type": "CONCEPTUAL",
+      "subject": "Politics",
+      "domain": "Politics & Rule of Law",
+      "name": "民族区域自治制度",
+      "description": "了解民族区域自治制度的内容、地位和优越性。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": 0.923077,
+      "evidence": [
+        "能说明民族区域自治制度的内容",
+        "能理解民族区域自治的优越性"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说明民族区域自治制度的内容",
+      "cnStandards": [
+        "moe-2022-pol:SH.PF.02"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_797"
+    },
+    {
+      "id": "mtc_2463",
+      "type": "CONCEPTUAL",
+      "subject": "Politics",
+      "domain": "Politics & Rule of Law",
+      "name": "基层群众自治制度",
+      "description": "了解基层群众自治的形式（村委会、居委会、职代会）和意义。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": 0.923077,
+      "evidence": [
+        "能说出基层群众自治的主要形式",
+        "能理解基层民主的意义"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出基层群众自治的主要形式",
+      "cnStandards": [
+        "moe-2022-pol:SH.PF.02"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_797"
+    },
+    {
+      "id": "mtc_2464",
+      "type": "CONCEPTUAL",
+      "subject": "Politics",
+      "domain": "Philosophy & Culture",
+      "name": "主次矛盾与矛盾的主次方面",
+      "description": "理解主要矛盾和次要矛盾、矛盾的主要方面和次要方面，掌握两点论与重点论。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 17,
+      "centrality": 0.192308,
+      "evidence": [
+        "能区分主次矛盾和矛盾的主次方面",
+        "能运用两点论和重点论分析问题"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能区分主次矛盾和矛盾的主次方面",
+      "cnStandards": [
+        "moe-2022-pol:SH.PC.04"
+      ],
+      "origin": "cn_only",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_802"
+    },
+    {
+      "id": "mtc_2465",
+      "type": "CONCEPTUAL",
+      "subject": "Politics",
+      "domain": "Socialism with Chinese Characteristics",
+      "name": "宏观调控与政府作用",
+      "description": "宏观调控的目标、手段，政府的经济职能。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 17,
+      "centrality": 0.019231,
+      "evidence": [
+        "能列举宏观调控的主要目标",
+        "能区分经济、法律、行政手段"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能列举宏观调控的主要目标",
+      "cnStandards": [
+        "moe-2022-pol:SH.生产资料.02"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1563"
+    },
+    {
+      "id": "mtc_2466",
+      "type": "CONCEPTUAL",
+      "subject": "Politics",
+      "domain": "Economy & Society",
+      "name": "我国的社会保障体系",
+      "description": "社会保障的主要内容、作用和原则。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 17,
+      "centrality": 0.692308,
+      "evidence": [
+        "能列举社会保险、社会救助等主要内容",
+        "能说明社会保障在民生中的作用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能列举社会保险、社会救助等主要内容",
+      "cnStandards": [
+        "moe-2022-pol:SH.经济发展.01"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1564"
     }
   ]
 }

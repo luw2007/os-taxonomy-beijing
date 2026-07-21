@@ -363,10 +363,10 @@ function apply(buckets) {
 
   let nextId = Math.max(...cnData.topics.map(t => +(/^mtc_(\d+)$/.exec(t.id)?.[1] || 0))) + 1;
   const depData = JSON.parse(readFileSync(depPath, 'utf8'));
-  const newTopics = [], newDeps = [], idRemap = new Map(); // 原 id → 链尾 id（出边重接用）
+  const newTopics = [];
 
   for (const { topic, children } of splits) {
-    const chain = [];
+    const splitIds = [];
     children.forEach((c, i) => {
       const isFirst = i === 0;
       const id = isFirst ? topic.id : `mtc_${nextId++}`;
@@ -386,30 +386,16 @@ function apply(buckets) {
           splitFrom: topic.id, granularity: 'split-45min',
         });
       }
-      chain.push(id);
+      splitIds.push(id);
     });
-    // 链内顺序依赖
-    for (let i = 1; i < chain.length; i++) {
-      newDeps.push({
-        topicId: chain[i], prerequisiteId: chain[i - 1], strength: 'hard',
-        reason: `粒度拆分链: ${children[i - 1].name} → ${children[i].name}`,
-        reviewStatus: 'machine',
-      });
-    }
-    idRemap.set(topic.id, chain[chain.length - 1]);
-    console.log(`  拆分 ${topic.id} → ${chain.length} 子主题: ${children.map(c => c.name).join(' / ')}`);
+    console.log(`  拆分 ${topic.id} → ${splitIds.length} 子主题: ${children.map(c => c.name).join(' / ')}`);
   }
 
-  // 原条目的出边（作为他人先修）移到链尾；入边（自身的先修）留在链头（id 未变，无需动）
-  let rewired = 0;
-  for (const d of depData.dependencies) {
-    const tail = idRemap.get(d.prerequisiteId);
-    if (tail && tail !== d.prerequisiteId) { d.prerequisiteId = tail; rewired++; }
-  }
-  depData.dependencies.push(...newDeps);
+  // 不臆造子主题间先修。原节点依赖保留在复用原 id 的首个子主题；
+  // 其他子主题只通过 splitFrom 记录来源，后续由关系审计单独补边。
   cnData.topics.push(...newTopics);
 
-  console.log(`\n拆分 ${splits.length} 条 → 新增 ${newTopics.length} 主题、${newDeps.length} 链内依赖，重接出边 ${rewired} 条`);
+  console.log(`\n拆分 ${splits.length} 条 → 新增 ${newTopics.length} 主题；依赖关系保持不变`);
   if (dryRun) { console.log('（--dry-run，未写盘）'); return; }
   depData.edgeCount = depData.dependencies.length;
   if (typeof cnData.topicCount === 'number') cnData.topicCount = cnData.topics.length;

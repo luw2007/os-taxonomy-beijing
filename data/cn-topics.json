@@ -2,7 +2,7 @@
   "version": "1.2.0-zh.0",
   "upstreamVersion": "1.0.0",
   "locale": "zh-CN",
-  "topicCount": 1891,
+  "topicCount": 1897,
   "originNote": "中国特有微主题（mtc_ 前缀）。已按原子粒度拆解——每条覆盖一个可独立评估的微技能。来源：课标自建(cn_only/progression/upstream_adapt) + 课本目录(textbook)。严守 codes-only 原则。教材来源节点中的作品名、部分作者名和来源作为事实性元数据保留；不包含教材正文、插图、练习题、版式、页码或 PDF 路径。详见 PROVENANCE.md。",
   "topics": [
     {
@@ -13987,23 +13987,23 @@
       "type": "PROCEDURAL",
       "subject": "Information Technology",
       "domain": "Internet & Innovation",
-      "name": "主题网站规划",
-      "description": "能经历规划、设计、开发、测试的完整过程，制作一个包含多个页面和导航链接的主题小网站。",
+      "name": "网站主题规划与栏目设计",
+      "description": "确定网站主题、目标用户，设计栏目结构和页面布局草图",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
       "centrality": 0,
       "evidence": [
-        "能规划网站的主题和栏目结构",
-        "能设计多个页面并建立链接",
-        "能测试网站并修改完善"
+        "能说出网站主题和目标",
+        "能画出栏目结构图"
       ],
-      "assessmentPrompt": "请 {{name}} 规划并制作一个关于自己兴趣爱好的主题小网站，至少包含三个页面。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出网站主题和目标",
       "cnStandards": [
         "moe-2022-it:S4.IN.02"
       ],
       "origin": "cn_only",
       "stage": "初中",
-      "nodeKind": "skill"
+      "nodeKind": "skill",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_600",
@@ -18968,92 +18968,92 @@
       "type": "PROCEDURAL",
       "subject": "Information Technology",
       "domain": "Data & Computing",
-      "name": "数据的采集",
-      "description": "掌握数据采集的基本方法（传感器、网络爬虫、调查问卷、数据库导入等），能对采集到的数据进行清洗、整理和格式转换，理解数据质量对分析结果的影响。",
+      "name": "数据采集方法",
+      "description": "了解并尝试传感器、网络爬虫等至少一种采集方法",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": 0.019231,
       "evidence": [
-        "能运用至少一种方法采集数据",
-        "能对数据进行清洗和格式整理",
-        "能分析数据质量的影响因素"
+        "能说出至少两种数据采集方法",
+        "能使用一种工具获取数据"
       ],
-      "assessmentPrompt": "让 {{name}} 设计一个采集班级同学课外阅读数据的方案，并说明怎样保证数据的质量。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出至少两种数据采集方法",
       "cnStandards": [
         "moe-2022-it:SH.DC.02"
       ],
       "origin": "progression",
       "stage": "高中",
-      "nodeKind": "skill"
+      "nodeKind": "skill",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_822",
       "type": "PROCEDURAL",
       "subject": "Information Technology",
       "domain": "Data & Computing",
-      "name": "数据分析",
-      "description": "掌握基本的数据分析方法（统计分析、对比分析、趋势分析等），能使用工具（电子表格或Python）对数据进行分析，能选择合适的图表类型（柱状图、折线图、饼图、散点图等）进行可视化表达。",
+      "name": "数据分析方法与工具",
+      "description": "掌握统计分析、对比分析等基本方法，并使用电子表格或Python进行简单分析",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": 0,
       "evidence": [
-        "能运用基本方法分析数据",
-        "能选择合适的图表进行可视化",
-        "能根据图表解读数据中蕴含的信息"
+        "能运用一种方法分析数据",
+        "能使用工具得出分析结果"
       ],
-      "assessmentPrompt": "给 {{name}} 一组某城市月平均气温和降水量的数据，请他选择合适的图表进行可视化并分析规律。",
+      "assessmentPrompt": "让 {{name}} 展示：能运用一种方法分析数据",
       "cnStandards": [
         "moe-2022-it:SH.DC.03"
       ],
       "origin": "progression",
       "stage": "高中",
-      "nodeKind": "skill"
+      "nodeKind": "skill",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_824",
       "type": "PROCEDURAL",
       "subject": "Information Technology",
       "domain": "Data & Computing",
-      "name": "Python编程基础·三种基本结构",
-      "description": "掌握Python语言的基本语法（变量、数据类型、运算符、输入输出），能编写含顺序结构、分支结构（if-else）和循环结构（for、while）的程序，能进行简单的程序调试。",
+      "name": "顺序与分支结构",
+      "description": "掌握变量、数据类型、输入输出，编写含if-else的程序",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": 0.057692,
       "evidence": [
         "能编写含变量和输入输出的程序",
-        "能正确使用if分支和for/while循环",
-        "能调试简单的程序错误"
+        "能正确使用if-else分支"
       ],
-      "assessmentPrompt": "让 {{name}} 用Python写一个程序，输入一个正整数n，计算并输出1到n的和。",
+      "assessmentPrompt": "让 {{name}} 展示：能编写含变量和输入输出的程序",
       "cnStandards": [
         "moe-2022-it:SH.DC.05"
       ],
       "origin": "progression",
       "stage": "高中",
-      "nodeKind": "skill"
+      "nodeKind": "skill",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_825",
       "type": "PROCEDURAL",
       "subject": "Information Technology",
       "domain": "Data & Computing",
-      "name": "Python·列表",
-      "description": "掌握Python中列表等数据结构的使用，能定义和调用函数，能运用枚举（穷举）等基本算法思想编程解决实际问题，能进行程序的模块化设计。",
+      "name": "列表与函数",
+      "description": "掌握列表操作及函数的定义和调用",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": 0.019231,
       "evidence": [
-        "能运用列表等数据结构",
-        "能定义和调用函数",
-        "能用枚举等算法思想编程解决实际问题"
+        "能创建并操作列表",
+        "能定义并调用函数解决简单问题"
       ],
-      "assessmentPrompt": "让 {{name}} 用Python编写一个程序，找出100以内所有的素数并输出。",
+      "assessmentPrompt": "让 {{name}} 展示：能创建并操作列表",
       "cnStandards": [
         "moe-2022-it:SH.DC.06"
       ],
       "origin": "progression",
       "stage": "高中",
-      "nodeKind": "skill"
+      "nodeKind": "skill",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_826",
@@ -44254,6 +44254,150 @@
       "nodeKind": "concept",
       "granularity": "split-45min",
       "splitFrom": "mtc_1239"
+    },
+    {
+      "id": "mtc_2350",
+      "type": "PROCEDURAL",
+      "subject": "Information Technology",
+      "domain": "Internet & Innovation",
+      "name": "多页面制作与导航链接",
+      "description": "使用HTML和CSS制作至少3个页面，并添加超链接实现导航",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 15,
+      "centrality": 0,
+      "evidence": [
+        "能创建多个页面文件",
+        "能正确添加页面间的超链接"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能创建多个页面文件",
+      "cnStandards": [
+        "moe-2022-it:S4.IN.02"
+      ],
+      "origin": "cn_only",
+      "stage": "初中",
+      "nodeKind": "skill",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_599"
+    },
+    {
+      "id": "mtc_2351",
+      "type": "PROCEDURAL",
+      "subject": "Information Technology",
+      "domain": "Internet & Innovation",
+      "name": "网站测试与完善",
+      "description": "测试所有链接是否正常，修改错误，美化页面并完善内容",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 15,
+      "centrality": 0,
+      "evidence": [
+        "能测试并修复链接错误",
+        "能根据反馈优化页面效果"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能测试并修复链接错误",
+      "cnStandards": [
+        "moe-2022-it:S4.IN.02"
+      ],
+      "origin": "cn_only",
+      "stage": "初中",
+      "nodeKind": "skill",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_599"
+    },
+    {
+      "id": "mtc_2352",
+      "type": "PROCEDURAL",
+      "subject": "Information Technology",
+      "domain": "Data & Computing",
+      "name": "数据清洗与质量",
+      "description": "对采集的数据进行清洗、格式转换，并分析质量影响因素",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": 0.019231,
+      "evidence": [
+        "能完成数据清洗和格式整理",
+        "能指出数据质量问题的影响"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能完成数据清洗和格式整理",
+      "cnStandards": [
+        "moe-2022-it:SH.DC.02"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "skill",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_821"
+    },
+    {
+      "id": "mtc_2353",
+      "type": "PROCEDURAL",
+      "subject": "Information Technology",
+      "domain": "Data & Computing",
+      "name": "数据可视化与解读",
+      "description": "选择合适的图表类型进行可视化，并解读图表中的信息",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": 0,
+      "evidence": [
+        "能根据数据选择柱状图、折线图等",
+        "能说出图表反映的数据趋势"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能根据数据选择柱状图、折线图等",
+      "cnStandards": [
+        "moe-2022-it:SH.DC.03"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "skill",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_822"
+    },
+    {
+      "id": "mtc_2354",
+      "type": "PROCEDURAL",
+      "subject": "Information Technology",
+      "domain": "Data & Computing",
+      "name": "循环结构与调试",
+      "description": "掌握for和while循环，能调试简单程序错误",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": 0.057692,
+      "evidence": [
+        "能正确使用for和while循环",
+        "能发现并修复语法或逻辑错误"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能正确使用for和while循环",
+      "cnStandards": [
+        "moe-2022-it:SH.DC.05"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "skill",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_824"
+    },
+    {
+      "id": "mtc_2355",
+      "type": "PROCEDURAL",
+      "subject": "Information Technology",
+      "domain": "Data & Computing",
+      "name": "枚举算法应用",
+      "description": "运用枚举思想编程解决实际问题",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": 0.019231,
+      "evidence": [
+        "能描述枚举算法的步骤",
+        "能编写枚举算法程序并运行"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能描述枚举算法的步骤",
+      "cnStandards": [
+        "moe-2022-it:SH.DC.06"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "skill",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_825"
     }
   ]
 }

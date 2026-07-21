@@ -337,6 +337,20 @@ body.sb-open #graph-pane { left: 290px; }
   .mobile-ai-sheet { width: 100%; max-width: none; border-radius: 16px 16px 0 0; max-height: 80vh; padding-bottom: calc(22px + env(safe-area-inset-bottom)); }
   .mobile-ai-note { margin-top: 8px; color: var(--text-light); font-size: 12px; }
 
+  .mobile-ai-context { margin-bottom: 4px; font-size: 12px; font-weight: 600; color: var(--accent); }
+  .mobile-chat-log { min-height: 120px; max-height: 36vh; margin-top: 12px; padding: 10px; overflow-y: auto; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; }
+  .mobile-chat-empty { color: var(--text-light); font-size: 13px; }
+  .mobile-chat-message { max-width: 88%; margin-bottom: 9px; padding: 8px 10px; border-radius: 10px; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 13px; line-height: 1.6; }
+  .mobile-chat-message.user { margin-left: auto; background: var(--accent); color: #fff; }
+  .mobile-chat-message.assistant { background: var(--card-bg); border: 1px solid var(--border); color: var(--text); }
+  .mobile-chat-error { margin-top: 8px; color: var(--primary); font-size: 12px; }
+  .mobile-chat-form { display: flex; gap: 8px; align-items: flex-end; margin-top: 10px; }
+  #mobile-chat-input { flex: 1; min-height: 54px; max-height: 120px; padding: 9px 10px; resize: vertical; border: 1px solid var(--border); border-radius: 8px; background: var(--card-bg); color: var(--text); font: inherit; font-size: 14px; }
+  #mobile-chat-input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  #mobile-chat-send { min-height: 44px; flex-shrink: 0; }
+  .mobile-chat-message.pending { color: var(--text-light); }
+  .mobile-chat-message.pending::after { content: '…'; animation: chat-pulse 1s steps(3,end) infinite; }
+  @keyframes chat-pulse { 50% { opacity: .35; } }
   /* --- 底部导航 --- */
   .mobile-bottom-nav { position: fixed; left: 0; right: 0; bottom: 0; z-index: 25; display: flex; background: var(--card-bg); border-top: 1px solid var(--border); padding: 6px 8px calc(6px + env(safe-area-inset-bottom)); }
   .mobile-nav-btn { flex: 1; min-height: 44px; border: none; background: transparent; color: var(--text-light); font-size: 12px; cursor: pointer; border-radius: 8px; }

@@ -149,8 +149,8 @@
       <button class="mobile-btn primary" id="mobile-filter-apply" type="button">应用</button>
     </div>
     <div class="mobile-header-row mobile-entry-actions">
-      <button class="mobile-entry-btn" id="mobile-ai-open" type="button" aria-haspopup="dialog" aria-controls="mobile-ai-mask">💬 AI 伙伴</button>
-      <button class="mobile-entry-btn" id="mobile-login-btn" type="button">登录</button>
+      <button class="mobile-entry-btn" id="mobile-ai-open" type="button" aria-haspopup="dialog" aria-controls="mobile-ai-mask">💬 AI 学习伙伴</button>
+      <button class="mobile-entry-btn" id="mobile-profile-open" type="button">👤 当前档案</button>
     </div>
   </header>
 
@@ -195,16 +195,22 @@
     </div>
   </main>
 
-  <!-- AI 对话弹窗: 未登录时仅展示登录引导,不提供伪聊天输入 -->
+  <!-- AI 学习伙伴：匿名可用，会话仅保留在当前页面 -->
   <div class="modal-mask mobile-ai-mask" id="mobile-ai-mask" hidden>
-    <div class="modal mobile-ai-sheet" role="dialog" aria-modal="true" aria-labelledby="mobile-ai-title" aria-describedby="mobile-ai-login-required mobile-ai-note">
+    <div class="modal mobile-ai-sheet" role="dialog" aria-modal="true" aria-labelledby="mobile-ai-title" aria-describedby="mobile-ai-note">
       <h3 id="mobile-ai-title" tabindex="-1">💬 AI 学习伙伴</h3>
-      <div class="modal-body" id="mobile-ai-body">
-        <p id="mobile-ai-login-required">登录后可围绕这个知识点与 AI 继续交流。</p>
-        <p class="mobile-ai-note" id="mobile-ai-note">AI 将结合当前知识点与档案信息回答;结果仅供学习参考。</p>
+      <p class="mobile-ai-context" id="mobile-ai-context"></p>
+      <p class="mobile-ai-note" id="mobile-ai-note">无需登录。AI 将结合当前知识点与档案信息回答；结果仅供学习参考。</p>
+      <div class="mobile-chat-log" id="mobile-chat-log" role="log" aria-live="polite" aria-label="AI 对话记录">
+        <p class="mobile-chat-empty" id="mobile-chat-empty">可以询问概念解释、生活例子、练习建议或判断依据。</p>
       </div>
+      <p class="mobile-chat-error" id="mobile-chat-error" role="alert" hidden></p>
+      <form class="mobile-chat-form" id="mobile-chat-form">
+        <label class="mobile-sr-only" for="mobile-chat-input">向 AI 提问</label>
+        <textarea id="mobile-chat-input" maxlength="500" rows="2" placeholder="例如：请用生活中的例子解释这个知识点"></textarea>
+        <button class="btn primary" id="mobile-chat-send" type="submit">发送</button>
+      </form>
       <div class="modal-actions">
-        <button class="btn" id="mobile-ai-login-unavailable" type="button">登录暂不可用</button>
         <button class="btn" id="mobile-ai-close" type="button">关闭</button>
       </div>
     </div>

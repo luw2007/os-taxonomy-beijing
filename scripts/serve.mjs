@@ -15,7 +15,10 @@ import { readFileSync, existsSync } from 'node:fs';
 import { dirname, resolve, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createServer } from 'node:http';
+import { gzipSync } from 'node:zlib';
 import { createResolver } from './llm-resolve.mjs';
+import { createChatResponder, createSlidingWindowLimiter, validateChatRequest } from './llm-chat.mjs';
+import { filterPublishedDependencies, filterPublishedTopics } from './review-policy.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = resolve(ROOT, 'data');
@@ -221,13 +224,9 @@ const reviewStatus = (d) => (d && (d.reviewStatus === 'machine' || d.reviewStatu
 const reviewCounts = { reviewed: 0, machine: 0, rejected: 0 };
 for (const d of mergedDeps) reviewCounts[reviewStatus(d)]++;
 
-// 按审核状态过滤依赖:
-//   review === 'all'      → 返回所有非 rejected 边(reviewed + machine)
-//   其他(默认/缺省/'reviewed') → 只返回 reviewed
-// rejected 在任何模式下都不返回。
-function filterDepsByReview(deps, reviewParam) {
-  if (reviewParam === 'all') return deps.filter(d => reviewStatus(d) !== 'rejected');
-  return deps.filter(d => reviewStatus(d) === 'reviewed');
+// 默认及儿童 viewer 只返回 reviewed、非 rescope 边；实验路径另行离线检查 machine。
+function filterDepsByReview(deps) {
+  return filterPublishedDependencies(deps);
 }
 
 // 把单条依赖规范化为对外 API 的形态(带 reviewStatus,缺失补 machine)
@@ -240,17 +239,15 @@ const withReviewStatus = (d) => ({ ...d, reviewStatus: reviewStatus(d) });
 const pathData = (() => {
   const nodes = {};
   const subjMap = new Map();
-  for (const t of mergedTopics) {
+  for (const t of filterPublishedTopics(mergedTopics)) {
     nodes[t.id] = [t.name, t.subject, t.ageRangeStart ?? -1];
     subjMap.set(t.id, t.subject);
   }
   const edges = [];
-  for (const d of mergedDeps) {
-    const rs = reviewStatus(d);
-    if (rs === 'rejected') continue;
+  for (const d of filterPublishedDependencies(mergedDeps)) {
     const s1 = subjMap.get(d.prerequisiteId), s2 = subjMap.get(d.topicId);
     if (!s1 || !s2) continue;
-    edges.push({ f: d.prerequisiteId, t: d.topicId, r: d.reason || '', x: s1 !== s2 ? 1 : 0, m: rs === 'reviewed' ? 0 : 1 });
+    edges.push({ f: d.prerequisiteId, t: d.topicId, r: d.reason || '', x: s1 !== s2 ? 1 : 0 });
   }
   // preset 入口: 跨学科度最高的节点(排除 Learning to Learn 的元技能噪音)
   const xdeg = new Map();
@@ -269,6 +266,9 @@ const llmResolve = createResolver(
   mergedTopics.map(t => ({ id: t.id, name: t.name, subject: t.subject, age: t.ageRangeStart })),
   subjectZh
 );
+const llmChat = createChatResponder();
+const allowChat = createSlidingWindowLimiter({ limit: 10, windowMs: 60_000 });
+const topicById = new Map(mergedTopics.map(topic => [topic.id, topic]));
 
 // 合并 cluster（中文 summary 优先）
 const zhClusterMap = new Map();
@@ -335,16 +335,14 @@ for (const t of mergedTopics) {
   topicVisibility.set(t.id, vis);
 }
 
-// 按维度过滤 topic 数组
+// 按维度过滤 topic 数组；covered 父主题不进入儿童可见列表。
 function filterTopicsByDimension(topics, dimension) {
+  const published = filterPublishedTopics(topics);
   const dim = dimensionsConfig.dimensions[dimension];
-  if (!dim || dim.filter === 'all') {
-    // 美版（all）维度：排除中国特有主题（mtc_）
-    return topics.filter(t => !t.cnOrigin);
-  }
-  return topics.filter(t => {
-    const vis = topicVisibility.get(t.id);
-    return vis ? vis[dimension] : isTopicVisibleInDimension(t, dim);
+  if (!dim || dim.filter === 'all') return published.filter(topic => !topic.cnOrigin);
+  return published.filter(topic => {
+    const visibility = topicVisibility.get(topic.id);
+    return visibility ? visibility[dimension] : isTopicVisibleInDimension(topic, dim);
   });
 }
 
@@ -391,6 +389,7 @@ function apiResponse(pathname, search) {
       totalDeps: mergedDeps.length,
       totalClusters: mergedClusters.length,
       cnCurricula: cnStandards.curricula.length,
+      topicIds: topics.map(t => t.id),
       subjectCounts: subjectCountsDim,
     };
   }
@@ -510,42 +509,6 @@ function apiResponse(pathname, search) {
     return pathData;
   }
 
-  // GET /api/graph — 3D 力导向图数据（nodes + links）
-  //   ?review=all  返回所有非 rejected 边(含 machine);默认只返回 reviewed。
-  //   rejected 永不返回。每条 link 带 reviewStatus(缺失补 machine)。
-  if (pathname === '/api/graph') {
-    const reviewParam = params.get('review');
-    const nodeById = new Map();
-    for (const t of mergedTopics) {
-      nodeById.set(t.id, {
-        id: t.id,
-        name: t.name,
-        subject: t.subject,
-        subjectZh: t.subjectZh || subjectZh(t.subject),
-        domain: t.domain,
-        domainZh: t.domainZh || domainZh(t.subject, t.domain),
-        age: t.ageRangeStart,
-        ageEnd: t.ageRangeEnd,
-        val: (t.centrality || 0.01) * 100 + 1, // 节点大小
-      });
-    }
-    const nodes = [...nodeById.values()];
-    const links = filterDepsByReview(
-      mergedDeps.filter(d => nodeById.has(d.topicId) && nodeById.has(d.prerequisiteId)),
-      reviewParam
-    ).map(d => ({
-      source: d.prerequisiteId,
-      target: d.topicId,
-      strength: d.strength,
-      reviewStatus: reviewStatus(d),
-    }));
-    return {
-      nodes,
-      links,
-      subjects: domainMap.subjects,
-    };
-  }
-
   // GET /api/textbook-gaps — 课本目录对比(支持 ?stage=&subject=&gap_type=&grade=&q=)
   if (pathname === '/api/textbook-gaps') {
     if (textbookGaps.length === 0) {
@@ -602,6 +565,42 @@ const server = createServer((req, res) => {
   const url = new URL(req.url, `http://localhost:${port}`);
   const pathname = url.pathname;
 
+  // POST /api/chat — 匿名 AI 学习伙伴。会话不落盘，按 IP 限流。
+  if (req.method === 'POST' && pathname === '/api/chat') {
+    if (!llmChat) {
+      res.writeHead(503, { 'Content-Type': 'application/json; charset=utf-8' });
+      res.end(JSON.stringify({ error: 'AI 学习伙伴未启用' }));
+      return;
+    }
+    const ip = req.socket.remoteAddress || 'unknown';
+    if (!allowChat(ip)) {
+      res.writeHead(429, { 'Content-Type': 'application/json; charset=utf-8', 'Retry-After': '60' });
+      res.end(JSON.stringify({ error: '提问太频繁，请稍后再试' }));
+      return;
+    }
+    let body = '';
+    req.on('data', chunk => { body += chunk; if (body.length > 32 * 1024) req.destroy(); });
+    req.on('end', async () => {
+      try {
+        const input = validateChatRequest(JSON.parse(body));
+        const topic = topicById.get(input.topicId);
+        if (!topic) {
+          res.writeHead(404, { 'Content-Type': 'application/json; charset=utf-8' });
+          res.end(JSON.stringify({ error: '知识点不存在' }));
+          return;
+        }
+        const result = await llmChat(topic, input);
+        res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' });
+        res.end(JSON.stringify(result));
+      } catch (error) {
+        const invalid = error instanceof SyntaxError || /invalid (request|topicId|message|history)/.test(error.message);
+        res.writeHead(invalid ? 400 : 502, { 'Content-Type': 'application/json; charset=utf-8' });
+        res.end(JSON.stringify({ error: invalid ? '请求格式不正确' : 'AI 暂时无法回答，请稍后重试' }));
+      }
+    });
+    return;
+  }
+
   // POST /api/resolve — AI 标记解析(实验)。同源无需 CORS。
   if (req.method === 'POST' && pathname === '/api/resolve') {
     if (!llmResolve) {
@@ -635,8 +634,15 @@ const server = createServer((req, res) => {
         res.end(JSON.stringify({ error: 'not found' }));
         return;
       }
-      res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
-      res.end(JSON.stringify(data, null, 2));
+      const isPathData = pathname === '/api/path-data';
+      const body = JSON.stringify(data);
+      const acceptsGzip = req.headers['accept-encoding']?.includes('gzip');
+      res.writeHead(200, {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Cache-Control': isPathData ? 'public, max-age=3600' : 'no-cache',
+        ...(isPathData && acceptsGzip ? { 'Content-Encoding': 'gzip' } : {}),
+      });
+      res.end(isPathData && acceptsGzip ? gzipSync(body) : body);
       return;
     }
 
@@ -672,6 +678,7 @@ server.listen(port, () => {
   console.log(`  ▸ 中国课标:    ${cnStandards.curricula.length} 套`);
   console.log(`  ▸ 维度切换:    ${Object.values(dimensionsConfig.dimensions).map(d => d.label).join(' / ')}（默认 ${dimensionsConfig.dimensions[dimensionsConfig.defaultDimension]?.label}）`);
   console.log(`  ▸ AI 标记解析: ${llmResolve ? '✓ 已启用(deepseek-v4-flash)' : '✗ 未启用(缺 DEEPSEEK_API_KEY)'}`);
+  console.log(`  ▸ AI 学习伙伴: ${llmChat ? '✓ 匿名可用(deepseek-v4-flash)' : '✗ 未启用(缺 DEEPSEEK_API_KEY)'}`);
   console.log(`  ▸ 上游数据:    ${hasUpstream ? '✓ 已加载' : '✗ 未找到（仅显示中文数据）'}`);
   if (hasUpstream) console.log(`                ${upstreamPath}`);
   console.log('');

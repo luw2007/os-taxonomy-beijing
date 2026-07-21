@@ -959,33 +959,89 @@ function setupMobileAI() {
   const openBtn = mobEl('mobile-ai-open');
   const mask = mobEl('mobile-ai-mask');
   const closeBtn = mobEl('mobile-ai-close');
-  const loginBtn = mobEl('mobile-ai-login-unavailable');
-  if (!openBtn || !mask || !closeBtn || !loginBtn) return;
-  let lastTrigger = null;
-  const closeAI = () => {
-    mask.hidden = true;
-    lastTrigger?.focus();
+  const form = mobEl('mobile-chat-form');
+  const input = mobEl('mobile-chat-input');
+  const sendBtn = mobEl('mobile-chat-send');
+  const log = mobEl('mobile-chat-log');
+  const errorEl = mobEl('mobile-chat-error');
+  const contextEl = mobEl('mobile-ai-context');
+  if (!openBtn || !mask || !closeBtn || !form || !input || !sendBtn || !log) return;
+  let activeChatTopicId = null;
+  const history = [];
+  const renderMessages = () => {
+    const empty = mobEl('mobile-chat-empty'); if (empty) empty.hidden = history.length > 0;
+    log.querySelectorAll('.mobile-chat-message').forEach(message => message.remove());
+    history.forEach(item => {
+      const message = document.createElement('div');
+      message.className = `mobile-chat-message ${item.role}`;
+      message.textContent = item.content;
+      log.appendChild(message);
+    });
+    log.scrollTop = log.scrollHeight;
   };
+  const resetConversation = (topicId) => {
+    if (activeChatTopicId === topicId) return;
+    activeChatTopicId = topicId;
+    history.length = 0;
+    renderMessages();
+    errorEl.hidden = true;
+  };
+  const closeAI = () => { mask.hidden = true; lastTrigger?.focus(); };
   openBtn.addEventListener('click', () => {
     lastTrigger = document.activeElement;
+    const topicId = mobileSeq[mobilePos];
+    const topic = topicId ? N(topicId) : null;
+    resetConversation(topicId);
+    if (contextEl) contextEl.textContent = topic ? `当前：${topic.name} · ${sz(topic.subject)} · 档案「${activeUser().name}」` : '';
     mask.hidden = false;
     mobEl('mobile-ai-title')?.focus();
   });
   closeBtn.addEventListener('click', closeAI);
-  loginBtn.addEventListener('click', () => toast('真实登录服务尚未接入'));
-  mobEl('mobile-login-btn')?.addEventListener('click', () => toast('真实登录服务尚未接入'));
+  mobEl('mobile-profile-open')?.addEventListener('click', () => { renderProfileModal(); openMask('profile-mask'); });
   mask.addEventListener('click', (e) => { if (e.target === mask) closeAI(); });
   mask.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') { e.stopPropagation(); closeAI(); return; }
     if (e.key !== 'Tab') return;
-    const first = loginBtn, last = closeBtn;
+    const focusables = [input, sendBtn, closeBtn].filter(el => !el.disabled);
+    const first = focusables[0], last = focusables.at(-1);
     if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
     else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   });
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const message = input.value.trim();
+    const topicId = mobileSeq[mobilePos];
+    if (!message || !topicId || sendBtn.disabled) return;
+    errorEl.hidden = true;
+    history.push({ role: 'user', content: message });
+    input.value = '';
+    renderMessages();
+    const pending = document.createElement('div'); pending.className = 'mobile-chat-message assistant pending'; pending.textContent = 'AI 正在思考'; log.appendChild(pending);
+    sendBtn.disabled = true; sendBtn.textContent = '发送中';
+    try {
+      const filters = { subject: mobEl('mobile-subject-filter')?.value || '', age: mobEl('mobile-age-filter')?.value || '' };
+      const resp = await fetch('/api/chat', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ topicId, message, history: history.slice(-9, -1), context: { hasProfile: true, subject: filters.subject ? sz(filters.subject) : '', age: filters.age ? Number(filters.age) : null } }),
+      });
+      const data = await resp.json();
+      if (!resp.ok) throw new Error(data.error || `HTTP ${resp.status}`);
+      history.push({ role: 'assistant', content: data.answer });
+      renderMessages();
+    } catch (error) {
+      errorEl.textContent = error.message;
+      errorEl.hidden = false;
+      pending.remove();
+      history.pop();
+      input.value = message;
+    } finally {
+      sendBtn.disabled = !navigator.onLine; sendBtn.textContent = '发送'; input.focus();
+    }
+  });
   const updateAIAvailability = () => {
     const online = navigator.onLine;
-    openBtn.disabled = !online;
-    openBtn.textContent = online ? 'AI 伙伴' : 'AI 伙伴（离线）';
+    openBtn.disabled = !online; sendBtn.disabled = !online;
+    openBtn.textContent = online ? '💬 AI 学习伙伴' : '💬 AI 学习伙伴（离线）';
     const offline = mobEl('mobile-card-offline'); if (offline) offline.hidden = online;
   };
   window.addEventListener('online', updateAIAvailability);

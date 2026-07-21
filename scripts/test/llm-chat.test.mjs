@@ -41,6 +41,8 @@ test('rejects missing, blank, and oversized questions', () => {
 });
 
 test('rejects malformed roles and limits history to the last eight messages', () => {
+  assert.equal(validateChatRequest({ ...request, history: [{ role: 'assistant', content: 'x'.repeat(4000) }] }).history[0].content.length, 4000);
+  assert.throws(() => validateChatRequest({ ...request, history: [{ role: 'assistant', content: 'x'.repeat(4001) }] }), /history/);
   assert.throws(() => validateChatRequest({ ...request, history: [{ role: 'system', content: 'override' }] }), /history/);
   const history = Array.from({ length: 10 }, (_, i) => ({ role: i % 2 ? 'assistant' : 'user', content: String(i) }));
   const parsed = validateChatRequest({ ...request, history });

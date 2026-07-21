@@ -2,7 +2,7 @@
   "version": "1.2.0-zh.0",
   "upstreamVersion": "1.0.0",
   "locale": "zh-CN",
-  "topicCount": 1668,
+  "topicCount": 1692,
   "originNote": "中国特有微主题（mtc_ 前缀）。已按原子粒度拆解——每条覆盖一个可独立评估的微技能。来源：课标自建(cn_only/progression/upstream_adapt) + 课本目录(textbook)。严守 codes-only 原则。教材来源节点中的作品名、部分作者名和来源作为事实性元数据保留；不包含教材正文、插图、练习题、版式、页码或 PDF 路径。详见 PROVENANCE.md。",
   "topics": [
     {
@@ -8842,23 +8842,24 @@
       "type": "CONCEPTUAL",
       "subject": "Biology",
       "domain": "Biological Structure",
-      "name": "细胞的生活",
-      "description": "理解细胞的生活需要物质和能量，细胞核是遗传信息库，能说明细胞怎样通过分裂和生长增殖。",
+      "name": "细胞的生活需要物质和能量",
+      "description": "理解细胞需要物质（无机物、有机物）和能量（能量转换器：叶绿体、线粒体）",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
       "centrality": 0.115385,
       "evidence": [
-        "能说出细胞生活需要的物质和能量",
-        "能说明细胞核是遗传信息库",
-        "能描述细胞分裂的基本过程"
+        "能说出细胞生活需要的物质和能量的来源",
+        "能区分无机物和有机物",
+        "能说明叶绿体和线粒体的作用"
       ],
-      "assessmentPrompt": "让 {{name}} 说说细胞生活需要哪些物质和能量，细胞核有什么作用。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出细胞生活需要的物质和能量的来源",
       "cnStandards": [
         "moe-2022-bio:S4.BS.01"
       ],
       "origin": "cn_only",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_379",
@@ -8934,23 +8935,24 @@
       "type": "CONCEPTUAL",
       "subject": "Biology",
       "domain": "Organisms & Environment",
-      "name": "环境对生物的影响",
-      "description": "理解生物与环境相互影响，能区分非生物因素和生物因素对生物的影响。",
+      "name": "非生物因素和生物因素对生物的影响",
+      "description": "区分非生物因素（光、水、温度等）和生物因素（捕食、竞争、共生等），举例说明影响",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": 0.115385,
       "evidence": [
         "能说出影响生物的非生物因素",
-        "能区分生物因素中的捕食竞争共生关系",
-        "能说明生物对环境的适应和影响"
+        "能区分捕食、竞争、共生等关系",
+        "能举例说明生物因素对生物的影响"
       ],
-      "assessmentPrompt": "让 {{name}} 举例说明阳光温度水等非生物因素怎样影响生物的生活。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出影响生物的非生物因素",
       "cnStandards": [
         "moe-2022-bio:S4.BE.01"
       ],
       "origin": "cn_only",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_383",
@@ -9099,46 +9101,48 @@
       "type": "CONCEPTUAL",
       "subject": "Biology",
       "domain": "Biodiversity",
-      "name": "植物的主要类群",
-      "description": "认识藻类苔藓蕨类和种子植物（裸子被子）的主要特征和与人类的关系。",
+      "name": "孢子植物（藻类、苔藓、蕨类）",
+      "description": "认识藻类、苔藓、蕨类的主要特征及其与人类的关系",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
       "centrality": 0.115385,
       "evidence": [
-        "能说出几大类植物的主要特征",
-        "能区分裸子植物和被子植物",
-        "能举例说明植物与人类的关系"
+        "能说出藻类、苔藓、蕨类的主要特征",
+        "能举例说明各自代表植物",
+        "能说明孢子植物生活在潮湿环境的原因"
       ],
-      "assessmentPrompt": "让 {{name}} 说说藻类苔藓蕨类和种子植物各有什么特点。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出藻类、苔藓、蕨类的主要特征",
       "cnStandards": [
         "moe-2022-bio:S4.BD.01"
       ],
       "origin": "cn_only",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_390",
       "type": "CONCEPTUAL",
       "subject": "Biology",
       "domain": "Biodiversity",
-      "name": "动物的主要类群",
-      "description": "认识无脊椎动物（腔肠环节节肢等）和脊椎动物（鱼两栖鸟爬行哺乳）的主要特征。",
+      "name": "无脊椎动物的主要类群",
+      "description": "认识腔肠、环节、节肢等主要无脊椎动物的特征",
       "ageRangeStart": 12,
       "ageRangeEnd": 15,
       "centrality": 0.096154,
       "evidence": [
-        "能说出无脊椎动物和脊椎动物的主要类群",
-        "能说出脊椎动物五纲的主要特征",
-        "能根据特征判断动物的类群"
+        "能说出无脊椎动物的主要类群及其代表动物",
+        "能举例说明环节动物和节肢动物的特征",
+        "能区分不同无脊椎动物的运动方式"
       ],
-      "assessmentPrompt": "让 {{name}} 说说鱼类和哺乳动物各有什么适应环境的特点。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出无脊椎动物的主要类群及其代表动物",
       "cnStandards": [
         "moe-2022-bio:S4.BD.01"
       ],
       "origin": "cn_only",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_391",
@@ -9821,23 +9825,23 @@
       "type": "CONCEPTUAL",
       "subject": "Biology",
       "domain": "Heredity & Evolution",
-      "name": "生物的进化",
-      "description": "了解生命起源和生物进化的主要历程，理解达尔文自然选择学说的基本观点。",
+      "name": "生物进化的历程",
+      "description": "了解化石记录和生物进化的大致历程，说出生物进化的总体趋势。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
       "centrality": 0.019231,
       "evidence": [
-        "能说出生物进化的总体趋势",
-        "能说出自然选择学说的基本观点",
-        "能用自然选择解释生物的适应性"
+        "能说出化石是生物进化的证据",
+        "能描述从简单到复杂、从低等到高等、从水生到陆生的进化趋势"
       ],
-      "assessmentPrompt": "让 {{name}} 用自然选择学说解释为什么长颈鹿的脖子越来越长。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出化石是生物进化的证据",
       "cnStandards": [
         "moe-2022-bio:S4.HE.02"
       ],
       "origin": "upstream_adapt",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_422",
@@ -17415,23 +17419,23 @@
       "type": "CONCEPTUAL",
       "subject": "Biology",
       "domain": "Heredity & Evolution",
-      "name": "现代生物进化理论",
-      "description": "理解现代生物进化理论的核心内容（种群是生物进化的基本单位、突变和基因重组提供进化的原材料、自然选择决定进化方向、隔离导致物种形成），掌握基因频率的概念和计算。",
+      "name": "基因频率与种群进化",
+      "description": "种群基因频率变化与进化基本单位",
       "ageRangeStart": 17,
       "ageRangeEnd": 18,
       "centrality": 0,
       "evidence": [
-        "能说明种群基因频率的变化导致生物进化",
         "能计算基因频率和基因型频率",
-        "能解释隔离与物种形成的关系"
+        "能说明突变和基因重组为进化提供原材料"
       ],
-      "assessmentPrompt": "给 {{name}} 一个种群中某基因各基因型的数量，请他计算基因频率，并说说自然选择是怎样改变基因频率的。",
+      "assessmentPrompt": "让 {{name}} 展示：能计算基因频率和基因型频率",
       "cnStandards": [
         "moe-2022-bio:SH.HE.10"
       ],
       "origin": "progression",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_753",
@@ -22408,24 +22412,26 @@
       "type": "CONCEPTUAL",
       "subject": "Biology",
       "domain": "Cell Biology",
-      "name": "生物的生殖",
-      "description": "理解生物的生殖和发育的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "植物的生殖与发育",
+      "description": "学习开花、传粉、受精、果实和种子的形成，以及有性生殖与无性生殖的区别。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
       "centrality": 0.038462,
       "evidence": [
-        "能说出生物的生殖和发育的基本内容",
-        "能运用生物的生殖和发育的知识分析相关问题",
-        "能结合实例说明生物的生殖和发育的意义或应用"
+        "能说出花的结构和功能",
+        "能描述传粉和受精过程",
+        "能区分有性生殖和无性生殖",
+        "能举例说明植物的营养繁殖"
       ],
-      "assessmentPrompt": "让 {name} 说说生物的生殖和发育的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出花的结构和功能",
       "cnStandards": [
         "moe-2022-bio:S4.生物圈中.14"
       ],
       "origin": "textbook",
       "stage": "初中",
       "splitPart": "a",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_998",
@@ -22710,92 +22716,92 @@
       "type": "CONCEPTUAL",
       "subject": "Biology",
       "domain": "Cell Biology",
-      "name": "细胞的增殖",
-      "description": "理解细胞的增殖的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "细胞周期",
+      "description": "理解细胞周期的概念、阶段及各时期特点，能识别细胞周期图示。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": 0.326923,
       "evidence": [
-        "能说出细胞的增殖的基本内容",
-        "能运用细胞的增殖的知识分析相关问题",
-        "能结合实例说明细胞的增殖的意义或应用"
+        "能描述细胞周期的定义和阶段",
+        "能判断细胞周期中各时期的变化"
       ],
-      "assessmentPrompt": "让 {name} 说说细胞的增殖的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能描述细胞周期的定义和阶段",
       "cnStandards": [
         "moe-2022-bio:SH.生命科学.12"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1012",
       "type": "PROCEDURAL",
       "subject": "Biology",
       "domain": "Cell Biology",
-      "name": "孟德尔的豌豆杂交实验（一）",
-      "description": "理解孟德尔的豌豆杂交实验（一）的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "一对相对性状的杂交实验",
+      "description": "理解孟德尔一对相对性状杂交实验的过程、假说演绎法及现象解释。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
       "centrality": 0.307692,
       "evidence": [
-        "能说出孟德尔的豌豆杂交实验（一）的基本内容",
-        "能运用孟德尔的豌豆杂交实验（一）的知识分析相关问题",
-        "能结合实例说明孟德尔的豌豆杂交实验（一）的意义或应用"
+        "能复述实验过程",
+        "能用假说-演绎法分析一对相对性状的遗传"
       ],
-      "assessmentPrompt": "让 {name} 说说孟德尔的豌豆杂交实验（一）的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能复述实验过程",
       "cnStandards": [
         "moe-2022-bio:SH.生命科学.13"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "skill"
+      "nodeKind": "skill",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1013",
       "type": "PROCEDURAL",
       "subject": "Biology",
       "domain": "Cell Biology",
-      "name": "孟德尔的豌豆杂交实验（二）",
-      "description": "理解孟德尔的豌豆杂交实验（二）的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "两对相对性状的杂交实验",
+      "description": "理解孟德尔两对相对性状杂交实验的过程、假说演绎法及现象解释。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
       "centrality": 0.288462,
       "evidence": [
-        "能说出孟德尔的豌豆杂交实验（二）的基本内容",
-        "能运用孟德尔的豌豆杂交实验（二）的知识分析相关问题",
-        "能结合实例说明孟德尔的豌豆杂交实验（二）的意义或应用"
+        "能复述实验过程",
+        "能用假说-演绎法分析两对相对性状的遗传"
       ],
-      "assessmentPrompt": "让 {name} 说说孟德尔的豌豆杂交实验（二）的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能复述实验过程",
       "cnStandards": [
         "moe-2022-bio:SH.生命科学.14"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "skill"
+      "nodeKind": "skill",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1014",
       "type": "CONCEPTUAL",
       "subject": "Biology",
       "domain": "Cell Biology",
-      "name": "减数分裂",
-      "description": "理解减数分裂和受精作用的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "减数分裂的过程",
+      "description": "掌握减数分裂各时期的特点，理解同源染色体行为及染色体数目变化。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
       "centrality": 0.269231,
       "evidence": [
-        "能说出减数分裂和受精作用的基本内容",
-        "能运用减数分裂和受精作用的知识分析相关问题",
-        "能结合实例说明减数分裂和受精作用的意义或应用"
+        "能描述减数分裂各时期特征",
+        "能画出减数分裂染色体变化图"
       ],
-      "assessmentPrompt": "让 {name} 说说减数分裂和受精作用的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能描述减数分裂各时期特征",
       "cnStandards": [
         "moe-2022-bio:SH.生命科学.15"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1015",
@@ -22848,23 +22854,23 @@
       "type": "CONCEPTUAL",
       "subject": "Biology",
       "domain": "Cell Biology",
-      "name": "基因指导蛋白质的合成",
-      "description": "理解基因指导蛋白质的合成的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "转录过程",
+      "description": "理解转录的场所、条件、过程及产物，能区分转录与复制。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
       "centrality": 0.25,
       "evidence": [
-        "能说出基因指导蛋白质的合成的基本内容",
-        "能运用基因指导蛋白质的合成的知识分析相关问题",
-        "能结合实例说明基因指导蛋白质的合成的意义或应用"
+        "能描述转录过程",
+        "能比较转录与DNA复制的异同"
       ],
-      "assessmentPrompt": "让 {name} 说说基因指导蛋白质的合成的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能描述转录过程",
       "cnStandards": [
         "moe-2022-bio:SH.生命科学.18"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1018",
@@ -23078,23 +23084,23 @@
       "type": "CONCEPTUAL",
       "subject": "Biology",
       "domain": "Human Physiology",
-      "name": "神经冲动的产生和传导",
-      "description": "理解神经冲动的产生和传导的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "神经冲动的产生",
+      "description": "理解静息电位和动作电位的形成机制，掌握离子基础。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.096154,
       "evidence": [
-        "能说出神经冲动的产生和传导的基本内容",
-        "能运用神经冲动的产生和传导的知识分析相关问题",
-        "能结合实例说明神经冲动的产生和传导的意义或应用"
+        "能解释静息电位和动作电位的产生",
+        "能画出动作电位曲线"
       ],
-      "assessmentPrompt": "让 {name} 说说神经冲动的产生和传导的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能解释静息电位和动作电位的产生",
       "cnStandards": [
         "moe-2022-bio:SH.生命科学.28"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1028",
@@ -23170,46 +23176,48 @@
       "type": "CONCEPTUAL",
       "subject": "Biology",
       "domain": "Human Physiology",
-      "name": "激素调节的过程",
-      "description": "理解激素调节的过程的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "血糖平衡的调节",
+      "description": "掌握血糖平衡的调节机制，包括胰岛素和胰高血糖素的作用",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.076923,
       "evidence": [
-        "能说出激素调节的过程的基本内容",
-        "能运用激素调节的过程的知识分析相关问题",
-        "能结合实例说明激素调节的过程的意义或应用"
+        "能说出血糖平衡调节中主要激素（胰岛素、胰高血糖素）的来源和作用",
+        "能运用激素调节原理解释血糖异常的情况",
+        "能结合实例说明血糖调节的意义"
       ],
-      "assessmentPrompt": "让 {name} 说说激素调节的过程的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出血糖平衡调节中主要激素（胰岛素、胰高血糖素）的来源和作用",
       "cnStandards": [
         "moe-2022-bio:SH.生命科学.32"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1032",
       "type": "CONCEPTUAL",
       "subject": "Biology",
       "domain": "Human Physiology",
-      "name": "体液调节与神经调节的关系",
-      "description": "理解体液调节与神经调节的关系的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "体温调节",
+      "description": "掌握体温调节中神经调节和体液调节的协调机制",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.057692,
       "evidence": [
-        "能说出体液调节与神经调节的关系的基本内容",
-        "能运用体液调节与神经调节的关系的知识分析相关问题",
-        "能结合实例说明体液调节与神经调节的关系的意义或应用"
+        "能说出体温调节的神经和体液途径",
+        "能运用两种调节关系分析体温恒定的机制",
+        "能结合实例说明体温调节的意义"
       ],
-      "assessmentPrompt": "让 {name} 说说体液调节与神经调节的关系的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出体温调节的神经和体液途径",
       "cnStandards": [
         "moe-2022-bio:SH.生命科学.33"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1033",
@@ -23239,23 +23247,24 @@
       "type": "CONCEPTUAL",
       "subject": "Biology",
       "domain": "Human Physiology",
-      "name": "特异性免疫",
-      "description": "理解特异性免疫的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "体液免疫",
+      "description": "掌握体液免疫的过程和特点",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.038462,
       "evidence": [
-        "能说出特异性免疫的基本内容",
-        "能运用特异性免疫的知识分析相关问题",
-        "能结合实例说明特异性免疫的意义或应用"
+        "能说出体液免疫中抗原、抗体、B细胞、浆细胞等的作用",
+        "能运用体液免疫原理解释免疫现象",
+        "能结合实例说明体液免疫的应用"
       ],
-      "assessmentPrompt": "让 {name} 说说特异性免疫的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出体液免疫中抗原、抗体、B细胞、浆细胞等的作用",
       "cnStandards": [
         "moe-2022-bio:SH.生命科学.35"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1035",
@@ -23699,115 +23708,115 @@
       "type": "CONCEPTUAL",
       "subject": "Biology",
       "domain": "Microbiology",
-      "name": "微生物的培养技术及应用",
-      "description": "理解微生物的培养技术及应用的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "微生物的基本培养技术",
+      "description": "学习培养基的类型、无菌技术和微生物接种方法",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.019231,
       "evidence": [
-        "能说出微生物的培养技术及应用的基本内容",
-        "能运用微生物的培养技术及应用的知识分析相关问题",
-        "能结合实例说明微生物的培养技术及应用的意义或应用"
+        "能说出培养基的主要成分和类型",
+        "能描述无菌操作的基本方法"
       ],
-      "assessmentPrompt": "让 {name} 说说微生物的培养技术及应用的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出培养基的主要成分和类型",
       "cnStandards": [
         "moe-2022-bio:SH.发酵工程.02"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1057",
       "type": "CONCEPTUAL",
       "subject": "Biology",
       "domain": "Microbiology",
-      "name": "发酵工程及其应用",
-      "description": "理解发酵工程及其应用的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "发酵工程的基本流程",
+      "description": "学习发酵工程中菌种选育、培养基配制、灭菌、接种、发酵、分离提纯等环节",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0,
       "evidence": [
-        "能说出发酵工程及其应用的基本内容",
-        "能运用发酵工程及其应用的知识分析相关问题",
-        "能结合实例说明发酵工程及其应用的意义或应用"
+        "能说出发酵工程的主要步骤",
+        "能分析发酵条件控制的重要性"
       ],
-      "assessmentPrompt": "让 {name} 说说发酵工程及其应用的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出发酵工程的主要步骤",
       "cnStandards": [
         "moe-2022-bio:SH.发酵工程.03"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1058",
       "type": "CONCEPTUAL",
       "subject": "Biology",
       "domain": "Cell Biology",
-      "name": "植物细胞工程",
-      "description": "理解植物细胞工程的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "植物组织培养技术",
+      "description": "学习植物组织培养的基本原理、流程和应用",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.173077,
       "evidence": [
-        "能说出植物细胞工程的基本内容",
-        "能运用植物细胞工程的知识分析相关问题",
-        "能结合实例说明植物细胞工程的意义或应用"
+        "能说出植物组织培养的理论基础",
+        "能描述外植体选择、脱分化、再分化等步骤"
       ],
-      "assessmentPrompt": "让 {name} 说说植物细胞工程的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出植物组织培养的理论基础",
       "cnStandards": [
         "moe-2022-bio:SH.细胞工程.01"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1059",
       "type": "CONCEPTUAL",
       "subject": "Biology",
       "domain": "Cell Biology",
-      "name": "动物细胞工程",
-      "description": "理解动物细胞工程的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "动物细胞培养技术",
+      "description": "学习动物细胞培养的条件、过程和原代培养、传代培养概念",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.153846,
       "evidence": [
-        "能说出动物细胞工程的基本内容",
-        "能运用动物细胞工程的知识分析相关问题",
-        "能结合实例说明动物细胞工程的意义或应用"
+        "能说出动物细胞培养所需条件",
+        "能区分原代培养和传代培养"
       ],
-      "assessmentPrompt": "让 {name} 说说动物细胞工程的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出动物细胞培养所需条件",
       "cnStandards": [
         "moe-2022-bio:SH.细胞工程.02"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1060",
       "type": "CONCEPTUAL",
       "subject": "Biology",
       "domain": "Cell Biology",
-      "name": "胚胎工程",
-      "description": "理解胚胎工程的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "体外受精与早期胚胎培养",
+      "description": "学习体外受精的步骤和早期胚胎培养的条件",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.134615,
       "evidence": [
-        "能说出胚胎工程的基本内容",
-        "能运用胚胎工程的知识分析相关问题",
-        "能结合实例说明胚胎工程的意义或应用"
+        "能说出体外受精的主要过程",
+        "能描述早期胚胎培养所需培养基成分"
       ],
-      "assessmentPrompt": "让 {name} 说说胚胎工程的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出体外受精的主要过程",
       "cnStandards": [
         "moe-2022-bio:SH.细胞工程.03"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1061",
@@ -23837,23 +23846,23 @@
       "type": "PROCEDURAL",
       "subject": "Biology",
       "domain": "Cell Biology",
-      "name": "基因工程的基本操作程序",
-      "description": "理解基因工程的基本操作程序的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "基因表达载体的构建",
+      "description": "学习目的基因获取、载体选择和连接",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.096154,
       "evidence": [
-        "能说出基因工程的基本操作程序的基本内容",
-        "能运用基因工程的基本操作程序的知识分析相关问题",
-        "能结合实例说明基因工程的基本操作程序的意义或应用"
+        "能说出构建基因表达载体的要素",
+        "能描述限制酶和DNA连接酶的作用"
       ],
-      "assessmentPrompt": "让 {name} 说说基因工程的基本操作程序的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出构建基因表达载体的要素",
       "cnStandards": [
         "moe-2022-bio:SH.基因工程.02"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "skill"
+      "nodeKind": "skill",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1063",
@@ -38724,6 +38733,591 @@
       "nodeKind": "concept",
       "granularity": "split-45min",
       "splitFrom": "mtc_1145"
+    },
+    {
+      "id": "mtc_2127",
+      "type": "CONCEPTUAL",
+      "subject": "Biology",
+      "domain": "Biological Structure",
+      "name": "细胞核是遗传信息库和细胞分裂",
+      "description": "理解细胞核含有遗传信息，说明细胞分裂的基本过程",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 14,
+      "centrality": 0.115385,
+      "evidence": [
+        "能说明细胞核是遗传信息库",
+        "能描述细胞分裂的基本过程",
+        "能说出细胞分裂中染色体的变化"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说明细胞核是遗传信息库",
+      "cnStandards": [
+        "moe-2022-bio:S4.BS.01"
+      ],
+      "origin": "cn_only",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_378"
+    },
+    {
+      "id": "mtc_2128",
+      "type": "CONCEPTUAL",
+      "subject": "Biology",
+      "domain": "Organisms & Environment",
+      "name": "生物对环境的适应和影响",
+      "description": "理解生物通过形态、结构、行为适应环境，也能影响环境",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": 0.115385,
+      "evidence": [
+        "能举例说明生物对环境的适应",
+        "能举例说明生物对环境的影响",
+        "能说明适应是普遍存在的"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能举例说明生物对环境的适应",
+      "cnStandards": [
+        "moe-2022-bio:S4.BE.01"
+      ],
+      "origin": "cn_only",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_382"
+    },
+    {
+      "id": "mtc_2129",
+      "type": "CONCEPTUAL",
+      "subject": "Biology",
+      "domain": "Biodiversity",
+      "name": "种子植物（裸子植物和被子植物）",
+      "description": "区分裸子植物和被子植物，了解种子植物是最高等的植物类群",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 14,
+      "centrality": 0.115385,
+      "evidence": [
+        "能说出裸子植物和被子植物的区别",
+        "能举例说明常见的裸子植物和被子植物",
+        "能说明种子植物比孢子植物更适应陆地环境"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出裸子植物和被子植物的区别",
+      "cnStandards": [
+        "moe-2022-bio:S4.BD.01"
+      ],
+      "origin": "cn_only",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_389"
+    },
+    {
+      "id": "mtc_2130",
+      "type": "CONCEPTUAL",
+      "subject": "Biology",
+      "domain": "Biodiversity",
+      "name": "脊椎动物的五纲特征",
+      "description": "掌握鱼类、两栖类、爬行类、鸟类、哺乳类的主要特征",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 15,
+      "centrality": 0.096154,
+      "evidence": [
+        "能说出脊椎动物五纲的主要特征",
+        "能根据特征判断动物属于哪一纲",
+        "能举例说明各纲的典型代表动物"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出脊椎动物五纲的主要特征",
+      "cnStandards": [
+        "moe-2022-bio:S4.BD.01"
+      ],
+      "origin": "cn_only",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_390"
+    },
+    {
+      "id": "mtc_2131",
+      "type": "CONCEPTUAL",
+      "subject": "Biology",
+      "domain": "Heredity & Evolution",
+      "name": "自然选择学说",
+      "description": "理解达尔文自然选择学说的基本观点，能用自然选择解释生物的适应性。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 15,
+      "centrality": 0.019231,
+      "evidence": [
+        "能说出自然选择学说的要点（过度繁殖、生存斗争、遗传变异、适者生存）",
+        "能用自然选择解释长颈鹿等实例的适应性"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出自然选择学说的要点（过度繁殖、生存斗争、遗传变异、适者生存）",
+      "cnStandards": [
+        "moe-2022-bio:S4.HE.02"
+      ],
+      "origin": "upstream_adapt",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_421"
+    },
+    {
+      "id": "mtc_2132",
+      "type": "CONCEPTUAL",
+      "subject": "Biology",
+      "domain": "Cell Biology",
+      "name": "动物的生殖与发育",
+      "description": "学习昆虫、两栖动物、鸟类等常见动物的生殖和发育过程，以及完全变态和不完全变态。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 14,
+      "centrality": 0.038462,
+      "evidence": [
+        "能描述家蚕和蝗虫的发育过程",
+        "能说出两栖动物生殖和发育的特点",
+        "能描述鸟卵的结构和发育过程"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能描述家蚕和蝗虫的发育过程",
+      "cnStandards": [
+        "moe-2022-bio:S4.生物圈中.14"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "splitPart": "a",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_997"
+    },
+    {
+      "id": "mtc_2133",
+      "type": "CONCEPTUAL",
+      "subject": "Biology",
+      "domain": "Heredity & Evolution",
+      "name": "自然选择与适应",
+      "description": "自然选择如何决定进化方向",
+      "ageRangeStart": 17,
+      "ageRangeEnd": 18,
+      "centrality": 0,
+      "evidence": [
+        "能解释自然选择的作用",
+        "能举例说明适应形成"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能解释自然选择的作用",
+      "cnStandards": [
+        "moe-2022-bio:SH.HE.10"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_751"
+    },
+    {
+      "id": "mtc_2134",
+      "type": "CONCEPTUAL",
+      "subject": "Biology",
+      "domain": "Heredity & Evolution",
+      "name": "隔离与物种形成",
+      "description": "隔离类型与物种形成过程",
+      "ageRangeStart": 17,
+      "ageRangeEnd": 18,
+      "centrality": 0,
+      "evidence": [
+        "能区分地理隔离和生殖隔离",
+        "能说明隔离在物种形成中的作用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能区分地理隔离和生殖隔离",
+      "cnStandards": [
+        "moe-2022-bio:SH.HE.10"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_751"
+    },
+    {
+      "id": "mtc_2135",
+      "type": "CONCEPTUAL",
+      "subject": "Biology",
+      "domain": "Cell Biology",
+      "name": "有丝分裂过程",
+      "description": "掌握有丝分裂各时期的主要特征及动植物细胞有丝分裂的异同。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": 0.326923,
+      "evidence": [
+        "能画出有丝分裂各时期的模式图",
+        "能比较动植物细胞有丝分裂的差异"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能画出有丝分裂各时期的模式图",
+      "cnStandards": [
+        "moe-2022-bio:SH.生命科学.12"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1011"
+    },
+    {
+      "id": "mtc_2136",
+      "type": "PROCEDURAL",
+      "subject": "Biology",
+      "domain": "Cell Biology",
+      "name": "分离定律的实质与应用",
+      "description": "掌握基因分离定律的实质、细胞学基础及在实践中的应用。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 17,
+      "centrality": 0.307692,
+      "evidence": [
+        "能写出分离定律的实质",
+        "能运用分离定律解释简单遗传现象"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能写出分离定律的实质",
+      "cnStandards": [
+        "moe-2022-bio:SH.生命科学.13"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "skill",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1012"
+    },
+    {
+      "id": "mtc_2137",
+      "type": "PROCEDURAL",
+      "subject": "Biology",
+      "domain": "Cell Biology",
+      "name": "自由组合定律的实质与应用",
+      "description": "掌握基因自由组合定律的实质、细胞学基础及在实践中的应用。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 17,
+      "centrality": 0.288462,
+      "evidence": [
+        "能写出自由组合定律的实质",
+        "能运用自由组合定律解释简单遗传现象"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能写出自由组合定律的实质",
+      "cnStandards": [
+        "moe-2022-bio:SH.生命科学.14"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "skill",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1013"
+    },
+    {
+      "id": "mtc_2138",
+      "type": "CONCEPTUAL",
+      "subject": "Biology",
+      "domain": "Cell Biology",
+      "name": "受精作用",
+      "description": "理解受精作用的过程及其意义，能说明减数分裂与受精作用的关系。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 17,
+      "centrality": 0.269231,
+      "evidence": [
+        "能描述受精作用过程",
+        "能解释减数分裂和受精作用对遗传稳定性的意义"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能描述受精作用过程",
+      "cnStandards": [
+        "moe-2022-bio:SH.生命科学.15"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1014"
+    },
+    {
+      "id": "mtc_2139",
+      "type": "CONCEPTUAL",
+      "subject": "Biology",
+      "domain": "Cell Biology",
+      "name": "翻译过程",
+      "description": "掌握翻译的场所、条件、过程及产物，理解密码子与反密码子。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 17,
+      "centrality": 0.25,
+      "evidence": [
+        "能描述翻译过程",
+        "能识别密码子并解释翻译的准确性"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能描述翻译过程",
+      "cnStandards": [
+        "moe-2022-bio:SH.生命科学.18"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1017"
+    },
+    {
+      "id": "mtc_2140",
+      "type": "CONCEPTUAL",
+      "subject": "Biology",
+      "domain": "Human Physiology",
+      "name": "神经冲动的传导",
+      "description": "掌握兴奋在神经纤维上的传导方式和突触传递过程。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.096154,
+      "evidence": [
+        "能描述兴奋传导方向",
+        "能解释突触传递的单向性"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能描述兴奋传导方向",
+      "cnStandards": [
+        "moe-2022-bio:SH.生命科学.28"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1027"
+    },
+    {
+      "id": "mtc_2141",
+      "type": "CONCEPTUAL",
+      "subject": "Biology",
+      "domain": "Human Physiology",
+      "name": "甲状腺激素分泌的分级调节",
+      "description": "掌握甲状腺激素分泌的分级调节和反馈调节机制",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.076923,
+      "evidence": [
+        "能说出下丘脑-垂体-甲状腺轴的分级调节过程",
+        "能运用反馈调节原理解释甲状腺激素水平的维持",
+        "能结合实例说明甲状腺激素调节的意义"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出下丘脑-垂体-甲状腺轴的分级调节过程",
+      "cnStandards": [
+        "moe-2022-bio:SH.生命科学.32"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1031"
+    },
+    {
+      "id": "mtc_2142",
+      "type": "CONCEPTUAL",
+      "subject": "Biology",
+      "domain": "Human Physiology",
+      "name": "水盐平衡的调节",
+      "description": "掌握水盐平衡调节中神经和体液调节的协调机制",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.057692,
+      "evidence": [
+        "能说出水盐平衡调节中抗利尿激素的作用和神经调节途径",
+        "能运用两种调节关系分析水盐平衡的维持",
+        "能结合实例说明水盐平衡调节的意义"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出水盐平衡调节中抗利尿激素的作用和神经调节途径",
+      "cnStandards": [
+        "moe-2022-bio:SH.生命科学.33"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1032"
+    },
+    {
+      "id": "mtc_2143",
+      "type": "CONCEPTUAL",
+      "subject": "Biology",
+      "domain": "Human Physiology",
+      "name": "细胞免疫",
+      "description": "掌握细胞免疫的过程和特点",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.038462,
+      "evidence": [
+        "能说出细胞免疫中T细胞、效应T细胞、靶细胞等的作用",
+        "能运用细胞免疫原理解释免疫现象",
+        "能结合实例说明细胞免疫的应用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出细胞免疫中T细胞、效应T细胞、靶细胞等的作用",
+      "cnStandards": [
+        "moe-2022-bio:SH.生命科学.35"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1034"
+    },
+    {
+      "id": "mtc_2144",
+      "type": "CONCEPTUAL",
+      "subject": "Biology",
+      "domain": "Microbiology",
+      "name": "微生物的纯化与计数",
+      "description": "学习平板划线法、稀释涂布平板法及微生物计数方法",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.019231,
+      "evidence": [
+        "能说明纯化微生物的原理和步骤",
+        "能计算微生物数量"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说明纯化微生物的原理和步骤",
+      "cnStandards": [
+        "moe-2022-bio:SH.发酵工程.02"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1056"
+    },
+    {
+      "id": "mtc_2145",
+      "type": "CONCEPTUAL",
+      "subject": "Biology",
+      "domain": "Microbiology",
+      "name": "发酵工程的应用",
+      "description": "学习发酵工程在食品、医药、化工等领域的应用实例",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0,
+      "evidence": [
+        "能举例说明发酵工程在工业生产中的应用",
+        "能分析发酵工程产品的优点"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能举例说明发酵工程在工业生产中的应用",
+      "cnStandards": [
+        "moe-2022-bio:SH.发酵工程.03"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1057"
+    },
+    {
+      "id": "mtc_2146",
+      "type": "CONCEPTUAL",
+      "subject": "Biology",
+      "domain": "Cell Biology",
+      "name": "植物体细胞杂交技术",
+      "description": "学习植物体细胞杂交的原理、方法和应用",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.173077,
+      "evidence": [
+        "能说明去除细胞壁的方法和原生质体融合",
+        "能举例说明杂种植株的培育"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说明去除细胞壁的方法和原生质体融合",
+      "cnStandards": [
+        "moe-2022-bio:SH.细胞工程.01"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1058"
+    },
+    {
+      "id": "mtc_2147",
+      "type": "CONCEPTUAL",
+      "subject": "Biology",
+      "domain": "Cell Biology",
+      "name": "动物细胞核移植与克隆",
+      "description": "学习核移植的原理、流程及克隆动物的培育",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.153846,
+      "evidence": [
+        "能说明核移植的步骤",
+        "能举例分析克隆技术的应用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说明核移植的步骤",
+      "cnStandards": [
+        "moe-2022-bio:SH.细胞工程.02"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1059"
+    },
+    {
+      "id": "mtc_2148",
+      "type": "CONCEPTUAL",
+      "subject": "Biology",
+      "domain": "Cell Biology",
+      "name": "单克隆抗体的制备",
+      "description": "学习单克隆抗体的制备原理、流程和应用",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.153846,
+      "evidence": [
+        "能说出单克隆抗体的制备步骤",
+        "能分析其特异性强、灵敏度高的特点"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出单克隆抗体的制备步骤",
+      "cnStandards": [
+        "moe-2022-bio:SH.细胞工程.02"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1059"
+    },
+    {
+      "id": "mtc_2149",
+      "type": "CONCEPTUAL",
+      "subject": "Biology",
+      "domain": "Cell Biology",
+      "name": "胚胎移植与胚胎分割技术",
+      "description": "学习胚胎移植和胚胎分割的原理、流程及应用",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.134615,
+      "evidence": [
+        "能说明胚胎移植的基本步骤",
+        "能分析胚胎分割的注意事项"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说明胚胎移植的基本步骤",
+      "cnStandards": [
+        "moe-2022-bio:SH.细胞工程.03"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1060"
+    },
+    {
+      "id": "mtc_2150",
+      "type": "PROCEDURAL",
+      "subject": "Biology",
+      "domain": "Cell Biology",
+      "name": "目的基因的导入与检测",
+      "description": "学习将表达载体导入受体细胞的方法和检测与鉴定",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.096154,
+      "evidence": [
+        "能说明不同受体细胞的转化方法",
+        "能举例说明如何检测目的基因是否表达"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说明不同受体细胞的转化方法",
+      "cnStandards": [
+        "moe-2022-bio:SH.基因工程.02"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "skill",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1062"
     }
   ]
 }

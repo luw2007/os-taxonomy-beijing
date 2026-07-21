@@ -2,7 +2,7 @@
   "version": "1.2.0-zh.0",
   "upstreamVersion": "1.0.0",
   "locale": "zh-CN",
-  "topicCount": 1984,
+  "topicCount": 2003,
   "originNote": "中国特有微主题（mtc_ 前缀）。已按原子粒度拆解——每条覆盖一个可独立评估的微技能。来源：课标自建(cn_only/progression/upstream_adapt) + 课本目录(textbook)。严守 codes-only 原则。教材来源节点中的作品名、部分作者名和来源作为事实性元数据保留；不包含教材正文、插图、练习题、版式、页码或 PDF 路径。详见 PROVENANCE.md。",
   "topics": [
     {
@@ -4946,23 +4946,23 @@
       "type": "CONCEPTUAL",
       "subject": "Physics",
       "domain": "Electricity & Magnetism",
-      "name": "欧姆定律",
-      "description": "掌握欧姆定律：导体中的电流与导体两端电压成正比、与导体的电阻成反比（I=U/R），能运用欧姆定律分析和计算电路问题。",
+      "name": "欧姆定律的理解与简单计算",
+      "description": "掌握欧姆定律的内容、表达式，能用I=U/R进行简单计算，并分析串并联电路的部分问题。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
       "centrality": 0.346154,
       "evidence": [
-        "能用 I=U/R 计算电流电压和电阻",
-        "能用欧姆定律分析串并联电路",
-        "能进行伏安法测电阻的实验"
+        "能用I=U/R计算电流、电压和电阻",
+        "能用欧姆定律分析串并联电路"
       ],
-      "assessmentPrompt": "让 {{name}} 算一段电阻为 10 Ω 的导体两端加 6 V 电压时通过的电流是多少。",
+      "assessmentPrompt": "让 {{name}} 展示：能用I=U/R计算电流、电压和电阻",
       "cnStandards": [
         "moe-2022-physics:S4.MM.30"
       ],
       "origin": "upstream_adapt",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_213",
@@ -5561,23 +5561,23 @@
       "type": "PROCEDURAL",
       "subject": "Physics",
       "domain": "Scientific Inquiry",
-      "name": "探究光的反射规律",
-      "description": "能设计并完成探究光的反射规律的实验和探究平面镜成像特点的实验（用玻璃板代替平面镜、用等大的物体比较像的大小）。",
+      "name": "探究光的反射规律实验",
+      "description": "设计并完成反射规律实验，记录数据，得出反射定律。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": 0.019231,
       "evidence": [
         "能设计探究反射规律的实验方案",
-        "能设计探究平面镜成像特点的实验",
         "能如实记录实验数据并得出结论"
       ],
-      "assessmentPrompt": "让 {{name}} 设计一个验证平面镜成像时像与物等大的实验，说说为什么用玻璃板不用平面镜。",
+      "assessmentPrompt": "让 {{name}} 展示：能设计探究反射规律的实验方案",
       "cnStandards": [
         "moe-2022-physics:S4.IN.02"
       ],
       "origin": "cn_only",
       "stage": "初中",
-      "nodeKind": "skill"
+      "nodeKind": "skill",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_239",
@@ -5699,23 +5699,23 @@
       "type": "PROCEDURAL",
       "subject": "Physics",
       "domain": "Scientific Inquiry",
-      "name": "探究串并联电路的电流电压规律",
-      "description": "能用电流表和电压表探究串联电路（电流处处相等、电压之和等于总电压）和并联电路（电压相等、电流之和等于总电流）的规律。",
+      "name": "探究串联电路电流电压规律",
+      "description": "连接串联电路，用电流表电压表测量电流和电压，总结规律。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
       "centrality": 0.038462,
       "evidence": [
-        "能正确连接电流表和电压表测串并联电路",
-        "能记录数据总结串联和并联的电流电压规律",
-        "能分析实验误差"
+        "能正确连接电流表和电压表测串联电路",
+        "能记录数据并总结电流处处相等、电压之和等于总电压"
       ],
-      "assessmentPrompt": "让 {{name}} 用电流表分别测串联电路中不同位置的电流，比较它们的大小关系。",
+      "assessmentPrompt": "让 {{name}} 展示：能正确连接电流表和电压表测串联电路",
       "cnStandards": [
         "moe-2022-physics:S4.IN.08"
       ],
       "origin": "upstream_adapt",
       "stage": "初中",
-      "nodeKind": "skill"
+      "nodeKind": "skill",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_245",
@@ -20316,69 +20316,69 @@
       "type": "CONCEPTUAL",
       "subject": "Physics",
       "domain": "Dynamics",
-      "name": "机械振动",
-      "description": "理解机械振动的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "简谐运动",
+      "description": "简谐运动的定义、回复力、能量、图像",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.134615,
       "evidence": [
-        "能说出机械振动的基本内容",
-        "能运用机械振动的知识分析相关问题",
-        "能结合实例说明机械振动的意义或应用"
+        "能识别简谐运动",
+        "能分析其能量转化"
       ],
-      "assessmentPrompt": "让 {name} 说说机械振动的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能识别简谐运动",
       "cnStandards": [
         "moe-2022-physics:SH.运动和相.09"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_881",
       "type": "CONCEPTUAL",
       "subject": "Physics",
       "domain": "Dynamics",
-      "name": "机械波",
-      "description": "理解机械波的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "波的描述",
+      "description": "波的产生、图像，波长、频率、波速的关系",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.115385,
       "evidence": [
-        "能说出机械波的基本内容",
-        "能运用机械波的知识分析相关问题",
-        "能结合实例说明机械波的意义或应用"
+        "能由波形图求波长",
+        "能计算波速"
       ],
-      "assessmentPrompt": "让 {name} 说说机械波的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能由波形图求波长",
       "cnStandards": [
         "moe-2022-physics:SH.运动和相.10"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_882",
       "type": "CONCEPTUAL",
       "subject": "Physics",
       "domain": "Dynamics",
-      "name": "动量守恒定律",
-      "description": "理解动量守恒定律的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "动量和冲量",
+      "description": "动量、冲量的概念及矢量性",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.096154,
       "evidence": [
-        "能说出动量守恒定律的基本内容",
-        "能运用动量守恒定律的知识分析相关问题",
-        "能结合实例说明动量守恒定律的意义或应用"
+        "能计算动量变化",
+        "能计算冲量"
       ],
-      "assessmentPrompt": "让 {name} 说说动量守恒定律的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能计算动量变化",
       "cnStandards": [
         "moe-2022-physics:SH.运动和相.11"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_883",
@@ -20386,22 +20386,22 @@
       "subject": "Physics",
       "domain": "Electricity & Magnetism",
       "name": "安培力",
-      "description": "理解安培力与洛伦兹力的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "description": "安培力的方向判断（左手定则）、大小计算",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.019231,
       "evidence": [
-        "能说出安培力与洛伦兹力的基本内容",
-        "能运用安培力与洛伦兹力的知识分析相关问题",
-        "能结合实例说明安培力与洛伦兹力的意义或应用"
+        "能用左手定则判断安培力方向",
+        "能计算导线在磁场中的受力"
       ],
-      "assessmentPrompt": "让 {name} 说说安培力与洛伦兹力的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能用左手定则判断安培力方向",
       "cnStandards": [
         "moe-2022-physics:SH.运动和相.12"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_884",
@@ -20431,23 +20431,23 @@
       "type": "CONCEPTUAL",
       "subject": "Physics",
       "domain": "Electricity & Magnetism",
-      "name": "交变电流",
-      "description": "理解交变电流的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "交变电流的产生和描述",
+      "description": "正弦式交流电的产生，有效值、峰值、平均值、周期频率",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0,
       "evidence": [
-        "能说出交变电流的基本内容",
-        "能运用交变电流的知识分析相关问题",
-        "能结合实例说明交变电流的意义或应用"
+        "能写出瞬时值表达式",
+        "能计算有效值"
       ],
-      "assessmentPrompt": "让 {name} 说说交变电流的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能写出瞬时值表达式",
       "cnStandards": [
         "moe-2022-physics:SH.运动和相.14"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_886",
@@ -20477,46 +20477,46 @@
       "type": "CONCEPTUAL",
       "subject": "Physics",
       "domain": "Dynamics",
-      "name": "气体的性质",
-      "description": "理解气体、固体和液体的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "气体实验定律",
+      "description": "玻意耳定律、查理定律、盖-吕萨克定律",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.057692,
       "evidence": [
-        "能说出气体、固体和液体的基本内容",
-        "能运用气体、固体和液体的知识分析相关问题",
-        "能结合实例说明气体、固体和液体的意义或应用"
+        "能应用定律解决气体状态变化问题",
+        "能判断等温、等容、等压过程"
       ],
-      "assessmentPrompt": "让 {name} 说说气体、固体和液体的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能应用定律解决气体状态变化问题",
       "cnStandards": [
         "moe-2022-physics:SH.运动和相.16"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_888",
       "type": "CONCEPTUAL",
       "subject": "Physics",
       "domain": "Heat & Thermodynamics",
-      "name": "热力学定律",
-      "description": "理解热力学定律的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "热力学第一定律",
+      "description": "热力学第一定律的能量表达式，符号法则，应用",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0,
       "evidence": [
-        "能说出热力学定律的基本内容",
-        "能运用热力学定律的知识分析相关问题",
-        "能结合实例说明热力学定律的意义或应用"
+        "能用ΔU=Q+W分析内能变化",
+        "能判断吸放热和做功情况"
       ],
-      "assessmentPrompt": "让 {name} 说说热力学定律的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能用ΔU=Q+W分析内能变化",
       "cnStandards": [
         "moe-2022-physics:SH.运动和相.17"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1961",
@@ -20546,23 +20546,23 @@
       "type": "CONCEPTUAL",
       "subject": "Physics",
       "domain": "Dynamics",
-      "name": "原子核",
-      "description": "理解原子核的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "原子核的组成与放射性",
+      "description": "原子核的组成，天然放射现象，三种射线",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0,
       "evidence": [
-        "能说出原子核的基本内容",
-        "能运用原子核的知识分析相关问题",
-        "能结合实例说明原子核的意义或应用"
+        "能说出α、β、γ射线的性质",
+        "能分析衰变后新核"
       ],
-      "assessmentPrompt": "让 {name} 说说原子核的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出α、β、γ射线的性质",
       "cnStandards": [
         "moe-2022-physics:SH.运动和相.19"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_891",
@@ -46567,6 +46567,462 @@
       "nodeKind": "concept",
       "granularity": "split-45min",
       "splitFrom": "mtc_1557"
+    },
+    {
+      "id": "mtc_2443",
+      "type": "CONCEPTUAL",
+      "subject": "Physics",
+      "domain": "Electricity & Magnetism",
+      "name": "伏安法测电阻实验",
+      "description": "通过实验测量未知电阻，掌握伏安法测电阻的原理、电路连接和数据处理。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 15,
+      "centrality": 0.346154,
+      "evidence": [
+        "能正确连接电路进行实验",
+        "能记录数据并计算电阻"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能正确连接电路进行实验",
+      "cnStandards": [
+        "moe-2022-physics:S4.MM.30"
+      ],
+      "origin": "upstream_adapt",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_212"
+    },
+    {
+      "id": "mtc_2444",
+      "type": "PROCEDURAL",
+      "subject": "Physics",
+      "domain": "Scientific Inquiry",
+      "name": "探究平面镜成像特点实验",
+      "description": "用玻璃板代替平面镜，用等大物体比较像的大小，完成实验并总结特点。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": 0.019231,
+      "evidence": [
+        "能设计探究平面镜成像特点的实验方案",
+        "能比较像与物的大小关系"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能设计探究平面镜成像特点的实验方案",
+      "cnStandards": [
+        "moe-2022-physics:S4.IN.02"
+      ],
+      "origin": "cn_only",
+      "stage": "初中",
+      "nodeKind": "skill",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_238"
+    },
+    {
+      "id": "mtc_2445",
+      "type": "PROCEDURAL",
+      "subject": "Physics",
+      "domain": "Scientific Inquiry",
+      "name": "探究并联电路电流电压规律",
+      "description": "连接并联电路，测量各支路电流和电压，总结规律。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 14,
+      "centrality": 0.038462,
+      "evidence": [
+        "能正确连接电流表和电压表测并联电路",
+        "能记录数据并总结电压相等、电流之和等于总电流"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能正确连接电流表和电压表测并联电路",
+      "cnStandards": [
+        "moe-2022-physics:S4.IN.08"
+      ],
+      "origin": "upstream_adapt",
+      "stage": "初中",
+      "nodeKind": "skill",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_244"
+    },
+    {
+      "id": "mtc_2446",
+      "type": "CONCEPTUAL",
+      "subject": "Physics",
+      "domain": "Dynamics",
+      "name": "单摆",
+      "description": "单摆的周期公式，用单摆测重力加速度",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.134615,
+      "evidence": [
+        "能推导单摆周期公式",
+        "能设计实验测量重力加速度"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能推导单摆周期公式",
+      "cnStandards": [
+        "moe-2022-physics:SH.运动和相.09"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_880"
+    },
+    {
+      "id": "mtc_2447",
+      "type": "CONCEPTUAL",
+      "subject": "Physics",
+      "domain": "Dynamics",
+      "name": "受迫振动与共振",
+      "description": "阻尼振动、受迫振动、共振的条件及应用",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.134615,
+      "evidence": [
+        "能区分三种振动",
+        "能举例说明共振的利用与危害"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能区分三种振动",
+      "cnStandards": [
+        "moe-2022-physics:SH.运动和相.09"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_880"
+    },
+    {
+      "id": "mtc_2448",
+      "type": "CONCEPTUAL",
+      "subject": "Physics",
+      "domain": "Dynamics",
+      "name": "波的干涉",
+      "description": "波的叠加原理，干涉的条件及现象",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.115385,
+      "evidence": [
+        "能解释干涉条纹形成",
+        "能判断干涉加强和减弱点"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能解释干涉条纹形成",
+      "cnStandards": [
+        "moe-2022-physics:SH.运动和相.10"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_881"
+    },
+    {
+      "id": "mtc_2449",
+      "type": "CONCEPTUAL",
+      "subject": "Physics",
+      "domain": "Dynamics",
+      "name": "波的衍射与多普勒效应",
+      "description": "波发生明显衍射的条件，多普勒效应的产生及应用",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.115385,
+      "evidence": [
+        "能说出衍射条件",
+        "能解释多普勒效应现象"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出衍射条件",
+      "cnStandards": [
+        "moe-2022-physics:SH.运动和相.10"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_881"
+    },
+    {
+      "id": "mtc_2450",
+      "type": "CONCEPTUAL",
+      "subject": "Physics",
+      "domain": "Dynamics",
+      "name": "动量定理",
+      "description": "动量定理的内容及应用",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.096154,
+      "evidence": [
+        "能用动量定理解释碰撞、缓冲等",
+        "能解决变力冲量问题"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能用动量定理解释碰撞、缓冲等",
+      "cnStandards": [
+        "moe-2022-physics:SH.运动和相.11"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_882"
+    },
+    {
+      "id": "mtc_2451",
+      "type": "CONCEPTUAL",
+      "subject": "Physics",
+      "domain": "Dynamics",
+      "name": "动量守恒定律及应用",
+      "description": "动量守恒定律的条件、表达式及碰撞模型",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.096154,
+      "evidence": [
+        "能判断系统动量是否守恒",
+        "能解弹性碰撞、非弹性碰撞问题"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能判断系统动量是否守恒",
+      "cnStandards": [
+        "moe-2022-physics:SH.运动和相.11"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_882"
+    },
+    {
+      "id": "mtc_2452",
+      "type": "CONCEPTUAL",
+      "subject": "Physics",
+      "domain": "Electricity & Magnetism",
+      "name": "洛伦兹力",
+      "description": "洛伦兹力的方向与大小，带电粒子在匀强磁场中的匀速圆周运动",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.019231,
+      "evidence": [
+        "能用左手定则判断洛伦兹力方向",
+        "能推导粒子圆周运动的半径和周期"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能用左手定则判断洛伦兹力方向",
+      "cnStandards": [
+        "moe-2022-physics:SH.运动和相.12"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_883"
+    },
+    {
+      "id": "mtc_2453",
+      "type": "CONCEPTUAL",
+      "subject": "Physics",
+      "domain": "Electricity & Magnetism",
+      "name": "带电粒子在复合场中的运动",
+      "description": "速度选择器、质谱仪、回旋加速器等应用",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.019231,
+      "evidence": [
+        "能分析粒子在电磁场中的运动",
+        "能解释常见仪器原理"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能分析粒子在电磁场中的运动",
+      "cnStandards": [
+        "moe-2022-physics:SH.运动和相.12"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_883"
+    },
+    {
+      "id": "mtc_2454",
+      "type": "CONCEPTUAL",
+      "subject": "Physics",
+      "domain": "Electricity & Magnetism",
+      "name": "变压器",
+      "description": "变压器的原理，电压、电流与匝数的关系，变压器的应用",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0,
+      "evidence": [
+        "能分析理想变压器的电压电流关系",
+        "能解决变压器动态问题"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能分析理想变压器的电压电流关系",
+      "cnStandards": [
+        "moe-2022-physics:SH.运动和相.14"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_885"
+    },
+    {
+      "id": "mtc_2455",
+      "type": "CONCEPTUAL",
+      "subject": "Physics",
+      "domain": "Electricity & Magnetism",
+      "name": "电能的输送",
+      "description": "输电效率、高压输电的原理，远距离输电的计算",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0,
+      "evidence": [
+        "能解释高压输电原因",
+        "能计算输电损失"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能解释高压输电原因",
+      "cnStandards": [
+        "moe-2022-physics:SH.运动和相.14"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_885"
+    },
+    {
+      "id": "mtc_2456",
+      "type": "CONCEPTUAL",
+      "subject": "Physics",
+      "domain": "Dynamics",
+      "name": "理想气体状态方程",
+      "description": "理想气体状态方程的推导及应用，气体密度的计算",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.057692,
+      "evidence": [
+        "能用状态方程解决变质量问题",
+        "能处理气体图像问题"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能用状态方程解决变质量问题",
+      "cnStandards": [
+        "moe-2022-physics:SH.运动和相.16"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_887"
+    },
+    {
+      "id": "mtc_2457",
+      "type": "CONCEPTUAL",
+      "subject": "Physics",
+      "domain": "Dynamics",
+      "name": "固体和液体的性质",
+      "description": "晶体与非晶体、液晶，液体的表面张力、毛细现象",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.057692,
+      "evidence": [
+        "能区分晶体与非晶体",
+        "能解释表面张力和毛细现象"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能区分晶体与非晶体",
+      "cnStandards": [
+        "moe-2022-physics:SH.运动和相.16"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_887"
+    },
+    {
+      "id": "mtc_2458",
+      "type": "CONCEPTUAL",
+      "subject": "Physics",
+      "domain": "Heat & Thermodynamics",
+      "name": "热力学第二定律",
+      "description": "热力学第二定律的两种表述，熵的概念，方向性",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0,
+      "evidence": [
+        "能判断过程是否可逆",
+        "能举例说明第二定律的应用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能判断过程是否可逆",
+      "cnStandards": [
+        "moe-2022-physics:SH.运动和相.17"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_888"
+    },
+    {
+      "id": "mtc_2459",
+      "type": "CONCEPTUAL",
+      "subject": "Physics",
+      "domain": "Heat & Thermodynamics",
+      "name": "能量守恒定律与能源",
+      "description": "能量守恒定律的普遍性，能源问题",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0,
+      "evidence": [
+        "能应用能量守恒分析实际问题",
+        "能解释能源危机与可持续发展"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能应用能量守恒分析实际问题",
+      "cnStandards": [
+        "moe-2022-physics:SH.运动和相.17"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_888"
+    },
+    {
+      "id": "mtc_2460",
+      "type": "CONCEPTUAL",
+      "subject": "Physics",
+      "domain": "Dynamics",
+      "name": "核衰变与半衰期",
+      "description": "衰变规律，半衰期计算",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0,
+      "evidence": [
+        "能写出衰变方程",
+        "能计算半衰期相关问题"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能写出衰变方程",
+      "cnStandards": [
+        "moe-2022-physics:SH.运动和相.19"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_890"
+    },
+    {
+      "id": "mtc_2461",
+      "type": "CONCEPTUAL",
+      "subject": "Physics",
+      "domain": "Dynamics",
+      "name": "核能与核反应",
+      "description": "质量亏损，爱因斯坦质能方程，核裂变、核聚变",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0,
+      "evidence": [
+        "能计算核反应释放的能量",
+        "能举例核反应的应用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能计算核反应释放的能量",
+      "cnStandards": [
+        "moe-2022-physics:SH.运动和相.19"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_890"
     }
   ]
 }

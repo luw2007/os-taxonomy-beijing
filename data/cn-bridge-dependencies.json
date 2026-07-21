@@ -31,10 +31,11 @@
       "prerequisiteId": "mt_mqgu72aCMz",
       "strength": "soft",
       "reason": "上游的联立方程是中国二元一次方程组的解法基础",
-      "reviewStatus": "machine",
-      "previousReviewStatus": "reviewed",
-      "rescopeRequired": true,
-      "rescopeBatchId": "granularity-rescope-20260721"
+      "reviewStatus": "reviewed",
+      "rescopeBatchId": "granularity-rescope-20260721",
+      "reviewedBy": "user-delegated-claude-opus-consensus",
+      "reviewedAt": "2026-07-21T15:09:11.145734Z",
+      "reviewNote": "双 Opus 独立审核 一致判为 reviewed。R1（high）：Narrowed topic mtc_270 is now specifically 代入消元法解二元一次方程组. Upstream mt 'Simultaneous Equations' (understanding two linear equations solved together algebraically/graphically) materially supports learning the substitution solving method for such systems. Bridge material-support holds. R2（medium）：Narrowed topic mtc_270 is 代入消元法解二元一次方程组; upstream mt_ 'Simultaneous Equations' establishes that a pair of linear equations has a common solution satisfying both. That conceptual understanding materially supports (but is not strictly necessary for) the Chinese substitution-elimination procedure. Soft is appropriate for a bridge support edge."
     },
     {
       "topicId": "mtc_280",
@@ -69,10 +70,11 @@
       "prerequisiteId": "mt_u23IGDxOpk",
       "strength": "soft",
       "reason": "上游的平行线是中国平行线性质的几何基础",
-      "reviewStatus": "machine",
-      "previousReviewStatus": "reviewed",
-      "rescopeRequired": true,
-      "rescopeBatchId": "granularity-rescope-20260721"
+      "reviewStatus": "reviewed",
+      "rescopeBatchId": "granularity-rescope-20260721",
+      "reviewedBy": "user-delegated-claude-opus-consensus",
+      "reviewedAt": "2026-07-21T15:09:11.145734Z",
+      "reviewNote": "双 Opus 独立审核 一致判为 reviewed。R1（medium）：Narrowed topic is 平行线的性质 (angle relations of parallel lines). Upstream mt identifies/defines parallel lines; knowing what parallel lines are is a genuine foundation for studying their angle properties. Material support holds for the narrowed endpoint. R2（medium）：Narrowed topic mtc_292 是平行线的性质（同位角/内错角/同旁内角关系）; upstream mt_ (age 7-8) only identifies parallel/perpendicular lines. Knowing what parallel lines are is a genuine, if elementary, foundation for their angle properties — materially supporting, not necessary. Soft holds."
     },
     {
       "topicId": "mtc_294",
@@ -303,10 +305,11 @@
       "prerequisiteId": "mt_FuVEZ1Ac9s",
       "strength": "soft",
       "reason": "上游的自然选择是中国生物的进化的理论基础",
-      "reviewStatus": "machine",
-      "previousReviewStatus": "reviewed",
-      "rescopeRequired": true,
-      "rescopeBatchId": "granularity-rescope-20260721"
+      "reviewStatus": "rejected",
+      "rescopeBatchId": "granularity-rescope-20260721",
+      "reviewedBy": "user-delegated-claude-opus-consensus",
+      "reviewedAt": "2026-07-21T15:09:11.145734Z",
+      "reviewNote": "双 Opus 独立审核 一致判为 rejected。R1（medium）：mtc_421 narrowed to '生物进化的历程' whose evidence is purely descriptive (化石是进化证据、从简单到复杂/水生到陆生的趋势). The natural-selection mechanism was carved off into split sibling mtc_2131 '自然选择学说'. The upstream 'How Natural Selection Works' now materially supports that sibling, not the narrowed fossil-timeline topic, so the bridge no longer follows (rule 5). R2（high）：mtc_421 narrowed to 生物进化的历程 whose evidence is fossil-as-evidence and describing overall trends (简单→复杂, 低等→高等, 水生→陆生) — purely descriptive/historical. The natural-selection MECHANISM (four conditions, allele-frequency change) materially supports the split sibling mtc_2131 自然选择学说, not the narrowed descriptive-history endpoint. Per bridge rule 5 the upstream mt_ concept must materially support the narrowed mtc_ topic; it no longer does."
     },
     {
       "topicId": "mtc_385",
@@ -327,10 +330,11 @@
       "prerequisiteId": "mt_enj1sMcfOT",
       "strength": "soft",
       "reason": "上游的时态系统是中国英语语法常用时态的直接对应",
-      "reviewStatus": "machine",
-      "previousReviewStatus": "reviewed",
-      "rescopeRequired": true,
-      "rescopeBatchId": "granularity-rescope-20260721"
+      "reviewStatus": "reviewed",
+      "rescopeBatchId": "granularity-rescope-20260721",
+      "reviewedBy": "user-delegated-claude-opus-consensus",
+      "reviewedAt": "2026-07-21T15:09:11.145734Z",
+      "reviewNote": "双 Opus 独立审核 一致判为 reviewed。R1（medium）：Narrowed target mtc_584 is only 一般现在时 (present, 主语+动词原形/三单). Upstream KS1 concept explicitly covers conveying present tense correctly and identifying/changing verbs to present, which materially supports the present-tense construction the target needs. Bridge support holds; soft is appropriate since it is helpful foundation, not strictly necessary. R2（medium）：Upstream mt_ 'Past, Present and Progressive Tense' (ages 6-9) explicitly covers present-tense verb use and consistent tense marking; narrowed mtc_584 一般现在时 (构成主语+动词原形/三单, 描述习惯/事实) is directly seeded by that foundational present-tense concept. Materially supports without being strictly necessary; soft calibration is correct."
     },
     {
       "topicId": "mtc_578",

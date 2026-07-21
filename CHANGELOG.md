@@ -14,9 +14,9 @@
 - 缓存绑定模型与完整 prompt；LLM 批次失败不覆盖审核文件；正式 apply 前重新验证父主题时长、子主题数量/时长和全局重名。
 - 使用 `scripts/backfill-split-relations.mjs` 对 340 个零度 `splitFrom` 子主题运行 deepseek-v4-flash 增量关系审计：356 个先修提案中只追加 329 条 `machine` 边；拒绝重复 24 条、成环 1 条、跨学段倒退 2 条。旧 2,290 条边保持原内容和顺序，相关但非先修的 83 条关系仅保留在 gitignored work 文件。
 - 同步 `manifest.json`、README 与 BACKLOG 的上层统计；`scripts/checksum.mjs` 现从真实数据数组自动更新主题、依赖、聚类和课标计数，避免后续数据变更再次产生手工计数漂移。
-- Claude Opus 复审后采用 Option B：260 个复用父 ID 家族触及的 761 条内部旧边和 4 条 bridge 边全部标记 `rescopeRequired`，其中 305 条旧 reviewed 降级为 machine；49 个 covered 父主题持久化 `coveredBy` 并退出儿童视图。
-- 拆分 apply 新增强制 child 完整性、重复 ID、确定排序和内部/bridge 旧边重定责；关系 apply 新增输入图 fingerprint、批次 provenance、年龄倒退警告及受控结构/课标候选召回。
-- 儿童 API、详情页和知识脉络只使用 reviewed 且非 rescope 的内部与 bridge 边；canonical centrality 同样只由可发布内部边计算。迁移后内部边 reviewed 985 / machine 1,634（37.6%），纠正此前被语义漂移旧边虚高的覆盖率。
+- Claude Opus 复审后采用 Option B：260 个复用父 ID 家族触及的 761 条内部旧边和 4 条 bridge 边全部标记 `rescopeRequired`；49 个 covered 父主题持久化 `coveredBy` 并退出儿童视图。
+- 用户随后授权两轮独立 Claude Opus 逐条复审全部 765 条隔离边：两轮一致 724 条、分歧 41 条按正确性优先策略拒绝，最终 reviewed 344 / rejected 421，18 条 strength 仅在两轮明确同意时修正。审核 provenance 记录为 `user-delegated-claude-opus-consensus`，不冒充教师审核。
+- 拆分 apply 强制校验 child 完整性、重复 ID、确定排序和内部/bridge 旧边重定责；儿童 API、详情页、知识脉络与 canonical centrality 只使用 reviewed 且非 rescope 的边。复审后内部边 reviewed 1,326 / machine 873 / rejected 420（50.6%），bridge reviewed 46 / rejected 1，`validate --publish` 恢复通过。
 
 ### DAG 完整性修复（P0/v1.1）
 - **破环**：删 283 条成环边（含 200 反平行对），密度 1.55→1.377，0 含环 SCC。删除旧 `removeCycles` 的 3 个 bug（`_weak` 未赋值/`pass<10` 上限/先破环后合并导致重新成环），重写为 `scripts/break-cycles.mjs`（迭代 Tarjan + 贪心评分，全局破环）。

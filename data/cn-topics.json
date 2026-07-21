@@ -3446,7 +3446,7 @@
       "description": "围绕人与自我主题，用简单英语介绍自己、家庭和学校生活，发展语言运用能力。",
       "ageRangeStart": 8,
       "ageRangeEnd": 10,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能用英语简单介绍自己",
         "能说出家庭成员",
@@ -3469,7 +3469,7 @@
       "description": "围绕人与社会主题，用英语谈论社区生活、规则和节日，发展跨文化交际意识。",
       "ageRangeStart": 10,
       "ageRangeEnd": 12,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能用英语谈论社区和规则",
         "能介绍一个中外节日",
@@ -3492,7 +3492,7 @@
       "description": "围绕人与自然主题，用英语描述动物、天气和环境，培养关爱自然的情感。",
       "ageRangeStart": 8,
       "ageRangeEnd": 12,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能用英语描述几种动物",
         "能说出天气词汇",
@@ -4807,7 +4807,7 @@
       "description": "掌握电路的基本组成（电源、导线、开关、用电器），能画简单电路图，判断通路、断路、短路。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
-      "centrality": 0.2,
+      "centrality": 0.266667,
       "evidence": [
         "能说出电路的四个基本组成",
         "能画出简单电路图",
@@ -4831,7 +4831,7 @@
       "description": "理解串联电路（各元件逐个顺次连接，电流只有一条路径）和并联电路（各元件并列连接，电流有多条路径）的特点，能识别和分析串并联电路。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
-      "centrality": 0.166667,
+      "centrality": 0.233333,
       "evidence": [
         "能区分串联和并联电路",
         "能画串并联电路图",
@@ -4854,7 +4854,7 @@
       "description": "理解电压是使电路中形成电流的原因，知道电压的单位，记住常见电压值（一节干电池 1.5V、家庭电路 220V）。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
-      "centrality": 0.133333,
+      "centrality": 0.2,
       "evidence": [
         "能说出电压的作用和单位",
         "能说出一节干电池和家庭电路的电压值",
@@ -4950,7 +4950,7 @@
       "description": "掌握欧姆定律的内容、表达式，能用I=U/R进行简单计算，并分析串并联电路的部分问题。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能用I=U/R计算电流、电压和电阻",
         "能用欧姆定律分析串并联电路"
@@ -5703,7 +5703,7 @@
       "description": "连接串联电路，用电流表电压表测量电流和电压，总结规律。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能正确连接电流表和电压表测串联电路",
         "能记录数据并总结电流处处相等、电压之和等于总电压"
@@ -5773,7 +5773,7 @@
       "description": "能用数轴上的点表示有理数，能借助数轴比较有理数的大小，理解数轴的三要素。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
-      "centrality": 0.666667,
+      "centrality": 0.8,
       "evidence": [
         "能在数轴上表示任意有理数",
         "能说出数轴的三要素",
@@ -5797,7 +5797,7 @@
       "description": "理解绝对值的几何意义（数轴上点到原点的距离）和代数定义（非负数本身、负数的相反数）。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
-      "centrality": 0.633333,
+      "centrality": 0.766667,
       "evidence": [
         "能说出绝对值的定义和几何意义",
         "能正确求一个数的绝对值",
@@ -5821,7 +5821,7 @@
       "description": "能化简含绝对值的式子，能借助绝对值比较两个负数的大小（绝对值大的负数反而小）。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
-      "centrality": 0.6,
+      "centrality": 0.733333,
       "evidence": [
         "能化简含绝对值的式子",
         "能比较两个负数的大小",
@@ -5844,7 +5844,7 @@
       "description": "掌握有理数加法和减法的运算法则，能进行有理数的加减混合运算并化为加法连加。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
-      "centrality": 0.566667,
+      "centrality": 0.7,
       "evidence": [
         "能正确进行有理数加法运算",
         "能把减法转化为加法进行运算",
@@ -5867,7 +5867,7 @@
       "description": "掌握有理数乘除运算的法则（先定符号、再算绝对值），能进行有理数乘除和混合运算。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
-      "centrality": 0.533333,
+      "centrality": 0.666667,
       "evidence": [
         "能正确确定乘除结果的符号",
         "能正确进行有理数乘除运算",
@@ -5891,7 +5891,7 @@
       "description": "掌握乘方的意义和运算，能用科学记数法 a×10ⁿ 表示大数。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
-      "centrality": 0.5,
+      "centrality": 0.633333,
       "evidence": [
         "能正确进行乘方运算",
         "能用科学记数法表示大数",
@@ -5914,7 +5914,7 @@
       "description": "理解平方根和算术平方根的概念，能区分两者，能求非负数的平方根。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0.333333,
+      "centrality": 0.466667,
       "evidence": [
         "能区分平方根和算术平方根",
         "能正确求一个非负数的平方根",
@@ -5937,7 +5937,7 @@
       "description": "理解立方根的概念，能求任意数的立方根，知道立方根与平方根的区别（负数有立方根）。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0.3,
+      "centrality": 0.433333,
       "evidence": [
         "能正确求一个数的立方根",
         "能说明负数也有立方根",
@@ -5961,7 +5961,7 @@
       "description": "认识无理数是无限不循环小数，能区分有理数和无理数。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0.266667,
+      "centrality": 0.4,
       "evidence": [
         "能说出无理数是无限不循环小数",
         "能区分有理数和无理数",
@@ -5985,7 +5985,7 @@
       "description": "理解实数的分类（有理数和无理数统称实数），能在数轴上表示某些无理数，建立实数与数轴上点的一一对应。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0.233333,
+      "centrality": 0.366667,
       "evidence": [
         "能对实数进行分类",
         "能在数轴上画出根号2 的大致位置",
@@ -6009,7 +6009,7 @@
       "description": "理解单项式、多项式、整式的概念，能识别整式的项、系数和次数。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
-      "centrality": 0.466667,
+      "centrality": 0.6,
       "evidence": [
         "能识别单项式多项式及其系数和次数",
         "能区分单项式和多项式",
@@ -6033,7 +6033,7 @@
       "description": "能进行整式的加减运算，掌握去括号和合并同类项的法则。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
-      "centrality": 0.433333,
+      "centrality": 0.566667,
       "evidence": [
         "能正确合并同类项",
         "能进行去括号运算",
@@ -6057,7 +6057,7 @@
       "description": "掌握同底数幂乘法、幂的乘方、积的乘方和同底数幂除法的运算性质并能运用。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0.2,
+      "centrality": 0.333333,
       "evidence": [
         "能运用同底数幂乘除法则进行计算",
         "能运用幂的乘方和积的乘方法则",
@@ -6080,7 +6080,7 @@
       "description": "掌握单项式与多项式、多项式与多项式相乘的法则，能进行多项式乘法运算。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0.166667,
+      "centrality": 0.3,
       "evidence": [
         "能进行单项式乘多项式",
         "能进行多项式乘多项式",
@@ -6104,7 +6104,7 @@
       "description": "熟练运用平方差公式 (a+b)(a−b)=a²−b² 和完全平方公式 (a±b)²=a²±2ab+b² 进行计算。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0.133333,
+      "centrality": 0.266667,
       "evidence": [
         "能运用平方差公式计算",
         "能运用完全平方公式计算",
@@ -6128,7 +6128,7 @@
       "description": "理解因式分解与整式乘法的关系，能用提公因式法分解因式。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0.1,
+      "centrality": 0.233333,
       "evidence": [
         "能识别因式分解与整式乘法的关系",
         "能提取公因式进行分解",
@@ -6151,7 +6151,7 @@
       "description": "能用平方差公式和完全平方公式分解因式。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0.066667,
+      "centrality": 0.2,
       "evidence": [
         "能用平方差公式分解因式",
         "能用完全平方公式分解因式",
@@ -6175,7 +6175,7 @@
       "description": "理解分式的概念，掌握分式有意义、无意义和值为零的条件。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0.033333,
+      "centrality": 0.166667,
       "evidence": [
         "能判断什么样的式子是分式",
         "能求分式有意义的条件（分母不为零）",
@@ -6199,7 +6199,7 @@
       "description": "掌握分式的基本性质，能运用它进行约分和通分。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.133333,
       "evidence": [
         "能说出分式的基本性质",
         "能对分式进行约分",
@@ -6223,7 +6223,7 @@
       "description": "掌握同分母和异分母分式的加减法，能正确通分与约分。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.1,
       "evidence": [
         "能进行同分母分式的加减运算",
         "能进行异分母分式的加减运算",
@@ -6247,7 +6247,7 @@
       "description": "掌握可化为一元一次方程的分式方程的解法，理解验根的必要性并正确验根。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能通过去分母将分式方程化为整式方程",
         "能解出整式方程并检验根",
@@ -6271,7 +6271,7 @@
       "description": "掌握一元一次方程的标准步骤（去分母去括号移项合并同类项系数化为1），能正确求解。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
-      "centrality": 0,
+      "centrality": 0.133333,
       "evidence": [
         "能说出解一元一次方程的一般步骤",
         "能正确解含分母括号的一元一次方程",
@@ -6317,7 +6317,7 @@
       "description": "掌握代入消元法的步骤，能用其解简单的二元一次方程组。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能将方程组中的一个方程变形为用含一个未知数的式子表示另一个未知数",
         "能代入消元并求解",
@@ -6364,7 +6364,7 @@
       "description": "掌握配方法的步骤，能用配方法解数字系数的一元二次方程。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.1,
       "evidence": [
         "能将二次项系数化为1",
         "能配方并写成完全平方形式",
@@ -6529,7 +6529,7 @@
       "description": "理解常量、变量和函数的概念，能识别实际问题中的函数关系，会求自变量取值范围和函数值。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
-      "centrality": 0.433333,
+      "centrality": 0.5,
       "evidence": [
         "能区分常量和变量",
         "能判断两个变量之间是否构成函数关系",
@@ -6786,7 +6786,7 @@
       "description": "理解对顶角的概念，掌握对顶角相等的性质，能识别对顶角并进行角度计算。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
-      "centrality": 0.033333,
+      "centrality": 0.066667,
       "evidence": [
         "能识别对顶角",
         "能运用对顶角相等的性质",
@@ -6810,7 +6810,7 @@
       "description": "理解邻补角的概念，知道邻补角互补（和为 180°），能识别邻补角并进行计算。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能识别邻补角",
         "能说明邻补角互补（和为 180°）",
@@ -6905,7 +6905,7 @@
       "description": "掌握边边边、边角边两种判定方法，能选择应用。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0,
+      "centrality": 0.266667,
       "evidence": [
         "能说出SSS和SAS的内容",
         "能根据条件用SSS或SAS判定全等"
@@ -6928,7 +6928,7 @@
       "description": "能规范书写三角形全等的证明过程，明确公共边、公共角等隐含条件的运用。",
       "ageRangeStart": 12,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.1,
       "evidence": [
         "能找出证明全等所需的条件",
         "能规范书写证明过程",
@@ -6951,7 +6951,7 @@
       "description": "掌握等腰三角形（等边三角形）的性质（等边对等角、三线合一）和判定方法。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0.1,
+      "centrality": 0.2,
       "evidence": [
         "能运用等腰三角形等边对等角求角度",
         "能运用三线合一解决问题",
@@ -6974,7 +6974,7 @@
       "description": "掌握勾股定理（直角三角形两直角边的平方和等于斜边的平方），能运用它求边长和解决实际问题。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0.066667,
+      "centrality": 0.166667,
       "evidence": [
         "能说出勾股定理的内容",
         "能运用勾股定理求直角三角形的边长",
@@ -6997,7 +6997,7 @@
       "description": "掌握勾股定理的逆定理，能根据三边长度判断一个三角形是否为直角三角形。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0.033333,
+      "centrality": 0.133333,
       "evidence": [
         "能说出勾股定理逆定理的内容",
         "能用逆定理判断三角形是否为直角三角形",
@@ -7020,7 +7020,7 @@
       "description": "掌握平行四边形对边相等、对角相等、对角线互相平分的性质。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能说出平行四边形的三条性质",
         "能用性质进行线段或角度的计算"
@@ -7043,7 +7043,7 @@
       "description": "掌握矩形和菱形的特殊性质及判定方法。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出矩形和菱形的性质",
         "能判定矩形或菱形"
@@ -7279,7 +7279,7 @@
       "description": "理解相似多边形的定义、相似比，能判断多边形相似并求相似比",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.166667,
       "evidence": [
         "能说出相似多边形的对应角相等、对应边成比例",
         "能计算相似比",
@@ -7397,7 +7397,7 @@
       "description": "会用统计表和统计图整理数据，能从统计图中获取信息。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0.433333,
+      "centrality": 0.466667,
       "evidence": [
         "能用统计表整理数据",
         "能选择合适的统计图表示数据",
@@ -7421,7 +7421,7 @@
       "description": "理解平均数的概念和意义，能计算一组数据的平均数。",
       "ageRangeStart": 12,
       "ageRangeEnd": 15,
-      "centrality": 0.366667,
+      "centrality": 0.4,
       "evidence": [
         "能计算一组数据的平均数",
         "能说明平均数表示数据的平均水平",
@@ -7445,7 +7445,7 @@
       "description": "理解中位数的概念和意义，能求一组数据的中位数。",
       "ageRangeStart": 12,
       "ageRangeEnd": 15,
-      "centrality": 0.333333,
+      "centrality": 0.366667,
       "evidence": [
         "能正确求一组数据的中位数",
         "能说明中位数表示数据的中等水平",
@@ -7469,7 +7469,7 @@
       "description": "理解众数的概念和意义，能求一组数据的众数。",
       "ageRangeStart": 12,
       "ageRangeEnd": 15,
-      "centrality": 0.3,
+      "centrality": 0.333333,
       "evidence": [
         "能正确求一组数据的众数",
         "能说明众数表示数据的集中趋势",
@@ -7493,7 +7493,7 @@
       "description": "理解方差是刻画数据波动程度的量，能计算方差并用它比较两组数据的稳定性。",
       "ageRangeStart": 12,
       "ageRangeEnd": 15,
-      "centrality": 0.266667,
+      "centrality": 0.3,
       "evidence": [
         "能计算一组数据的方差",
         "能用方差说明数据的波动大小",
@@ -7516,7 +7516,7 @@
       "description": "能根据数据特点选择合适的统计图（条形图折线图扇形图），并能从统计图中读取和解读信息。",
       "ageRangeStart": 12,
       "ageRangeEnd": 15,
-      "centrality": 0.233333,
+      "centrality": 0.266667,
       "evidence": [
         "能说出三种统计图各自的特点",
         "能根据数据选择合适的统计图",
@@ -7539,7 +7539,7 @@
       "description": "理解概率是描述随机事件发生可能性大小的量，能判断必然事件、不可能事件和随机事件。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0.4,
+      "centrality": 0.433333,
       "evidence": [
         "能区分必然事件不可能事件和随机事件",
         "能理解概率的意义和取值范围",
@@ -7562,7 +7562,7 @@
       "description": "能用列表法和树状图法列举所有等可能的结果，正确计算简单随机事件的概率。",
       "ageRangeStart": 12,
       "ageRangeEnd": 15,
-      "centrality": 0.2,
+      "centrality": 0.233333,
       "evidence": [
         "能用列表法列举所有可能结果",
         "能用树状图法列举所有可能结果",
@@ -7585,7 +7585,7 @@
       "description": "理解在大量重复试验中频率趋于稳定，可以用频率来估计概率，体会频率与概率的关系。",
       "ageRangeStart": 12,
       "ageRangeEnd": 15,
-      "centrality": 0.166667,
+      "centrality": 0.2,
       "evidence": [
         "能说明频率与概率的关系",
         "能用频率估计概率",
@@ -7608,7 +7608,7 @@
       "description": "理解数学建模的一般步骤：问题分析、模型假设、建立模型、求解、验证",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出数学建模的五个步骤",
         "能针对简单问题写出建模步骤提纲",
@@ -7632,7 +7632,7 @@
       "description": "学习如何综合运用方程、函数与几何图形分析，解决非动点类的实际应用问题。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能根据实际问题建立方程或函数模型并画出几何示意图",
         "能结合图形分析数量关系并求解"
@@ -7775,7 +7775,7 @@
       "description": "掌握过氧化氢在二氧化锰催化下制取氧气的原理、装置搭建、收集和检验方法",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0,
+      "centrality": 0.166667,
       "evidence": [
         "能写出过氧化氢制氧气的化学方程式",
         "能选择并组装固液不加热装置",
@@ -8291,7 +8291,7 @@
       "description": "掌握盐酸和硫酸的物理性质、主要化学性质及用途，能写出与金属、金属氧化物等反应的方程式。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出盐酸和硫酸的物理性质",
         "能写出盐酸与镁、氧化铁反应的化学方程式",
@@ -8315,7 +8315,7 @@
       "description": "掌握氢氧化钠和氢氧化钙的物理性质、化学性质（与指示剂、非金属氧化物）及用途。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.2,
       "evidence": [
         "能说出氢氧化钠和氢氧化钙的物理性质",
         "能写出氢氧化钠与二氧化碳反应的化学方程式",
@@ -8949,7 +8949,7 @@
       "description": "区分非生物因素（光、水、温度等）和生物因素（捕食、竞争、共生等），举例说明影响",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
-      "centrality": 0,
+      "centrality": 0.2,
       "evidence": [
         "能说出影响生物的非生物因素",
         "能区分捕食、竞争、共生等关系",
@@ -9115,7 +9115,7 @@
       "description": "认识藻类、苔藓、蕨类的主要特征及其与人类的关系",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出藻类、苔藓、蕨类的主要特征",
         "能举例说明各自代表植物",
@@ -9444,7 +9444,7 @@
       "description": "了解食物中的六大营养物质（糖类脂肪蛋白质水无机盐维生素）及其主要作用和食物来源。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0.466667,
+      "centrality": 0.566667,
       "evidence": [
         "能说出六大营养物质的名称和作用",
         "能说出各营养物质的主要食物来源",
@@ -9467,7 +9467,7 @@
       "description": "了解消化系统的组成（消化道和消化腺），能说出各消化腺分泌的消化液。",
       "ageRangeStart": 12,
       "ageRangeEnd": 15,
-      "centrality": 0.433333,
+      "centrality": 0.533333,
       "evidence": [
         "能说出消化系统的组成",
         "能说出各消化腺及其分泌的消化液",
@@ -9491,7 +9491,7 @@
       "description": "理解食物的消化和吸收过程，掌握小肠是吸收的主要器官。",
       "ageRangeStart": 12,
       "ageRangeEnd": 15,
-      "centrality": 0.4,
+      "centrality": 0.5,
       "evidence": [
         "能说明淀粉蛋白质脂肪的消化过程",
         "能解释小肠适于吸收的结构特点",
@@ -9514,7 +9514,7 @@
       "description": "了解呼吸系统的组成，理解肺通气和肺泡与血液的气体交换过程，知道呼吸全过程。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0.333333,
+      "centrality": 0.433333,
       "evidence": [
         "能说出呼吸系统的组成",
         "能说明肺泡适于气体交换的特点",
@@ -9537,7 +9537,7 @@
       "description": "了解血液的成分（血浆和三种血细胞：红细胞、白细胞、血小板）和各自的功能。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0.3,
+      "centrality": 0.4,
       "evidence": [
         "能说出血液的成分和功能",
         "能区分三种血细胞的形态和功能",
@@ -9560,7 +9560,7 @@
       "description": "认识动脉、静脉、毛细血管的结构和功能特点。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0.266667,
+      "centrality": 0.366667,
       "evidence": [
         "能比较三种血管的结构特点",
         "能区分动脉静脉和毛细血管",
@@ -9584,7 +9584,7 @@
       "description": "理解体循环和肺循环的途径，掌握血液在循环过程中成分的变化（动脉血静脉血的转换）。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0.233333,
+      "centrality": 0.333333,
       "evidence": [
         "能说出体循环和肺循环的途径",
         "能说明血液成分在循环中如何变化",
@@ -9607,7 +9607,7 @@
       "description": "了解排泄的概念和途径，理解肾脏的结构和尿液的形成过程（过滤和重吸收）。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0.2,
+      "centrality": 0.3,
       "evidence": [
         "能区分排泄和排遗",
         "能说出肾脏的结构单位（肾单位）",
@@ -9630,7 +9630,7 @@
       "description": "了解神经系统的组成（中枢神经系统和周围神经系统），能说出脑和脊髓的功能。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
-      "centrality": 0.166667,
+      "centrality": 0.266667,
       "evidence": [
         "能说出神经系统的组成",
         "能说明中枢和周围神经系统的分工",
@@ -9654,7 +9654,7 @@
       "description": "理解反射弧的结构（五个环节）和反射的类型（非条件反射和条件反射）。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
-      "centrality": 0.133333,
+      "centrality": 0.233333,
       "evidence": [
         "能说出反射弧的五个环节",
         "能区分非条件反射和条件反射",
@@ -9677,7 +9677,7 @@
       "description": "了解人体主要内分泌腺及其分泌的激素，理解生长激素甲状腺激素胰岛素等的调节作用。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
-      "centrality": 0.1,
+      "centrality": 0.2,
       "evidence": [
         "能说出几种主要激素及其作用",
         "能说明激素分泌异常引起的疾病",
@@ -9700,7 +9700,7 @@
       "description": "理解人体三道免疫防线的作用，区分非特异性免疫和特异性免疫，了解计划免疫的意义。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
-      "centrality": 0.066667,
+      "centrality": 0.166667,
       "evidence": [
         "能说出三道免疫防线",
         "能区分非特异性免疫和特异性免疫",
@@ -9862,7 +9862,7 @@
       "description": "了解元谋人北京人等早期人类和半坡河姆渡等原始农耕文化，认识中华文明起源的多源性。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
-      "centrality": 0.3,
+      "centrality": 0.5,
       "evidence": [
         "能说出几个旧石器时代和新石器时代的代表人类",
         "能说明北京人使用火的意义",
@@ -9885,7 +9885,7 @@
       "description": "了解夏商周三代的更替，认识分封制和宗法制的内容和作用，理解早期国家的特征。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
-      "centrality": 0.266667,
+      "centrality": 0.466667,
       "evidence": [
         "能说出夏商周的建立者和更替顺序",
         "能说明分封制的内容和作用",
@@ -9931,7 +9931,7 @@
       "description": "了解春秋战国的诸侯争霸和商鞅变法，认识社会大变革促进了民族交融和思想繁荣。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
-      "centrality": 0.233333,
+      "centrality": 0.433333,
       "evidence": [
         "能说出春秋战国争霸的主要史实",
         "能说明商鞅变法的内容和作用",
@@ -9954,7 +9954,7 @@
       "description": "学习孔子、孟子和老子的主要思想",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0,
+      "centrality": 0.166667,
       "evidence": [
         "能说出孔子和儒学的基本主张（仁、礼）",
         "能说出老子道家思想的核心（无为、道法自然）",
@@ -9978,7 +9978,7 @@
       "description": "了解秦灭六国统一全国的过程，掌握秦始皇巩固统一的措施（统一度量衡文字货币、建立中央集权）。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0,
+      "centrality": 0.1,
       "evidence": [
         "能说出秦统一的意义",
         "能说出秦始皇巩固统一的各项措施",
@@ -10001,7 +10001,7 @@
       "description": "学习西汉建立过程及文景之治的政策",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能说出西汉建立的基本史实",
         "能说明文景之治的措施（休养生息、轻徭薄赋）",
@@ -10048,7 +10048,7 @@
       "description": "了解三国形成、西晋统一及短暂统一。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0,
+      "centrality": 0.133333,
       "evidence": [
         "能说出三国鼎立的形势",
         "能说明西晋统一的过程"
@@ -10140,7 +10140,7 @@
       "description": "了解辽、宋、夏、金时期民族关系与重要事件。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出澶渊之盟等民族关系事件",
         "能理解民族政权并立的特点"
@@ -10163,7 +10163,7 @@
       "description": "了解宋代农业手工业商业的发展和交子的出现，理解经济重心南移的过程和原因。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0.033333,
+      "centrality": 0.1,
       "evidence": [
         "能说出宋代经济发展的表现",
         "能说明交子出现的意义",
@@ -10186,7 +10186,7 @@
       "description": "了解元朝的统一和疆域，掌握行省制度和元朝对边疆地区（台湾西藏）的管理。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能说出元朝统一的过程",
         "能说明行省制度的内容和作用",
@@ -10209,7 +10209,7 @@
       "description": "学习明朝建立及废除丞相、设厂卫等强化君权的措施",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出明朝建立的史实",
         "能说明废除丞相、设厂卫、八股取士等措施",
@@ -10280,7 +10280,7 @@
       "description": "了解第二次鸦片战争的危害和太平天国运动反抗侵略的斗争。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0.033333,
+      "centrality": 0.1,
       "evidence": [
         "能说出第二次鸦片战争中列强的罪行（火烧圆明园）",
         "能说明太平天国运动的意义",
@@ -10326,7 +10326,7 @@
       "description": "学习甲午战争的主要战役和《马关条约》的内容及影响",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出甲午战争的主要战役",
         "能说出《马关条约》的签订双方和主要内容",
@@ -10373,7 +10373,7 @@
       "description": "了解新文化运动的背景、代表人物和主要内容，理解它对思想解放的意义。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.166667,
       "evidence": [
         "能说出新文化运动的代表人物和阵地",
         "能说明新文化运动的主要内容（民主与科学）",
@@ -10396,7 +10396,7 @@
       "description": "学习五四运动的经过、口号和历史意义",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.133333,
       "evidence": [
         "能说出五四运动的口号",
         "能说明五四运动的主要过程",
@@ -10420,7 +10420,7 @@
       "description": "了解国共第一次合作和北伐战争的成果，认识国民革命失败的原因。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能说出北伐战争的主要对象和成果",
         "能说明国共合作的意义",
@@ -10443,7 +10443,7 @@
       "description": "学习红军长征的原因、主要路线和重大事件",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出红军长征的原因",
         "能说出长征中的重大事件（如湘江战役、四渡赤水、飞夺泸定桥等）",
@@ -10467,7 +10467,7 @@
       "description": "学习九一八事变、七七事变等日本侵华的主要史实",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出九一八事变的时间和影响",
         "能说出七七事变的时间和影响",
@@ -10491,7 +10491,7 @@
       "description": "学习重庆谈判和解放战争的爆发",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.166667,
       "evidence": [
         "能说出重庆谈判的背景和结果",
         "能说明解放战争开始的标志",
@@ -10515,7 +10515,7 @@
       "description": "了解新中国成立的历史条件和开国大典，理解新中国成立的历史意义。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出新中国成立的时间和标志",
         "能说明新中国成立的历史意义",
@@ -10562,7 +10562,7 @@
       "description": "了解全面建设社会主义时期的探索成就和曲折，理解建设社会主义的艰辛历程。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能说出探索时期的主要成就（两弹一星）",
         "能说明探索中出现的曲折及原因",
@@ -10585,7 +10585,7 @@
       "description": "学习十一届三中全会的内容和意义，理解改革开放的开端",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出十一届三中全会的时间和主要内容",
         "能说明十一届三中全会的意义",
@@ -10632,7 +10632,7 @@
       "description": "了解古希腊的民主政治和古罗马的法律贡献，认识西方文明的渊源。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出古希腊雅典民主政治的特点",
         "能说明罗马法的发展",
@@ -10703,7 +10703,7 @@
       "description": "了解英国资产阶级革命和《权利法案》，认识资本主义制度的确立过程及其意义。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0.1,
+      "centrality": 0.166667,
       "evidence": [
         "能说出英国资产阶级革命的过程",
         "能说明《权利法案》的意义",
@@ -10726,7 +10726,7 @@
       "description": "了解第一次工业革命的重大发明（蒸汽机）和影响，理解它怎样改变了世界面貌。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0.066667,
+      "centrality": 0.133333,
       "evidence": [
         "能说出工业革命中的重大发明（瓦特蒸汽机）",
         "能说明蒸汽时代的特点",
@@ -10749,7 +10749,7 @@
       "description": "了解《共产党宣言》的发表和马克思主义诞生的意义，了解巴黎公社的实践。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0.033333,
+      "centrality": 0.1,
       "evidence": [
         "能说出马克思主义诞生的标志",
         "能说明《共产党宣言》的意义",
@@ -10772,7 +10772,7 @@
       "description": "了解第二次工业革命中电力和内燃机的广泛应用，理解它对世界经济和政治格局的影响。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能说出第二次工业革命的主要领域（电力内燃机）",
         "能说明电气时代的特点",
@@ -10795,7 +10795,7 @@
       "description": "学习一战爆发的根本原因（帝国主义政治经济发展不平衡）和直接原因（萨拉热窝事件），以及两大军事集团的形成。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出一战前帝国主义国家之间的矛盾",
         "能指出三国同盟和三国协约的成员",
@@ -10842,7 +10842,7 @@
       "description": "学习二战的爆发（德国闪击波兰）、欧洲战场和太平洋战场的初期态势。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出二战爆发的标志性事件",
         "能指出德国吞并奥地利、捷克斯洛伐克等事件",
@@ -11572,7 +11572,7 @@
       "description": "认识 34 个省级行政区的名称、简称和位置。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0.133333,
+      "centrality": 0.266667,
       "evidence": [
         "能说出 34 个省级行政区的名称和位置",
         "能说出部分省级行政区的简称",
@@ -11596,7 +11596,7 @@
       "description": "了解中国人口的数量和分布特点（黑河—腾冲线），认识人口政策。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0.1,
+      "centrality": 0.233333,
       "evidence": [
         "能说出中国人口的分布特点（黑河腾冲线）",
         "能说明计划生育政策的意义",
@@ -11620,7 +11620,7 @@
       "description": "认识 56 个民族及大杂居、小聚居的分布特点。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0.066667,
+      "centrality": 0.2,
       "evidence": [
         "能说出我国有 56 个民族",
         "能说出民族分布的特点（大杂居小聚居）",
@@ -11644,7 +11644,7 @@
       "description": "了解中国地形复杂多样的特点，掌握主要地形区（高原、盆地、平原、丘陵）的分布。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0.033333,
+      "centrality": 0.166667,
       "evidence": [
         "能说出中国的主要山脉和地形区",
         "能说出四大高原四大盆地三大平原的名称",
@@ -11668,7 +11668,7 @@
       "description": "了解中国地势西高东低、呈阶梯状分布的特点，能说明地势对河流气候的影响。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0,
+      "centrality": 0.133333,
       "evidence": [
         "能说出中国地势三级阶梯的特点",
         "能说明阶梯分界线的山脉",
@@ -11692,7 +11692,7 @@
       "description": "理解中国气候复杂多样、季风气候显著的特点，掌握季风区与非季风区的分界线。",
       "ageRangeStart": 12,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.1,
       "evidence": [
         "能说出中国气候的主要特征",
         "能在地图上指出季风区与非季风区的分界线"
@@ -11763,7 +11763,7 @@
       "description": "了解我国自然资源总量丰富、人均不足的特征，掌握耕地、林地、草地的分布。",
       "ageRangeStart": 12,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.266667,
       "evidence": [
         "能说出中国自然资源的基本特征",
         "能在地图上指出耕地、林地、草地的主要分布区"
@@ -12436,7 +12436,7 @@
       "description": "掌握「之」「其」「而」「以」「于」等常见文言虚词的主要用法，能在语境中辨析。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0.066667,
+      "centrality": 0.166667,
       "evidence": [
         "能说出常见虚词的至少两种用法",
         "能在具体语境中判断虚词的含义或作用",
@@ -12459,7 +12459,7 @@
       "description": "能运用「留、替、调、补、删」的方法，将文言句子翻译成通顺的现代汉语，正确处理特殊句式。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0.033333,
+      "centrality": 0.133333,
       "evidence": [
         "能运用翻译六字法翻译句子",
         "能处理判断句倒装句被动句等特殊句式",
@@ -12482,7 +12482,7 @@
       "description": "在疏通文意的基础上，能概括文章内容，赏析写法（借景抒情/托物言志/对比衬托），体会作者情感。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.1,
       "evidence": [
         "能概括文章的主要内容",
         "能分析至少一种写法及其效果",
@@ -12689,7 +12689,7 @@
       "description": "围绕主题确定活动目标、分工，并初步搜集资料",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能制定活动计划",
         "能进行合理分工",
@@ -13646,7 +13646,7 @@
       "description": "掌握一般现在时的构成（主语+动词原形/三单）和用法（习惯、事实）。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
-      "centrality": 0,
+      "centrality": 0.1,
       "evidence": [
         "能说出一般现在时的构成和标志词",
         "能正确使用动词的三单形式变化",
@@ -13717,7 +13717,7 @@
       "description": "掌握英语五种基本句型（S+V/S+V+O/S+V+P/S+V+IO+DO/S+V+O+C），能正确造句和分析句子结构。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0.033333,
+      "centrality": 0.133333,
       "evidence": [
         "能说出英语五种基本句型",
         "能判断句子的主干结构",
@@ -14600,7 +14600,7 @@
       "description": "理解幂函数 y=xᵃ 的概念，掌握常见幂函数（y=x, y=x², y=x³, y=x^(1/2), y=x⁻¹）的图像和性质（过定点、单调性、奇偶性）。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
-      "centrality": 0.233333,
+      "centrality": 0.3,
       "evidence": [
         "能画出常见幂函数的图像",
         "能说明幂函数过定点(1,1)的特点",
@@ -14623,7 +14623,7 @@
       "description": "理解分数指数幂的意义，掌握指数幂的运算性质，能进行根式与分数指数幂的互化和化简。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
-      "centrality": 0.2,
+      "centrality": 0.266667,
       "evidence": [
         "能把根式化为分数指数幂",
         "能运用指数幂的运算性质计算",
@@ -14646,7 +14646,7 @@
       "description": "掌握指数函数 y=aˣ（a>0且a≠1）的概念、图像和性质，理解底数 a 对单调性的影响，能运用指数函数模型解决简单实际问题。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
-      "centrality": 0.166667,
+      "centrality": 0.233333,
       "evidence": [
         "能画出 y=2ˣ 和 y=(1/2)ˣ 的图像并说明性质",
         "能说明底数对单调性的影响",
@@ -14669,7 +14669,7 @@
       "description": "理解对数的概念（对数是指数的逆运算），掌握对数的运算性质和换底公式，能进行对数的计算和化简。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0.133333,
+      "centrality": 0.2,
       "evidence": [
         "能把指数式与对数式互化",
         "能运用对数的运算性质计算",
@@ -14692,7 +14692,7 @@
       "description": "掌握对数函数 y=logₐx（a>0且a≠1）的概念、图像和性质，理解对数函数与指数函数互为反函数，能用对数函数模型分析实际问题。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0.1,
+      "centrality": 0.166667,
       "evidence": [
         "能画出 y=log₂x 的图像并说明性质",
         "能说明对数函数与指数函数互为反函数",
@@ -14715,7 +14715,7 @@
       "description": "理解任意角的概念（正角、负角、零角）和弧度制，能进行弧度与角度的换算。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0.066667,
+      "centrality": 0.133333,
       "evidence": [
         "能进行弧度与角度的换算",
         "能判断象限角并写出终边相同的角",
@@ -14738,7 +14738,7 @@
       "description": "掌握任意角的正弦、余弦、正切的定义，能运用同角三角函数的基本关系式进行计算和化简。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0.033333,
+      "centrality": 0.1,
       "evidence": [
         "能用任意角三角函数的定义求值",
         "能运用同角三角函数的基本关系式化简求值",
@@ -14762,7 +14762,7 @@
       "description": "掌握诱导公式（2kπ±α、π±α、-α、π/2±α 等），能运用诱导公式化简和求值。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能记住各组诱导公式",
         "能运用诱导公式化简三角式",
@@ -14786,7 +14786,7 @@
       "description": "用五点法画出y=sinx的图像，观察并说出周期、最值、单调性等性质",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能用五点法画出y=sinx在一个周期内的图像",
         "能说出正弦函数的周期为2π，最大值为1，最小值为-1",
@@ -14857,7 +14857,7 @@
       "description": "理解向量概念，掌握向量加法、减法、数乘的几何意义和运算法则",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0,
+      "centrality": 0.133333,
       "evidence": [
         "能用有向线段表示向量，区分向量与数量",
         "能画出向量加法、减法的平行四边形法则和三角形法则",
@@ -14905,7 +14905,7 @@
       "description": "掌握平面向量的坐标表示，能进行向量的坐标运算（加、减、数乘），能用坐标判断向量共线。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能用坐标进行向量的线性运算",
         "能用坐标说明向量共线的条件",
@@ -14928,7 +14928,7 @@
       "description": "理解数量积的几何意义，掌握数量积的坐标表示，能求长度和夹角",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能用坐标公式计算两个向量的数量积",
         "能利用数量积求向量的长度和夹角",
@@ -14998,7 +14998,7 @@
       "description": "理解概率的基本性质（非负性、规范性、可加性），能运用性质进行简单的概率计算。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0.133333,
+      "centrality": 0.166667,
       "evidence": [
         "能说出概率的基本性质",
         "能运用概率的加法公式",
@@ -15022,7 +15022,7 @@
       "description": "掌握古典概型的两个特征（有限性、等可能性），能用古典概型公式计算事件的概率。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0.1,
+      "centrality": 0.133333,
       "evidence": [
         "能判断一个概率模型是否为古典概型",
         "能用列举法求古典概型的概率",
@@ -15046,7 +15046,7 @@
       "description": "理解条件概率的含义，掌握条件概率公式 P(A|B)=P(AB)/P(B)，能进行条件概率的计算。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0.066667,
+      "centrality": 0.1,
       "evidence": [
         "能用条件概率公式计算条件概率",
         "能区分条件概率与无条件概率",
@@ -15070,7 +15070,7 @@
       "description": "理解两个事件相互独立的概念（一个事件发生与否不影响另一事件发生的概率），能判断事件是否独立并计算。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0.033333,
+      "centrality": 0.066667,
       "evidence": [
         "能判断两个事件是否独立",
         "能用独立性计算积事件的概率",
@@ -15094,7 +15094,7 @@
       "description": "掌握简单随机抽样（抽签法、随机数法）和分层抽样的方法，能根据实际情境选择合适的抽样方法。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能区分简单随机抽样和分层抽样",
         "能根据情境选择合适的抽样方法",
@@ -15141,7 +15141,7 @@
       "description": "了解数学建模的一般步骤，从实际情境中发现并提出问题",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出数学建模的主要步骤（发现问题、建立模型、求解、验证、推广）",
         "能从实际问题中识别出关键变量和关系",
@@ -15165,7 +15165,7 @@
       "description": "掌握指数函数、对数函数、幂函数、分段函数等常见模型的增长特点",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.1,
       "evidence": [
         "能说出指数增长和对数增长的区别",
         "能根据数据的变化趋势猜测合适的函数模型",
@@ -16287,7 +16287,7 @@
       "description": "掌握钠的物理性质、化学性质（与氧气、水反应）及安全操作",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能写出钠与水反应的方程式及现象",
         "能说明钠的保存方法"
@@ -17212,7 +17212,7 @@
       "description": "理解DNA分子的双螺旋结构（两条链反向平行、磷酸-脱氧核糖交替连接构成基本骨架、碱基通过氢键配对），掌握碱基互补配对原则（A-T、G-C），理解DNA结构多样性和特异性的原因。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0.3,
+      "centrality": 0.333333,
       "evidence": [
         "能说出DNA双螺旋结构的主要特点",
         "能运用碱基互补配对原则进行计算",
@@ -17235,7 +17235,7 @@
       "description": "理解DNA复制的概念和时间（有丝分裂间期和减数第一次分裂前的间期），掌握DNA半保留复制的过程（解旋→合成子链→螺旋化），理解DNA复制的条件（模板、原料、酶、能量）。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0.266667,
+      "centrality": 0.3,
       "evidence": [
         "能说出DNA复制的时期和方式",
         "能说明DNA复制需要的基本条件",
@@ -17258,7 +17258,7 @@
       "description": "理解基因的概念，掌握遗传信息的转录（DNA→mRNA）和翻译（mRNA→蛋白质）的过程，理解中心法则的内容和密码子的概念，了解tRNA和核糖体在翻译中的作用。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0.233333,
+      "centrality": 0.266667,
       "evidence": [
         "能比较转录和复制的异同",
         "能说明翻译过程中密码子和tRNA的作用",
@@ -17281,7 +17281,7 @@
       "description": "理解孟德尔一对相对性状的杂交实验，掌握分离定律的实质（等位基因在减数分裂形成配子时彼此分离），能运用分离定律分析后代的基因型和表现型比例，能进行概率计算。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0.2,
+      "centrality": 0.233333,
       "evidence": [
         "能运用分离定律分析一对相对性状的遗传",
         "能画出遗传图解并计算后代概率",
@@ -17304,7 +17304,7 @@
       "description": "理解孟德尔两对相对性状的杂交实验，掌握自由组合定律的实质（位于非同源染色体上的非等位基因自由组合），能运用自由组合定律分析两对或多对相对性状的遗传，能进行概率的乘法运算。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0.166667,
+      "centrality": 0.2,
       "evidence": [
         "能运用自由组合定律分析两对相对性状的遗传",
         "能利用分枝法或棋盘法计算后代比例",
@@ -17327,7 +17327,7 @@
       "description": "理解性染色体上的基因的遗传特点（伴性遗传），掌握伴 X 染色体隐性遗传（色盲、血友病）和显性遗传的特点。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0.133333,
+      "centrality": 0.166667,
       "evidence": [
         "能说明伴 X 染色体隐性遗传的特点",
         "能分析遗传系谱图判断遗传方式",
@@ -17351,7 +17351,7 @@
       "description": "了解常见的人类遗传病（单基因、多基因、染色体异常遗传病），认识遗传病的监测和预防。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0.1,
+      "centrality": 0.133333,
       "evidence": [
         "能说出人类遗传病的类型",
         "能举例说明各类遗传病的特点",
@@ -17375,7 +17375,7 @@
       "description": "理解基因突变（碱基对的增添、缺失、替换）的概念、特点和意义（生物变异的根本来源）。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0.066667,
+      "centrality": 0.1,
       "evidence": [
         "能说出基因突变的概念和特点",
         "能说明基因突变的意义",
@@ -17399,7 +17399,7 @@
       "description": "理解基因重组（自由组合和交叉互换）的类型和意义，能区分基因突变和基因重组。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0.033333,
+      "centrality": 0.066667,
       "evidence": [
         "能说明基因重组的两种类型",
         "能区分基因突变和基因重组",
@@ -17423,7 +17423,7 @@
       "description": "理解染色体结构的变异（缺失、重复、倒位、易位）和染色体数目的变异（整倍体变异和非整倍体变异），掌握二倍体、多倍体和单倍体的概念，了解多倍体育种和单倍体育种的方法。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能区分染色体结构变异的四种类型",
         "能说明多倍体和单倍体的概念和特点",
@@ -17493,7 +17493,7 @@
       "description": "秦统一措施（郡县制、统一文字货币度量衡）及历史意义。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出秦巩固统一的主要措施",
         "能说明郡县制的作用",
@@ -17963,7 +17963,7 @@
       "description": "理解黄赤交角概念及其导致太阳直射点回归运动的原理",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
-      "centrality": 0,
+      "centrality": 0.1,
       "evidence": [
         "能说明黄赤交角的度数及存在意义",
         "能画出太阳直射点移动轨迹示意图"
@@ -17986,7 +17986,7 @@
       "description": "理解大气的受热过程（太阳辐射→地面增温→地面辐射→大气增温→大气逆辐射），理解大气对地面的保温作用原理，能用大气的受热过程解释常见的自然现象。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
-      "centrality": 0,
+      "centrality": 0.166667,
       "evidence": [
         "能画图说明大气受热的三个过程",
         "能解释大气的保温作用（温室效应）",
@@ -18009,7 +18009,7 @@
       "description": "理解单圈环流到三圈环流的形成，掌握全球七个气压带和六个风带的分布",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
-      "centrality": 0,
+      "centrality": 0.133333,
       "evidence": [
         "能画出全球气压带风带分布图",
         "能说明各气压带风带的气流运动方向"
@@ -18101,7 +18101,7 @@
       "description": "理解板块构造学说，认识内力作用的四种表现形式",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0,
+      "centrality": 0.166667,
       "evidence": [
         "能说明板块构造学说的基本观点",
         "能说出内力作用的表现形式及能量来源"
@@ -18195,7 +18195,7 @@
       "description": "理解人口增长模式的类型、转变及不同国家和地区的人口问题",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能判断不同人口增长模式",
         "能分析人口增长过快或老龄化带来的问题及对策"
@@ -18541,7 +18541,7 @@
       "description": "理解世界的本原是物质（物质决定意识），理解意识对物质具有能动作用，能运用物质与意识的辩证关系分析问题，理解一切从实际出发的方法论意义。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0.066667,
+      "centrality": 0.133333,
       "evidence": [
         "能说明物质决定意识的原理",
         "能说明意识能动作用的表现",
@@ -18564,7 +18564,7 @@
       "description": "理解联系的普遍性、客观性和多样性，理解整体与部分的辩证关系，能运用联系的观点分析实际问题。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0.033333,
+      "centrality": 0.1,
       "evidence": [
         "能说明联系的普遍性客观性和多样性",
         "能运用整体与部分的关系分析问题",
@@ -18587,7 +18587,7 @@
       "description": "理解发展的普遍性，理解事物发展的趋势（前进性与曲折性的统一），理解量变和质变的辩证关系，能用发展的观点分析问题。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能说明事物发展是前进性与曲折性的统一",
         "能运用量变质变关系分析问题",
@@ -18610,7 +18610,7 @@
       "description": "理解矛盾的对立统一、普遍性和特殊性及其相互关系。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说明矛盾的对立统一",
         "能说明矛盾的普遍性与特殊性及其关系"
@@ -18893,7 +18893,7 @@
       "description": "在论述类文本中准确区分复杂的事实判断和价值判断，识别隐含前提和偏见。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能区分复杂文本中的事实与观点",
         "能识别隐含前提和偏见"
@@ -18916,7 +18916,7 @@
       "description": "从材料中提炼有创新性和深刻性的论点，做到正确、深刻、新颖。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能提出有深度的论点",
         "能论证论点的价值"
@@ -18962,7 +18962,7 @@
       "description": "掌握高考要求的120个常见实词、18个虚词以及判断句、被动句、省略句、倒装句等特殊句式，能准确翻译较深文言文。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能准确解释实词虚词",
         "能识别和翻译特殊句式"
@@ -19008,7 +19008,7 @@
       "description": "理解数据与信息的关系和区别，了解数据的类型（数值、文本、图像、音频、视频等）和特征，理解信息的基本特征（载体依附性、共享性、时效性、价值性等），认识大数据的概念和特征。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能区分数据与信息的概念",
         "能说出数据的类型和信息的基本特征",
@@ -19031,7 +19031,7 @@
       "description": "了解并尝试传感器、网络爬虫等至少一种采集方法",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出至少两种数据采集方法",
         "能使用一种工具获取数据"
@@ -19077,7 +19077,7 @@
       "description": "掌握变量、数据类型、输入输出，编写含if-else的程序",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
-      "centrality": 0,
+      "centrality": 0.1,
       "evidence": [
         "能编写含变量和输入输出的程序",
         "能正确使用if-else分支"
@@ -19308,7 +19308,7 @@
       "description": "区分实体结构、框架结构、壳体结构，理解结构的基本概念。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出三种结构类型的特点",
         "能举例说明不同结构类型"
@@ -19410,7 +19410,7 @@
       "description": "能读懂篇幅较长、语言较难的英语语篇（说明文、议论文、科普文章等），能理解文章的主旨大意和深层含义，能根据上下文推断生词含义，能推断作者的态度和意图。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能概括长难语篇的主旨大意",
         "能根据上下文推断生词含义",
@@ -19433,7 +19433,7 @@
       "description": "学习识别文本中事实陈述与观点表述，区分客观信息和主观判断。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能标注段落中的事实与观点",
         "能在阅读中准确区分两类句子"
@@ -19456,7 +19456,7 @@
       "description": "能根据提示写出结构完整、内容丰富的英语语篇（记叙/说明/议论），做到谋篇布局合理、内容充实、逻辑清晰，能正确运用多样的句型结构和高级词汇。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能写出结构完整、内容充实的语篇",
         "能正确运用多样句型和词汇",
@@ -20420,7 +20420,7 @@
       "description": "简谐运动的定义、回复力、能量、图像",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.166667,
       "evidence": [
         "能识别简谐运动",
         "能分析其能量转化"
@@ -20443,7 +20443,7 @@
       "description": "波的产生、图像，波长、频率、波速的关系",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能由波形图求波长",
         "能计算波速"
@@ -20466,7 +20466,7 @@
       "description": "动量、冲量的概念及矢量性",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能计算动量变化",
         "能计算冲量"
@@ -20489,7 +20489,7 @@
       "description": "安培力的方向判断（左手定则）、大小计算",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能用左手定则判断安培力方向",
         "能计算导线在磁场中的受力"
@@ -20535,7 +20535,7 @@
       "description": "正弦式交流电的产生，有效值、峰值、平均值、周期频率",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能写出瞬时值表达式",
         "能计算有效值"
@@ -20581,7 +20581,7 @@
       "description": "玻意耳定律、查理定律、盖-吕萨克定律",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能应用定律解决气体状态变化问题",
         "能判断等温、等容、等压过程"
@@ -20604,7 +20604,7 @@
       "description": "热力学第一定律的能量表达式，符号法则，应用",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能用ΔU=Q+W分析内能变化",
         "能判断吸放热和做功情况"
@@ -20650,7 +20650,7 @@
       "description": "原子核的组成，天然放射现象，三种射线",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能说出α、β、γ射线的性质",
         "能分析衰变后新核"
@@ -21735,7 +21735,7 @@
       "description": "电离平衡概念、电离常数、影响电离平衡的因素",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能写出弱电解质的电离方程式",
         "能用K、Q判断电离平衡移动方向",
@@ -21810,7 +21810,7 @@
       "description": "理解共价键模型的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.1,
       "evidence": [
         "能说出共价键模型的基本内容",
         "能运用共价键模型的知识分析相关问题",
@@ -21833,7 +21833,7 @@
       "description": "σ键、π键的形成、键参数及其应用",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能判断σ键和π键",
         "能计算键角、键能",
@@ -21881,7 +21881,7 @@
       "description": "理解分子间作用力的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0.066667,
+      "centrality": 0.1,
       "evidence": [
         "能说出分子间作用力的基本内容",
         "能运用分子间作用力的知识分析相关问题",
@@ -21904,7 +21904,7 @@
       "description": "理解认识晶体的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0.033333,
+      "centrality": 0.066667,
       "evidence": [
         "能说出认识晶体的基本内容",
         "能运用认识晶体的知识分析相关问题",
@@ -21997,7 +21997,7 @@
       "description": "学习碳原子的价键规则、单键双键三键、结构简式与键线式",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.4,
       "evidence": [
         "能画出甲烷、乙烯、乙炔的结构简式",
         "能判断碳原子形成的共价键类型"
@@ -22020,7 +22020,7 @@
       "description": "学习取代反应（卤代、硝化等）和加成反应（加氢、加卤素等）的机理与实例",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.3,
       "evidence": [
         "能写出甲烷与氯气取代的方程式",
         "能判断乙烯与溴水反应的类型"
@@ -22043,7 +22043,7 @@
       "description": "学习乙醇及醇类的结构、物理性质、取代、氧化、消去反应",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.233333,
       "evidence": [
         "能书写乙醇与钠反应的方程式",
         "能设计实验检验醇羟基"
@@ -22066,7 +22066,7 @@
       "description": "学习醛基、酮基的化学性质，包括加成、氧化、还原",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.133333,
       "evidence": [
         "能写出乙醛与银氨溶液反应的方程式",
         "能区分醛和酮"
@@ -22089,7 +22089,7 @@
       "description": "学习羧基的酸性、酯化反应，以及典型羧酸（乙酸、硬脂酸等）",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能书写乙酸与乙醇的酯化反应方程式",
         "能比较乙酸与碳酸的酸性"
@@ -22112,7 +22112,7 @@
       "description": "学习逆合成分析思路，设计简单合成路线",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能分析由乙醇合成乙酸的路线",
         "能设计由乙烯制乙酸乙酯的流程"
@@ -22181,7 +22181,7 @@
       "description": "理解认识生物的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
-      "centrality": 0.133333,
+      "centrality": 0.166667,
       "evidence": [
         "能说出认识生物的基本内容",
         "能运用认识生物的知识分析相关问题",
@@ -22227,7 +22227,7 @@
       "description": "理解细胞是生命活动的基本单位的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
-      "centrality": 0.1,
+      "centrality": 0.133333,
       "evidence": [
         "能说出细胞是生命活动的基本单位的基本内容",
         "能运用细胞是生命活动的基本单位的知识分析相关问题",
@@ -22686,7 +22686,7 @@
       "description": "理解传染病和免疫的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
-      "centrality": 0.366667,
+      "centrality": 0.466667,
       "evidence": [
         "能说出传染病和免疫的基本内容",
         "能运用传染病和免疫的知识分析相关问题",
@@ -22733,7 +22733,7 @@
       "description": "理解细胞中的元素和化合物的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
-      "centrality": 0.033333,
+      "centrality": 0.266667,
       "evidence": [
         "能说出细胞中的元素和化合物的基本内容",
         "能运用细胞中的元素和化合物的知识分析相关问题",
@@ -22968,7 +22968,7 @@
       "description": "理解孟德尔一对相对性状杂交实验的过程、假说演绎法及现象解释。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0,
+      "centrality": 0.1,
       "evidence": [
         "能复述实验过程",
         "能用假说-演绎法分析一对相对性状的遗传"
@@ -22991,7 +22991,7 @@
       "description": "理解孟德尔两对相对性状杂交实验的过程、假说演绎法及现象解释。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能复述实验过程",
         "能用假说-演绎法分析两对相对性状的遗传"
@@ -23014,7 +23014,7 @@
       "description": "掌握减数分裂各时期的特点，理解同源染色体行为及染色体数目变化。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0,
+      "centrality": 0.133333,
       "evidence": [
         "能描述减数分裂各时期特征",
         "能画出减数分裂染色体变化图"
@@ -23083,7 +23083,7 @@
       "description": "理解转录的场所、条件、过程及产物，能区分转录与复制。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0,
+      "centrality": 0.2,
       "evidence": [
         "能描述转录过程",
         "能比较转录与DNA复制的异同"
@@ -23267,7 +23267,7 @@
       "description": "理解神经调节的结构基础的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0.033333,
+      "centrality": 0.133333,
       "evidence": [
         "能说出神经调节的结构基础的基本内容",
         "能运用神经调节的结构基础的知识分析相关问题",
@@ -23290,7 +23290,7 @@
       "description": "理解神经调节的基本方式的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.1,
       "evidence": [
         "能说出神经调节的基本方式的基本内容",
         "能运用神经调节的基本方式的知识分析相关问题",
@@ -23313,7 +23313,7 @@
       "description": "理解静息电位和动作电位的形成机制，掌握离子基础。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能解释静息电位和动作电位的产生",
         "能画出动作电位曲线"
@@ -23476,7 +23476,7 @@
       "description": "掌握体液免疫的过程和特点",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能说出体液免疫中抗原、抗体、B细胞、浆细胞等的作用",
         "能运用体液免疫原理解释免疫现象",
@@ -23937,7 +23937,7 @@
       "description": "学习培养基的类型、无菌技术和微生物接种方法",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.1,
       "evidence": [
         "能说出培养基的主要成分和类型",
         "能描述无菌操作的基本方法"
@@ -23960,7 +23960,7 @@
       "description": "学习发酵工程中菌种选育、培养基配制、灭菌、接种、发酵、分离提纯等环节",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出发酵工程的主要步骤",
         "能分析发酵条件控制的重要性"
@@ -23983,7 +23983,7 @@
       "description": "学习植物组织培养的基本原理、流程和应用",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出植物组织培养的理论基础",
         "能描述外植体选择、脱分化、再分化等步骤"
@@ -24006,7 +24006,7 @@
       "description": "学习动物细胞培养的条件、过程和原代培养、传代培养概念",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.133333,
       "evidence": [
         "能说出动物细胞培养所需条件",
         "能区分原代培养和传代培养"
@@ -24029,7 +24029,7 @@
       "description": "学习体外受精的步骤和早期胚胎培养的条件",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出体外受精的主要过程",
         "能描述早期胚胎培养所需培养基成分"
@@ -24052,7 +24052,7 @@
       "description": "理解重组DNA技术的基本工具的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.233333,
       "evidence": [
         "能说出重组DNA技术的基本工具的基本内容",
         "能运用重组DNA技术的基本工具的知识分析相关问题",
@@ -24075,7 +24075,7 @@
       "description": "学习目的基因获取、载体选择和连接",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.2,
       "evidence": [
         "能说出构建基因表达载体的要素",
         "能描述限制酶和DNA连接酶的作用"
@@ -25087,7 +25087,7 @@
       "description": "理解香港和澳门回归祖国的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
-      "centrality": 0.033333,
+      "centrality": 0.066667,
       "evidence": [
         "能说出香港和澳门回归祖国的基本内容",
         "能运用香港和澳门回归祖国的知识分析相关问题",
@@ -25501,7 +25501,7 @@
       "description": "理解早期殖民掠夺的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
-      "centrality": 0.033333,
+      "centrality": 0.066667,
       "evidence": [
         "能说出早期殖民掠夺的基本内容",
         "能运用早期殖民掠夺的知识分析相关问题",
@@ -25547,7 +25547,7 @@
       "description": "理解法国大革命和拿破仑帝国的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出法国大革命和拿破仑帝国的基本内容",
         "能运用法国大革命和拿破仑帝国的知识分析相关问题",
@@ -25570,7 +25570,7 @@
       "description": "理解马克思主义诞生的背景、标志和基本原理",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出马克思主义诞生的标志《共产党宣言》",
         "能简述马克思主义的基本原理"
@@ -25754,7 +25754,7 @@
       "description": "理解近代科学与文化的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
-      "centrality": 0.066667,
+      "centrality": 0.1,
       "evidence": [
         "能说出近代科学与文化的基本内容",
         "能运用近代科学与文化的知识分析相关问题",
@@ -25846,7 +25846,7 @@
       "description": "理解法西斯国家的侵略扩张的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
-      "centrality": 0.033333,
+      "centrality": 0.066667,
       "evidence": [
         "能说出法西斯国家的侵略扩张的基本内容",
         "能运用法西斯国家的侵略扩张的知识分析相关问题",
@@ -25869,7 +25869,7 @@
       "description": "理解二战后资本主义的新变化的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
-      "centrality": 0.033333,
+      "centrality": 0.1,
       "evidence": [
         "能说出二战后资本主义的新变化的基本内容",
         "能运用二战后资本主义的新变化的知识分析相关问题",
@@ -25892,7 +25892,7 @@
       "description": "理解赫鲁晓夫、勃列日涅夫和戈尔巴乔夫改革",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出赫鲁晓夫改革的内容",
         "能简述戈尔巴乔夫改革的影响"
@@ -25938,7 +25938,7 @@
       "description": "理解联合国与世界贸易组织的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能说出联合国与世界贸易组织的基本内容",
         "能运用联合国与世界贸易组织的知识分析相关问题",
@@ -25961,7 +25961,7 @@
       "description": "了解冷战结束后的世界基本格局，包括一超多强、多极化趋势",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出冷战结束后主要国际力量对比的变化",
         "能列举多极化趋势的几个表现"
@@ -26053,7 +26053,7 @@
       "description": "理解西汉与东汉——统一多民族封建国家的巩固的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
       "ageRangeStart": 15,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.1,
       "evidence": [
         "能说出西汉与东汉——统一多民族封建国家的巩固的基本内容",
         "能运用西汉与东汉——统一多民族封建国家的巩固的知识分析相关问题",
@@ -26076,7 +26076,7 @@
       "description": "隋朝统一措施、大运河及灭亡原因。",
       "ageRangeStart": 15,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能说出隋朝统一的主要措施",
         "能理解大运河的作用",
@@ -26146,7 +26146,7 @@
       "description": "学习宋太祖加强中央集权的措施，包括二府三司、通判、禁军等，理解其对巩固统治的作用。",
       "ageRangeStart": 15,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出宋初加强中央集权的主要措施",
         "能分析这些措施对解决藩镇割据问题的效果"
@@ -26169,7 +26169,7 @@
       "description": "理解辽夏金元的统治的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
       "ageRangeStart": 15,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.266667,
       "evidence": [
         "能说出辽夏金元的统治的基本内容",
         "能运用辽夏金元的统治的知识分析相关问题",
@@ -26192,7 +26192,7 @@
       "description": "学习农业、手工业、商业、海外贸易的发展及经济重心南移的完成。",
       "ageRangeStart": 15,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.233333,
       "evidence": [
         "能说出宋代农业、手工业、商业发展的突出表现",
         "能分析经济重心南移的原因和影响"
@@ -26215,7 +26215,7 @@
       "description": "理解辽宋夏金元的文化的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
       "ageRangeStart": 15,
       "ageRangeEnd": 18,
-      "centrality": 0.033333,
+      "centrality": 0.066667,
       "evidence": [
         "能说出辽宋夏金元的文化的基本内容",
         "能运用辽宋夏金元的文化的知识分析相关问题",
@@ -26238,7 +26238,7 @@
       "description": "理解从明朝建立到清军入关的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
       "ageRangeStart": 15,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出从明朝建立到清军入关的基本内容",
         "能运用从明朝建立到清军入关的知识分析相关问题",
@@ -26261,7 +26261,7 @@
       "description": "理解清朝前中期的鼎盛与危机的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
       "ageRangeStart": 15,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出清朝前中期的鼎盛与危机的基本内容",
         "能运用清朝前中期的鼎盛与危机的知识分析相关问题",
@@ -26307,7 +26307,7 @@
       "description": "理解两次鸦片战争的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
       "ageRangeStart": 15,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出两次鸦片战争的基本内容",
         "能运用两次鸦片战争的知识分析相关问题",
@@ -26376,7 +26376,7 @@
       "description": "学习北洋军阀割据、军阀混战、府院之争等政治局面。",
       "ageRangeStart": 15,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.1,
       "evidence": [
         "能说出北洋军阀统治时期的主要政治事件",
         "能分析军阀割据的社会原因"
@@ -26422,7 +26422,7 @@
       "description": "学习南京国民政府形式上统一、专制统治和经济发展。",
       "ageRangeStart": 15,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出南京国民政府统治的主要措施",
         "能分析其统治的特点"
@@ -27020,7 +27020,7 @@
       "description": "学习从早期国家到秦朝中央集权制度的建立，包括禅让制、分封制、宗法制、皇帝制、三公九卿等。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.266667,
       "evidence": [
         "能说出先秦至秦汉政治制度的主要内容和演进脉络",
         "能分析秦朝中央集权制度的特点和影响"
@@ -27066,7 +27066,7 @@
       "description": "学习晚清变法、民国建立、南京国民政府制度等。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.1,
       "evidence": [
         "能说出《中华民国临时约法》的主要内容",
         "能分析近代中国政体尝试失败的原因"
@@ -27273,7 +27273,7 @@
       "description": "学习民族国家概念、法国、德国等统一历程。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能说明民族国家的特征",
         "能分析德国统一过程对欧洲格局的影响"
@@ -27342,7 +27342,7 @@
       "description": "学习从贝币到铜钱、纸币的演变过程。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能说出秦半两、五铢钱、交子等货币特点",
         "能分析中国古代货币演变的规律"
@@ -27950,7 +27950,7 @@
       "description": "学习经济移民、难民、劳动力迁移等主要类型及全球化背景下的迁移原因。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能列举三种常见移民类型（经济移民、难民、家庭团聚）并说明各自特点",
         "能结合实例（如叙利亚难民）分析移民产生的政治、经济原因",
@@ -27974,7 +27974,7 @@
       "description": "掌握陆上丝绸之路与海上丝绸之路的路线、主要商品及历史发展脉络。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能在地图上标出陆上丝绸之路（长安至罗马）和海上丝绸之路（泉州至波斯湾）的关键节点",
         "能说出丝绸、香料、瓷器等主要交易商品及其来源地",
@@ -28022,7 +28022,7 @@
       "description": "学习亚历山大东征、罗马征服、蒙古西征等战争的经过及其对文化版图的影响。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能在地图上标识亚历山大帝国、罗马帝国、蒙古帝国的最大疆域",
         "能说出三次主要战争的结局和版图变化",
@@ -28046,7 +28046,7 @@
       "description": "学习殖民扩张中的典型战争（如征服美洲、鸦片战争）及其文化改造措施。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能简述西班牙征服阿兹特克帝国和印加帝国的关键战役及文化后果",
         "能分析鸦片战争后《南京条约》如何破坏中国传统文化自主性",
@@ -28070,7 +28070,7 @@
       "description": "学习世界大战对现代主义文化、反战思潮及民族认同的深远影响。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能举例说明一战如何催生达达主义、迷惘的一代等文化流派",
         "能分析二战对殖民主义意识形态的打击及非殖民化进程的文化前提",
@@ -28118,7 +28118,7 @@
       "description": "区分物质文化遗产与非物质文化遗产，理解其历史、艺术、科学等多元价值。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.1,
       "evidence": [
         "能分别举例说明物质文化遗产（如长城）和非物质文化遗产（如昆曲）",
         "能解释世界文化遗产的评定标准（原真性、完整性等）",
@@ -28296,7 +28296,7 @@
       "description": "学习亚洲的经纬度位置、海陆位置和面积范围",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能说出亚洲的半球位置和海陆位置",
         "能在地图上指出亚洲的边界"
@@ -28510,7 +28510,7 @@
       "description": "学习大气、水、岩石、生物等自然地理要素的基本组成和主要特征。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
-      "centrality": 0,
+      "centrality": 0.166667,
       "evidence": [
         "能列举大气、水、岩石等要素的组成部分",
         "能描述各要素的基本特征",
@@ -28534,7 +28534,7 @@
       "description": "理解常见自然灾害的成因与避防的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
-      "centrality": 0.066667,
+      "centrality": 0.133333,
       "evidence": [
         "能说出常见自然灾害的成因与避防的基本内容",
         "能运用常见自然灾害的成因与避防的知识分析相关问题",
@@ -28557,7 +28557,7 @@
       "description": "理解自然地理实践的基本方法的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
-      "centrality": 0.033333,
+      "centrality": 0.1,
       "evidence": [
         "能说出自然地理实践的基本方法的基本内容",
         "能运用自然地理实践的基本方法的知识分析相关问题",
@@ -28580,7 +28580,7 @@
       "description": "理解人口分布、迁移与合理容量的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能说出人口分布、迁移与合理容量的基本内容",
         "能运用人口分布、迁移与合理容量的知识分析相关问题",
@@ -28782,7 +28782,7 @@
       "description": "学习可再生与非可再生资源的划分及各自特征。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.266667,
       "evidence": [
         "能区分可再生与非可再生资源",
         "能描述不同资源的主要特征",
@@ -28806,7 +28806,7 @@
       "description": "学习开发应遵循的原则及常见利用方式。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.2,
       "evidence": [
         "能说出开发利用的基本原则",
         "能列举不同资源的利用方式",
@@ -28830,7 +28830,7 @@
       "description": "区分污染、生态破坏、全球变暖等环境问题及成因。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.1,
       "evidence": [
         "能列出主要环境问题类型",
         "能分析每个问题的成因",
@@ -28854,7 +28854,7 @@
       "description": "理解几何图形初步的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
-      "centrality": 0.4,
+      "centrality": 0.533333,
       "evidence": [
         "能说出几何图形初步的基本内容",
         "能运用几何图形初步的知识分析相关问题",
@@ -28877,7 +28877,7 @@
       "description": "理解平面直角坐标系的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
-      "centrality": 0.366667,
+      "centrality": 0.5,
       "evidence": [
         "能说出平面直角坐标系的基本内容",
         "能运用平面直角坐标系的知识分析相关问题",
@@ -28929,7 +28929,7 @@
       "description": "了解中心投影和平行投影的定义，能区分两种投影并举例说明。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出中心投影和平行投影的形成条件",
         "能判断常见投影类型"
@@ -29005,7 +29005,7 @@
       "description": "认识柱、锥、台、球的结构特征，能识别多面体和旋转体",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出棱柱、棱锥、棱台等的结构特征",
         "能识别圆柱、圆锥、圆台、球",
@@ -29052,7 +29052,7 @@
       "description": "空间向量的表示、加法、减法、数乘、共线向量定理",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能进行空间向量的线性运算",
         "能判断向量共线"
@@ -29075,7 +29075,7 @@
       "description": "倾斜角定义、斜率公式、两点斜率",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.1,
       "evidence": [
         "能计算直线的倾斜角和斜率",
         "能根据斜率判断方向"
@@ -29098,7 +29098,7 @@
       "description": "椭圆定义、标准方程推导、焦点、顶点、离心率",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能写出椭圆标准方程",
         "能求离心率等基本量"
@@ -29121,7 +29121,7 @@
       "description": "等差数列定义、通项公式推导、等差中项",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能写出等差数列通项公式",
         "能判断和证明等差数列"
@@ -29144,7 +29144,7 @@
       "description": "导数定义、导数的几何意义（切线方程）",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.1,
       "evidence": [
         "能用定义求导数",
         "能求切线方程"
@@ -29213,7 +29213,7 @@
       "description": "掌握两个基本计数原理及其简单应用",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.2,
       "evidence": [
         "能区分分类与分步",
         "能解决简单计数问题"
@@ -29236,7 +29236,7 @@
       "description": "随机变量定义、分布列性质、两点分布、超几何分布",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.1,
       "evidence": [
         "能写出分布列",
         "能求概率和期望"
@@ -34255,7 +34255,7 @@
       "description": "探讨人为什么活着，怎样的一生是值得的。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出感受生命的意义的基本内容",
         "能运用该框知识分析相关问题",
@@ -34351,7 +34351,7 @@
       "description": "认识情绪的种类、特点，以及青春期情绪的特点。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出青春的情绪的基本内容",
         "能运用该框知识分析相关问题",
@@ -34375,7 +34375,7 @@
       "description": "了解情感与情绪的区别，认识情感的作用。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出我们的情感世界的基本内容",
         "能运用该框知识分析相关问题",
@@ -34399,7 +34399,7 @@
       "description": "感受集体温暖，理解集体力量。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出集体生活邀请我的基本内容",
         "能运用该框知识分析相关问题",
@@ -34423,7 +34423,7 @@
       "description": "理解个人意愿与集体规则之间的一致性，解决冲突。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出单音与和声的基本内容",
         "能运用该框知识分析相关问题",
@@ -34471,7 +34471,7 @@
       "description": "理解法律与生活的关系，法治进程。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
-      "centrality": 0,
+      "centrality": 0.1,
       "evidence": [
         "能说出生活需要法律的基本内容",
         "能运用该框知识分析相关问题",
@@ -34519,7 +34519,7 @@
       "description": "理解个人与社会的紧密联系，养成亲社会行为。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能说出我与社会的的基本内容",
         "能运用该框知识分析相关问题",
@@ -34543,7 +34543,7 @@
       "description": "认识网络的积极和消极影响。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出网络改变世界的基本内容",
         "能运用该框知识分析相关问题",
@@ -34591,7 +34591,7 @@
       "description": "理解尊重的含义、意义，学会尊重他人。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出尊重他人的基本内容",
         "能运用该框知识分析相关问题",
@@ -34615,7 +34615,7 @@
       "description": "认识一般违法行为及其危害，警惕违法。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能说出法不可违的基本内容",
         "能运用该框知识分析相关问题",
@@ -34639,7 +34639,7 @@
       "description": "认识责任的含义、来源和代价回报。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出我对谁负责谁对我负责的基本内容",
         "能运用该框知识分析相关问题",
@@ -34687,7 +34687,7 @@
       "description": "理解国家利益与个人利益的关系。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
-      "centrality": 0,
+      "centrality": 0.1,
       "evidence": [
         "能说出国家好大家才会好的基本内容",
         "能运用该框知识分析相关问题",
@@ -34711,7 +34711,7 @@
       "description": "理解国家安全的内涵和总体国家安全观。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出认识总体国家安全观的基本内容",
         "能运用该框知识分析相关问题",
@@ -34758,7 +34758,7 @@
       "description": "理解宪法是公民权利的保障书，了解宪法对公民权利的规定。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
-      "centrality": 0,
+      "centrality": 0.1,
       "evidence": [
         "能说出宪法规定的公民基本权利",
         "能举例说明宪法如何保障公民权利"
@@ -34827,7 +34827,7 @@
       "description": "了解全国人民代表大会及地方各级人民代表大会的性质、组成和职权。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出人民代表大会是国家权力机关",
         "能列举人民代表大会的职权"
@@ -34850,7 +34850,7 @@
       "description": "理解自由和平等的含义及其在法律上的体现。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出自由的边界和限制",
         "能解释平等的含义"
@@ -34873,7 +34873,7 @@
       "description": "理解公平正义的重要性及其对社会的作用。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出公平的含义和重要性",
         "能说出正义的含义和重要性"
@@ -34919,7 +34919,7 @@
       "description": "感受创新带来的变化，理解创新的重要性。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能举例说明创新如何改变生活",
         "能说出创新对个人和社会的作用"
@@ -34965,7 +34965,7 @@
       "description": "了解法治的内涵和重要性，学习依法治国的基本要求。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出法治的含义",
         "能列出依法治国的基本要求"
@@ -34988,7 +34988,7 @@
       "description": "了解中华文化的特点、影响和传承。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出中华文化的特点",
         "能举例说明中华文化的传承"
@@ -35011,7 +35011,7 @@
       "description": "认识我国面临的人口、资源、环境问题及挑战。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能列举我国面临的人口问题",
         "能说出资源环境方面的挑战"
@@ -35062,7 +35062,7 @@
       "description": "了解中国梦的内涵和意义。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出中国梦的基本内涵",
         "能说明中国梦与个人梦的关系"
@@ -35339,7 +35339,7 @@
       "description": "市场如何配置资源、市场机制、市场体系的构成。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说出市场调节的优点和局限性",
         "能举例说明市场体系的构成"
@@ -35644,7 +35644,7 @@
       "description": "理解探索认识的奥秘的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
       "ageRangeStart": 15,
       "ageRangeEnd": 18,
-      "centrality": 0.133333,
+      "centrality": 0.2,
       "evidence": [
         "能说出探索认识的奥秘的基本内容",
         "能运用探索认识的奥秘的知识分析相关问题",
@@ -35718,7 +35718,7 @@
       "description": "理解学习借鉴外来文化的有益成果的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
       "ageRangeStart": 15,
       "ageRangeEnd": 18,
-      "centrality": 0.1,
+      "centrality": 0.166667,
       "evidence": [
         "能说出学习借鉴外来文化的有益成果的基本内容",
         "能运用学习借鉴外来文化的有益成果的知识分析相关问题",
@@ -38438,7 +38438,7 @@
       "description": "学习韩非子、墨子思想及百家争鸣的历史意义",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
-      "centrality": 0.033333,
+      "centrality": 0.133333,
       "evidence": [
         "能说出韩非子法家主张（法治、中央集权）",
         "能说出墨子兼爱非攻思想",
@@ -38563,7 +38563,7 @@
       "description": "学习中国共产党成立的历史条件和伟大意义",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0.033333,
+      "centrality": 0.1,
       "evidence": [
         "能说出中国共产党成立的时间、地点和代表",
         "能说明中国共产党成立的历史条件",
@@ -38638,7 +38638,7 @@
       "description": "学习抗日战争胜利的原因和意义",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.2,
       "evidence": [
         "能说出抗日战争胜利的标志",
         "能分析抗日战争胜利的原因",
@@ -38663,7 +38663,7 @@
       "description": "学习三大战役、渡江战役和解放战争胜利的意义",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0.1,
+      "centrality": 0.133333,
       "evidence": [
         "能说出三大战役的名称和意义",
         "能说明渡江战役和南京解放",
@@ -38688,7 +38688,7 @@
       "description": "学习三大改造的内容和意义，理解社会主义制度的基本建立",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0.033333,
+      "centrality": 0.1,
       "evidence": [
         "能说出三大改造的对象和方式",
         "能说明三大改造完成的历史意义",
@@ -38788,7 +38788,7 @@
       "description": "学习文艺复兴的核心思想、代表人物和影响",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0.133333,
+      "centrality": 0.2,
       "evidence": [
         "能说出文艺复兴的核心思想（人文主义）",
         "能列举文艺复兴的代表人物及其作品",
@@ -38937,7 +38937,7 @@
       "description": "理解印度民族大起义的背景和经过",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
-      "centrality": 0.066667,
+      "centrality": 0.133333,
       "evidence": [
         "能说出印度民族大起义的原因",
         "能简述起义的主要事件"
@@ -39351,7 +39351,7 @@
       "description": "掌握基因分离定律的实质、细胞学基础及在实践中的应用。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能写出分离定律的实质",
         "能运用分离定律解释简单遗传现象"
@@ -40131,7 +40131,7 @@
       "description": "系统归纳官能团引入方法（加成、取代、氧化、还原）",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
-      "centrality": 0,
+      "centrality": 0.066667,
       "evidence": [
         "能列出引入羟基的三种方法",
         "能完成官能团转化图"
@@ -44860,7 +44860,7 @@
       "description": "能用因式分解法（提公因式、十字相乘法等）解一元二次方程。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能对一元二次方程进行因式分解",
         "能利用因式分解法求解",
@@ -46411,7 +46411,7 @@
       "description": "理解宪法作为国家根本法的地位和作用。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
-      "centrality": 0,
+      "centrality": 0.033333,
       "evidence": [
         "能说明宪法在国家法律体系中的最高地位",
         "能列举宪法的基本原则"

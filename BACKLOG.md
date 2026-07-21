@@ -12,10 +12,10 @@ v1.2.0-zh.0 发版时已确认的已知问题/增量改进。经 opus + omp 双�
 - **处理**：逐条判断是"几何分割概念"还是"真分数"，重新对齐或新建中国特有节点
 - **缓存位置**：`data/.align-work/`（gitignored）里有完整 398 条原始 LLM 响应
 
-### 2. 审核覆盖率 37.6%，1,634 条内部 machine 边待人工核对
-- **现状**：cn-deps 2,619 条中 reviewed 985 / machine 1,634；其中 761 条旧父边因主题拆分后语义收窄标记 `rescopeRequired`，301 条原 reviewed 已降级。另有 4 条 reviewed bridge 命中复用 ID，已同样降级隔离
-- **处理**：使用 `review-ai-edge.mjs` 按边审核为 reviewed/rejected；bridge 边增加 `--bridge`；儿童 viewer 不提供 machine 边入口
-- **目标**：先清零 761 条内部和 4 条 bridge `rescopeRequired`，再基于教师 gold set 校准发布覆盖率，不预设任意百分比
+### 2. 审核覆盖率 50.6%，873 条内部 machine 边待人工核对
+- **现状**：761 条内部和 4 条 bridge `rescopeRequired` 已由用户授权的两轮独立 Claude Opus 审核处理；两轮一致 724 条，41 条分歧按保守策略拒绝，最终 reviewed 344 / rejected 421。该 provenance 明确为 AI 委托审核，不冒充教师审核
+- **当前图**：cn-deps 2,619 条中 reviewed 1,326 / machine 873 / rejected 420；bridge 47 条中 reviewed 46 / rejected 1；`rescopeRequired` 已清零
+- **目标**：对剩余 873 条 machine 边使用教师 gold set 和人工校对继续审查，不预设任意覆盖率；儿童 viewer 仍不提供 machine/rejected 边入口
 
 ## 低优先级
 
@@ -39,4 +39,4 @@ v1.2.0-zh.0 发版时已确认的已知问题/增量改进。经 opus + omp 双�
 - ✅ 4 条踩线 note 违反 codes-only → 改英文映射
 - ✅ 小学数学课标 code 严重缺失（仅 12 条）→ 补 67 条
 - ✅ manifest counts 依赖手工同步 → `checksum.mjs` 从真实数据数组自动统计
-- ✅ 拆分首子主题复用父 ID 导致旧边语义漂移 → 761 条边隔离重审，301 条 reviewed 降级；发布路径仅使用 reviewed、非 rescope 边
+- ✅ 拆分首子主题复用父 ID 导致旧边语义漂移 → 761 条内部边和 4 条 bridge 边隔离；用户授权双 Opus 重审后 reviewed 344 / rejected 421，发布门禁恢复通过

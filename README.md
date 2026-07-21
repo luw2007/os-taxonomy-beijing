@@ -230,10 +230,11 @@ node scripts/serve.mjs --port 8080 --upstream /path/to/os-taxonomy
 - [x] **中国特有微主题**（2,008 个 `mtc_` 主题，覆盖语文/道法/物理/化学/生物/历史/地理/政治/通用技术等；238 个初高中宽泛主题已按 45 分钟粒度拆分，111 个边界不清主题待人工复核）
 - [x] **中国特有依赖图重建**（原图 2,290 条；拆分子主题使用 deepseek-v4-flash 只追加回填 329 条 machine 边，当前 2,619 条）
 - [x] **v1.2：DAG 完整性修复**（全局 SCC 破环，0 含环 SCC；`validate --dag` 断言）
-- [x] **AI 安全闸门**（260 个复用 ID 家族的 761 条内部继承边和 4 条 bridge 边全部隔离重审；305 条旧 reviewed 降级为 machine；49 个 covered 父主题退出儿童视图；儿童路径只使用 reviewed 且非 rescope 的边）
-- [ ] **人工校对**（`machine` → `reviewed/rejected`，优先处理 761 条内部和 4 条 bridge `rescopeRequired`；bridge 审核使用 `review-ai-edge.mjs --bridge`；当前内部边覆盖率 37.6%）
+- [x] **AI 安全闸门**（260 个复用 ID 家族的 761 条内部继承边和 4 条 bridge 边全部隔离；49 个 covered 父主题退出儿童视图；儿童路径只使用 reviewed 且非 rescope 的边）
+- [x] **用户授权的双 Opus 重审**（765 条隔离边经两轮独立审核，724 条一致、41 条分歧保守拒绝；最终 reviewed 344 / rejected 421；该记录不冒充教师审核）
+- [ ] **人工校对**（内部边当前 reviewed 1,326 / machine 873 / rejected 420，覆盖率 50.6%；剩余 machine 边继续不进入儿童路径）
 - [ ] 领域聚类（clusters.zh.json）翻译
-- [ ] bridge 依赖扩展（mt_↔mtc_ 跨图桥接，当前 47 条，其中 4 条因目标主题语义收窄待重新审核）
+- [ ] bridge 依赖扩展（mt_↔mtc_ 跨图桥接，当前 reviewed 46 / rejected 1）
 
 ## 贡献
 

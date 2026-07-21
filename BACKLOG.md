@@ -12,8 +12,8 @@ v1.2.0-zh.0 发版时已确认的已知问题/增量改进。经 opus + omp 双�
 - **处理**：逐条判断是"几何分割概念"还是"真分数"，重新对齐或新建中国特有节点
 - **缓存位置**：`data/.align-work/`（gitignored）里有完整 398 条原始 LLM 响应
 
-### 2. 审核覆盖率 56.9%，976 条 machine 边待人工核对
-- **现状**：cn-deps 2262 条中 reviewed 1286 / machine 976
+### 2. 审核覆盖率 49.1%，1,333 条 machine 边待人工核对
+- **现状**：cn-deps 2,619 条中 reviewed 1,286 / machine 1,333
 - **处理**：按学科分批人工审核，优先数学/科学低龄段。viewer 已支持 toggle 切换查看
 - **目标**：v1.3 达到 80%+，v1.4 全量 reviewed
 
@@ -29,10 +29,6 @@ v1.2.0-zh.0 发版时已确认的已知问题/增量改进。经 opus + omp 双�
 - **背景**：A2 的 8 条学段桥加在 cn-dependencies（mtc_↔mtc_），不在 bridge（mt_↔mtc_）
 - **处理**：等 C1a 的 mt_ 小学数学节点对齐稳定后，补 mt_ 小学 → mtc_ 初中的跨图桥
 
-### 5. manifest counts 与文档数字需在每次数据变更后同步
-- **现状**：本次发版发现 manifest.counts.cnDeps（2254）和 CHANGELOG reviewed（1278）两处漂移
-- **根因**：checksum.mjs 只更新 files（sha256/bytes），不更新 counts；counts 是手工维护
-- **处理**：在 checksum.mjs 里加 counts 自动统计（从数据文件读真实计数），杜绝漂移
 
 ## 已修复（v1.2 发版时关闭）
 
@@ -42,3 +38,4 @@ v1.2.0-zh.0 发版时已确认的已知问题/增量改进。经 opus + omp 双�
 - ✅ centrality Top 20 全是课文 → nodeKind 字段过滤
 - ✅ 4 条踩线 note 违反 codes-only → 改英文映射
 - ✅ 小学数学课标 code 严重缺失（仅 12 条）→ 补 67 条
+- ✅ manifest counts 依赖手工同步 → `checksum.mjs` 从真实数据数组自动统计

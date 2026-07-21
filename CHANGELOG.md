@@ -13,6 +13,7 @@
 - `cn-topics` 由 1,668 增至 2,008；拆分子主题使用 `splitFrom` 记录来源，不臆造平行子主题之间的先修关系，`cn-dependencies` 保持 2,290 条。
 - 缓存绑定模型与完整 prompt；LLM 批次失败不覆盖审核文件；正式 apply 前重新验证父主题时长、子主题数量/时长和全局重名。
 - 使用 `scripts/backfill-split-relations.mjs` 对 340 个零度 `splitFrom` 子主题运行 deepseek-v4-flash 增量关系审计：356 个先修提案中只追加 329 条 `machine` 边；拒绝重复 24 条、成环 1 条、跨学段倒退 2 条。旧 2,290 条边保持原内容和顺序，相关但非先修的 83 条关系仅保留在 gitignored work 文件。
+- 同步 `manifest.json`、README 与 BACKLOG 的上层统计；`scripts/checksum.mjs` 现从真实数据数组自动更新主题、依赖、聚类和课标计数，避免后续数据变更再次产生手工计数漂移。
 
 ### DAG 完整性修复（P0/v1.1）
 - **破环**：删 283 条成环边（含 200 反平行对），密度 1.55→1.377，0 含环 SCC。删除旧 `removeCycles` 的 3 个 bug（`_weak` 未赋值/`pass<10` 上限/先破环后合并导致重新成环），重写为 `scripts/break-cycles.mjs`（迭代 Tarjan + 贪心评分，全局破环）。

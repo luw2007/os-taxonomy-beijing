@@ -2,7 +2,7 @@
   "version": "1.2.0-zh.0",
   "upstreamVersion": "1.0.0",
   "locale": "zh-CN",
-  "topicCount": 1710,
+  "topicCount": 1801,
   "originNote": "中国特有微主题（mtc_ 前缀）。已按原子粒度拆解——每条覆盖一个可独立评估的微技能。来源：课标自建(cn_only/progression/upstream_adapt) + 课本目录(textbook)。严守 codes-only 原则。教材来源节点中的作品名、部分作者名和来源作为事实性元数据保留；不包含教材正文、插图、练习题、版式、页码或 PDF 路径。详见 PROVENANCE.md。",
   "topics": [
     {
@@ -12678,23 +12678,24 @@
       "type": "META",
       "subject": "Chinese",
       "domain": "Comprehensive Practice",
-      "name": "综合性学习·语文实践活动",
-      "description": "能围绕某一主题开展语文综合性学习活动，搜集和处理信息，合作完成并展示成果。",
+      "name": "活动策划与资料搜集",
+      "description": "围绕主题确定活动目标、分工，并初步搜集资料",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
       "centrality": 0,
       "evidence": [
-        "能围绕主题搜集整理信息",
-        "能与合作者分工完成活动任务",
-        "能用语文方式展示成果"
+        "能制定活动计划",
+        "能进行合理分工",
+        "能初步搜集相关信息"
       ],
-      "assessmentPrompt": "请 {{name}} 设计一个以「传统文化在身边」为主题的语文综合实践活动方案。",
+      "assessmentPrompt": "让 {{name}} 展示：能制定活动计划",
       "cnStandards": [
         "moe-2022-chinese:S4.CP.02"
       ],
       "origin": "cross_domain",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_544",
@@ -18822,92 +18823,92 @@
       "type": "CONCEPTUAL",
       "subject": "Chinese",
       "domain": "Reading & Appreciation",
-      "name": "思辨性阅读·批判性思维",
-      "description": "在阅读论述类和思辨类文本中进行批判性思考，能区分事实与观点、辨别论证的逻辑和证据，能质疑、辨析、评价文本观点，形成独立理性的判断，提升思维品质。",
+      "name": "区分事实与观点（高级）",
+      "description": "在论述类文本中准确区分复杂的事实判断和价值判断，识别隐含前提和偏见。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
       "centrality": 0,
       "evidence": [
-        "能区分文本中的事实与观点",
-        "能分析论证的逻辑链条和证据可靠性",
-        "能对观点提出质疑并进行评价"
+        "能区分复杂文本中的事实与观点",
+        "能识别隐含前提和偏见"
       ],
-      "assessmentPrompt": "给 {{name}} 一篇有争议的观点文章，请他说出同意和不同意的地方，并给出有理有据的论证。",
+      "assessmentPrompt": "让 {{name}} 展示：能区分复杂文本中的事实与观点",
       "cnStandards": [
         "moe-2022-chinese:SH.RA.03"
       ],
       "origin": "progression",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_816",
       "type": "PROCEDURAL",
       "subject": "Chinese",
       "domain": "Writing",
-      "name": "议论文·复杂论证",
-      "description": "撰写结构复杂、内容深入的议论文，能提出有深度和新意的观点，运用丰富的论据和多种论证方法（举例、引用、对比、比喻、因果），做到论证充分、逻辑严密、层次清晰。",
+      "name": "提出有深度的中心论点",
+      "description": "从材料中提炼有创新性和深刻性的论点，做到正确、深刻、新颖。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
       "centrality": 0.019231,
       "evidence": [
-        "能提出有深度和新意的中心论点",
-        "能综合运用多种论证方法",
-        "能做到论证逻辑严密层次分明"
+        "能提出有深度的论点",
+        "能论证论点的价值"
       ],
-      "assessmentPrompt": "请 {{name}} 就「科技发展是增进还是削弱了人际交流」这个话题写一篇不少于800字的议论文。",
+      "assessmentPrompt": "让 {{name}} 展示：能提出有深度的论点",
       "cnStandards": [
         "moe-2022-chinese:SH.EC.01"
       ],
       "origin": "progression",
       "stage": "高中",
-      "nodeKind": "skill"
+      "nodeKind": "skill",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_817",
       "type": "PROCEDURAL",
       "subject": "Chinese",
       "domain": "Writing",
-      "name": "研究性写作·文献运用",
-      "description": "能围绕一个研究问题查找、筛选和运用文献资料，撰写有理有据的研究性文章（小论文），做到选题明确、论据充分、格式规范、引用准确、表达严谨，初步具备学术写作的基本素养。",
+      "name": "文献查找与筛选",
+      "description": "围绕研究问题利用图书馆、数据库等资源查找相关文献，并筛选有价值的信息。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0,
       "evidence": [
-        "能围绕研究问题查找和运用文献",
-        "能做到引用规范和格式正确",
-        "能做到表达准确严谨条理清晰"
+        "能制定检索策略",
+        "能筛选出5篇以上相关文献"
       ],
-      "assessmentPrompt": "请 {{name}} 选一个感兴趣的小课题，查阅资料后写一篇800字左右的研究小论文。",
+      "assessmentPrompt": "让 {{name}} 展示：能制定检索策略",
       "cnStandards": [
         "moe-2022-chinese:SH.EC.02"
       ],
       "origin": "progression",
       "stage": "高中",
-      "nodeKind": "skill"
+      "nodeKind": "skill",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_818",
       "type": "CONCEPTUAL",
       "subject": "Chinese",
       "domain": "Classical Chinese",
-      "name": "文言文·深度阅读(诸子散文史传)",
-      "description": "阅读古代诸子散文、史传等较深文言文，能准确理解文意（实词虚词、特殊句式），分析文章的思想内容和写作特色，鉴赏文言文的语言艺术。",
+      "name": "文言实词虚词与特殊句式",
+      "description": "掌握高考要求的120个常见实词、18个虚词以及判断句、被动句、省略句、倒装句等特殊句式，能准确翻译较深文言文。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": 0,
       "evidence": [
-        "能准确翻译较深的文言文（含实词虚词和特殊句式）",
-        "能分析文章的思想",
-        "能鉴赏文言文的语言特色"
+        "能准确解释实词虚词",
+        "能识别和翻译特殊句式"
       ],
-      "assessmentPrompt": "给 {{name}} 一段《劝学》的文言文，请他翻译并分析其中的比喻论证手法。",
+      "assessmentPrompt": "让 {{name}} 展示：能准确解释实词虚词",
       "cnStandards": [
         "moe-2022-chinese:SH.CC.01"
       ],
       "origin": "progression",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_819",
@@ -29010,23 +29011,24 @@
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Classical Poetry",
-      "name": "古代诗歌四首",
-      "description": "理解古代诗歌四首的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "观沧海",
+      "description": "理解曹操《观沧海》内容、意境和情感",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": null,
       "evidence": [
-        "能说出古代诗歌四首的基本内容",
-        "能运用古代诗歌四首的知识分析相关问题",
-        "能结合实例说明古代诗歌四首的意义或应用"
+        "能说出诗歌基本内容",
+        "能分析景色描写与情感",
+        "能背诵全诗"
       ],
-      "assessmentPrompt": "让 {name} 说说古代诗歌四首的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出诗歌基本内容",
       "cnStandards": [
         "moe-2022-chinese:S4.阅读.04"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1291",
@@ -29125,253 +29127,253 @@
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Fiction & Narrative",
-      "name": "从百草园到三味书屋",
-      "description": "理解从百草园到三味书屋/ 鲁迅的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "《从百草园到三味书屋》内容梳理",
+      "description": "理解课文基本内容，包括写景、叙事片段及主题初步把握。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": null,
       "evidence": [
-        "能说出从百草园到三味书屋/ 鲁迅的基本内容",
-        "能运用从百草园到三味书屋/ 鲁迅的知识分析相关问题",
-        "能结合实例说明从百草园到三味书屋/ 鲁迅的意义或应用"
+        "能概括文章主要内容",
+        "能划分段落层次并归纳大意"
       ],
-      "assessmentPrompt": "让 {name} 说说从百草园到三味书屋/ 鲁迅的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能概括文章主要内容",
       "cnStandards": [
         "moe-2022-chinese:S4.阅读.09"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1296",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Practical Texts",
-      "name": "再塑生命的人",
-      "description": "理解再塑生命的人/ 海伦·凯勒的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "《再塑生命的人》情节与人物理解",
+      "description": "了解海伦·凯勒的成长经历，把握莎莉文老师的形象。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": null,
       "evidence": [
-        "能说出再塑生命的人/ 海伦·凯勒的基本内容",
-        "能运用再塑生命的人/ 海伦·凯勒的知识分析相关问题",
-        "能结合实例说明再塑生命的人/ 海伦·凯勒的意义或应用"
+        "能复述海伦·凯勒从黑暗到光明的主要事件",
+        "能说出莎莉文老师的教育特点"
       ],
-      "assessmentPrompt": "让 {name} 说说再塑生命的人/ 海伦·凯勒的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能复述海伦·凯勒从黑暗到光明的主要事件",
       "cnStandards": [
         "moe-2022-chinese:S4.阅读.10"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1297",
       "type": "CONCEPTUAL",
       "subject": "Chinese",
       "domain": "Classical Chinese",
-      "name": "《论语》十二章（初中）",
-      "description": "理解《论语》十二章的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "《论语》十二章·前六章研读",
+      "description": "学习前六则，掌握重点字词、句意及基本道理。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": null,
       "evidence": [
-        "能说出《论语》十二章的基本内容",
-        "能运用《论语》十二章的知识分析相关问题",
-        "能结合实例说明《论语》十二章的意义或应用"
+        "能正确翻译前六则",
+        "能说出每则语录的核心思想"
       ],
-      "assessmentPrompt": "让 {name} 说说《论语》十二章的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能正确翻译前六则",
       "cnStandards": [
         "moe-2022-chinese:S4.阅读.11"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1298",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Argumentative Writing",
-      "name": "纪念白求恩",
-      "description": "理解纪念白求恩/ 毛泽东的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "《纪念白求恩》内容与论点把握",
+      "description": "阅读课文，找出中心论点，理解白求恩精神。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": null,
       "evidence": [
-        "能说出纪念白求恩/ 毛泽东的基本内容",
-        "能运用纪念白求恩/ 毛泽东的知识分析相关问题",
-        "能结合实例说明纪念白求恩/ 毛泽东的意义或应用"
+        "能概括每段大意并找出中心论点",
+        "能复述白求恩的主要事迹"
       ],
-      "assessmentPrompt": "让 {name} 说说纪念白求恩/ 毛泽东的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能概括每段大意并找出中心论点",
       "cnStandards": [
         "moe-2022-chinese:S4.阅读.12"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1299",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Reading Materials",
-      "name": "植树的牧羊人",
-      "description": "理解植树的牧羊人/ 让·乔诺的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "《植树的牧羊人》情节与整体感知",
+      "description": "阅读课文，梳理故事情节，了解牧羊人的经历。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": null,
       "evidence": [
-        "能说出植树的牧羊人/ 让·乔诺的基本内容",
-        "能运用植树的牧羊人/ 让·乔诺的知识分析相关问题",
-        "能结合实例说明植树的牧羊人/ 让·乔诺的意义或应用"
+        "能按时间顺序复述牧羊人植树的过程",
+        "能说出课文通过三次见面展现的变化"
       ],
-      "assessmentPrompt": "让 {name} 说说植树的牧羊人/ 让·乔诺的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能按时间顺序复述牧羊人植树的过程",
       "cnStandards": [
         "moe-2022-chinese:S4.阅读.13"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1300",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Reading Materials",
-      "name": "走一步，再走一步",
-      "description": "理解走一步，再走一步/ 莫顿·亨特的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "《走一步，再走一步》内容理解",
+      "description": "阅读课文，梳理“我”脱险的经过。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": null,
       "evidence": [
-        "能说出走一步，再走一步/ 莫顿·亨特的基本内容",
-        "能运用走一步，再走一步/ 莫顿·亨特的知识分析相关问题",
-        "能结合实例说明走一步，再走一步/ 莫顿·亨特的意义或应用"
+        "能复述故事的主要情节",
+        "能找出描写“我”心理变化的语句"
       ],
-      "assessmentPrompt": "让 {name} 说说走一步，再走一步/ 莫顿·亨特的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能复述故事的主要情节",
       "cnStandards": [
         "moe-2022-chinese:S4.阅读.14"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1301",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Classical Chinese",
-      "name": "诫子书",
-      "description": "理解诫子书/ 诸葛亮的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "《诫子书》文意疏通",
+      "description": "结合注释翻译全文，积累重要文言词语。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": null,
       "evidence": [
-        "能说出诫子书/ 诸葛亮的基本内容",
-        "能运用诫子书/ 诸葛亮的知识分析相关问题",
-        "能结合实例说明诫子书/ 诸葛亮的意义或应用"
+        "能逐句翻译课文",
+        "能解释“静以修身，俭以养德”等关键词"
       ],
-      "assessmentPrompt": "让 {name} 说说诫子书/ 诸葛亮的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能逐句翻译课文",
       "cnStandards": [
         "moe-2022-chinese:S4.阅读.15"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1302",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Fiction & Narrative",
-      "name": "猫",
-      "description": "理解猫/ 郑振铎的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "《猫》内容与情节梳理",
+      "description": "阅读课文，概括三次养猫的经历。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": null,
       "evidence": [
-        "能说出猫/ 郑振铎的基本内容",
-        "能运用猫/ 郑振铎的知识分析相关问题",
-        "能结合实例说明猫/ 郑振铎的意义或应用"
+        "能复述三只猫的来历、外形、性情和结局",
+        "能找出表达作者情感的语句"
       ],
-      "assessmentPrompt": "让 {name} 说说猫/ 郑振铎的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能复述三只猫的来历、外形、性情和结局",
       "cnStandards": [
         "moe-2022-chinese:S4.阅读.16"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1303",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Fiction & Narrative",
-      "name": "动物笑谈",
-      "description": "理解动物笑谈/ 康拉德·劳伦兹的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "《动物笑谈》内容理解",
+      "description": "阅读课文，了解劳伦兹的实验和趣事。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": null,
       "evidence": [
-        "能说出动物笑谈/ 康拉德·劳伦兹的基本内容",
-        "能运用动物笑谈/ 康拉德·劳伦兹的知识分析相关问题",
-        "能结合实例说明动物笑谈/ 康拉德·劳伦兹的意义或应用"
+        "能复述文中几个有趣的实验",
+        "能说出作者使用的科学方法"
       ],
-      "assessmentPrompt": "让 {name} 说说动物笑谈/ 康拉德·劳伦兹的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能复述文中几个有趣的实验",
       "cnStandards": [
         "moe-2022-chinese:S4.阅读.17"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1304",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Classical Chinese",
-      "name": "狼",
-      "description": "理解狼/ 蒲松龄的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "《狼》文言文翻译理解",
+      "description": "阅读课文，掌握重点字词，疏通文意。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": null,
       "evidence": [
-        "能说出狼/ 蒲松龄的基本内容",
-        "能运用狼/ 蒲松龄的知识分析相关问题",
-        "能结合实例说明狼/ 蒲松龄的意义或应用"
+        "能准确地翻译课文",
+        "能解释“缀行甚远”“犬坐于前”等短语"
       ],
-      "assessmentPrompt": "让 {name} 说说狼/ 蒲松龄的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能准确地翻译课文",
       "cnStandards": [
         "moe-2022-chinese:S4.阅读.18"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1305",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Fiction & Narrative",
-      "name": "皇帝的新装",
-      "description": "理解皇帝的新装/ 安徒生的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "《皇帝的新装》情节与人物",
+      "description": "阅读课文，梳理故事开端、发展、高潮、结局。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": null,
       "evidence": [
-        "能说出皇帝的新装/ 安徒生的基本内容",
-        "能运用皇帝的新装/ 安徒生的知识分析相关问题",
-        "能结合实例说明皇帝的新装/ 安徒生的意义或应用"
+        "能复述皇帝爱新装、骗子织布、大臣看布、小孩揭穿的过程",
+        "能分析皇帝和大臣的心理"
       ],
-      "assessmentPrompt": "让 {name} 说说皇帝的新装/ 安徒生的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能复述皇帝爱新装、骗子织布、大臣看布、小孩揭穿的过程",
       "cnStandards": [
         "moe-2022-chinese:S4.阅读.19"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1306",
@@ -29424,69 +29426,69 @@
       "type": "CONCEPTUAL",
       "subject": "Chinese",
       "domain": "Fiction & Narrative",
-      "name": "寓言四则",
-      "description": "理解寓言四则的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "寓言四则·前两则研读",
+      "description": "学习《赫耳墨斯和雕像者》《蚊子和狮子》，理解寓意。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": null,
       "evidence": [
-        "能说出寓言四则的基本内容",
-        "能运用寓言四则的知识分析相关问题",
-        "能结合实例说明寓言四则的意义或应用"
+        "能复述两则寓言的故事",
+        "能概括每则寓言的寓意"
       ],
-      "assessmentPrompt": "让 {name} 说说寓言四则的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能复述两则寓言的故事",
       "cnStandards": [
         "moe-2022-chinese:S4.阅读.22"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1309",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Practical Texts",
-      "name": "邓稼先",
-      "description": "理解邓稼先/ 杨振宁的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "《邓稼先》内容梳理",
+      "description": "阅读课文，概括邓稼先的主要事迹和品格。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": null,
       "evidence": [
-        "能说出邓稼先/ 杨振宁的基本内容",
-        "能运用邓稼先/ 杨振宁的知识分析相关问题",
-        "能结合实例说明邓稼先/ 杨振宁的意义或应用"
+        "能按时间顺序说出邓稼先重要成就",
+        "能找出文中评价性的语句"
       ],
-      "assessmentPrompt": "让 {name} 说说邓稼先/ 杨振宁的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能按时间顺序说出邓稼先重要成就",
       "cnStandards": [
         "moe-2022-chinese:S4.阅读.23"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1311",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Practical Texts",
-      "name": "回忆鲁迅先生（节选）",
-      "description": "理解回忆鲁迅先生（节选）/ 萧红的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "《回忆鲁迅先生（节选）》内容理解",
+      "description": "阅读课文，梳理萧红回忆的鲁迅日常生活细节。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": null,
       "evidence": [
-        "能说出回忆鲁迅先生（节选）/ 萧红的基本内容",
-        "能运用回忆鲁迅先生（节选）/ 萧红的知识分析相关问题",
-        "能结合实例说明回忆鲁迅先生（节选）/ 萧红的意义或应用"
+        "能列举文中描写的鲁迅生活片段",
+        "能概括鲁迅的性格特点"
       ],
-      "assessmentPrompt": "让 {name} 说说回忆鲁迅先生（节选）/ 萧红的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能列举文中描写的鲁迅生活片段",
       "cnStandards": [
         "moe-2022-chinese:S4.阅读.25"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1312",
@@ -29516,69 +29518,69 @@
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Practical Texts",
-      "name": "黄河颂",
-      "description": "理解黄河颂/ 光未然的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "《黄河颂》朗读与内容",
+      "description": "有感情地朗读诗歌，理解黄河的形象和象征意义。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": null,
       "evidence": [
-        "能说出黄河颂/ 光未然的基本内容",
-        "能运用黄河颂/ 光未然的知识分析相关问题",
-        "能结合实例说明黄河颂/ 光未然的意义或应用"
+        "能正确、激昂地朗读全诗",
+        "能复述诗歌的章节内容"
       ],
-      "assessmentPrompt": "让 {name} 说说黄河颂/ 光未然的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能正确、激昂地朗读全诗",
       "cnStandards": [
         "moe-2022-chinese:S4.阅读.27"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1314",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Reading Materials",
-      "name": "老山界",
-      "description": "理解老山界/ 陆定一的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "《老山界》内容梳理",
+      "description": "阅读课文，理清红军翻越老山界的经过。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": null,
       "evidence": [
-        "能说出老山界/ 陆定一的基本内容",
-        "能运用老山界/ 陆定一的知识分析相关问题",
-        "能结合实例说明老山界/ 陆定一的意义或应用"
+        "能按时间顺序列出翻越过程中的重要事件",
+        "能说出红军面临的困难"
       ],
-      "assessmentPrompt": "让 {name} 说说老山界/ 陆定一的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能按时间顺序列出翻越过程中的重要事件",
       "cnStandards": [
         "moe-2022-chinese:S4.阅读.28"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1315",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Practical Texts",
-      "name": "谁是最可爱的人",
-      "description": "理解谁是最可爱的人/ 魏巍的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "《谁是最可爱的人》内容理解",
+      "description": "阅读课文，概括松骨峰战斗、火中救小孩、防空洞谈话三个事例。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": null,
       "evidence": [
-        "能说出谁是最可爱的人/ 魏巍的基本内容",
-        "能运用谁是最可爱的人/ 魏巍的知识分析相关问题",
-        "能结合实例说明谁是最可爱的人/ 魏巍的意义或应用"
+        "能复述三个具体事例",
+        "能找出体现志愿军崇高品质的细节"
       ],
-      "assessmentPrompt": "让 {name} 说说谁是最可爱的人/ 魏巍的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能复述三个具体事例",
       "cnStandards": [
         "moe-2022-chinese:S4.阅读.29"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1316",
@@ -31678,23 +31680,24 @@
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Classical Poetry",
-      "name": "短诗五首",
-      "description": "理解短诗五首的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "短诗五首之月夜",
+      "description": "学习《月夜》（沈尹默），掌握内容、意象和情感。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
       "centrality": null,
       "evidence": [
-        "能说出短诗五首的基本内容",
-        "能运用短诗五首的知识分析相关问题",
-        "能结合实例说明短诗五首的意义或应用"
+        "能背诵并默写《月夜》",
+        "能分析诗中‘树’与‘我’的意象",
+        "能体会孤独与独立的精神"
       ],
-      "assessmentPrompt": "让 {name} 说说短诗五首的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能背诵并默写《月夜》",
       "cnStandards": [
         "moe-2022-chinese:S4.阅读.122"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1416",
@@ -31885,23 +31888,24 @@
       "type": "CONCEPTUAL",
       "subject": "Chinese",
       "domain": "Classical Poetry",
-      "name": "词四首",
-      "description": "理解词四首的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "词四首·渔家傲·秋思",
+      "description": "学习范仲淹《渔家傲·秋思》，理解边塞词意境与情感。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
       "centrality": null,
       "evidence": [
-        "能说出词四首的基本内容",
-        "能运用词四首的知识分析相关问题",
-        "能结合实例说明词四首的意义或应用"
+        "能背诵全词并正确默写",
+        "能分析‘塞下秋来风景异’的视觉意象",
+        "能结合‘浊酒一杯家万里’体会戍边将士的思乡与报国情怀"
       ],
-      "assessmentPrompt": "让 {name} 说说词四首的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能背诵全词并正确默写",
       "cnStandards": [
         "moe-2022-chinese:S4.阅读.131"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1425",
@@ -32046,115 +32050,120 @@
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Classical Chinese",
-      "name": "曹刿论战/《左传》",
-      "description": "理解曹刿论战/《左传》的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "曹刿论战·文言字词与翻译",
+      "description": "掌握《曹刿论战》中重点实词、虚词及特殊句式，能准确翻译全文。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
       "centrality": null,
       "evidence": [
-        "能说出曹刿论战/《左传》的基本内容",
-        "能运用曹刿论战/《左传》的知识分析相关问题",
-        "能结合实例说明曹刿论战/《左传》的意义或应用"
+        "能解释‘肉食者鄙’‘又何间焉’等关键词",
+        "能翻译‘小大之狱，虽不能察，必以情’等句子",
+        "能识别并翻译倒装句、省略句"
       ],
-      "assessmentPrompt": "让 {name} 说说曹刿论战/《左传》的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能解释‘肉食者鄙’‘又何间焉’等关键词",
       "cnStandards": [
         "moe-2022-chinese:S4.阅读.138"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1432",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Classical Chinese",
-      "name": "邹忌讽齐王纳谏/《战国策》",
-      "description": "理解邹忌讽齐王纳谏/《战国策》的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "邹忌讽齐王纳谏·文言字词与翻译",
+      "description": "掌握重点字词、特殊句式，准确翻译全文。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
       "centrality": null,
       "evidence": [
-        "能说出邹忌讽齐王纳谏/《战国策》的基本内容",
-        "能运用邹忌讽齐王纳谏/《战国策》的知识分析相关问题",
-        "能结合实例说明邹忌讽齐王纳谏/《战国策》的意义或应用"
+        "能解释‘形貌昳丽’‘私我’等词语",
+        "能翻译‘吾妻之美我者，私我也’等句子",
+        "能识别并翻译介宾短语后置句"
       ],
-      "assessmentPrompt": "让 {name} 说说邹忌讽齐王纳谏/《战国策》的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能解释‘形貌昳丽’‘私我’等词语",
       "cnStandards": [
         "moe-2022-chinese:S4.阅读.139"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1433",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Classical Chinese",
-      "name": "陈涉世家",
-      "description": "理解陈涉世家/ 司马迁的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "陈涉世家·字词疏通与段落翻译",
+      "description": "掌握重点实词、虚词及特殊句式，能翻译全文。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
       "centrality": null,
       "evidence": [
-        "能说出陈涉世家/ 司马迁的基本内容",
-        "能运用陈涉世家/ 司马迁的知识分析相关问题",
-        "能结合实例说明陈涉世家/ 司马迁的意义或应用"
+        "能解释‘辍耕之垄上’‘怅恨久之’等",
+        "能翻译‘燕雀安知鸿鹄之志哉’等名句",
+        "能识别并翻译判断句、省略句"
       ],
-      "assessmentPrompt": "让 {name} 说说陈涉世家/ 司马迁的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能解释‘辍耕之垄上’‘怅恨久之’等",
       "cnStandards": [
         "moe-2022-chinese:S4.阅读.140"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1434",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Classical Chinese",
-      "name": "出师表",
-      "description": "理解出师表/ 诸葛亮的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "出师表·字词翻译与文意理解",
+      "description": "掌握重点实词、虚词及特殊句式，能翻译全文。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
       "centrality": null,
       "evidence": [
-        "能说出出师表/ 诸葛亮的基本内容",
-        "能运用出师表/ 诸葛亮的知识分析相关问题",
-        "能结合实例说明出师表/ 诸葛亮的意义或应用"
+        "能解释‘危急存亡之秋’‘陟罚臧否’等",
+        "能翻译‘苟全性命于乱世，不求闻达于诸侯’等",
+        "能识别并翻译定语后置句、被动句"
       ],
-      "assessmentPrompt": "让 {name} 说说出师表/ 诸葛亮的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能解释‘危急存亡之秋’‘陟罚臧否’等",
       "cnStandards": [
         "moe-2022-chinese:S4.阅读.141"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1435",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Classical Poetry",
-      "name": "诗词曲五首",
-      "description": "理解诗词曲五首的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "诗词曲五首·白雪歌送武判官归京",
+      "description": "学习岑参这首边塞送别诗，理解奇丽雪景与豪迈离情。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
       "centrality": null,
       "evidence": [
-        "能说出诗词曲五首的基本内容",
-        "能运用诗词曲五首的知识分析相关问题",
-        "能结合实例说明诗词曲五首的意义或应用"
+        "能背诵全诗并正确默写",
+        "能分析‘忽如一夜春风来，千树万树梨花开’的比喻",
+        "能体会‘山回路转不见君，雪上空留马行处’的意境"
       ],
-      "assessmentPrompt": "让 {name} 说说诗词曲五首的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能背诵全诗并正确默写",
       "cnStandards": [
         "moe-2022-chinese:S4.阅读.142"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1436",
@@ -32460,460 +32469,480 @@
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Modern Prose",
-      "name": "故都的秋/郁达夫",
-      "description": "理解故都的秋/郁达夫的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "故都的秋·内容与情感",
+      "description": "梳理故都的秋的景物描写，把握作者对故都秋色的眷恋与悲凉情感。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": null,
       "evidence": [
-        "能说出故都的秋/郁达夫的基本内容",
-        "能运用故都的秋/郁达夫的知识分析相关问题",
-        "能结合实例说明故都的秋/郁达夫的意义或应用"
+        "能概括课文描写的五幅秋景图",
+        "能分析作者如何通过景物传达情感",
+        "能说出作者对故都秋色的总体评价"
       ],
-      "assessmentPrompt": "让 {name} 说说故都的秋/郁达夫的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能概括课文描写的五幅秋景图",
       "cnStandards": [
         "moe-2022-chinese:SH.(单元).14"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1452",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Classical Poetry",
-      "name": "赤壁赋/苏轼",
-      "description": "理解赤壁赋/苏轼的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "赤壁赋·词句理解与文意梳理",
+      "description": "疏通文言字词，翻译重点句子，梳理文章由乐到悲再到喜的情感变化线索。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": null,
       "evidence": [
-        "能说出赤壁赋/苏轼的基本内容",
-        "能运用赤壁赋/苏轼的知识分析相关问题",
-        "能结合实例说明赤壁赋/苏轼的意义或应用"
+        "能准确翻译全文关键句子",
+        "能说出文中重要的文言实词和虚词含义",
+        "能概括文章的情感脉络"
       ],
-      "assessmentPrompt": "让 {name} 说说赤壁赋/苏轼的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能准确翻译全文关键句子",
       "cnStandards": [
         "moe-2022-chinese:SH.(单元).16"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1453",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Classical Chinese",
-      "name": "子路、曾皙、冉有、公西华侍坐/《论语》",
-      "description": "理解子路、曾皙、冉有、公西华侍坐/《论语》的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "侍坐章·对话内容与人物形象",
+      "description": "梳理四子言志的对话，分析各自性格及孔子评价。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": null,
       "evidence": [
-        "能说出子路、曾皙、冉有、公西华侍坐/《论语》的基本内容",
-        "能运用子路、曾皙、冉有、公西华侍坐/《论语》的知识分析相关问题",
-        "能结合实例说明子路、曾皙、冉有、公西华侍坐/《论语》的意义或应用"
+        "能复述四子各自的志向",
+        "能说出孔子对每位弟子的态度",
+        "能概括子路、曾皙等人物的性格特点"
       ],
-      "assessmentPrompt": "让 {name} 说说子路、曾皙、冉有、公西华侍坐/《论语》的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能复述四子各自的志向",
       "cnStandards": [
         "moe-2022-chinese:SH.(单元).17"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1454",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Classical Chinese",
-      "name": "烛之武退秦师/《左传》",
-      "description": "理解烛之武退秦师/《左传》的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "烛之武退秦师·文言理解与情节梳理",
+      "description": "疏通文言字词，翻译重要句子，梳理烛之武说服秦伯的叙事线索。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": null,
       "evidence": [
-        "能说出烛之武退秦师/《左传》的基本内容",
-        "能运用烛之武退秦师/《左传》的知识分析相关问题",
-        "能结合实例说明烛之武退秦师/《左传》的意义或应用"
+        "能准确翻译烛之武的游说之辞",
+        "能概括故事起因、经过、结果",
+        "能说出文中主要文言现象"
       ],
-      "assessmentPrompt": "让 {name} 说说烛之武退秦师/《左传》的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能准确翻译烛之武的游说之辞",
       "cnStandards": [
         "moe-2022-chinese:SH.(单元).18"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1455",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Classical Chinese",
-      "name": "* 鸿门宴/司马迁",
-      "description": "理解* 鸿门宴/司马迁的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "鸿门宴·文言理解与情节梳理",
+      "description": "疏通重点词句，梳理宴会前、中、后的情节变化。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": null,
       "evidence": [
-        "能说出* 鸿门宴/司马迁的基本内容",
-        "能运用* 鸿门宴/司马迁的知识分析相关问题",
-        "能结合实例说明* 鸿门宴/司马迁的意义或应用"
+        "能翻译关键对话和动作描写",
+        "能画出情节发展脉络图",
+        "能说出文中重要实词和通假字"
       ],
-      "assessmentPrompt": "让 {name} 说说* 鸿门宴/司马迁的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能翻译关键对话和动作描写",
       "cnStandards": [
         "moe-2022-chinese:SH.(单元).19"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1456",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Fiction & Narrative",
-      "name": "窦娥冤（节选）/关汉卿",
-      "description": "理解窦娥冤（节选）/关汉卿的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "窦娥冤（节选）·情节与戏剧冲突",
+      "description": "梳理节选部分的情节，分析窦娥与张驴儿、桃杌的冲突。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": null,
       "evidence": [
-        "能说出窦娥冤（节选）/关汉卿的基本内容",
-        "能运用窦娥冤（节选）/关汉卿的知识分析相关问题",
-        "能结合实例说明窦娥冤（节选）/关汉卿的意义或应用"
+        "能概括节选的故事梗概",
+        "能说出戏剧冲突的主要表现",
+        "能分析窦娥的冤屈如何层层加深"
       ],
-      "assessmentPrompt": "让 {name} 说说窦娥冤（节选）/关汉卿的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能概括节选的故事梗概",
       "cnStandards": [
         "moe-2022-chinese:SH.(单元).20"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1457",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Fiction & Narrative",
-      "name": "雷雨（节选）/曹禺",
-      "description": "理解雷雨（节选）/曹禺的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "雷雨（节选）·情节梳理与人物关系",
+      "description": "梳理节选部分的情节发展，理清周朴园与鲁侍萍等人的关系。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": null,
       "evidence": [
-        "能说出雷雨（节选）/曹禺的基本内容",
-        "能运用雷雨（节选）/曹禺的知识分析相关问题",
-        "能结合实例说明雷雨（节选）/曹禺的意义或应用"
+        "能复述节选部分的主要事件",
+        "能画出人物关系图",
+        "能概括周朴园与鲁侍萍之间的冲突"
       ],
-      "assessmentPrompt": "让 {name} 说说雷雨（节选）/曹禺的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能复述节选部分的主要事件",
       "cnStandards": [
         "moe-2022-chinese:SH.(单元).21"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1458",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Fiction & Narrative",
-      "name": "* 哈姆莱特（节选）/莎士比亚",
-      "description": "理解* 哈姆莱特（节选）/莎士比亚的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "哈姆莱特（节选）·情节与内心独白",
+      "description": "梳理节选情节，分析哈姆莱特“生存还是毁灭”的独白内涵。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": null,
       "evidence": [
-        "能说出* 哈姆莱特（节选）/莎士比亚的基本内容",
-        "能运用* 哈姆莱特（节选）/莎士比亚的知识分析相关问题",
-        "能结合实例说明* 哈姆莱特（节选）/莎士比亚的意义或应用"
+        "能概括节选部分的核心事件",
+        "能阐释主要独白的思想内涵",
+        "能说出哈姆莱特的性格特点"
       ],
-      "assessmentPrompt": "让 {name} 说说* 哈姆莱特（节选）/莎士比亚的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能概括节选部分的核心事件",
       "cnStandards": [
         "moe-2022-chinese:SH.(单元).22"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1459",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Practical Texts",
-      "name": "青蒿素：人类征服疾病的一小步/屠呦呦",
-      "description": "理解青蒿素：人类征服疾病的一小步/屠呦呦的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "青蒿素：人类征服疾病的一小步·内容梳理",
+      "description": "梳理屠呦呦团队发现青蒿素的科研历程和重要节点。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": null,
       "evidence": [
-        "能说出青蒿素：人类征服疾病的一小步/屠呦呦的基本内容",
-        "能运用青蒿素：人类征服疾病的一小步/屠呦呦的知识分析相关问题",
-        "能结合实例说明青蒿素：人类征服疾病的一小步/屠呦呦的意义或应用"
+        "能说出青蒿素发现的关键步骤",
+        "能概括文章的结构和主要内容",
+        "能列出文中提到的实验与数据"
       ],
-      "assessmentPrompt": "让 {name} 说说青蒿素：人类征服疾病的一小步/屠呦呦的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出青蒿素发现的关键步骤",
       "cnStandards": [
         "moe-2022-chinese:SH.(单元).23"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1460",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Practical Texts",
-      "name": "* 中国建筑的特征/梁思成",
-      "description": "理解* 中国建筑的特征/梁思成的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "中国建筑的特征·内容与体系",
+      "description": "梳理中国建筑的九大特征，理解其整体体系。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": null,
       "evidence": [
-        "能说出* 中国建筑的特征/梁思成的基本内容",
-        "能运用* 中国建筑的特征/梁思成的知识分析相关问题",
-        "能结合实例说明* 中国建筑的特征/梁思成的意义或应用"
+        "能列举中国建筑的九大特征",
+        "能解释特征之间的内在联系",
+        "能画出中国建筑的结构示意图"
       ],
-      "assessmentPrompt": "让 {name} 说说* 中国建筑的特征/梁思成的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能列举中国建筑的九大特征",
       "cnStandards": [
         "moe-2022-chinese:SH.(单元).24"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1461",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Modern Prose",
-      "name": "说“木叶”/林庚",
-      "description": "理解说“木叶”/林庚的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "说“木叶”·内容与论证思路",
+      "description": "梳理文章从“木叶”到“落木”的阐释脉络，把握作者观点。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": null,
       "evidence": [
-        "能说出说“木叶”/林庚的基本内容",
-        "能运用说“木叶”/林庚的知识分析相关问题",
-        "能结合实例说明说“木叶”/林庚的意义或应用"
+        "能概括文章的主要观点和论据",
+        "能梳理文章的论证结构",
+        "能说出“木叶”与“树叶”的差别"
       ],
-      "assessmentPrompt": "让 {name} 说说说“木叶”/林庚的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能概括文章的主要观点和论据",
       "cnStandards": [
         "moe-2022-chinese:SH.(单元).25"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1462",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Argumentative Writing",
-      "name": "在《人民报》创刊纪念会上的演说/马克思",
-      "description": "理解在《人民报》创刊纪念会上的演说/马克思的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "在《人民报》创刊纪念会上的演说·内容与结构",
+      "description": "梳理演说主要内容，把握马克思的革命观点和演讲结构。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": null,
       "evidence": [
-        "能说出在《人民报》创刊纪念会上的演说/马克思的基本内容",
-        "能运用在《人民报》创刊纪念会上的演说/马克思的知识分析相关问题",
-        "能结合实例说明在《人民报》创刊纪念会上的演说/马克思的意义或应用"
+        "能概括演说的核心论点",
+        "能分析演说的逻辑层次",
+        "能说出历史背景与演讲目的"
       ],
-      "assessmentPrompt": "让 {name} 说说在《人民报》创刊纪念会上的演说/马克思的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能概括演说的核心论点",
       "cnStandards": [
         "moe-2022-chinese:SH.(单元).26"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1463",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Classical Chinese",
-      "name": "谏逐客书/李斯",
-      "description": "理解谏逐客书/李斯的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "谏逐客书·文言词句与内容理解",
+      "description": "疏通重点字词，梳理李斯谏阻逐客的论述过程和主要论据。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": null,
       "evidence": [
-        "能说出谏逐客书/李斯的基本内容",
-        "能运用谏逐客书/李斯的知识分析相关问题",
-        "能结合实例说明谏逐客书/李斯的意义或应用"
+        "能准确翻译文中关键句子",
+        "能说出谏逐客书的写作背景",
+        "能概括文章的基本内容"
       ],
-      "assessmentPrompt": "让 {name} 说说谏逐客书/李斯的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能准确翻译文中关键句子",
       "cnStandards": [
         "moe-2022-chinese:SH.(单元).27"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1464",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Fiction & Narrative",
-      "name": "祝福/鲁迅",
-      "description": "理解祝福/鲁迅的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "祝福·情节与人物形象",
+      "description": "梳理祥林嫂悲剧的一生，分析其人物形象及悲剧根源。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": null,
       "evidence": [
-        "能说出祝福/鲁迅的基本内容",
-        "能运用祝福/鲁迅的知识分析相关问题",
-        "能结合实例说明祝福/鲁迅的意义或应用"
+        "能概括祥林嫂的主要经历",
+        "能分析祥林嫂的性格变化",
+        "能说出造成悲剧的社会原因"
       ],
-      "assessmentPrompt": "让 {name} 说说祝福/鲁迅的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能概括祥林嫂的主要经历",
       "cnStandards": [
         "moe-2022-chinese:SH.(单元).28"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1465",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Fiction & Narrative",
-      "name": "林教头风雪山神庙/施耐庵",
-      "description": "理解林教头风雪山神庙/施耐庵的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "林教头风雪山神庙·情节与人物",
+      "description": "梳理林冲从忍辱到反抗的转变过程，分析其性格发展。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": null,
       "evidence": [
-        "能说出林教头风雪山神庙/施耐庵的基本内容",
-        "能运用林教头风雪山神庙/施耐庵的知识分析相关问题",
-        "能结合实例说明林教头风雪山神庙/施耐庵的意义或应用"
+        "能复述故事主要情节",
+        "能分析林冲性格的转变过程",
+        "能说出陆谦、富安等反面人物的作用"
       ],
-      "assessmentPrompt": "让 {name} 说说林教头风雪山神庙/施耐庵的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能复述故事主要情节",
       "cnStandards": [
         "moe-2022-chinese:SH.(单元).29"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1466",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Classical Chinese",
-      "name": "促织/蒲松龄",
-      "description": "理解促织/蒲松龄的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "促织·文言理解与情节梳理",
+      "description": "疏通文言字词，梳理成名一家因促织而家破人亡的故事。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": null,
       "evidence": [
-        "能说出促织/蒲松龄的基本内容",
-        "能运用促织/蒲松龄的知识分析相关问题",
-        "能结合实例说明促织/蒲松龄的意义或应用"
+        "能翻译重点段落",
+        "能概括故事发展脉络",
+        "能说出文中的通假字和词类活用"
       ],
-      "assessmentPrompt": "让 {name} 说说促织/蒲松龄的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能翻译重点段落",
       "cnStandards": [
         "moe-2022-chinese:SH.(单元).30"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1467",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Classical Chinese",
-      "name": "谏太宗十思疏/魏征",
-      "description": "理解谏太宗十思疏/魏征的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "谏太宗十思疏·文言与内容",
+      "description": "疏通文言词句，梳理魏征提出“十思”的具体内容和结构。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": null,
       "evidence": [
-        "能说出谏太宗十思疏/魏征的基本内容",
-        "能运用谏太宗十思疏/魏征的知识分析相关问题",
-        "能结合实例说明谏太宗十思疏/魏征的意义或应用"
+        "能翻译文中的排比句式",
+        "能列举“十思”的内容",
+        "能概括文章的中心论点"
       ],
-      "assessmentPrompt": "让 {name} 说说谏太宗十思疏/魏征的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能翻译文中的排比句式",
       "cnStandards": [
         "moe-2022-chinese:SH.(单元).31"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1468",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Classical Chinese",
-      "name": "阿房宫赋/杜牧",
-      "description": "理解阿房宫赋/杜牧的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "阿房宫赋·文言理解与内容",
+      "description": "疏通文言词句，梳理阿房宫的兴建与毁灭过程。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": null,
       "evidence": [
-        "能说出阿房宫赋/杜牧的基本内容",
-        "能运用阿房宫赋/杜牧的知识分析相关问题",
-        "能结合实例说明阿房宫赋/杜牧的意义或应用"
+        "能翻译文中精辟的议论句子",
+        "能概括阿房宫的壮丽与奢华",
+        "能说出赋的文体特点"
       ],
-      "assessmentPrompt": "让 {name} 说说阿房宫赋/杜牧的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能翻译文中精辟的议论句子",
       "cnStandards": [
         "moe-2022-chinese:SH.(单元).32"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1469",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Practical Texts",
-      "name": "中国人民站起来了/毛泽东",
-      "description": "理解中国人民站起来了/毛泽东的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "中国人民站起来了·内容与背景",
+      "description": "了解中国人民政治协商会议背景，梳理演讲的主要内容和历史转折意义。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": null,
       "evidence": [
-        "能说出中国人民站起来了/毛泽东的基本内容",
-        "能运用中国人民站起来了/毛泽东的知识分析相关问题",
-        "能结合实例说明中国人民站起来了/毛泽东的意义或应用"
+        "能说出演讲的时间、场合",
+        "能概括演讲的核心观点",
+        "能解释“站起来”的深刻含义"
       ],
-      "assessmentPrompt": "让 {name} 说说中国人民站起来了/毛泽东的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出演讲的时间、场合",
       "cnStandards": [
         "moe-2022-chinese:SH.(单元).33"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1470",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Practical Texts",
-      "name": "长征胜利万岁/杨成武",
-      "description": "理解长征胜利万岁/杨成武的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "长征胜利万岁·内容与叙事",
+      "description": "梳理作者回忆的长征关键事件，把握记叙的时间顺序。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": null,
       "evidence": [
-        "能说出长征胜利万岁/杨成武的基本内容",
-        "能运用长征胜利万岁/杨成武的知识分析相关问题",
-        "能结合实例说明长征胜利万岁/杨成武的意义或应用"
+        "能概述长征中的主要经历",
+        "能说出作者在文中表达的情感",
+        "能分析文中叙述与描写的结合"
       ],
-      "assessmentPrompt": "让 {name} 说说长征胜利万岁/杨成武的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能概述长征中的主要经历",
       "cnStandards": [
         "moe-2022-chinese:SH.(单元).34"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1471",
@@ -33380,92 +33409,92 @@
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Practical Texts",
-      "name": "* 天文学上的旷世之争/关增建",
-      "description": "理解* 天文学上的旷世之争/关增建的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "文章背景与结构梳理",
+      "description": "了解文章背景（中西天文学争论历史），梳理文章脉络，划分段落层次。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": null,
       "evidence": [
-        "能说出* 天文学上的旷世之争/关增建的基本内容",
-        "能运用* 天文学上的旷世之争/关增建的知识分析相关问题",
-        "能结合实例说明* 天文学上的旷世之争/关增建的意义或应用"
+        "能说出文章涉及的历法争论背景",
+        "能准确划分文章结构"
       ],
-      "assessmentPrompt": "让 {name} 说说* 天文学上的旷世之争/关增建的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出文章涉及的历法争论背景",
       "cnStandards": [
         "moe-2022-chinese:SH.(单元).57"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1494",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Argumentative Writing",
-      "name": "社会历史的决定性基础/恩格斯",
-      "description": "理解社会历史的决定性基础/恩格斯的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "历史背景与书信主旨把握",
+      "description": "了解写作背景（19世纪末德国社会民主党内论战），概括书信的核心主张。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": null,
       "evidence": [
-        "能说出社会历史的决定性基础/恩格斯的基本内容",
-        "能运用社会历史的决定性基础/恩格斯的知识分析相关问题",
-        "能结合实例说明社会历史的决定性基础/恩格斯的意义或应用"
+        "能说出书信的写作目的",
+        "能概括恩格斯关于经济基础与上层建筑关系的论述"
       ],
-      "assessmentPrompt": "让 {name} 说说社会历史的决定性基础/恩格斯的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出书信的写作目的",
       "cnStandards": [
         "moe-2022-chinese:SH.(单元).58"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1495",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Argumentative Writing",
-      "name": "改造我们的学习/毛泽东",
-      "description": "理解改造我们的学习/毛泽东的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "文章结构梳理与中心论点提炼",
+      "description": "把握文章“提出问题-分析问题-解决问题”的结构，提炼核心论点。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": null,
       "evidence": [
-        "能说出改造我们的学习/毛泽东的基本内容",
-        "能运用改造我们的学习/毛泽东的知识分析相关问题",
-        "能结合实例说明改造我们的学习/毛泽东的意义或应用"
+        "能划分文章段落并概括每部分大意",
+        "能准确表述文章的中心论点"
       ],
-      "assessmentPrompt": "让 {name} 说说改造我们的学习/毛泽东的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能划分文章段落并概括每部分大意",
       "cnStandards": [
         "moe-2022-chinese:SH.(单元).59"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1496",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Argumentative Writing",
-      "name": "实践是检验真理的唯一标准/《光明日报》特约评论员",
-      "description": "理解实践是检验真理的唯一标准/《光明日报》特约评论员的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "历史背景与文章核心观点",
+      "description": "了解文章发表的时代背景（真理标准问题讨论），概括核心论点。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": null,
       "evidence": [
-        "能说出实践是检验真理的唯一标准/《光明日报》特约评论员的基本内容",
-        "能运用实践是检验真理的唯一标准/《光明日报》特约评论员的知识分析相关问题",
-        "能结合实例说明实践是检验真理的唯一标准/《光明日报》特约评论员的意义或应用"
+        "能说出文章发表的背景",
+        "能概括“实践是检验真理的唯一标准”这一论点"
       ],
-      "assessmentPrompt": "让 {name} 说说实践是检验真理的唯一标准/《光明日报》特约评论员的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出文章发表的背景",
       "cnStandards": [
         "moe-2022-chinese:SH.(单元).60"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1497",
@@ -33495,46 +33524,46 @@
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Argumentative Writing",
-      "name": "* 人应当坚持正义/柏拉图",
-      "description": "理解* 人应当坚持正义/柏拉图的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "对话背景与核心概念理解",
+      "description": "了解对话背景（苏格拉底被判死刑），理解“正义”在文中的基本含义。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": null,
       "evidence": [
-        "能说出* 人应当坚持正义/柏拉图的基本内容",
-        "能运用* 人应当坚持正义/柏拉图的知识分析相关问题",
-        "能结合实例说明* 人应当坚持正义/柏拉图的意义或应用"
+        "能说出对话的背景",
+        "能解释苏格拉底坚持正义的含义"
       ],
-      "assessmentPrompt": "让 {name} 说说* 人应当坚持正义/柏拉图的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出对话的背景",
       "cnStandards": [
         "moe-2022-chinese:SH.(单元).62"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1500",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Practical Texts",
-      "name": "包身工/夏衍",
-      "description": "理解包身工/夏衍的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "内容梳理与社会背景了解",
+      "description": "阅读并概括文章主要事件，了解包身工制度的背景和特点。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": null,
       "evidence": [
-        "能说出包身工/夏衍的基本内容",
-        "能运用包身工/夏衍的知识分析相关问题",
-        "能结合实例说明包身工/夏衍的意义或应用"
+        "能说出包身工的悲惨遭遇",
+        "能解释包身工制度的运作方式"
       ],
-      "assessmentPrompt": "让 {name} 说说包身工/夏衍的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出包身工的悲惨遭遇",
       "cnStandards": [
         "moe-2022-chinese:SH.(单元).64"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1501",
@@ -33564,92 +33593,92 @@
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Classical Chinese",
-      "name": "屈原列传/司马迁",
-      "description": "理解屈原列传/司马迁的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "文言文疏通与情节梳理",
+      "description": "借助注释和工具书，疏通文言文意，梳理屈原的主要生平事迹。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": null,
       "evidence": [
-        "能说出屈原列传/司马迁的基本内容",
-        "能运用屈原列传/司马迁的知识分析相关问题",
-        "能结合实例说明屈原列传/司马迁的意义或应用"
+        "能准确翻译重点句子",
+        "能说出屈原生命中的关键事件"
       ],
-      "assessmentPrompt": "让 {name} 说说屈原列传/司马迁的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能准确翻译重点句子",
       "cnStandards": [
         "moe-2022-chinese:SH.(单元).66"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1503",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Classical Chinese",
-      "name": "* 苏武传/班固",
-      "description": "理解* 苏武传/班固的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "文言文疏通与事件梳理",
+      "description": "逐段阅读，疏通字词，概括苏武出使匈奴及被困的经过。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": null,
       "evidence": [
-        "能说出* 苏武传/班固的基本内容",
-        "能运用* 苏武传/班固的知识分析相关问题",
-        "能结合实例说明* 苏武传/班固的意义或应用"
+        "能翻译关键语句",
+        "能按时间顺序说出苏武的经历"
       ],
-      "assessmentPrompt": "让 {name} 说说* 苏武传/班固的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能翻译关键语句",
       "cnStandards": [
         "moe-2022-chinese:SH.(单元).67"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1504",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Classical Chinese",
-      "name": "过秦论/贾谊",
-      "description": "理解过秦论/贾谊的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "文言文理解与史实梳理",
+      "description": "疏通文言文意，梳理秦朝兴亡的关键史实。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": null,
       "evidence": [
-        "能说出过秦论/贾谊的基本内容",
-        "能运用过秦论/贾谊的知识分析相关问题",
-        "能结合实例说明过秦论/贾谊的意义或应用"
+        "能翻译重要句子",
+        "能说出秦朝由盛转衰的标志性事件"
       ],
-      "assessmentPrompt": "让 {name} 说说过秦论/贾谊的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能翻译重要句子",
       "cnStandards": [
         "moe-2022-chinese:SH.(单元).68"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1505",
       "type": "LANGUAGE",
       "subject": "Chinese",
       "domain": "Fiction & Narrative",
-      "name": "玩偶之家（节选）/易卜生",
-      "description": "理解玩偶之家（节选）/易卜生的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "情节与人物关系梳理",
+      "description": "阅读节选内容，梳理故事背景、主要人物及其关系。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": null,
       "evidence": [
-        "能说出玩偶之家（节选）/易卜生的基本内容",
-        "能运用玩偶之家（节选）/易卜生的知识分析相关问题",
-        "能结合实例说明玩偶之家（节选）/易卜生的意义或应用"
+        "能说出娜拉与海尔茂的矛盾起因",
+        "能概括节选部分的情节发展"
       ],
-      "assessmentPrompt": "让 {name} 说说玩偶之家（节选）/易卜生的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出娜拉与海尔茂的矛盾起因",
       "cnStandards": [
         "moe-2022-chinese:SH.(单元).69"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "text"
+      "nodeKind": "text",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1506",
@@ -39766,6 +39795,2235 @@
       "nodeKind": "concept",
       "granularity": "split-45min",
       "splitFrom": "mtc_968"
+    },
+    {
+      "id": "mtc_2169",
+      "type": "META",
+      "subject": "Chinese",
+      "domain": "Comprehensive Practice",
+      "name": "活动实施与加工整理",
+      "description": "合作完成活动任务，整理分析资料",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 15,
+      "centrality": 0,
+      "evidence": [
+        "能按计划开展活动",
+        "能分工合作",
+        "能整理分析资料"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能按计划开展活动",
+      "cnStandards": [
+        "moe-2022-chinese:S4.CP.02"
+      ],
+      "origin": "cross_domain",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_543"
+    },
+    {
+      "id": "mtc_2170",
+      "type": "META",
+      "subject": "Chinese",
+      "domain": "Comprehensive Practice",
+      "name": "成果展示与交流评价",
+      "description": "用语文形式展示成果，并进行交流评价",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 15,
+      "centrality": 0,
+      "evidence": [
+        "能选择合适形式展示成果",
+        "能清晰表达活动过程与收获",
+        "能评价他人成果"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能选择合适形式展示成果",
+      "cnStandards": [
+        "moe-2022-chinese:S4.CP.02"
+      ],
+      "origin": "cross_domain",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_543"
+    },
+    {
+      "id": "mtc_2171",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Poetry",
+      "name": "次北固山下",
+      "description": "理解王湾《次北固山下》内容、意境和情感",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": null,
+      "evidence": [
+        "能说出诗歌基本内容",
+        "能分析思乡情感",
+        "能背诵全诗"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出诗歌基本内容",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.04"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1290"
+    },
+    {
+      "id": "mtc_2172",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Poetry",
+      "name": "天净沙·秋思",
+      "description": "理解马致远《天净沙·秋思》内容、意境和情感",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": null,
+      "evidence": [
+        "能说出基本内容",
+        "能分析意象与情感",
+        "能背诵全曲"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出基本内容",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.04"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1290"
+    },
+    {
+      "id": "mtc_2173",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Poetry",
+      "name": "闻王昌龄左迁龙标遥有此寄",
+      "description": "理解李白《闻王昌龄左迁龙标遥有此寄》内容、意境和情感",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": null,
+      "evidence": [
+        "能说出基本内容",
+        "能分析寄情与想象",
+        "能背诵全诗"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出基本内容",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.04"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1290"
+    },
+    {
+      "id": "mtc_2174",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Fiction & Narrative",
+      "name": "《从百草园到三味书屋》主题与手法分析",
+      "description": "分析对比结构、多重主题（童年、教育等）及语言特色。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": null,
+      "evidence": [
+        "能分析百草园与三味书屋的对比作用",
+        "能品味文中生动传神的描写语言"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能分析百草园与三味书屋的对比作用",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.09"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1295"
+    },
+    {
+      "id": "mtc_2175",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Practical Texts",
+      "name": "《再塑生命的人》主题与写作手法",
+      "description": "体会生命再塑的主题，学习欲扬先抑等手法。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": null,
+      "evidence": [
+        "能分析标题含义并阐述主旨",
+        "能赏析文中关键语句的深层含义"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能分析标题含义并阐述主旨",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.10"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1296"
+    },
+    {
+      "id": "mtc_2176",
+      "type": "CONCEPTUAL",
+      "subject": "Chinese",
+      "domain": "Classical Chinese",
+      "name": "《论语》十二章·后六章研读",
+      "description": "学习后六则，继续积累文言词语，理解修身、学习等主题。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": null,
+      "evidence": [
+        "能正确翻译后六则",
+        "能结合实例说明其中一至两条的现代意义"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能正确翻译后六则",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.11"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1297"
+    },
+    {
+      "id": "mtc_2177",
+      "type": "CONCEPTUAL",
+      "subject": "Chinese",
+      "domain": "Classical Chinese",
+      "name": "《论语》十二章·综合与拓展",
+      "description": "整理归纳文中成语、名言，联系实际讨论儒家思想。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": null,
+      "evidence": [
+        "能总结本文涉及的成语、名言",
+        "能就某一点谈谈自己的理解和体会"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能总结本文涉及的成语、名言",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.11"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1297"
+    },
+    {
+      "id": "mtc_2178",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Argumentative Writing",
+      "name": "《纪念白求恩》论据与论证方法",
+      "description": "分析事实论据和道理论据，学习对比论证。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": null,
+      "evidence": [
+        "能指出文中运用的事实论据",
+        "能分析对比论证的作用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能指出文中运用的事实论据",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.12"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1298"
+    },
+    {
+      "id": "mtc_2179",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Reading Materials",
+      "name": "《植树的牧羊人》人物形象与主题",
+      "description": "分析牧羊人人物品质，探究生命、坚持等主题。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": null,
+      "evidence": [
+        "能归纳牧羊人的精神品质",
+        "能结合环境描写说明主题"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能归纳牧羊人的精神品质",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.13"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1299"
+    },
+    {
+      "id": "mtc_2180",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Reading Materials",
+      "name": "《走一步，再走一步》主题与写法",
+      "description": "领悟“走一步再走一步”的人生哲理，学习心理描写。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": null,
+      "evidence": [
+        "能阐释标题的深层含义",
+        "能分析本文如何通过细节展现人物心理"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能阐释标题的深层含义",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.14"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1300"
+    },
+    {
+      "id": "mtc_2181",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Chinese",
+      "name": "《诫子书》主旨与论证",
+      "description": "理解诸葛亮对儿子的劝诫，分析论证思路。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": null,
+      "evidence": [
+        "能概括本文的中心论点",
+        "能结合诗句说明“静”与“躁”的对比"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能概括本文的中心论点",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.15"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1301"
+    },
+    {
+      "id": "mtc_2182",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Fiction & Narrative",
+      "name": "《猫》主旨与写作手法",
+      "description": "探讨作者对第三只猫的愧疚以及文章隐含的社会批判。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": null,
+      "evidence": [
+        "能分析作者为何对第三只猫特别愧疚",
+        "能体会本文借物抒情的写法"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能分析作者为何对第三只猫特别愧疚",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.16"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1302"
+    },
+    {
+      "id": "mtc_2183",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Fiction & Narrative",
+      "name": "《动物笑谈》科学精神与语言",
+      "description": "体会科学工作者专注、幽默的精神，品味语言的生动性。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": null,
+      "evidence": [
+        "能分析作者对动物的观察态度",
+        "能赏析文中幽默风趣的表达"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能分析作者对动物的观察态度",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.17"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1303"
+    },
+    {
+      "id": "mtc_2184",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Chinese",
+      "name": "《狼》情节分析与主题",
+      "description": "分析屠户形象和狼的特性，理解故事寓意。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": null,
+      "evidence": [
+        "能概括屠户与狼斗智斗勇的过程",
+        "能说出本文的寓意"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能概括屠户与狼斗智斗勇的过程",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.18"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1304"
+    },
+    {
+      "id": "mtc_2185",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Fiction & Narrative",
+      "name": "《皇帝的新装》主题与讽刺",
+      "description": "体会对虚伪和愚昧的讽刺，学习夸张和想象手法。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": null,
+      "evidence": [
+        "能说明为什么只有小孩说了实话",
+        "能联系实际谈谈对虚荣心的看法"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说明为什么只有小孩说了实话",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.19"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1305"
+    },
+    {
+      "id": "mtc_2186",
+      "type": "CONCEPTUAL",
+      "subject": "Chinese",
+      "domain": "Fiction & Narrative",
+      "name": "寓言四则·后两则研读",
+      "description": "学习《穿井得一人》《杞人忧天》，积累文言词语。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": null,
+      "evidence": [
+        "能准确翻译两则文言寓言",
+        "能结合实际谈启示"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能准确翻译两则文言寓言",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.22"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1308"
+    },
+    {
+      "id": "mtc_2187",
+      "type": "CONCEPTUAL",
+      "subject": "Chinese",
+      "domain": "Fiction & Narrative",
+      "name": "寓言四则·比较与写作方法",
+      "description": "比较四则寓言的特点，学习寓言的讽刺手法。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": null,
+      "evidence": [
+        "能区分寓言的叙事与议论部分",
+        "能尝试改编或创作简短寓言"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能区分寓言的叙事与议论部分",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.22"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1308"
+    },
+    {
+      "id": "mtc_2188",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Practical Texts",
+      "name": "《邓稼先》人物形象与写法",
+      "description": "分析邓稼先的科学精神和爱国情怀，学习对比、引用等手法。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": null,
+      "evidence": [
+        "能结合具体事例说明邓稼先的精神",
+        "能分析作者为何将邓稼先与奥本海默对比"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能结合具体事例说明邓稼先的精神",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.23"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1309"
+    },
+    {
+      "id": "mtc_2189",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Practical Texts",
+      "name": "《回忆鲁迅先生（节选）》情感与写法",
+      "description": "体会作者对鲁迅的怀念之情，学习细节刻画和以小见大的手法。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": null,
+      "evidence": [
+        "能分析文中蕴含的感情",
+        "能赏析典型细节的作用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能分析文中蕴含的感情",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.25"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1311"
+    },
+    {
+      "id": "mtc_2190",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Practical Texts",
+      "name": "《黄河颂》主题与手法",
+      "description": "体会诗歌的爱国情感，学习象征、反复等手法。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": null,
+      "evidence": [
+        "能分析黄河的象征意义",
+        "能找出诗中的反复句并说明作用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能分析黄河的象征意义",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.27"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1313"
+    },
+    {
+      "id": "mtc_2191",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Reading Materials",
+      "name": "《老山界》主题与写法",
+      "description": "体会红军革命英雄主义和乐观主义，学习环境描写的作用。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": null,
+      "evidence": [
+        "能分析“之”字形火把描写的作用",
+        "能概括文章的中心思想"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能分析“之”字形火把描写的作用",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.28"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1314"
+    },
+    {
+      "id": "mtc_2192",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Practical Texts",
+      "name": "《谁是最可爱的人》主题与写法",
+      "description": "理解“最可爱的人”的含义，学习选取典型事例表达主题的方法。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": null,
+      "evidence": [
+        "能分析三个事例如何共同表现主题",
+        "能理解文中议论抒情段落的作用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能分析三个事例如何共同表现主题",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.29"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1315"
+    },
+    {
+      "id": "mtc_2193",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Poetry",
+      "name": "短诗五首之萧红墓畔口占",
+      "description": "学习《萧红墓畔口占》（戴望舒），掌握内容、意象和情感。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": null,
+      "evidence": [
+        "能背诵并默写《萧红墓畔口占》",
+        "能分析‘红山茶’的象征意义",
+        "能体会对友人的怀念"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能背诵并默写《萧红墓畔口占》",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.122"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1415"
+    },
+    {
+      "id": "mtc_2194",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Poetry",
+      "name": "短诗五首之断章",
+      "description": "学习《断章》（卞之琳），掌握内容、哲理和结构。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": null,
+      "evidence": [
+        "能背诵并默写《断章》",
+        "能分析‘看风景’与‘装饰’的哲理",
+        "能理解相对关系"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能背诵并默写《断章》",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.122"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1415"
+    },
+    {
+      "id": "mtc_2195",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Poetry",
+      "name": "短诗五首之风雨吟",
+      "description": "学习《风雨吟》（芦荻），掌握内容、意象和情感。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": null,
+      "evidence": [
+        "能背诵并默写《风雨吟》",
+        "能分析‘风’‘雨’‘海’的意象",
+        "能体会时代风雨中的焦虑与担当"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能背诵并默写《风雨吟》",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.122"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1415"
+    },
+    {
+      "id": "mtc_2196",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Poetry",
+      "name": "短诗五首之统一",
+      "description": "学习《统一》（聂鲁达），掌握内容、哲理和结构。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": null,
+      "evidence": [
+        "能背诵并默写《统一》",
+        "能分析‘多’与‘一’的辩证关系",
+        "能理解万物统一的主题"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能背诵并默写《统一》",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.122"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1415"
+    },
+    {
+      "id": "mtc_2197",
+      "type": "CONCEPTUAL",
+      "subject": "Chinese",
+      "domain": "Classical Poetry",
+      "name": "词四首·江城子·密州出猎",
+      "description": "学习苏轼《江城子·密州出猎》，体会豪放词风与报国壮志。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": null,
+      "evidence": [
+        "能背诵全词并正确默写",
+        "能指出‘亲射虎，看孙郎’等典故及用意",
+        "能分析‘会挽雕弓如满月，西北望，射天狼’表达的政治理想"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能背诵全词并正确默写",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.131"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1424"
+    },
+    {
+      "id": "mtc_2198",
+      "type": "CONCEPTUAL",
+      "subject": "Chinese",
+      "domain": "Classical Poetry",
+      "name": "词四首·破阵子·为陈同甫赋壮词以寄之",
+      "description": "学习辛弃疾《破阵子》，理解词人壮志难酬的悲愤。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": null,
+      "evidence": [
+        "能背诵全词并正确默写",
+        "能描述‘梦回吹角连营’的军旅场景",
+        "能分析‘可怜白发生’对全词情感的转折作用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能背诵全词并正确默写",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.131"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1424"
+    },
+    {
+      "id": "mtc_2199",
+      "type": "CONCEPTUAL",
+      "subject": "Chinese",
+      "domain": "Classical Poetry",
+      "name": "词四首·临江仙·夜登小阁，忆洛中旧游",
+      "description": "学习陈与义《临江仙》，体会今昔对比的沧桑感。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": null,
+      "evidence": [
+        "能背诵全词并正确默写",
+        "能说出‘忆昔午桥桥上饮’的回忆内容",
+        "能分析‘古今多少事，渔唱起三更’的深沉感慨"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能背诵全词并正确默写",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.131"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1424"
+    },
+    {
+      "id": "mtc_2200",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Chinese",
+      "name": "曹刿论战·情节结构与人物分析",
+      "description": "梳理文章叙事结构，分析曹刿、鲁庄公等人物形象。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": null,
+      "evidence": [
+        "能划分战前、战中、战后三个阶段",
+        "能分析曹刿‘远谋’的具体表现",
+        "能评价鲁庄公的形象（如‘鄙’与‘善’）"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能划分战前、战中、战后三个阶段",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.138"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1431"
+    },
+    {
+      "id": "mtc_2201",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Chinese",
+      "name": "曹刿论战·主题思想与论战智慧",
+      "description": "理解‘取信于民’的军事思想及曹刿的论辩艺术。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": null,
+      "evidence": [
+        "能说出‘一鼓作气’等成语的出处与含义",
+        "能分析曹刿的论战逻辑（战略与战术）",
+        "能结合现实说明‘取信于民’的重要性"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出‘一鼓作气’等成语的出处与含义",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.138"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1431"
+    },
+    {
+      "id": "mtc_2202",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Chinese",
+      "name": "邹忌讽齐王纳谏·类比推理与劝谏艺术",
+      "description": "分析邹忌以家事类比国事的推理过程，理解讽谏技巧。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": null,
+      "evidence": [
+        "能画出类比推理的思维导图",
+        "能说出邹忌设喻的巧妙之处",
+        "能分析‘王之蔽甚矣’的推理逻辑"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能画出类比推理的思维导图",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.139"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1432"
+    },
+    {
+      "id": "mtc_2203",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Chinese",
+      "name": "邹忌讽齐王纳谏·主题思想与历史意义",
+      "description": "理解‘广开言路’的治国理念及对后世的启示。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": null,
+      "evidence": [
+        "能概括文章中心思想",
+        "能结合‘门庭若市’等成语说明纳谏效果",
+        "能联系实际谈‘兼听则明’的现实意义"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能概括文章中心思想",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.139"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1432"
+    },
+    {
+      "id": "mtc_2204",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Chinese",
+      "name": "陈涉世家·起义背景与人物分析",
+      "description": "梳理陈胜起义的原因、经过，分析陈胜、吴广等人物。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": null,
+      "evidence": [
+        "能说出起义的直接原因和根本原因",
+        "能分析陈胜的‘鸿鹄之志’及谋划过程",
+        "能评价‘鱼腹藏书’‘篝火狐鸣’的策略"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出起义的直接原因和根本原因",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.140"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1433"
+    },
+    {
+      "id": "mtc_2205",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Chinese",
+      "name": "陈涉世家·主题思想与历史价值",
+      "description": "理解‘王侯将相宁有种乎’的反抗精神及历史影响。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": null,
+      "evidence": [
+        "能概括文章主题",
+        "能分析‘天下苦秦久矣’的社会背景",
+        "能结合历史说明起义的进步性与局限性"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能概括文章主题",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.140"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1433"
+    },
+    {
+      "id": "mtc_2206",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Chinese",
+      "name": "出师表·劝谏艺术与情感分析",
+      "description": "分析诸葛亮恳切委婉的劝谏方式，体会其忠诚与忧虑。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": null,
+      "evidence": [
+        "能梳理‘开张圣听’‘严明赏罚’等建议",
+        "能分析‘亲贤臣，远小人’的劝谏逻辑",
+        "能通过‘临表涕零’等语句体会作者情感"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能梳理‘开张圣听’‘严明赏罚’等建议",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.141"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1434"
+    },
+    {
+      "id": "mtc_2207",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Chinese",
+      "name": "出师表·人物形象与历史价值",
+      "description": "理解诸葛亮的忠君爱国形象及《出师表》的文学地位。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": null,
+      "evidence": [
+        "能概括诸葛亮的人物特点",
+        "能说明‘出师一表真名世’的历史评价",
+        "能结合‘鞠躬尽瘁，死而后已’谈其影响"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能概括诸葛亮的人物特点",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.141"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1434"
+    },
+    {
+      "id": "mtc_2208",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Poetry",
+      "name": "诗词曲五首·南乡子·登京口北固亭有怀",
+      "description": "学习辛弃疾这首怀古词，理解借古讽今的情感。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": null,
+      "evidence": [
+        "能背诵全词并正确默写",
+        "能指出‘何处望神州’的时空背景",
+        "能分析‘天下英雄谁敌手？曹刘’的用典"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能背诵全词并正确默写",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.142"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1435"
+    },
+    {
+      "id": "mtc_2209",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Poetry",
+      "name": "诗词曲五首·过零丁洋",
+      "description": "学习文天祥这首律诗，体会慷慨赴死的民族气节。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": null,
+      "evidence": [
+        "能背诵全诗并正确默写",
+        "能解释‘惶恐滩头说惶恐，零丁洋里叹零丁’的对仗",
+        "能分析‘人生自古谁无死，留取丹心照汗青’的精神"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能背诵全诗并正确默写",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.142"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1435"
+    },
+    {
+      "id": "mtc_2210",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Poetry",
+      "name": "诗词曲五首·山坡羊·潼关怀古",
+      "description": "学习张养浩这首散曲，理解兴亡之叹。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": null,
+      "evidence": [
+        "能背诵全曲并正确默写",
+        "能描述‘峰峦如聚，波涛如怒’的景物",
+        "能分析‘兴，百姓苦；亡，百姓苦’的批判性"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能背诵全曲并正确默写",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.142"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1435"
+    },
+    {
+      "id": "mtc_2211",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Poetry",
+      "name": "诗词曲五首·己亥杂诗（其五）",
+      "description": "学习龚自珍这首抒情诗，体会无私奉献的志向。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": null,
+      "evidence": [
+        "能背诵全诗并正确默写",
+        "能解释‘落红不是无情物，化作春泥更护花’的象征",
+        "能理解诗人辞官离京时的复杂情感"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能背诵全诗并正确默写",
+      "cnStandards": [
+        "moe-2022-chinese:S4.阅读.142"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1435"
+    },
+    {
+      "id": "mtc_2212",
+      "type": "CONCEPTUAL",
+      "subject": "Chinese",
+      "domain": "Reading & Appreciation",
+      "name": "论证逻辑与证据分析",
+      "description": "分析论证的结构（演绎、归纳、类比），评估证据的相关性和可靠性，识别逻辑谬误。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 17,
+      "centrality": 0,
+      "evidence": [
+        "能画出论证结构图",
+        "能指出逻辑谬误",
+        "能评估证据质量"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能画出论证结构图",
+      "cnStandards": [
+        "moe-2022-chinese:SH.RA.03"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_815"
+    },
+    {
+      "id": "mtc_2213",
+      "type": "CONCEPTUAL",
+      "subject": "Chinese",
+      "domain": "Reading & Appreciation",
+      "name": "质疑与评价文本观点",
+      "description": "对文本观点提出有理有据的质疑，形成独立判断，能够撰写反驳段落。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 17,
+      "centrality": 0,
+      "evidence": [
+        "能针对论点提出合理质疑",
+        "能撰写反驳段落"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能针对论点提出合理质疑",
+      "cnStandards": [
+        "moe-2022-chinese:SH.RA.03"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_815"
+    },
+    {
+      "id": "mtc_2214",
+      "type": "PROCEDURAL",
+      "subject": "Chinese",
+      "domain": "Writing",
+      "name": "论证方法的综合运用",
+      "description": "在议论文中灵活运用举例、引用、对比、比喻、因果等论证方法，做到充分有力。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 17,
+      "centrality": 0.019231,
+      "evidence": [
+        "能在文章中用多种方法论证",
+        "能分析方法的效果"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能在文章中用多种方法论证",
+      "cnStandards": [
+        "moe-2022-chinese:SH.EC.01"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "skill",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_816"
+    },
+    {
+      "id": "mtc_2215",
+      "type": "PROCEDURAL",
+      "subject": "Chinese",
+      "domain": "Writing",
+      "name": "论证逻辑与层次结构",
+      "description": "构建逻辑严密的分论点体系，做到层次清晰、过渡自然，避免逻辑漏洞。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 17,
+      "centrality": 0.019231,
+      "evidence": [
+        "能列出逻辑清晰的提纲",
+        "能指出论证中的逻辑漏洞"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能列出逻辑清晰的提纲",
+      "cnStandards": [
+        "moe-2022-chinese:SH.EC.01"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "skill",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_816"
+    },
+    {
+      "id": "mtc_2216",
+      "type": "PROCEDURAL",
+      "subject": "Chinese",
+      "domain": "Writing",
+      "name": "引用规范与格式",
+      "description": "掌握学术写作的引用规范（如注释、参考文献格式），正确使用引文，避免抄袭。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0,
+      "evidence": [
+        "能正确写出注释和参考文献",
+        "能判断引用是否规范"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能正确写出注释和参考文献",
+      "cnStandards": [
+        "moe-2022-chinese:SH.EC.02"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "skill",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_817"
+    },
+    {
+      "id": "mtc_2217",
+      "type": "PROCEDURAL",
+      "subject": "Chinese",
+      "domain": "Writing",
+      "name": "研究性文章写作",
+      "description": "撰写格式规范、论证充分、表述严谨的小论文，做到选题明确、条理清晰。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0,
+      "evidence": [
+        "能写出完整的研究性文章（800字以上）",
+        "能修改润色文章"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能写出完整的研究性文章（800字以上）",
+      "cnStandards": [
+        "moe-2022-chinese:SH.EC.02"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "skill",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_817"
+    },
+    {
+      "id": "mtc_2218",
+      "type": "CONCEPTUAL",
+      "subject": "Chinese",
+      "domain": "Classical Chinese",
+      "name": "文言文思想内容分析",
+      "description": "理解诸子散文、史传等文言文的思想内涵，概括文章主旨，分析作者观点。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": 0,
+      "evidence": [
+        "能概括文章内容",
+        "能说明作者观点"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能概括文章内容",
+      "cnStandards": [
+        "moe-2022-chinese:SH.CC.01"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_818"
+    },
+    {
+      "id": "mtc_2219",
+      "type": "CONCEPTUAL",
+      "subject": "Chinese",
+      "domain": "Classical Chinese",
+      "name": "文言文语言特色鉴赏",
+      "description": "鉴赏文言文的语言艺术，如气势、节奏、用典、遣词等，并能分析其效果。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": 0,
+      "evidence": [
+        "能分析语言特点",
+        "能举例说明效果"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能分析语言特点",
+      "cnStandards": [
+        "moe-2022-chinese:SH.CC.01"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_818"
+    },
+    {
+      "id": "mtc_2220",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Modern Prose",
+      "name": "故都的秋·语言与结构",
+      "description": "品味课文平淡而隽永的语言风格，分析文章首尾呼应、对比映衬的结构特点。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": null,
+      "evidence": [
+        "能找出文中的典型语句并赏析其语言特色",
+        "能分析南北秋色的对比作用",
+        "能说明文章开头与结尾的照应关系"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能找出文中的典型语句并赏析其语言特色",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).14"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1450"
+    },
+    {
+      "id": "mtc_2221",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Poetry",
+      "name": "赤壁赋·哲理与艺术赏析",
+      "description": "理解文中变与不变的哲理，分析写景、抒情、议论相结合的写作手法。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": null,
+      "evidence": [
+        "能阐述客人悲与苏轼豁达的哲理内涵",
+        "能分析文中水月意象的象征意义",
+        "能结合实例说明该文的艺术成就"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能阐述客人悲与苏轼豁达的哲理内涵",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).16"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1452"
+    },
+    {
+      "id": "mtc_2222",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Chinese",
+      "name": "侍坐章·思想内涵与语言艺术",
+      "description": "探讨孔子“吾与点也”的深层含义，品味语录体简洁传神的语言。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": null,
+      "evidence": [
+        "能解释孔子赞赏曾皙的原因",
+        "能分析《论语》语录体的语言特点",
+        "能结合现实说明本章的儒家思想意义"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能解释孔子赞赏曾皙的原因",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).17"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1453"
+    },
+    {
+      "id": "mtc_2223",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Chinese",
+      "name": "烛之武退秦师·游说艺术与人物形象",
+      "description": "分析烛之武层层递进、利益分析的游说技巧，把握其智勇兼备的形象。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": null,
+      "evidence": [
+        "能分析烛之武的游说逻辑",
+        "能评价烛之武的人物形象",
+        "能结合实例说明外交辞令的力量"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能分析烛之武的游说逻辑",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).18"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1454"
+    },
+    {
+      "id": "mtc_2224",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Chinese",
+      "name": "鸿门宴·人物形象与艺术手法",
+      "description": "分析刘邦、项羽、张良、范增等人物性格，鉴赏对照烘托等手法。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": null,
+      "evidence": [
+        "能比较刘邦与项羽的性格差异",
+        "能分析张良、范增在事件中的作用",
+        "能说明本文如何通过细节塑造人物"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能比较刘邦与项羽的性格差异",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).19"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1455"
+    },
+    {
+      "id": "mtc_2225",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Fiction & Narrative",
+      "name": "窦娥冤（节选）·曲词赏析与人物形象",
+      "description": "品味[滚绣球]等经典曲词，把握窦娥刚烈不屈的性格。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": null,
+      "evidence": [
+        "能赏析窦娥唱词的语言艺术",
+        "能分析窦娥的人物形象",
+        "能说明三桩誓愿的象征意义"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能赏析窦娥唱词的语言艺术",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).20"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1456"
+    },
+    {
+      "id": "mtc_2226",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Fiction & Narrative",
+      "name": "雷雨（节选）·台词分析与主题探讨",
+      "description": "赏析精彩台词，探讨封建家庭悲剧的根源和作品的社会意义。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": null,
+      "evidence": [
+        "能分析周朴园复杂性格的台词表现",
+        "能说明雷雨标题的象征意义",
+        "能结合实例论述该剧的现实意义"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能分析周朴园复杂性格的台词表现",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).21"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1457"
+    },
+    {
+      "id": "mtc_2227",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Fiction & Narrative",
+      "name": "哈姆莱特（节选）·戏剧冲突与人文思想",
+      "description": "分析哈姆莱特与克劳狄斯的冲突，探讨文艺复兴时期的人文主义精神。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": null,
+      "evidence": [
+        "能分析戏剧的主要冲突类型",
+        "能说明哈姆莱特的延宕性格成因",
+        "能结合文本讨论作品的人文价值"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能分析戏剧的主要冲突类型",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).22"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1458"
+    },
+    {
+      "id": "mtc_2228",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Practical Texts",
+      "name": "青蒿素：人类征服疾病的一小步·人物精神与语言",
+      "description": "分析屠呦呦的科学精神与奉献品质，品味平实准确的说明语言。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": null,
+      "evidence": [
+        "能结合事例分析屠呦呦的精神品质",
+        "能分析文章语言准确、生动的特点",
+        "能说明该成果对人类的重大意义"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能结合事例分析屠呦呦的精神品质",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).23"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1459"
+    },
+    {
+      "id": "mtc_2229",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Practical Texts",
+      "name": "中国建筑的特征·说明方法与文化内涵",
+      "description": "分析文章使用的分类、举例等说明方法，探讨中国建筑的文化意义。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": null,
+      "evidence": [
+        "能识别文中的说明方法并分析其作用",
+        "能说明中国建筑特征与文化的关系",
+        "能结合实例阐述中国建筑的美学价值"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能识别文中的说明方法并分析其作用",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).24"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1460"
+    },
+    {
+      "id": "mtc_2230",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Modern Prose",
+      "name": "说“木叶”·诗歌语言暗示性赏析",
+      "description": "理解“木”在诗歌中的情感色彩，分析诗歌语言的暗示性特征。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": null,
+      "evidence": [
+        "能分析“木”的意象所蕴含的意味",
+        "能运用暗示性理论分析其他诗句",
+        "能说明本文对诗歌鉴赏的启示"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能分析“木”的意象所蕴含的意味",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).25"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1461"
+    },
+    {
+      "id": "mtc_2231",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Argumentative Writing",
+      "name": "在《人民报》创刊纪念会上的演说·语言与修辞",
+      "description": "赏析排比、比喻等修辞手法，感受演讲的感染力。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": null,
+      "evidence": [
+        "能找出文中的主要修辞手法并分析效果",
+        "能模仿句式进行仿写",
+        "能说明该演说在今天的现实意义"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能找出文中的主要修辞手法并分析效果",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).26"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1462"
+    },
+    {
+      "id": "mtc_2232",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Chinese",
+      "name": "谏逐客书·论证技巧与说服力",
+      "description": "分析作者运用史实、类比、对比等论证方法，体会其雄辩风格。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": null,
+      "evidence": [
+        "能分析文中运用的论证方法",
+        "能评价李斯的论辩艺术",
+        "能结合实例说明该文的现实启示"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能分析文中运用的论证方法",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).27"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1463"
+    },
+    {
+      "id": "mtc_2233",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Fiction & Narrative",
+      "name": "祝福·叙事艺术与主题探究",
+      "description": "赏析倒叙、线索等叙事手法，探讨封建礼教吃人的主题。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": null,
+      "evidence": [
+        "能分析倒叙结构和“我”的作用",
+        "能解读文中多次出现的祝福场景",
+        "能阐述作品对封建礼教的批判意义"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能分析倒叙结构和“我”的作用",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).28"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1464"
+    },
+    {
+      "id": "mtc_2234",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Fiction & Narrative",
+      "name": "林教头风雪山神庙·环境描写与主题",
+      "description": "赏析风雪等自然环境描写对情节和人物的烘托，探讨官逼民反的主题。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": null,
+      "evidence": [
+        "能分析风雪描写在文中的多重作用",
+        "能说明山神庙场景的象征意义",
+        "能结合文本阐述作品主题"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能分析风雪描写在文中的多重作用",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).29"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1465"
+    },
+    {
+      "id": "mtc_2235",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Chinese",
+      "name": "促织·艺术手法与主题探讨",
+      "description": "分析幻想与现实交织的手法，批判封建统治对百姓的压迫。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": null,
+      "evidence": [
+        "能分析神卜、虫化等奇幻情节的用意",
+        "能解释结尾“一人得道”的讽刺意味",
+        "能结合史实说明作品的批判意义"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能分析神卜、虫化等奇幻情节的用意",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).30"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1466"
+    },
+    {
+      "id": "mtc_2236",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Chinese",
+      "name": "谏太宗十思疏·说理艺术与价值",
+      "description": "分析比喻、对比等说理技巧，理解居安思危的治国理念。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": null,
+      "evidence": [
+        "能分析文中比喻说理的效果",
+        "能阐述“载舟覆舟”的内涵",
+        "能结合现实说明该文的借鉴意义"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能分析文中比喻说理的效果",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).31"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1467"
+    },
+    {
+      "id": "mtc_2237",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Chinese",
+      "name": "阿房宫赋·艺术手法与主题",
+      "description": "赏析铺排、夸张、对比等写作技巧，理解灭亡的教训和讽谏意图。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": null,
+      "evidence": [
+        "能分析文中的铺陈手法",
+        "能阐述“秦爱纷奢”与灭亡的关系",
+        "能说明文章对后世统治者的警示"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能分析文中的铺陈手法",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).32"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1468"
+    },
+    {
+      "id": "mtc_2238",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Practical Texts",
+      "name": "中国人民站起来了·语言与情感",
+      "description": "赏析排比、设问等修辞，感受演讲的豪迈气势和爱国情感。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": null,
+      "evidence": [
+        "能分析文中排比句的鼓动效果",
+        "能品味演讲中充满自信的句子",
+        "能结合实例说明该演讲的历史意义"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能分析文中排比句的鼓动效果",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).33"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1469"
+    },
+    {
+      "id": "mtc_2239",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Practical Texts",
+      "name": "长征胜利万岁·精神与语言",
+      "description": "体会长征精神的深刻内涵，品味朴实而有力的语言。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": null,
+      "evidence": [
+        "能阐述长征精神的核心要义",
+        "能分析文中典型语句的感染力",
+        "能联系现实说明长征精神的当代价值"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能阐述长征精神的核心要义",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).34"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1470"
+    },
+    {
+      "id": "mtc_2240",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Practical Texts",
+      "name": "核心观点与论证过程分析",
+      "description": "把握作者的核心观点（如浑天说与盖天说之争），分析论证过程和方法。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": null,
+      "evidence": [
+        "能概括作者的主要论点",
+        "能分析文章使用的论证方法（举例、对比等）"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能概括作者的主要论点",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).57"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1493"
+    },
+    {
+      "id": "mtc_2241",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Practical Texts",
+      "name": "现实意义与拓展应用",
+      "description": "结合实例说明天文学争论对科学发展及现代生活的意义。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": null,
+      "evidence": [
+        "能举例说明天文学争论的现实意义",
+        "能运用文章观点分析相关科学争议"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能举例说明天文学争论的现实意义",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).57"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1493"
+    },
+    {
+      "id": "mtc_2242",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Argumentative Writing",
+      "name": "论证逻辑与概念辨析",
+      "description": "分析恩格斯的论证逻辑，辨析“最终决定因素”等关键概念。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": null,
+      "evidence": [
+        "能理清书信的论证思路",
+        "能解释“经济基础决定上层建筑”的精确含义"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能理清书信的论证思路",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).58"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1494"
+    },
+    {
+      "id": "mtc_2243",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Argumentative Writing",
+      "name": "理论意义与现实应用",
+      "description": "联系历史或当下实例，说明历史唯物主义的应用价值。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": null,
+      "evidence": [
+        "能列举历史事例说明经济基础的作用",
+        "能运用观点分析社会现象"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能列举历史事例说明经济基础的作用",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).58"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1494"
+    },
+    {
+      "id": "mtc_2244",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Argumentative Writing",
+      "name": "论证方法与语言特色分析",
+      "description": "分析文章使用的论证方法（举例、对比、引用等）和语言风格（讽刺、直白等）。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": null,
+      "evidence": [
+        "能指出文中主要论证方法并举例说明",
+        "能分析文章语言的特点和效果"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能指出文中主要论证方法并举例说明",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).59"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1495"
+    },
+    {
+      "id": "mtc_2245",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Argumentative Writing",
+      "name": "现实意义与批判性思考",
+      "description": "结合当下学习风气，说明改造学习的重要性，并能评价文章观点。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": null,
+      "evidence": [
+        "能联系实际说明文章的现实意义",
+        "能对文章观点提出自己的思考或质疑"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能联系实际说明文章的现实意义",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).59"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1495"
+    },
+    {
+      "id": "mtc_2246",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Argumentative Writing",
+      "name": "论证过程与理论辨析",
+      "description": "分析文章如何从理论和实践两个方面论证，比较与教条主义的区别。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": null,
+      "evidence": [
+        "能梳理文章的论证链条",
+        "能区分实践标准与理论标准的区别"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能梳理文章的论证链条",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).60"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1496"
+    },
+    {
+      "id": "mtc_2247",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Argumentative Writing",
+      "name": "历史意义与当代应用",
+      "description": "结合改革开放等历史事例，说明文章的重大历史意义，并能联系当前实际。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": null,
+      "evidence": [
+        "能列举文章发表后产生的历史影响",
+        "能运用实践标准分析当下社会议题"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能列举文章发表后产生的历史影响",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).60"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1496"
+    },
+    {
+      "id": "mtc_2248",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Argumentative Writing",
+      "name": "论证逻辑与推理分析",
+      "description": "分析苏格拉底如何通过层层推理论证“坚持正义”的必要性。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": null,
+      "evidence": [
+        "能复述苏格拉底的推理过程",
+        "能分析对话中的关键逻辑环节"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能复述苏格拉底的推理过程",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).62"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1498"
+    },
+    {
+      "id": "mtc_2249",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Argumentative Writing",
+      "name": "现实意义与伦理思考",
+      "description": "结合实例说明坚持正义的当代价值，并能评价苏格拉底的观点。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": null,
+      "evidence": [
+        "能举例说明现实中的正义选择",
+        "能对苏格拉底的观点提出自己的见解"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能举例说明现实中的正义选择",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).62"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1498"
+    },
+    {
+      "id": "mtc_2250",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Practical Texts",
+      "name": "写作手法与情感表达分析",
+      "description": "分析报告文学的特点，如场景描写、数据引用、议论抒情等手法。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": null,
+      "evidence": [
+        "能指出文中典型场景描写及其效果",
+        "能分析作者如何表达情感和态度"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能指出文中典型场景描写及其效果",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).64"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1500"
+    },
+    {
+      "id": "mtc_2251",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Practical Texts",
+      "name": "社会意义与批判性思考",
+      "description": "联系现实，谈保护劳动者权益的意义，并评价文章的文学和社会价值。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": null,
+      "evidence": [
+        "能举例说明当代劳动者权益保护",
+        "能评价文章的现实意义"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能举例说明当代劳动者权益保护",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).64"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1500"
+    },
+    {
+      "id": "mtc_2252",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Chinese",
+      "name": "人物形象与章法分析",
+      "description": "分析屈原的人物形象特点（忠君爱国、正直等）以及史传文学叙事手法。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": null,
+      "evidence": [
+        "能概括屈原的性格特征",
+        "能分析文章如何通过叙事塑造人物"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能概括屈原的性格特征",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).66"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1502"
+    },
+    {
+      "id": "mtc_2253",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Chinese",
+      "name": "文化意义与拓展思考",
+      "description": "结合端午等文化现象，说明屈原精神的当代意义，并比较其他历史人物。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": null,
+      "evidence": [
+        "能说出屈原对后世文化的影响",
+        "能运用比较法分析人物形象"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出屈原对后世文化的影响",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).66"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1502"
+    },
+    {
+      "id": "mtc_2254",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Chinese",
+      "name": "人物形象与写作手法",
+      "description": "分析苏武的民族气节和性格，学习传记通过言行塑造人物的方法。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": null,
+      "evidence": [
+        "能概括苏武的形象特点",
+        "能举例说明文中对比、烘托等手法"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能概括苏武的形象特点",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).67"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1503"
+    },
+    {
+      "id": "mtc_2255",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Chinese",
+      "name": "历史意义与当代价值",
+      "description": "结合历史背景，评析苏武节操的意义，并联系现代谈谈忠诚与气节。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": null,
+      "evidence": [
+        "能说出苏武精神的历史影响",
+        "能结合实际谈当代如何践行忠诚"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出苏武精神的历史影响",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).67"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1503"
+    },
+    {
+      "id": "mtc_2256",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Chinese",
+      "name": "论证艺术分析",
+      "description": "分析文章的论证结构（对比、层层推进）和语言气势。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": null,
+      "evidence": [
+        "能指出文章的主要论证方法",
+        "能分析排比句、反问句的效果"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能指出文章的主要论证方法",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).68"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1504"
+    },
+    {
+      "id": "mtc_2257",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Classical Chinese",
+      "name": "历史观点与当代启示",
+      "description": "评价贾谊“仁义不施”的观点，并结合历史教训谈治国理政。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": null,
+      "evidence": [
+        "能阐述作者的核心观点",
+        "能联系现实说明以史为鉴的意义"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能阐述作者的核心观点",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).68"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1504"
+    },
+    {
+      "id": "mtc_2258",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Fiction & Narrative",
+      "name": "人物形象与冲突分析",
+      "description": "分析娜拉和海尔茂的性格特点，理解戏剧冲突的实质（男女平等、个性解放）。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": null,
+      "evidence": [
+        "能分别概括两人性格",
+        "能分析冲突背后揭示的社会问题"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能分别概括两人性格",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).69"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1505"
+    },
+    {
+      "id": "mtc_2259",
+      "type": "LANGUAGE",
+      "subject": "Chinese",
+      "domain": "Fiction & Narrative",
+      "name": "主题意义与拓展",
+      "description": "结合社会背景，探讨女性觉醒的主题，联系当代性别平等议题。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": null,
+      "evidence": [
+        "能说出作品的主题思想",
+        "能举例说明当代女性地位的变化"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出作品的主题思想",
+      "cnStandards": [
+        "moe-2022-chinese:SH.(单元).69"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "text",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1505"
     }
   ]
 }

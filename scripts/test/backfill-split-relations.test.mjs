@@ -2,6 +2,7 @@
 import assert from 'node:assert/strict';
 import {
   buildCandidates,
+  missingTargetIds,
   parseRelations,
   selectAppendableEdges,
 } from '../backfill-split-relations.mjs';
@@ -14,7 +15,7 @@ const topics = [
   { id: 'later', subject: 'Biology', domain: 'Immunity', stage: '高中', ageRangeStart: 16, name: '免疫失调', description: '过敏与自身免疫病' },
   { id: 'local', subject: 'Biology', domain: 'Immunity', stage: '高中', ageRangeStart: 16, name: '抗原与抗体', description: '抗原抗体特异性结合' },
   { id: 'junior', subject: 'Biology', domain: 'Immunity', stage: '初中', ageRangeStart: 13, name: '人体免疫防线', description: '人体三道防线' },
-  { id: 'unrelated', subject: 'Geography', domain: 'Climate', stage: '高中', ageRangeStart: 16, name: '季风气候', description: '季风气候' },
+  { id: 'unrelated', splitFrom: 'parent', subject: 'Geography', domain: 'Climate', stage: '高中', ageRangeStart: 16, name: '季风气候', description: '季风气候' },
 ];
 const existing = [
   { topicId: 'parent', prerequisiteId: 'prior', strength: 'hard', reason: '先理解组成' },
@@ -26,8 +27,17 @@ assert.ok(candidates.some(c => c.id === 'prior' && c.sources.includes('parent-ed
 assert.ok(candidates.some(c => c.id === 'later' && c.sources.includes('parent-edge')), '应召回父节点后续邻居');
 assert.ok(candidates.some(c => c.id === 'child-b' && c.sources.includes('sibling')), '应召回兄弟节点');
 assert.ok(candidates.some(c => c.id === 'local' && c.sources.includes('local')), '应召回同桶近邻');
+assert.ok(!candidates.some(c => c.id === 'unrelated'), '同 splitFrom 但跨学科的历史脏数据不应视为兄弟');
 assert.ok(candidates.some(c => c.id === 'junior' && c.sources.includes('cross-stage')), '应召回相邻学段节点');
-assert.ok(!candidates.some(c => c.id === 'unrelated'), '不应召回跨学科无关节点');
+const corruptCandidates = buildCandidates(topics[7], topics, existing);
+assert.ok(!corruptCandidates.some(c => ['parent', 'prior', 'later'].includes(c.id)),
+  '跨学科错误 splitFrom 不得召回父节点及父边邻居');
+
+assert.deepEqual(
+  missingTargetIds([{ id: 'a' }, { id: 'b' }], [{ targets: [{ id: 'a' }] }]),
+  ['b'],
+  '应报告筛选范围内尚未审计的目标',
+);
 
 const allowedPairs = new Set(['child-a|prior', 'child-a|local', 'child-b|child-a']);
 const parsed = parseRelations(JSON.stringify({ relations: [

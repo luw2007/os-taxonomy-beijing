@@ -21,7 +21,7 @@
  * LLM：deepseek-v4-flash（DEEPSEEK_API_KEY），raw 缓存断点续跑。
  * 写回约定（沿用 split-compound-topics.mjs）：
  *   原条目保留 id 改写为第一个子主题；其余子主题分配新 mtc_ 递增 id，splitFrom 记来源；
- *   子主题链加 reviewStatus=machine 顺序依赖；原条目出边移到链尾，入边留链头。
+ *   不臆造子主题间先修，原节点依赖保持不变，由独立关系回填脚本增量补边。
  */
 import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';

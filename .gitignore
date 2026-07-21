@@ -38,3 +38,4 @@ data/.align-work/
 .env.backup-*
 .env.backup
 data/.granularity-work/
+data/.split-relations-work/

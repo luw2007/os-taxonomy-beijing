@@ -2,9 +2,12 @@
 import assert from 'node:assert/strict';
 import {
   buildCandidates,
+  graphFingerprint,
   missingTargetIds,
   parseRelations,
   selectAppendableEdges,
+  staleWorkFiles,
+  targetNodes,
 } from '../backfill-split-relations.mjs';
 
 const topics = [
@@ -16,6 +19,7 @@ const topics = [
   { id: 'local', subject: 'Biology', domain: 'Immunity', stage: '高中', ageRangeStart: 16, name: '抗原与抗体', description: '抗原抗体特异性结合' },
   { id: 'junior', subject: 'Biology', domain: 'Immunity', stage: '初中', ageRangeStart: 13, name: '人体免疫防线', description: '人体三道防线' },
   { id: 'unrelated', splitFrom: 'parent', subject: 'Geography', domain: 'Climate', stage: '高中', ageRangeStart: 16, name: '季风气候', description: '季风气候' },
+  { id: 'cross-domain', subject: 'Biology', domain: 'Cells', stage: '高中', ageRangeStart: 16, name: '细胞膜的结构', description: '细胞膜结构与功能' },
 ];
 const existing = [
   { topicId: 'parent', prerequisiteId: 'prior', strength: 'hard', reason: '先理解组成' },
@@ -32,12 +36,25 @@ assert.ok(candidates.some(c => c.id === 'junior' && c.sources.includes('cross-st
 const corruptCandidates = buildCandidates(topics[7], topics, existing);
 assert.ok(!corruptCandidates.some(c => ['parent', 'prior', 'later'].includes(c.id)),
   '跨学科错误 splitFrom 不得召回父节点及父边邻居');
+assert.ok(candidates.some(c => c.id === 'cross-domain' && c.sources.includes('structural')),
+  '应通过父边两跳结构召回同学科跨领域候选');
 
 assert.deepEqual(
   missingTargetIds([{ id: 'a' }, { id: 'b' }], [{ targets: [{ id: 'a' }] }]),
   ['b'],
   '应报告筛选范围内尚未审计的目标',
 );
+const fingerprint = graphFingerprint(topics, existing);
+assert.equal(typeof fingerprint, 'string');
+assert.equal(fingerprint.length, 64);
+assert.deepEqual(staleWorkFiles([{ bucket: 'Biology|高中', inputFingerprint: fingerprint }], fingerprint), []);
+assert.deepEqual(staleWorkFiles([{ bucket: 'Biology|高中', inputFingerprint: 'old' }], fingerprint), ['Biology|高中']);
+
+const targetsIncludingRescope = targetNodes(topics, [
+  ...existing,
+  { topicId: 'parent', prerequisiteId: 'prior', rescopeRequired: true },
+], {});
+assert.ok(targetsIncludingRescope.some(topic => topic.id === 'parent'), '复用首子主题必须因 rescopeRequired 进入重审');
 
 const allowedPairs = new Set(['child-a|prior', 'child-a|local', 'child-b|child-a']);
 const parsed = parseRelations(JSON.stringify({ relations: [
@@ -76,5 +93,13 @@ assert.deepEqual(oldEdges, [
 assert.equal(selected.finalEdges.length, 3);
 assert.deepEqual(selected.finalEdges.slice(0, oldEdges.length), oldEdges, '旧边顺序和内容必须原样保留在前缀');
 assert.equal(selected.finalEdges[2].reviewStatus, 'machine');
+const ageSelected = selectAppendableEdges([], [
+  { topicId: 'junior', prerequisiteId: 'older-junior', strength: 'soft', reason: 'age warning' },
+], new Set(['junior', 'older-junior']), new Map([
+  ['junior', { stage: '初中', ageRangeStart: 12 }],
+  ['older-junior', { stage: '初中', ageRangeStart: 14 }],
+]), { generationBatchId: 'batch-1' });
+assert.equal(ageSelected.appended[0].ageRegression, true);
+assert.equal(ageSelected.appended[0].generationBatchId, 'batch-1');
 
 console.log('✓ backfill-split-relations safety tests');

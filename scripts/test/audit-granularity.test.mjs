@@ -27,6 +27,9 @@ const base = () => ({
     { topicId: 'mtc_11', prerequisiteId: 'mtc_10', strength: 'hard', reason: 'old reviewed', reviewStatus: 'reviewed' },
     { topicId: 'mtc_10', prerequisiteId: 'mtc_11', strength: 'soft', reason: 'old machine', reviewStatus: 'machine' },
   ] },
+  bridgeDepsDoc: { edgeCount: 1, dependencies: [
+    { topicId: 'mtc_10', prerequisiteId: 'mt_upstream', strength: 'soft', reason: 'old bridge', reviewStatus: 'reviewed' },
+  ] },
 });
 
 test('split children require concrete descriptions and evidence before apply', () => {
@@ -44,6 +47,10 @@ test('split apply demotes inherited reviewed edges and marks every touching edge
   assert.equal(rewritten[0].previousReviewStatus, 'reviewed');
   assert.equal(rewritten[1].previousReviewStatus, undefined);
   assert.ok(rewritten.every(edge => edge.rescopeBatchId === 'split-batch'));
+  assert.equal(out.bridgeDepsDoc.dependencies[0].reviewStatus, 'machine');
+  assert.equal(out.bridgeDepsDoc.dependencies[0].rescopeRequired, true);
+  assert.equal(out.bridgeDepsDoc.dependencies[0].previousReviewStatus, 'reviewed');
+  assert.equal(out.bridgeDepsDoc.dependencies[0].rescopeBatchId, 'split-batch');
   assert.equal(out.topicsDoc.topics.find(topic => topic.id === 'mtc_10').centrality, null);
   const second = out.topicsDoc.topics.find(topic => topic.splitFrom === 'mtc_10');
   assert.equal(second.name, '细胞免疫');

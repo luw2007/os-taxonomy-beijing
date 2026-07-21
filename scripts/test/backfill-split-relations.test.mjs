@@ -59,10 +59,16 @@ const proposals = [
   { topicId: 'A', prerequisiteId: 'B', strength: 'soft', reason: 'reverse conflict' },
   { topicId: 'A', prerequisiteId: 'C', strength: 'soft', reason: 'cycle' },
   { topicId: 'missing', prerequisiteId: 'A', strength: 'soft', reason: 'bad endpoint' },
+  { topicId: 'junior', prerequisiteId: 'senior', strength: 'hard', reason: 'stage regression' },
 ];
-const selected = selectAppendableEdges(oldEdges, proposals, new Set(['A', 'B', 'C', 'D']));
+const stageTopics = new Map([
+  ['A', { stage: '初中' }], ['B', { stage: '初中' }], ['C', { stage: '高中' }], ['D', { stage: '高中' }],
+  ['junior', { stage: '初中' }], ['senior', { stage: '高中' }],
+]);
+const selected = selectAppendableEdges(oldEdges, proposals, new Set(stageTopics.keys()), stageTopics);
 assert.deepEqual(selected.appended.map(e => [e.topicId, e.prerequisiteId]), [['D', 'C']], '只追加安全的新边');
-assert.equal(selected.rejected.length, 4);
+assert.equal(selected.rejected.length, 5);
+assert.ok(selected.rejected.some(e => e.rejectedReason === 'stage-regression'));
 assert.deepEqual(oldEdges, [
   { topicId: 'B', prerequisiteId: 'A', strength: 'hard', reason: 'old', reviewStatus: 'reviewed' },
   { topicId: 'C', prerequisiteId: 'B', strength: 'hard', reason: 'old', reviewStatus: 'reviewed' },

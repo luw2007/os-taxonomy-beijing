@@ -15,7 +15,7 @@
     "clustersZh": 4,
     "cnCurricula": 17,
     "cnCurriculumEntries": 1423,
-    "cnDeps": 2290,
+    "cnDeps": 2619,
     "alignedMathHigh": 215,
     "alignedMathMedium": 120,
     "alignedMathLowExcluded": 109,
@@ -60,8 +60,8 @@
       "sha256": "2c631de7157436f5c732b6ed4fa83447c52fe4e00a7ac6ef0278ed19cdc3c2a8"
     },
     "cn-dependencies.json": {
-      "bytes": 516591,
-      "sha256": "3e600e2073e22d69c50c2c6a80db74d9e4bd459a724ceaf6e4de6f5b8c04c14f"
+      "bytes": 598778,
+      "sha256": "86b9312e618ac0f144389cdb0928c2dbe3ccb7c36621a855992fc14f6397d730"
     },
     "cn-bridge-dependencies.json": {
       "bytes": 10886,

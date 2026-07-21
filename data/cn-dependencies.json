@@ -2,7 +2,7 @@
   "version": "1.2.0-zh.0",
   "upstreamVersion": "v1",
   "locale": "zh-CN",
-  "edgeCount": 2290,
+  "edgeCount": 2619,
   "note": "mtc_ 主题知识依赖 DAG。LLM 逐桶语义建图(桶内先修) + 规则跨domain先修链。详见 scripts/build-deps-llm.mjs。",
   "dependencies": [
     {
@@ -16033,6 +16033,2309 @@
       "prerequisiteId": "mtc_2125",
       "strength": "hard",
       "reason": "粒度拆分链: 社会问题的挑战与应对 → 可持续发展与全球治理",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2127",
+      "prerequisiteId": "mtc_377",
+      "strength": "soft",
+      "reason": "认识细胞基本结构是理解细胞核功能的前提，但非绝对必要。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_380",
+      "prerequisiteId": "mtc_2127",
+      "strength": "hard",
+      "reason": "细胞分裂是构建生物体结构层次的基础。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2129",
+      "prerequisiteId": "mtc_389",
+      "strength": "soft",
+      "reason": "理解种子植物比孢子植物更适应陆地环境需要先了解孢子植物的特征，但非硬性依赖。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2133",
+      "prerequisiteId": "mtc_2131",
+      "strength": "hard",
+      "reason": "高中自然选择与适应直接建立在初中自然选择学说基础上，不掌握初中内容则无法理解高中核心概念。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2135",
+      "prerequisiteId": "mtc_981",
+      "strength": "hard",
+      "reason": "缺乏细胞基本结构知识无法画出有丝分裂模式图",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2136",
+      "prerequisiteId": "mtc_1012",
+      "strength": "hard",
+      "reason": "不掌握一对相对性状的杂交实验，无法理解分离定律的推导过程。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2137",
+      "prerequisiteId": "mtc_2136",
+      "strength": "hard",
+      "reason": "自由组合定律建立在分离定律基础上。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_1013",
+      "prerequisiteId": "mtc_2136",
+      "strength": "hard",
+      "reason": "两对相对性状的杂交实验需要分离定律知识。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2137",
+      "prerequisiteId": "mtc_1013",
+      "strength": "hard",
+      "reason": "自由组合定律由两对相对性状杂交实验归纳得出，必须理解该实验的过程和解释。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2137",
+      "prerequisiteId": "mtc_1014",
+      "strength": "hard",
+      "reason": "自由组合定律的细胞学基础是减数分裂中非同源染色体的自由组合，需掌握减数分裂过程。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2138",
+      "prerequisiteId": "mtc_1014",
+      "strength": "hard",
+      "reason": "受精作用需要理解减数分裂的过程，因为精子和卵细胞的形成依赖于减数分裂，且受精作用的意义需结合减数分裂解释遗传稳定性。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2139",
+      "prerequisiteId": "mtc_1017",
+      "strength": "hard",
+      "reason": "翻译过程需要转录产生的mRNA作为模板，不了解转录过程无法进行翻译。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2140",
+      "prerequisiteId": "mtc_1027",
+      "strength": "hard",
+      "reason": "神经冲动的传导建立在冲动产生的基础上，没有动作电位产生就无法理解传导方向和机制。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2140",
+      "prerequisiteId": "mtc_1025",
+      "strength": "hard",
+      "reason": "理解突触传递的单向性需要掌握突触结构等神经调节的结构基础。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2141",
+      "prerequisiteId": "mtc_413",
+      "strength": "hard",
+      "reason": "初中激素调节中学习了甲状腺激素的作用，是理解分级调节和反馈调节的基础。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2142",
+      "prerequisiteId": "mtc_1026",
+      "strength": "soft",
+      "reason": "理解水盐平衡的神经调节途径需要掌握神经调节的基本方式",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2144",
+      "prerequisiteId": "mtc_1056",
+      "strength": "hard",
+      "reason": "基本培养技术提供无菌操作和接种方法，是纯化微生物的前提。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2145",
+      "prerequisiteId": "mtc_1057",
+      "strength": "hard",
+      "reason": "掌握发酵工程的基本流程是理解其应用实例的前提",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2145",
+      "prerequisiteId": "mtc_1056",
+      "strength": "soft",
+      "reason": "微生物培养技术为发酵工程提供基础操作背景",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2146",
+      "prerequisiteId": "mtc_1058",
+      "strength": "hard",
+      "reason": "植物体细胞杂交技术需要以植物组织培养技术为基础，因为融合后的杂种细胞需通过组织培养培育成植株",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2147",
+      "prerequisiteId": "mtc_1059",
+      "strength": "hard",
+      "reason": "动物细胞核移植需要动物细胞培养技术来培养供体细胞和受体细胞",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2148",
+      "prerequisiteId": "mtc_1059",
+      "strength": "soft",
+      "reason": "动物细胞培养是制备单克隆抗体所需杂交瘤细胞培养的基础技术",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2149",
+      "prerequisiteId": "mtc_1060",
+      "strength": "soft",
+      "reason": "体外受精是获得早期胚胎的方法之一，掌握体外受精有助于理解胚胎移植中胚胎来源，但并非绝对必要",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2150",
+      "prerequisiteId": "mtc_1062",
+      "strength": "hard",
+      "reason": "目的基因的导入需要先构建好表达载体。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2151",
+      "prerequisiteId": "mtc_334",
+      "strength": "hard",
+      "reason": "不掌握收集方法无法完成排水法收集氧气",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2151",
+      "prerequisiteId": "mtc_335",
+      "strength": "hard",
+      "reason": "不掌握检验方法无法完成氧气检验",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2151",
+      "prerequisiteId": "mtc_329",
+      "strength": "hard",
+      "reason": "不掌握加热操作无法完成固固加热实验",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2151",
+      "prerequisiteId": "mtc_328",
+      "strength": "hard",
+      "reason": "不掌握药品取用无法取用高锰酸钾",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2152",
+      "prerequisiteId": "mtc_354",
+      "strength": "hard",
+      "reason": "掌握酸的通性需要以具体酸的性质为基础，尤其是盐酸与碳酸钠反应等方程式依赖盐酸的性质。不掌握具体酸则无法完成通性中的具体方程式。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2153",
+      "prerequisiteId": "mtc_355",
+      "strength": "hard",
+      "reason": "掌握碱的通性需要以具体碱的性质为基础，否则无法写出核心证据中的具体反应方程式。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2154",
+      "prerequisiteId": "mtc_701",
+      "strength": "hard",
+      "reason": "钠单质是钠化合物制备与性质的基础，不掌握钠单质则无法理解钠的化合物的来源和核心反应。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2156",
+      "prerequisiteId": "mtc_942",
+      "strength": "hard",
+      "reason": "弱电解质的电离平衡是理解盐类水解平衡的基础，缺少该知识无法判断盐溶液酸碱性、书写水解离子方程式及应用平衡移动原理。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2157",
+      "prerequisiteId": "mtc_948",
+      "strength": "hard",
+      "reason": "VSEPR理论需要理解共价键中的成键电子对和孤对电子对，杂化轨道需要理解σ键和π键的形成",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2157",
+      "prerequisiteId": "mtc_365",
+      "strength": "hard",
+      "reason": "判断中心原子的价层电子对数需要知道核外电子排布和价电子概念",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2157",
+      "prerequisiteId": "mtc_947",
+      "strength": "soft",
+      "reason": "共价键模型提供电子对和键合的基本概念，是理解VSEPR和杂化轨道的基础背景",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2158",
+      "prerequisiteId": "mtc_948",
+      "strength": "hard",
+      "reason": "配位键是共价键的一种，需先理解共价键的成键本质和类型。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2159",
+      "prerequisiteId": "mtc_945",
+      "strength": "soft",
+      "reason": "原子结构模型是理解纳米材料量子尺寸效应的基础，但并非绝对必要",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2160",
+      "prerequisiteId": "mtc_950",
+      "strength": "hard",
+      "reason": "超分子的分子识别与自组装依赖于分子间作用力（如氢键、范德华力），没有分子间作用力基础无法理解自组装原理",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2162",
+      "prerequisiteId": "mtc_963",
+      "strength": "soft",
+      "reason": "理解碳原子的成键规则是认识官能团结构和连接方式的基础",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2163",
+      "prerequisiteId": "mtc_965",
+      "strength": "hard",
+      "reason": "醇的结构与化学性质是学习醇的氧化和消去反应的基础，不掌握则无法完成乙醇催化氧化方程式的书写等核心证据。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2164",
+      "prerequisiteId": "mtc_964",
+      "strength": "hard",
+      "reason": "书写苯酚与溴水的反应依赖取代反应概念",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2164",
+      "prerequisiteId": "mtc_965",
+      "strength": "hard",
+      "reason": "区别乙醇与苯酚需要掌握乙醇的化学性质",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2165",
+      "prerequisiteId": "mtc_966",
+      "strength": "hard",
+      "reason": "醛基的银镜反应是葡萄糖特征反应的核心，不掌握醛基性质无法完成书写",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2168",
+      "prerequisiteId": "mtc_964",
+      "strength": "hard",
+      "reason": "不掌握取代与加成反应，无法理解引入官能团的两种主要方法",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2168",
+      "prerequisiteId": "mtc_2162",
+      "strength": "hard",
+      "reason": "必须先认识官能团的概念和分类，才能学习其引入与转化",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_968",
+      "prerequisiteId": "mtc_2168",
+      "strength": "hard",
+      "reason": "掌握官能团引入与转化是进行逆合成分析和设计路线的基础",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2170",
+      "prerequisiteId": "mtc_2169",
+      "strength": "hard",
+      "reason": "成果展示需要基于活动实施所获得的资料和结果",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2169",
+      "prerequisiteId": "mtc_543",
+      "strength": "hard",
+      "reason": "活动实施需要先完成活动策划和资料搜集",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2170",
+      "prerequisiteId": "mtc_543",
+      "strength": "hard",
+      "reason": "活动策划与资料搜集是活动实施的基础，缺少则无法开展活动进而无法展示成果",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2174",
+      "prerequisiteId": "mtc_1295",
+      "strength": "hard",
+      "reason": "掌握课文内容梳理是进行主题与手法分析的前提",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2175",
+      "prerequisiteId": "mtc_1296",
+      "strength": "hard",
+      "reason": "掌握情节与人物是分析主题和手法的基础",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2176",
+      "prerequisiteId": "mtc_1297",
+      "strength": "hard",
+      "reason": "后六章研读需以前六章积累的文言词语和学习方法为基础，否则难以正确翻译和理解",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2177",
+      "prerequisiteId": "mtc_1297",
+      "strength": "hard",
+      "reason": "需要先学完前六章才能归纳总结全文章句",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2177",
+      "prerequisiteId": "mtc_2176",
+      "strength": "hard",
+      "reason": "需要先学完后六章才能进行综合拓展",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2178",
+      "prerequisiteId": "mtc_1298",
+      "strength": "hard",
+      "reason": "理解课文内容和中心论点是指出事实论据和分析对比论证的前提",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2179",
+      "prerequisiteId": "mtc_1299",
+      "strength": "hard",
+      "reason": "掌握《植树的牧羊人》的情节是分析人物形象和主题的基础，若不理解情节则无法归纳人物品质和主题。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2180",
+      "prerequisiteId": "mtc_1300",
+      "strength": "hard",
+      "reason": "理解脱险经过是分析标题含义和心理描写的基础",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2181",
+      "prerequisiteId": "mtc_1301",
+      "strength": "hard",
+      "reason": "《诫子书》文意疏通是理解主旨与论证的基础，不掌握字词句意则无法概括中心论点和分析论证思路。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2182",
+      "prerequisiteId": "mtc_1302",
+      "strength": "hard",
+      "reason": "《猫》内容与情节梳理是理解主旨的基础，不掌握情节无法分析作者对第三只猫的愧疚及社会批判。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2183",
+      "prerequisiteId": "mtc_1303",
+      "strength": "hard",
+      "reason": "理解课文内容和劳伦兹的趣事是进一步分析科学精神和语言表达的基础，缺少内容理解无法完成核心证据。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2184",
+      "prerequisiteId": "mtc_1304",
+      "strength": "hard",
+      "reason": "掌握《狼》的情节分析与主题需要基于对课文文言词句和文意的理解，否则无法概括屠户与狼的过程及寓意。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2185",
+      "prerequisiteId": "mtc_1305",
+      "strength": "hard",
+      "reason": "不掌握《皇帝的新装》情节与人物，无法完成主题与讽刺的分析核心证据",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2187",
+      "prerequisiteId": "mtc_1308",
+      "strength": "hard",
+      "reason": "学习前两则寓言是后续比较四则寓言特点的基础，不掌握则无法完成区分叙事与议论等核心证据。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2187",
+      "prerequisiteId": "mtc_2186",
+      "strength": "hard",
+      "reason": "学习后两则寓言是后续比较四则寓言特点的基础，不掌握则无法完成区分叙事与议论等核心证据。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2188",
+      "prerequisiteId": "mtc_1309",
+      "strength": "hard",
+      "reason": "目标节点需要分析邓稼先的人物形象和写法，而mtc_1309提供了课文内容梳理和主要事迹，是进行分析的基础，不掌握则无法达成掌握证据。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2189",
+      "prerequisiteId": "mtc_1311",
+      "strength": "hard",
+      "reason": "不先梳理课文中的鲁迅日常生活细节，则无法分析细节刻画的作用和体会怀念之情。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2190",
+      "prerequisiteId": "mtc_1313",
+      "strength": "hard",
+      "reason": "理解黄河形象和象征意义是分析黄河象征意义和反复手法的基础",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2191",
+      "prerequisiteId": "mtc_1314",
+      "strength": "hard",
+      "reason": "掌握课文内容是分析写作手法和概括主题的前提",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2192",
+      "prerequisiteId": "mtc_1315",
+      "strength": "hard",
+      "reason": "不掌握三个事例的概括，无法分析它们如何共同表现主题。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2200",
+      "prerequisiteId": "mtc_1431",
+      "strength": "hard",
+      "reason": "掌握文言字词和翻译是分析情节结构和人物形象的基础，缺失则无法理解原文。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2201",
+      "prerequisiteId": "mtc_1431",
+      "strength": "hard",
+      "reason": "掌握文言字词与翻译是理解主题思想和论战逻辑的基础",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2202",
+      "prerequisiteId": "mtc_1432",
+      "strength": "soft",
+      "reason": "掌握字词翻译是理解文本内容的基础，但通过注释辅助也能完成核心证据，因此是软先修。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2203",
+      "prerequisiteId": "mtc_1432",
+      "strength": "hard",
+      "reason": "掌握字词翻译是理解课文内容和主题思想的基础，不掌握则无法完成概括中心思想等证据。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2204",
+      "prerequisiteId": "mtc_1433",
+      "strength": "hard",
+      "reason": "不掌握字词疏通和翻译，无法准确理解起义背景和人物分析",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2205",
+      "prerequisiteId": "mtc_2204",
+      "strength": "soft",
+      "reason": "分析起义背景和人物是理解主题思想和历史价值的前提",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2205",
+      "prerequisiteId": "mtc_1433",
+      "strength": "hard",
+      "reason": "不掌握字词翻译无法理解课文内容，从而无法概括主题和分析背景",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2206",
+      "prerequisiteId": "mtc_1434",
+      "strength": "hard",
+      "reason": "掌握出师表的字词翻译与文意理解是分析劝谏艺术和情感的基础",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2207",
+      "prerequisiteId": "mtc_1434",
+      "strength": "hard",
+      "reason": "不掌握字词翻译与文意理解，无法读懂原文，无法概括人物形象或分析历史评价",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2213",
+      "prerequisiteId": "mtc_2212",
+      "strength": "soft",
+      "reason": "论证逻辑与证据分析是提出有理有据质疑的基础。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2213",
+      "prerequisiteId": "mtc_815",
+      "strength": "soft",
+      "reason": "区分事实与观点有助于识别文本中的偏见和隐含前提，为质疑提供基础",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2213",
+      "prerequisiteId": "mtc_519",
+      "strength": "soft",
+      "reason": "提取中心论点是质疑文本观点的前提",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2213",
+      "prerequisiteId": "mtc_521",
+      "strength": "soft",
+      "reason": "理解论证思路有助于发现逻辑漏洞，为反驳提供支持",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2213",
+      "prerequisiteId": "mtc_520",
+      "strength": "soft",
+      "reason": "分析论据与论点关系是评估证据有效性、提出质疑的关键",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2214",
+      "prerequisiteId": "mtc_816",
+      "strength": "soft",
+      "reason": "缺乏中心论点则无法进行论证，但深度要求非核心。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2214",
+      "prerequisiteId": "mtc_526",
+      "strength": "hard",
+      "reason": "缺乏明确观点则无法进行论证方法的综合运用。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2217",
+      "prerequisiteId": "mtc_2215",
+      "strength": "hard",
+      "reason": "构建逻辑严密的分论点体系是研究性文章写作的基础，不掌握则无法完成格式规范、论证充分的文章。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2217",
+      "prerequisiteId": "mtc_816",
+      "strength": "hard",
+      "reason": "没有中心论点就无法写出研究性文章的核心内容。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2217",
+      "prerequisiteId": "mtc_2216",
+      "strength": "soft",
+      "reason": "缺少引用规范会导致格式不规范，但可能仍能写出文章。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2218",
+      "prerequisiteId": "mtc_818",
+      "strength": "hard",
+      "reason": "掌握实词虚词和句式是读懂文言文的前提，不掌握则无法理解内容，从而无法分析思想。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2219",
+      "prerequisiteId": "mtc_818",
+      "strength": "hard",
+      "reason": "掌握文言实词虚词与特殊句式是理解文言文的基础，无法读懂文章则无法分析语言特点与效果。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2220",
+      "prerequisiteId": "mtc_1450",
+      "strength": "soft",
+      "reason": "理解课文内容与情感是分析语言风格和结构的基础，但并非绝对必要",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2221",
+      "prerequisiteId": "mtc_1452",
+      "strength": "hard",
+      "reason": "不掌握《赤壁赋》的词句理解与文意梳理，无法进行哲理赏析与艺术手法分析。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2222",
+      "prerequisiteId": "mtc_1453",
+      "strength": "soft",
+      "reason": "侍坐章的思想内涵需要基于对对话内容的理解，尤其是曾皙言志的部分。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2223",
+      "prerequisiteId": "mtc_1454",
+      "strength": "hard",
+      "reason": "不掌握文言字词和情节梳理，无法分析游说逻辑和人物形象",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2225",
+      "prerequisiteId": "mtc_1456",
+      "strength": "soft",
+      "reason": "情节梳理是理解曲词背景和人物性格的基础，先学情节有助于深入赏析曲词和分析人物形象。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2226",
+      "prerequisiteId": "mtc_1457",
+      "strength": "hard",
+      "reason": "不掌握节选部分的情节和人物关系，无法分析台词的表现和主题意义",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2227",
+      "prerequisiteId": "mtc_1458",
+      "strength": "soft",
+      "reason": "理解情节和内心独白是分析戏剧冲突和人文思想的基础",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2228",
+      "prerequisiteId": "mtc_1459",
+      "strength": "hard",
+      "reason": "需要先梳理屠呦呦团队的科研历程和重要节点，才能结合事例分析其精神品质。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2229",
+      "prerequisiteId": "mtc_1460",
+      "strength": "hard",
+      "reason": "目标节点要求说明中国建筑特征与文化的关系，而mtc_1460梳理了九大特征和体系，是分析说明方法和文化内涵的基础。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2230",
+      "prerequisiteId": "mtc_1461",
+      "strength": "hard",
+      "reason": "理解‘木叶’的论证是分析诗歌语言暗示性的基础，不掌握则无法完成赏析。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2232",
+      "prerequisiteId": "mtc_1463",
+      "strength": "hard",
+      "reason": "理解文言词句和论述过程是分析论证技巧的前提",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2233",
+      "prerequisiteId": "mtc_1464",
+      "strength": "soft",
+      "reason": "理解情节和人物形象是分析倒叙、线索和祝福场景等叙事手法及主题的前提。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2234",
+      "prerequisiteId": "mtc_1465",
+      "strength": "soft",
+      "reason": "理解林冲性格转变有助于分析环境描写对情节和人物的烘托作用",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2235",
+      "prerequisiteId": "mtc_1466",
+      "strength": "hard",
+      "reason": "不掌握促织的文言字词和情节，无法分析其艺术手法与主题",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2236",
+      "prerequisiteId": "mtc_1467",
+      "strength": "hard",
+      "reason": "分析说理技巧和理念需要先理解文章内容和结构",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2237",
+      "prerequisiteId": "mtc_1468",
+      "strength": "hard",
+      "reason": "理解阿房宫赋的艺术手法需要先掌握文言文意和内容梳理",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2238",
+      "prerequisiteId": "mtc_1469",
+      "strength": "soft",
+      "reason": "理解演讲内容与背景是赏析语言情感和说明历史意义的基础",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2240",
+      "prerequisiteId": "mtc_1495",
+      "strength": "hard",
+      "reason": "必须先提炼中心论点才能分析论证过程",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2241",
+      "prerequisiteId": "mtc_2240",
+      "strength": "hard",
+      "reason": "不掌握天文学争论的核心观点和论证过程，无法举例说明其现实意义。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2241",
+      "prerequisiteId": "mtc_1493",
+      "strength": "soft",
+      "reason": "了解争论背景有助于更全面地理解现实意义，但非绝对必要。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2246",
+      "prerequisiteId": "mtc_1496",
+      "strength": "soft",
+      "reason": "了解真理标准问题讨论的历史背景，才能理解文章为何要论证实践标准与理论标准的区别",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2247",
+      "prerequisiteId": "mtc_1496",
+      "strength": "soft",
+      "reason": "了解文章发表的时代背景和核心观点是理解其历史意义的必要前提，缺失会导致难以列举历史影响，但可通过其他途径补充。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2248",
+      "prerequisiteId": "mtc_1498",
+      "strength": "hard",
+      "reason": "理解对话背景和‘正义’含义是分析苏格拉底推理过程的前提。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2249",
+      "prerequisiteId": "mtc_1498",
+      "strength": "hard",
+      "reason": "理解苏格拉底被判死刑的背景和正义的基本含义是评价其观点的基础",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2251",
+      "prerequisiteId": "mtc_1500",
+      "strength": "hard",
+      "reason": "需要了解包身工制度的背景和内容才能评价其现实意义",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2252",
+      "prerequisiteId": "mtc_1502",
+      "strength": "hard",
+      "reason": "需要先疏通文言文，才能分析人物形象和叙事手法。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2253",
+      "prerequisiteId": "mtc_1502",
+      "strength": "hard",
+      "reason": "不掌握屈原生平事迹，无法说明其对后世文化的影响",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2253",
+      "prerequisiteId": "mtc_2252",
+      "strength": "soft",
+      "reason": "掌握屈原形象特点有助于运用比较法分析人物形象",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2254",
+      "prerequisiteId": "mtc_1503",
+      "strength": "hard",
+      "reason": "未疏通苏武出使事件和情节，无法概括人物形象或分析写作手法。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2255",
+      "prerequisiteId": "mtc_2254",
+      "strength": "hard",
+      "reason": "分析苏武形象是评价其历史意义与当代价值的基础。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2255",
+      "prerequisiteId": "mtc_1503",
+      "strength": "hard",
+      "reason": "疏通苏武出使匈奴的文言事件是理解其节操历史意义的基础，缺少则无法评析。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2256",
+      "prerequisiteId": "mtc_2232",
+      "strength": "soft",
+      "reason": "掌握论证方法的具体例子，有助于分析论证艺术",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2256",
+      "prerequisiteId": "mtc_2219",
+      "strength": "soft",
+      "reason": "直接关联语言气势、节奏等鉴赏，为分析语言气势打下基础",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2257",
+      "prerequisiteId": "mtc_1504",
+      "strength": "hard",
+      "reason": "理解和评价贾谊‘仁义不施’的观点需要掌握秦朝兴亡的关键史实，这是基础背景知识。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2265",
+      "prerequisiteId": "mtc_2262",
+      "strength": "hard",
+      "reason": "一般过去时被动语态的构成依赖一般过去时的助动词和动词过去式。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2266",
+      "prerequisiteId": "mtc_2263",
+      "strength": "hard",
+      "reason": "掌握一般将来时主动态是学习其被动态的必要前提",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2264",
+      "prerequisiteId": "mtc_584",
+      "strength": "soft",
+      "reason": "一般现在时中的be动词是现在进行时构成的基础，缺乏be动词知识会显著增加学习难度",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2269",
+      "prerequisiteId": "mtc_148",
+      "strength": "soft",
+      "reason": "小学阶段的个人、家庭和学校表达为谈论未来职业和梦想提供基础语言能力",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2272",
+      "prerequisiteId": "mtc_149",
+      "strength": "soft",
+      "reason": "小学阶段的节日话题为初中节日学习提供基础词汇和表达，但非绝对必要。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2275",
+      "prerequisiteId": "mtc_838",
+      "strength": "hard",
+      "reason": "阅读长难语篇是理解文本论证前提，不掌握则无法分析论证结构",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2275",
+      "prerequisiteId": "mtc_839",
+      "strength": "hard",
+      "reason": "区分事实与观点是评价证据可靠性的基础，不掌握则难以完成批判性评价",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2278",
+      "prerequisiteId": "mtc_2277",
+      "strength": "hard",
+      "reason": "结构受力与稳定性是进行简单结构设计的基础，缺乏受力稳定性知识无法完成设计。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2277",
+      "prerequisiteId": "mtc_834",
+      "strength": "hard",
+      "reason": "理解结构的类型与基本概念是分析结构受力与稳定性的前提。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2279",
+      "prerequisiteId": "mtc_500",
+      "strength": "hard",
+      "reason": "季风对中国农业的影响需要先理解中国的气候特征与季风区划分，才能分析季风对降水、旱涝等的影响。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2281",
+      "prerequisiteId": "mtc_1245",
+      "strength": "soft",
+      "reason": "了解亚洲的位置和范围有助于理解地形分布，但并非绝对必需。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2285",
+      "prerequisiteId": "mtc_775",
+      "strength": "hard",
+      "reason": "黄赤交角与太阳直射点移动是计算正午太阳高度和理解昼夜长短变化的基础",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2286",
+      "prerequisiteId": "mtc_2285",
+      "strength": "hard",
+      "reason": "正午太阳高度和昼夜长短的季节变化是解释四季更替的直接原因",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2286",
+      "prerequisiteId": "mtc_775",
+      "strength": "hard",
+      "reason": "黄赤交角导致太阳直射点移动，是四季更替的根本原因",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2286",
+      "prerequisiteId": "mtc_774",
+      "strength": "soft",
+      "reason": "地球自转产生昼夜交替，是理解四季变化的基础",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2287",
+      "prerequisiteId": "mtc_777",
+      "strength": "hard",
+      "reason": "气压带风带的季节移动需要先掌握气压带风带的形成与分布",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2287",
+      "prerequisiteId": "mtc_775",
+      "strength": "hard",
+      "reason": "气压带风带随太阳直射点移动，需要先理解黄赤交角与太阳直射点移动",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2288",
+      "prerequisiteId": "mtc_781",
+      "strength": "hard",
+      "reason": "褶皱与断层是内力作用的具体表现形式，掌握内力作用是学习其形成的前提",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2289",
+      "prerequisiteId": "mtc_781",
+      "strength": "hard",
+      "reason": "理解板块构造是解释地震与火山分布规律的基础",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2291",
+      "prerequisiteId": "mtc_1242",
+      "strength": "hard",
+      "reason": "解释天气现象成因需要先掌握初中天气基本概念和原理",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2294",
+      "prerequisiteId": "mtc_1268",
+      "strength": "hard",
+      "reason": "环境问题的类型与成因是分析城市化对环境影响的直接知识基础，不掌握则无法完成'分析城市化对地理环境的影响'这一核心证据。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2296",
+      "prerequisiteId": "mtc_1265",
+      "strength": "hard",
+      "reason": "理解区域协调是掌握区域协调发展内涵的基础",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2296",
+      "prerequisiteId": "mtc_2302",
+      "strength": "hard",
+      "reason": "掌握可持续发展策略是提出促进可持续发展建议的前提",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2297",
+      "prerequisiteId": "mtc_1264",
+      "strength": "soft",
+      "reason": "地球运动影响太阳辐射分布，是理解气候形成因素的基础。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2298",
+      "prerequisiteId": "mtc_2297",
+      "strength": "hard",
+      "reason": "气候形成因素是分析气候类型成因的基础，不掌握则无法运用成因解释分布规律。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2300",
+      "prerequisiteId": "mtc_1266",
+      "strength": "hard",
+      "reason": "不掌握资源分类与特征，无法分析资源问题及其原因",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2300",
+      "prerequisiteId": "mtc_1267",
+      "strength": "hard",
+      "reason": "不了解开发利用原则和方式，无法分析资源开发利用的影响",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2300",
+      "prerequisiteId": "mtc_2302",
+      "strength": "hard",
+      "reason": "未学可持续策略，无法提出可持续利用资源的策略",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2301",
+      "prerequisiteId": "mtc_1266",
+      "strength": "soft",
+      "reason": "了解自然资源的分类是理解资源安全内涵的基础",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2302",
+      "prerequisiteId": "mtc_1267",
+      "strength": "soft",
+      "reason": "了解自然资源开发利用的原则和方式有助于理解可持续开发利用策略。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2303",
+      "prerequisiteId": "mtc_1268",
+      "strength": "hard",
+      "reason": "不掌握环境问题的类型与成因，无法理解环境保护措施的具体对象和理由",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2304",
+      "prerequisiteId": "mtc_1268",
+      "strength": "hard",
+      "reason": "理解环境问题类型与成因是分析跨国环境问题影响的前提，不掌握则无法达成目标节点的核心证据",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2305",
+      "prerequisiteId": "mtc_430",
+      "strength": "hard",
+      "reason": "需要先了解三国鼎立与西晋统一，才能理解东晋南朝的更替",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_436",
+      "prerequisiteId": "mtc_2306",
+      "strength": "hard",
+      "reason": "掌握元朝统一过程是理解元朝统治的前提",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2306",
+      "prerequisiteId": "mtc_434",
+      "strength": "soft",
+      "reason": "辽宋夏金并立为元朝统一提供背景",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2307",
+      "prerequisiteId": "mtc_754",
+      "strength": "soft",
+      "reason": "秦的统一奠定了中央集权制度基础，汉武帝的大一统措施是对这一制度的继承和发展，了解秦统一有助于理解汉武帝加强中央集权的背景。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2311",
+      "prerequisiteId": "mtc_2310",
+      "strength": "soft",
+      "reason": "唐朝衰落导致的藩镇割据是五代十国政权更迭的直接背景，理解唐朝的繁荣与衰落有助于掌握五代十国的更迭线索和统一趋势。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2312",
+      "prerequisiteId": "mtc_1152",
+      "strength": "soft",
+      "reason": "两宋中央集权加强的措施（如重文轻武、二府三司）是理解边防压力和财政危机背景的必要知识。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2313",
+      "prerequisiteId": "mtc_433",
+      "strength": "hard",
+      "reason": "不掌握科举制度的创立，无法理解宋代科举制的发展及社会阶层流动",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2314",
+      "prerequisiteId": "mtc_1155",
+      "strength": "hard",
+      "reason": "明清文化继承宋元，特别是陆王心学源于宋代理学，不掌握宋元文化难以理解思想渊源和科技成就。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2317",
+      "prerequisiteId": "mtc_2032",
+      "strength": "hard",
+      "reason": "正确理解中国共产党开辟革命新道路需要先掌握中国共产党的诞生背景与意义",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2319",
+      "prerequisiteId": "mtc_2111",
+      "strength": "soft",
+      "reason": "掌握对外开放步骤和格局需要先了解经济特区设立和基本格局形成",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2320",
+      "prerequisiteId": "mtc_1192",
+      "strength": "hard",
+      "reason": "三省六部制由秦汉三公九卿演变而来，科举制替代九品中正制，需先了解先秦至秦汉政治制度的奠基",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2321",
+      "prerequisiteId": "mtc_2320",
+      "strength": "hard",
+      "reason": "宋元明清政治制度是魏晋至隋唐制度演变的延续和强化，不掌握三省六部制、科举制等基础难以理解后续的演变与僵化",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2324",
+      "prerequisiteId": "mtc_1194",
+      "strength": "soft",
+      "reason": "了解近代中国政治制度的转型有助于理解当代政治制度的历史背景和选择逻辑。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2327",
+      "prerequisiteId": "mtc_1203",
+      "strength": "soft",
+      "reason": "理解威斯特伐利亚体系需先掌握民族国家概念",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2329",
+      "prerequisiteId": "mtc_1214",
+      "strength": "soft",
+      "reason": "工业革命导致社会问题，是现代社会保障制度建立的重要背景",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2335",
+      "prerequisiteId": "mtc_1232",
+      "strength": "soft",
+      "reason": "理解移民的类型与原因是分析移民影响的基础，提供必要的知识背景。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2336",
+      "prerequisiteId": "mtc_1233",
+      "strength": "hard",
+      "reason": "掌握丝绸之路路线与历史变迁是理解贸易如何促进文化交流的前提，缺少该知识无法解释佛教传入、造纸术西传等具体传播路径。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2337",
+      "prerequisiteId": "mtc_1233",
+      "strength": "hard",
+      "reason": "需要先了解陆上与海上丝绸之路的路线才能进行比较",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2338",
+      "prerequisiteId": "mtc_1236",
+      "strength": "soft",
+      "reason": "殖民战争与文化植入提供了殖民者强制手段的具体案例，是分析文化传播后果的基础。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2340",
+      "prerequisiteId": "mtc_1235",
+      "strength": "hard",
+      "reason": "目标节点要求举例希腊化文化、罗马政策、十字军东征，这些内容直接依赖对古代帝国战争经过的了解，而mtc_1235提供了这些战争的基础知识。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2342",
+      "prerequisiteId": "mtc_1203",
+      "strength": "hard",
+      "reason": "理解拿破仑战争促进民族国家观念觉醒需先掌握近代西方民族国家的形成概念。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2342",
+      "prerequisiteId": "mtc_1178",
+      "strength": "hard",
+      "reason": "认识拿破仑战争传播启蒙思想需先了解欧洲的思想解放运动内容。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2343",
+      "prerequisiteId": "mtc_1236",
+      "strength": "hard",
+      "reason": "殖民战争与西方文化植入是理解战争对殖民地文化影响的基础，缺少则无法分析具体案例中的文化因素",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2345",
+      "prerequisiteId": "mtc_1237",
+      "strength": "hard",
+      "reason": "两次世界大战的文化冲击是理解战后文化保护、和平文化及文明冲突论的基础知识",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2347",
+      "prerequisiteId": "mtc_1239",
+      "strength": "soft",
+      "reason": "了解文化遗产的类型与价值是理解博物馆在保护文化遗产中角色的基础，尤其涉及文物归还需要价值判断。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2348",
+      "prerequisiteId": "mtc_1239",
+      "strength": "hard",
+      "reason": "需要先理解文化遗产的类型与价值才能学习国际保护体系",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2349",
+      "prerequisiteId": "mtc_1239",
+      "strength": "soft",
+      "reason": "理解文化遗产的类型与价值是分析中国保护实践的基础概念",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2350",
+      "prerequisiteId": "mtc_597",
+      "strength": "hard",
+      "reason": "HTML基础结构是创建网页和添加链接的必要前提",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2351",
+      "prerequisiteId": "mtc_2350",
+      "strength": "hard",
+      "reason": "制作多页面和导航是测试链接的前提",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2351",
+      "prerequisiteId": "mtc_597",
+      "strength": "hard",
+      "reason": "测试和修改网页需要HTML基础",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2354",
+      "prerequisiteId": "mtc_824",
+      "strength": "hard",
+      "reason": "循环结构依赖条件判断和顺序执行，需要先掌握顺序与分支结构中的if-else和变量操作。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2355",
+      "prerequisiteId": "mtc_824",
+      "strength": "hard",
+      "reason": "枚举算法常需if-else分支判断，不掌握顺序与分支结构难以实现",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2357",
+      "prerequisiteId": "mtc_2356",
+      "strength": "hard",
+      "reason": "分式的混合运算需要综合运用分式的乘除法则，不掌握分式的乘除运算无法进行混合运算。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2356",
+      "prerequisiteId": "mtc_265",
+      "strength": "hard",
+      "reason": "分式的基本性质是约分的依据，不掌握则无法正确约分得到最简分式，无法完成分式乘除运算的核心证据。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2356",
+      "prerequisiteId": "mtc_260",
+      "strength": "hard",
+      "reason": "分式的乘法运算中分子分母相乘需要整式乘法知识，缺少则无法进行分式乘法。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2356",
+      "prerequisiteId": "mtc_259",
+      "strength": "hard",
+      "reason": "分式乘除约分中用到幂的运算性质，如同底数幂的乘除法，不掌握则无法完成运算。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2357",
+      "prerequisiteId": "mtc_265",
+      "strength": "hard",
+      "reason": "混合运算中需要约分和通分，必须掌握分式的基本性质",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2357",
+      "prerequisiteId": "mtc_266",
+      "strength": "hard",
+      "reason": "分式的混合运算包含加减运算，不掌握加减法则无法完成",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2358",
+      "prerequisiteId": "mtc_267",
+      "strength": "hard",
+      "reason": "分式方程的应用需要先掌握分式方程的解法与验根，否则无法正确求解并检验解的合理性。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2358",
+      "prerequisiteId": "mtc_264",
+      "strength": "hard",
+      "reason": "分式方程的应用要求能列出分式方程，这需要理解分式的概念。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2359",
+      "prerequisiteId": "mtc_268",
+      "strength": "hard",
+      "reason": "加减消元后需解一元一次方程",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2360",
+      "prerequisiteId": "mtc_273",
+      "strength": "hard",
+      "reason": "公式法解一元二次方程需要掌握判别式以判断根的情况，并代入求根公式。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2360",
+      "prerequisiteId": "mtc_268",
+      "strength": "soft",
+      "reason": "解一元二次方程需要移项、合并同类项等一元一次方程的基本代数运算技巧。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2361",
+      "prerequisiteId": "mtc_268",
+      "strength": "hard",
+      "reason": "不解一元一次方程无法完成因式分解法的最后求解步骤",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_274",
+      "prerequisiteId": "mtc_2361",
+      "strength": "hard",
+      "reason": "应用一元二次方程解决面积与增长率问题需要先掌握因式分解法",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2362",
+      "prerequisiteId": "mtc_2361",
+      "strength": "hard",
+      "reason": "应用一元二次方程解决利润问题需要先掌握因式分解法",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2362",
+      "prerequisiteId": "mtc_272",
+      "strength": "soft",
+      "reason": "配方法是解一元二次方程的基本方法之一，掌握配方法有助于解方程进而解决应用问题，但并非唯一方法。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2362",
+      "prerequisiteId": "mtc_2360",
+      "strength": "soft",
+      "reason": "公式法是解一元二次方程的基本方法之一，掌握公式法有助于解方程进而解决应用问题，但并非唯一方法。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2364",
+      "prerequisiteId": "mtc_295",
+      "strength": "hard",
+      "reason": "掌握SSS和SAS判定是学习ASA、AAS、HL的基础，需要先理解全等判定的基本思想。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_296",
+      "prerequisiteId": "mtc_2364",
+      "strength": "hard",
+      "reason": "全等三角形的证明需要综合运用所有判定方法，包括ASA、AAS、HL，因此需要先掌握这些判定。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2366",
+      "prerequisiteId": "mtc_300",
+      "strength": "hard",
+      "reason": "正方形的性质基于平行四边形性质，需先掌握平行四边形边角对角线性质。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2366",
+      "prerequisiteId": "mtc_301",
+      "strength": "hard",
+      "reason": "正方形是特殊的矩形和菱形，需先掌握矩形和菱形的性质与判定。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2366",
+      "prerequisiteId": "mtc_2365",
+      "strength": "hard",
+      "reason": "正方形的判定需要平行四边形的判定方法作为基础。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2368",
+      "prerequisiteId": "mtc_2367",
+      "strength": "hard",
+      "reason": "判定定理是证明三角形相似的前提，性质需要基于已证明的相似三角形",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2367",
+      "prerequisiteId": "mtc_311",
+      "strength": "hard",
+      "reason": "相似比概念是判定定理中对应边成比例的基础",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2368",
+      "prerequisiteId": "mtc_311",
+      "strength": "hard",
+      "reason": "相似比是性质的核心概念，不掌握相似比无法理解对应线段比和面积比。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_312",
+      "prerequisiteId": "mtc_2368",
+      "strength": "hard",
+      "reason": "位似图形的放大或缩小依赖于相似三角形的对应线段成比例。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2369",
+      "prerequisiteId": "mtc_325",
+      "strength": "hard",
+      "reason": "理解建模步骤是进行实践应用的前提，缺少步骤则无法有序完成完整建模。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2369",
+      "prerequisiteId": "mtc_326",
+      "strength": "soft",
+      "reason": "综合运用代数几何知识有助于建立和求解模型，但并非绝对必需，可用其他知识替代。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2371",
+      "prerequisiteId": "mtc_1272",
+      "strength": "hard",
+      "reason": "投影概念是理解三视图绘制规则的基础，缺少则无法理解视图方向与位置",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2372",
+      "prerequisiteId": "mtc_2371",
+      "strength": "hard",
+      "reason": "不会画三视图就无法根据三视图还原几何体",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2381",
+      "prerequisiteId": "mtc_2371",
+      "strength": "hard",
+      "reason": "初中三视图画法是高中三视图与直观图学习的基础",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2371",
+      "prerequisiteId": "mtc_1269",
+      "strength": "hard",
+      "reason": "几何图形初步提供点线面体基本概念，是画三视图的前提",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2382",
+      "prerequisiteId": "mtc_2372",
+      "strength": "hard",
+      "reason": "由三视图还原几何体并计算尺寸是计算表面积和体积的基础",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2373",
+      "prerequisiteId": "mtc_632",
+      "strength": "soft",
+      "reason": "理解三角函数定义是画余弦图像和描述性质的基础。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2373",
+      "prerequisiteId": "mtc_624",
+      "strength": "soft",
+      "reason": "函数单调性的概念有助于描述余弦函数的单调区间。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2374",
+      "prerequisiteId": "mtc_634",
+      "strength": "hard",
+      "reason": "掌握y=Asin(ωx+φ)的图像变换需要先掌握y=sinx的图像和性质，特别是五点法画图和对周期、最值的理解，这是变换的基础。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2375",
+      "prerequisiteId": "mtc_637",
+      "strength": "hard",
+      "reason": "向量共线的条件直接依赖于平面向量的线性运算中的数乘概念，没有数乘知识无法理解共线表示。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_638",
+      "prerequisiteId": "mtc_2375",
+      "strength": "hard",
+      "reason": "平面向量基本定理需要理解向量共线（特别是非共线概念），共线条件是基本定理的前提。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2376",
+      "prerequisiteId": "mtc_640",
+      "strength": "hard",
+      "reason": "掌握数量积的定义与运算是应用数量积证明几何结论的直接前提，缺少则无法进行证明",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2376",
+      "prerequisiteId": "mtc_639",
+      "strength": "soft",
+      "reason": "坐标表示为数量积的坐标运算提供基础，有助于解决长度和夹角问题，但非绝对必需",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2377",
+      "prerequisiteId": "mtc_317",
+      "strength": "hard",
+      "reason": "计算样本平均数需要先掌握平均数的概念和计算方法。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2377",
+      "prerequisiteId": "mtc_320",
+      "strength": "hard",
+      "reason": "计算样本标准差需要先掌握方差的概念和计算方法。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2378",
+      "prerequisiteId": "mtc_279",
+      "strength": "hard",
+      "reason": "建立数学模型需要理解变量概念，将实际问题中的量转化为变量。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2378",
+      "prerequisiteId": "mtc_649",
+      "strength": "hard",
+      "reason": "建立数学模型必须基于明确的数学问题，需要先发现问题并了解建模步骤。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2378",
+      "prerequisiteId": "mtc_650",
+      "strength": "hard",
+      "reason": "选择适当函数模型需要掌握常见函数模型的特征。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2380",
+      "prerequisiteId": "mtc_2378",
+      "strength": "hard",
+      "reason": "模型选择与拟合应用是在建立数学模型之后进行的后续步骤。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2379",
+      "prerequisiteId": "mtc_2378",
+      "strength": "hard",
+      "reason": "求解模型需先建立数学模型",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2379",
+      "prerequisiteId": "mtc_650",
+      "strength": "hard",
+      "reason": "不掌握函数模型特征无法求解",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2379",
+      "prerequisiteId": "mtc_2380",
+      "strength": "hard",
+      "reason": "模型选择与拟合是求解验证的前提",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2380",
+      "prerequisiteId": "mtc_650",
+      "strength": "soft",
+      "reason": "掌握常见函数模型特征是选择合适模型的基础，但通过其他途径也可能完成拟合任务",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2381",
+      "prerequisiteId": "mtc_2372",
+      "strength": "hard",
+      "reason": "不掌握初中由三视图还原几何体，无法达成高中根据三视图想象空间几何体的核心证据。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2382",
+      "prerequisiteId": "mtc_1276",
+      "strength": "hard",
+      "reason": "缺乏空间几何体结构特征知识，无法识别柱、锥、台、球，从而无法应用表面积与体积公式。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2384",
+      "prerequisiteId": "mtc_1278",
+      "strength": "hard",
+      "reason": "空间向量的数量积运算建立在向量线性运算和坐标表示之上，需先掌握概念与线性运算。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2385",
+      "prerequisiteId": "mtc_2384",
+      "strength": "soft",
+      "reason": "用向量方法解决角度问题需要数量积运算，但基本定理本身不依赖数量积。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2385",
+      "prerequisiteId": "mtc_1278",
+      "strength": "hard",
+      "reason": "空间向量的概念与线性运算是空间向量基本定理的基础",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2385",
+      "prerequisiteId": "mtc_2383",
+      "strength": "hard",
+      "reason": "空间点线面位置关系的判定是立体几何证明的前提",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2386",
+      "prerequisiteId": "mtc_1279",
+      "strength": "hard",
+      "reason": "倾斜角与斜率是点斜式的基础，不掌握无法写出直线方程",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2387",
+      "prerequisiteId": "mtc_1279",
+      "strength": "hard",
+      "reason": "判断两直线位置关系需要斜率，斜率由倾斜角定义和斜率公式得出。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2387",
+      "prerequisiteId": "mtc_2386",
+      "strength": "hard",
+      "reason": "求交点、距离和判断位置关系需要直线方程的多种形式进行联立和计算。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2388",
+      "prerequisiteId": "mtc_1280",
+      "strength": "hard",
+      "reason": "椭圆的标准方程与性质是双曲线学习的基础，双曲线定义、标准方程推导和性质类比椭圆，缺少椭圆知识无法完成双曲线的核心学习目标。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2390",
+      "prerequisiteId": "mtc_2388",
+      "strength": "hard",
+      "reason": "直线与圆锥曲线的位置关系涉及联立双曲线方程求解，缺少双曲线知识无法完成相关核心证据。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2390",
+      "prerequisiteId": "mtc_2389",
+      "strength": "hard",
+      "reason": "学习直线与圆锥曲线的位置关系需要掌握圆锥曲线的标准方程，而抛物线是其中之一，缺少抛物线方程知识将无法进行联立求解等操作。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2390",
+      "prerequisiteId": "mtc_1274",
+      "strength": "hard",
+      "reason": "联立直线与圆锥曲线得到一元二次方程，需掌握二次函数与判别式",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2390",
+      "prerequisiteId": "mtc_1279",
+      "strength": "hard",
+      "reason": "直线的倾斜角与斜率是建立直线方程的基础",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2390",
+      "prerequisiteId": "mtc_1280",
+      "strength": "hard",
+      "reason": "椭圆是常见圆锥曲线，需掌握其方程与性质",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2390",
+      "prerequisiteId": "mtc_2386",
+      "strength": "hard",
+      "reason": "需掌握直线方程的多种形式以联立求解",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2391",
+      "prerequisiteId": "mtc_1281",
+      "strength": "hard",
+      "reason": "等差数列求和依赖于等差数列的概念和通项公式",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2391",
+      "prerequisiteId": "mtc_1284",
+      "strength": "hard",
+      "reason": "数列的基本概念是学习等差数列求和的前提",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2392",
+      "prerequisiteId": "mtc_1284",
+      "strength": "hard",
+      "reason": "等比数列是数列的一种，不掌握数列的概念无法理解等比数列定义和通项公式。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2394",
+      "prerequisiteId": "mtc_2393",
+      "strength": "hard",
+      "reason": "导数运算是判断单调性的基础，不掌握求导则无法求导数符号确定单调区间。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2395",
+      "prerequisiteId": "mtc_2393",
+      "strength": "hard",
+      "reason": "导数运算是求极值和最值的基础，不掌握求导则无法求解。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2393",
+      "prerequisiteId": "mtc_1282",
+      "strength": "soft",
+      "reason": "理解导数定义和几何意义有助于掌握求导公式，但并非运算本身的硬性前提。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2394",
+      "prerequisiteId": "mtc_1282",
+      "strength": "soft",
+      "reason": "理解导数概念和几何意义有助于理解导数与单调性的关系，但不是必须。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2395",
+      "prerequisiteId": "mtc_2394",
+      "strength": "hard",
+      "reason": "不掌握单调性判断，无法求极值和最值。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2395",
+      "prerequisiteId": "mtc_1282",
+      "strength": "hard",
+      "reason": "导数概念是求极值的基础，不掌握导数定义无法求导。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2396",
+      "prerequisiteId": "mtc_1285",
+      "strength": "hard",
+      "reason": "分步乘法计数原理是推导排列数公式的基础，没有它无法理解排列数的计算方法",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2397",
+      "prerequisiteId": "mtc_1285",
+      "strength": "hard",
+      "reason": "分类加法与分步乘法计数原理是组合计数的基础，不掌握则无法理解组合定义和组合数公式的推导",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2397",
+      "prerequisiteId": "mtc_2396",
+      "strength": "soft",
+      "reason": "排列的概念有助于理解组合的无序性，组合数公式常由排列数推导，但也可独立学习",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2398",
+      "prerequisiteId": "mtc_1286",
+      "strength": "hard",
+      "reason": "二项分布是离散型随机变量的一种，必须先理解分布列的定义和性质",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2398",
+      "prerequisiteId": "mtc_2397",
+      "strength": "hard",
+      "reason": "二项分布概率公式中包含组合数，需要掌握组合数的计算",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2399",
+      "prerequisiteId": "mtc_1286",
+      "strength": "hard",
+      "reason": "分布列是计算均值与方差的基础，不掌握分布列无法完成均值与方差的计算。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2398",
+      "prerequisiteId": "mtc_2399",
+      "strength": "hard",
+      "reason": "二项分布的均值与方差公式依赖于离散型随机变量均值与方差的定义与计算。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2400",
+      "prerequisiteId": "mtc_1286",
+      "strength": "soft",
+      "reason": "离散型随机变量的分布列为理解连续型随机变量提供基础概念",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2401",
+      "prerequisiteId": "mtc_1515",
+      "strength": "soft",
+      "reason": "探问生命提供对生命的基本认识，是理解如何活出精彩的基础背景知识。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2401",
+      "prerequisiteId": "mtc_1517",
+      "strength": "soft",
+      "reason": "感受生命的意义直接关联活出精彩中的价值追求，是重要的情感前提。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2405",
+      "prerequisiteId": "mtc_1521",
+      "strength": "hard",
+      "reason": "青春的情绪是情绪管理的基础，不了解情绪的种类和特点就无法有效学习情绪调节方法。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2406",
+      "prerequisiteId": "mtc_1522",
+      "strength": "soft",
+      "reason": "学习在品味情感中成长需要先了解情感的基本概念和作用",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2407",
+      "prerequisiteId": "mtc_1523",
+      "strength": "hard",
+      "reason": "不先感受集体温暖和理解集体力量，难以认识集体生活对个人成长的作用。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_1524",
+      "prerequisiteId": "mtc_2407",
+      "strength": "hard",
+      "reason": "理解个人意愿与集体规则的一致性需要建立在认识集体生活对个人作用的基础上。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2408",
+      "prerequisiteId": "mtc_2407",
+      "strength": "hard",
+      "reason": "认识集体中的小群体与集体主义需要先理解集体生活对个性发展的作用。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2409",
+      "prerequisiteId": "mtc_2407",
+      "strength": "hard",
+      "reason": "共建美好集体需要先认识集体生活对个人成长的作用，才能担当责任。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2408",
+      "prerequisiteId": "mtc_1523",
+      "strength": "soft",
+      "reason": "感受集体温暖是理解小群体与集体主义的基础背景。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2408",
+      "prerequisiteId": "mtc_1524",
+      "strength": "hard",
+      "reason": "不掌握个人意愿与集体规则的一致性，难以理解小群体与集体的冲突及集体主义。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2411",
+      "prerequisiteId": "mtc_2418",
+      "strength": "hard",
+      "reason": "善用法律是依法办事的具体方法，不掌握则无法完成学会依法办事的核心证据",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2411",
+      "prerequisiteId": "mtc_1526",
+      "strength": "soft",
+      "reason": "理解法律与生活的关系有助于树立法治意识，但非硬性前提",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2412",
+      "prerequisiteId": "mtc_1528",
+      "strength": "soft",
+      "reason": "理解个人与社会的关系是认识社会化过程的前提，但可能通过其他方式补偿",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2413",
+      "prerequisiteId": "mtc_550",
+      "strength": "soft",
+      "reason": "网络安全常识是合理利用网络的重要组成部分，缺乏可能影响安全用网能力",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2415",
+      "prerequisiteId": "mtc_1531",
+      "strength": "soft",
+      "reason": "尊重他人是以礼待人的核心前提，不掌握尊重则难以理解礼貌的意义与要求",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2417",
+      "prerequisiteId": "mtc_1532",
+      "strength": "hard",
+      "reason": "掌握一般违法行为是理解犯罪特征和刑罚的基础，不学法不可违难以达成预防犯罪的核心证据",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2418",
+      "prerequisiteId": "mtc_1532",
+      "strength": "soft",
+      "reason": "理解一般违法行为是依法维权的前提",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2419",
+      "prerequisiteId": "mtc_1533",
+      "strength": "hard",
+      "reason": "掌握责任的含义和来源是理解做负责任的人的基础",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2420",
+      "prerequisiteId": "mtc_1528",
+      "strength": "soft",
+      "reason": "亲社会行为是服务社会的基础，理解亲社会行为有助于掌握服务社会的意义和参与方式。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2421",
+      "prerequisiteId": "mtc_1535",
+      "strength": "hard",
+      "reason": "理解国家利益与个人利益的关系是坚持国家利益至上的核心前提",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2422",
+      "prerequisiteId": "mtc_1536",
+      "strength": "hard",
+      "reason": "维护国家安全需要先理解国家安全的内涵和总体国家安全观，否则无法说出基本内容。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2423",
+      "prerequisiteId": "mtc_2421",
+      "strength": "soft",
+      "reason": "树立国家利益意识是理解个人劳动对国家发展意义的基础",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_1539",
+      "prerequisiteId": "mtc_2424",
+      "strength": "hard",
+      "reason": "理解宪法作为根本法的地位是坚持依宪治国的前提",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2425",
+      "prerequisiteId": "mtc_2424",
+      "strength": "hard",
+      "reason": "加强宪法监督需要以理解宪法地位为基础",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2426",
+      "prerequisiteId": "mtc_1541",
+      "strength": "hard",
+      "reason": "掌握国家行政机关是权力机关的执行机关这一核心证据，需要先理解国家权力机关的性质和职权。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2428",
+      "prerequisiteId": "mtc_1542",
+      "strength": "hard",
+      "reason": "理解自由平等的含义是践行自由平等的前提，缺少此知识则无法完成践行目标。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2429",
+      "prerequisiteId": "mtc_1543",
+      "strength": "hard",
+      "reason": "守护公平正义需要先理解公平正义的价值，否则无法掌握证据中的举例说明。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2431",
+      "prerequisiteId": "mtc_1545",
+      "strength": "soft",
+      "reason": "理解创新的重要性和变化是学习创新驱动发展战略的基础，但非必需",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2433",
+      "prerequisiteId": "mtc_1547",
+      "strength": "hard",
+      "reason": "不掌握法治基础，无法理解法治共识的内涵和必要性",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2433",
+      "prerequisiteId": "mtc_1526",
+      "strength": "soft",
+      "reason": "了解法律与生活的关系有助于理解法治共识的重要性",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2433",
+      "prerequisiteId": "mtc_2411",
+      "strength": "soft",
+      "reason": "依法办事和树立法治意识是凝聚法治共识的实践基础",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2435",
+      "prerequisiteId": "mtc_1549",
+      "strength": "hard",
+      "reason": "不掌握人口、资源、环境问题及挑战，无法理解绿色发展理念的内涵和保护环境的必要性，难以达成目标节点的核心证据。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2436",
+      "prerequisiteId": "mtc_1551",
+      "strength": "hard",
+      "reason": "不了解中国梦的内涵和意义，就无法说出实现中国梦的途径，这是核心知识障碍。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2439",
+      "prerequisiteId": "mtc_1548",
+      "strength": "hard",
+      "reason": "中外文化交流需要理解中华文化特点，否则无法说明例子",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2443",
+      "prerequisiteId": "mtc_206",
+      "strength": "hard",
+      "reason": "伏安法测电阻实验需要正确连接电路，电路的组成是连接电路的基础",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2443",
+      "prerequisiteId": "mtc_209",
+      "strength": "hard",
+      "reason": "伏安法实验需要使用电压表并联测量电压",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2443",
+      "prerequisiteId": "mtc_857",
+      "strength": "hard",
+      "reason": "伏安法实验需要使用电流表串联测量电流",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2443",
+      "prerequisiteId": "mtc_212",
+      "strength": "hard",
+      "reason": "伏安法测电阻通过欧姆定律计算电阻",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2443",
+      "prerequisiteId": "mtc_211",
+      "strength": "hard",
+      "reason": "伏安法实验中使用滑动变阻器改变电流",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2446",
+      "prerequisiteId": "mtc_880",
+      "strength": "hard",
+      "reason": "单摆是简谐运动的一个实例，其周期公式推导建立在简谐运动模型及回复力特征基础上，不掌握简谐运动则无法完成单摆的周期推导和实验设计。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2447",
+      "prerequisiteId": "mtc_880",
+      "strength": "hard",
+      "reason": "理解简谐运动是学习受迫振动与共振的基础，不掌握简谐运动的定义、回复力等概念，无法区分阻尼振动、受迫振动和共振。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2448",
+      "prerequisiteId": "mtc_881",
+      "strength": "hard",
+      "reason": "波的干涉需要理解波的图像和参数（波长、频率、波速）才能解释干涉条纹形成和判断加强减弱点，缺少这些知识无法达成掌握证据。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2449",
+      "prerequisiteId": "mtc_881",
+      "strength": "hard",
+      "reason": "波的描述提供了波长、频率等概念，是理解衍射条件和多普勒效应的基础",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2450",
+      "prerequisiteId": "mtc_882",
+      "strength": "hard",
+      "reason": "动量定理需要先理解动量和冲量的概念",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2451",
+      "prerequisiteId": "mtc_882",
+      "strength": "hard",
+      "reason": "动量守恒定律需要理解动量和冲量的概念及其矢量性，否则无法判断系统动量是否守恒或解决碰撞问题",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2452",
+      "prerequisiteId": "mtc_883",
+      "strength": "soft",
+      "reason": "安培力的左手定则学习有助于洛伦兹力方向判断",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2453",
+      "prerequisiteId": "mtc_2452",
+      "strength": "hard",
+      "reason": "带电粒子在复合场中的运动需要洛伦兹力知识",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2453",
+      "prerequisiteId": "mtc_875",
+      "strength": "hard",
+      "reason": "静电场知识是理解电场中运动的基础，速度选择器等需要电场力分析",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2455",
+      "prerequisiteId": "mtc_2454",
+      "strength": "hard",
+      "reason": "变压器是高压输电的核心设备，不掌握变压器无法分析输电问题。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2455",
+      "prerequisiteId": "mtc_877",
+      "strength": "soft",
+      "reason": "电路基本概念（如欧姆定律、功率计算）是理解输电损耗的基础，但可通过其他途径补充。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2455",
+      "prerequisiteId": "mtc_885",
+      "strength": "hard",
+      "reason": "交流电的有效值是计算输电功率和损失的必要概念，不掌握则无法完成相关计算。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2456",
+      "prerequisiteId": "mtc_887",
+      "strength": "hard",
+      "reason": "气体实验定律是推导理想气体状态方程的基础，缺少定律无法理解和推导状态方程。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2457",
+      "prerequisiteId": "mtc_886",
+      "strength": "soft",
+      "reason": "分子动理论是解释表面张力和毛细现象的基础，但不掌握也可直接记忆现象",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2458",
+      "prerequisiteId": "mtc_888",
+      "strength": "hard",
+      "reason": "热力学第一定律是热力学第二定律的基础，不理解第一定律的能量转化和守恒，无法理解第二定律的方向性表述和熵的概念。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_888",
+      "prerequisiteId": "mtc_2459",
+      "strength": "hard",
+      "reason": "热力学第一定律是能量守恒定律在热力学中的具体应用，不掌握能量守恒的普遍性无法理解热力学第一定律的能量表达式和符号法则。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2460",
+      "prerequisiteId": "mtc_890",
+      "strength": "hard",
+      "reason": "核衰变基于原子核组成和放射性现象，不掌握无法写出衰变方程",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2461",
+      "prerequisiteId": "mtc_890",
+      "strength": "hard",
+      "reason": "核反应中质量亏损的计算需要原子核组成知识，否则无法理解核子数变化和质量数守恒。",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2464",
+      "prerequisiteId": "mtc_802",
+      "strength": "soft",
+      "reason": "理解矛盾的基本属性和普遍性特殊性是掌握主次矛盾与矛盾主次方面的基础",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2465",
+      "prerequisiteId": "mtc_1563",
+      "strength": "hard",
+      "reason": "宏观调控通常是在市场调节基础上进行，理解市场配置资源是学习宏观调控的前提。",
       "reviewStatus": "machine"
     }
   ]

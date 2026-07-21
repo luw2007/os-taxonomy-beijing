@@ -141,16 +141,22 @@ const reachable = (from, to, edges) => {
   return false;
 };
 
-export function selectAppendableEdges(existingEdges, proposals, validIds) {
+export function selectAppendableEdges(existingEdges, proposals, validIds, topicsById = new Map()) {
   const appended = [], rejected = [];
   const current = existingEdges.map(edge => ({ ...edge }));
   const keys = new Set(current.map(edgeKey));
   for (const proposal of proposals) {
     const key = edgeKey(proposal);
     const reverse = `${proposal.prerequisiteId}|${proposal.topicId}`;
+    const topicStage = STAGE_ORDER.get(topicsById.get(proposal.topicId)?.stage);
+    const prerequisiteStage = STAGE_ORDER.get(topicsById.get(proposal.prerequisiteId)?.stage);
+    const stageRegression = topicStage !== undefined && prerequisiteStage !== undefined
+      && prerequisiteStage > topicStage;
     if (!validIds.has(proposal.topicId) || !validIds.has(proposal.prerequisiteId)
       || proposal.topicId === proposal.prerequisiteId) {
       rejected.push({ ...proposal, rejectedReason: 'invalid-endpoint' });
+    } else if (stageRegression) {
+      rejected.push({ ...proposal, rejectedReason: 'stage-regression' });
     } else if (keys.has(key)) {
       rejected.push({ ...proposal, rejectedReason: 'duplicate' });
     } else if (keys.has(reverse)) {
@@ -346,7 +352,8 @@ function apply(topics, depsDoc, args) {
     const missing = missingTargetIds(expectedTargets, selectedWorks);
     if (missing.length) throw new Error(`筛选范围 work 缺少 ${missing.length} 个目标；先完成审计（如 ${missing.slice(0, 3).join(', ')}）`);
   }
-  const selected = selectAppendableEdges(depsDoc.dependencies, proposals, new Set(topics.map(t => t.id)));
+  const topicMap = new Map(topics.map(topic => [topic.id, topic]));
+  const selected = selectAppendableEdges(depsDoc.dependencies, proposals, new Set(topicMap.keys()), topicMap);
   console.log(`候选先修 ${proposals.length}：可追加 ${selected.appended.length}，拒绝 ${selected.rejected.length}`);
   const reasons = {};
   for (const item of selected.rejected) reasons[item.rejectedReason] = (reasons[item.rejectedReason] || 0) + 1;

@@ -16,6 +16,17 @@ test('publish readiness rejects reviewed rescope edges and stale centrality', ()
   assert.ok(problems.some(problem => problem.includes('centrality')));
 });
 
+test('publish readiness rejects quarantined bridge edges', () => {
+  const topics = [
+    { id: 'a', nodeKind: 'concept', centrality: 0 },
+  ];
+  const bridgeDependencies = [
+    { topicId: 'a', prerequisiteId: 'upstream', reviewStatus: 'machine', rescopeRequired: true },
+  ];
+  const problems = publicationProblems(topics, [], bridgeDependencies);
+  assert.ok(problems.includes('1 bridge edges still have rescopeRequired'));
+});
+
 test('publish readiness accepts reviewed graph with fresh centrality', () => {
   const topics = [
     { id: 'a', nodeKind: 'concept', centrality: 1 },

@@ -2,7 +2,7 @@
   "version": "1.2.0-zh.0",
   "upstreamVersion": "1.0.0",
   "locale": "zh-CN",
-  "topicCount": 1942,
+  "topicCount": 1984,
   "originNote": "中国特有微主题（mtc_ 前缀）。已按原子粒度拆解——每条覆盖一个可独立评估的微技能。来源：课标自建(cn_only/progression/upstream_adapt) + 课本目录(textbook)。严守 codes-only 原则。教材来源节点中的作品名、部分作者名和来源作为事实性元数据保留；不包含教材正文、插图、练习题、版式、页码或 PDF 路径。详见 PROVENANCE.md。",
   "topics": [
     {
@@ -33975,529 +33975,549 @@
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "绽放生命之花",
-      "description": "理解绽放生命之花的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "感受生命的意义",
+      "description": "探讨人为什么活着，怎样的一生是值得的。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": 0.711538,
       "evidence": [
-        "能说出绽放生命之花的基本内容",
-        "能运用绽放生命之花的知识分析相关问题",
-        "能结合实例说明绽放生命之花的意义或应用"
+        "能说出感受生命的意义的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
       ],
-      "assessmentPrompt": "让 {name} 说说绽放生命之花的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出感受生命的意义的基本内容",
       "cnStandards": [
         "moe-2022-moral:S4.生命的思.03"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1518",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "青春的邀约",
-      "description": "理解青春的邀约的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "悄悄变化的我",
+      "description": "认识青春期的身体变化和心理变化，正确面对青春期矛盾。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": 0.692308,
       "evidence": [
-        "能说出青春的邀约的基本内容",
-        "能运用青春的邀约的知识分析相关问题",
-        "能结合实例说明青春的邀约的意义或应用"
+        "能说出悄悄变化的我的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
       ],
-      "assessmentPrompt": "让 {name} 说说青春的邀约的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出悄悄变化的我的基本内容",
       "cnStandards": [
         "moe-2022-moral:S4.青春时光.01"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1519",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "青春的心弦",
-      "description": "理解青春的心弦的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "男生女生",
+      "description": "了解男生女生的性别特征，优势互补。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": 0.673077,
       "evidence": [
-        "能说出青春的心弦的基本内容",
-        "能运用青春的心弦的知识分析相关问题",
-        "能结合实例说明青春的心弦的意义或应用"
+        "能说出男生女生的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
       ],
-      "assessmentPrompt": "让 {name} 说说青春的心弦的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出男生女生的基本内容",
       "cnStandards": [
         "moe-2022-moral:S4.青春时光.02"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1520",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "青春的证明",
-      "description": "理解青春的证明的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "青春飞扬",
+      "description": "培养自信、自强的品质，让青春飞扬。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": 0.653846,
       "evidence": [
-        "能说出青春的证明的基本内容",
-        "能运用青春的证明的知识分析相关问题",
-        "能结合实例说明青春的证明的意义或应用"
+        "能说出青春飞扬的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
       ],
-      "assessmentPrompt": "让 {name} 说说青春的证明的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出青春飞扬的基本内容",
       "cnStandards": [
         "moe-2022-moral:S4.青春时光.03"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1521",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Mental Health",
-      "name": "揭开情绪的面纱",
-      "description": "理解揭开情绪的面纱的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "青春的情绪",
+      "description": "认识情绪的种类、特点，以及青春期情绪的特点。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": 0,
       "evidence": [
-        "能说出揭开情绪的面纱的基本内容",
-        "能运用揭开情绪的面纱的知识分析相关问题",
-        "能结合实例说明揭开情绪的面纱的意义或应用"
+        "能说出青春的情绪的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
       ],
-      "assessmentPrompt": "让 {name} 说说揭开情绪的面纱的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出青春的情绪的基本内容",
       "cnStandards": [
         "moe-2022-moral:S4.做情绪情.01"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1522",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "品出情感的韵味",
-      "description": "理解品出情感的韵味的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "我们的情感世界",
+      "description": "了解情感与情绪的区别，认识情感的作用。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": 0.634615,
       "evidence": [
-        "能说出品出情感的韵味的基本内容",
-        "能运用品出情感的韵味的知识分析相关问题",
-        "能结合实例说明品出情感的韵味的意义或应用"
+        "能说出我们的情感世界的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
       ],
-      "assessmentPrompt": "让 {name} 说说品出情感的韵味的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出我们的情感世界的基本内容",
       "cnStandards": [
         "moe-2022-moral:S4.做情绪情.02"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1523",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "“我”和“我们”",
-      "description": "理解“我”和“我们”的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "集体生活邀请我",
+      "description": "感受集体温暖，理解集体力量。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": 0.615385,
       "evidence": [
-        "能说出“我”和“我们”的基本内容",
-        "能运用“我”和“我们”的知识分析相关问题",
-        "能结合实例说明“我”和“我们”的意义或应用"
+        "能说出集体生活邀请我的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
       ],
-      "assessmentPrompt": "让 {name} 说说“我”和“我们”的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出集体生活邀请我的基本内容",
       "cnStandards": [
         "moe-2022-moral:S4.在集体中.01"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1524",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "共奏和谐乐章",
-      "description": "理解共奏和谐乐章的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "单音与和声",
+      "description": "理解个人意愿与集体规则之间的一致性，解决冲突。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": 0.596154,
       "evidence": [
-        "能说出共奏和谐乐章的基本内容",
-        "能运用共奏和谐乐章的知识分析相关问题",
-        "能结合实例说明共奏和谐乐章的意义或应用"
+        "能说出单音与和声的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
       ],
-      "assessmentPrompt": "让 {name} 说说共奏和谐乐章的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出单音与和声的基本内容",
       "cnStandards": [
         "moe-2022-moral:S4.在集体中.02"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1525",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "美好集体有我在",
-      "description": "理解美好集体有我在的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "憧憬美好集体",
+      "description": "描述美好集体的特征，理解集体责任。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": 0.576923,
       "evidence": [
-        "能说出美好集体有我在的基本内容",
-        "能运用美好集体有我在的知识分析相关问题",
-        "能结合实例说明美好集体有我在的意义或应用"
+        "能说出憧憬美好集体的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
       ],
-      "assessmentPrompt": "让 {name} 说说美好集体有我在的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出憧憬美好集体的基本内容",
       "cnStandards": [
         "moe-2022-moral:S4.在集体中.03"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1526",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "法律在我们身边",
-      "description": "理解法律在我们身边的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "生活需要法律",
+      "description": "理解法律与生活的关系，法治进程。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": 0.557692,
       "evidence": [
-        "能说出法律在我们身边的基本内容",
-        "能运用法律在我们身边的知识分析相关问题",
-        "能结合实例说明法律在我们身边的意义或应用"
+        "能说出生活需要法律的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
       ],
-      "assessmentPrompt": "让 {name} 说说法律在我们身边的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出生活需要法律的基本内容",
       "cnStandards": [
         "moe-2022-moral:S4.走进法治.01"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1527",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "法律伴我们成长",
-      "description": "理解法律伴我们成长的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "法律为我们护航",
+      "description": "认识未成年人特殊保护的具体内容。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": 0.538462,
       "evidence": [
-        "能说出法律伴我们成长的基本内容",
-        "能运用法律伴我们成长的知识分析相关问题",
-        "能结合实例说明法律伴我们成长的意义或应用"
+        "能说出法律为我们护航的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
       ],
-      "assessmentPrompt": "让 {name} 说说法律伴我们成长的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出法律为我们护航的基本内容",
       "cnStandards": [
         "moe-2022-moral:S4.走进法治.02"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1528",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "丰富的社会生活",
-      "description": "理解丰富的社会生活的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "我与社会",
+      "description": "理解个人与社会的紧密联系，养成亲社会行为。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
       "centrality": 0.423077,
       "evidence": [
-        "能说出丰富的社会生活的基本内容",
-        "能运用丰富的社会生活的知识分析相关问题",
-        "能结合实例说明丰富的社会生活的意义或应用"
+        "能说出我与社会的的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
       ],
-      "assessmentPrompt": "让 {name} 说说丰富的社会生活的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出我与社会的的基本内容",
       "cnStandards": [
         "moe-2022-moral:S4.走进社会.01"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1529",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Digital Citizenship",
-      "name": "网络生活新空间",
-      "description": "理解网络生活新空间的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "网络改变世界",
+      "description": "认识网络的积极和消极影响。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
       "centrality": 0.019231,
       "evidence": [
-        "能说出网络生活新空间的基本内容",
-        "能运用网络生活新空间的知识分析相关问题",
-        "能结合实例说明网络生活新空间的意义或应用"
+        "能说出网络改变世界的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
       ],
-      "assessmentPrompt": "让 {name} 说说网络生活新空间的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出网络改变世界的基本内容",
       "cnStandards": [
         "moe-2022-moral:S4.走进社会.02"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1530",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "社会生活离不开规则",
-      "description": "理解社会生活离不开规则的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "维护秩序",
+      "description": "理解社会秩序的重要性，区分社会规则。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
       "centrality": 0.115385,
       "evidence": [
-        "能说出社会生活离不开规则的基本内容",
-        "能运用社会生活离不开规则的知识分析相关问题",
-        "能结合实例说明社会生活离不开规则的意义或应用"
+        "能说出维护秩序的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
       ],
-      "assessmentPrompt": "让 {name} 说说社会生活离不开规则的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出维护秩序的基本内容",
       "cnStandards": [
         "moe-2022-moral:S4.遵守社会.01"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1531",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "社会生活讲道德",
-      "description": "理解社会生活讲道德的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "尊重他人",
+      "description": "理解尊重的含义、意义，学会尊重他人。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
       "centrality": 0.096154,
       "evidence": [
-        "能说出社会生活讲道德的基本内容",
-        "能运用社会生活讲道德的知识分析相关问题",
-        "能结合实例说明社会生活讲道德的意义或应用"
+        "能说出尊重他人的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
       ],
-      "assessmentPrompt": "让 {name} 说说社会生活讲道德的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出尊重他人的基本内容",
       "cnStandards": [
         "moe-2022-moral:S4.遵守社会.02"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1532",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "做守法的公民",
-      "description": "理解做守法的公民的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "法不可违",
+      "description": "认识一般违法行为及其危害，警惕违法。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
       "centrality": 0.076923,
       "evidence": [
-        "能说出做守法的公民的基本内容",
-        "能运用做守法的公民的知识分析相关问题",
-        "能结合实例说明做守法的公民的意义或应用"
+        "能说出法不可违的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
       ],
-      "assessmentPrompt": "让 {name} 说说做守法的公民的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出法不可违的基本内容",
       "cnStandards": [
         "moe-2022-moral:S4.遵守社会.03"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1533",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "责任",
-      "description": "理解责任与角色同在的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "我对谁负责 谁对我负责",
+      "description": "认识责任的含义、来源和代价回报。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
       "centrality": 0.057692,
       "evidence": [
-        "能说出责任与角色同在的基本内容",
-        "能运用责任与角色同在的知识分析相关问题",
-        "能结合实例说明责任与角色同在的意义或应用"
+        "能说出我对谁负责谁对我负责的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
       ],
-      "assessmentPrompt": "让 {name} 说说责任与角色同在的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出我对谁负责谁对我负责的基本内容",
       "cnStandards": [
         "moe-2022-moral:S4.勇担社会.01"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1534",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "积极奉献社会",
-      "description": "理解积极奉献社会的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "关爱他人",
+      "description": "理解关爱的意义，学会关爱他人。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
       "centrality": 0.038462,
       "evidence": [
-        "能说出积极奉献社会的基本内容",
-        "能运用积极奉献社会的知识分析相关问题",
-        "能结合实例说明积极奉献社会的意义或应用"
+        "能说出关爱他人的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
       ],
-      "assessmentPrompt": "让 {name} 说说积极奉献社会的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出关爱他人的基本内容",
       "cnStandards": [
         "moe-2022-moral:S4.勇担社会.02"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1535",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "国家利益至上",
-      "description": "理解国家利益至上的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "国家好 大家才会好",
+      "description": "理解国家利益与个人利益的关系。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
       "centrality": 0.019231,
       "evidence": [
-        "能说出国家利益至上的基本内容",
-        "能运用国家利益至上的知识分析相关问题",
-        "能结合实例说明国家利益至上的意义或应用"
+        "能说出国家好大家才会好的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
       ],
-      "assessmentPrompt": "让 {name} 说说国家利益至上的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出国家好大家才会好的基本内容",
       "cnStandards": [
         "moe-2022-moral:S4.维护国家.01"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1536",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "树立总体国家安全观",
-      "description": "理解树立总体国家安全观的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "认识总体国家安全观",
+      "description": "理解国家安全的内涵和总体国家安全观。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
       "centrality": 0,
       "evidence": [
-        "能说出树立总体国家安全观的基本内容",
-        "能运用树立总体国家安全观的知识分析相关问题",
-        "能结合实例说明树立总体国家安全观的意义或应用"
+        "能说出认识总体国家安全观的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
       ],
-      "assessmentPrompt": "让 {name} 说说树立总体国家安全观的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出认识总体国家安全观的基本内容",
       "cnStandards": [
         "moe-2022-moral:S4.维护国家.02"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1537",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "建设美好祖国",
-      "description": "理解建设美好祖国的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "关心国家发展",
+      "description": "了解国家发展取得的成就和面临的挑战，增强对国家发展的关切。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
       "centrality": 0.288462,
       "evidence": [
-        "能说出建设美好祖国的基本内容",
-        "能运用建设美好祖国的知识分析相关问题",
-        "能结合实例说明建设美好祖国的意义或应用"
+        "能列举国家发展取得的成就",
+        "能说出国家发展面临的挑战"
       ],
-      "assessmentPrompt": "让 {name} 说说建设美好祖国的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能列举国家发展取得的成就",
       "cnStandards": [
         "moe-2022-moral:S4.维护国家.03"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1538",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "维护宪法权威",
-      "description": "理解维护宪法权威的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "公民权利的保障书",
+      "description": "理解宪法是公民权利的保障书，了解宪法对公民权利的规定。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
       "centrality": 0.269231,
       "evidence": [
-        "能说出维护宪法权威的基本内容",
-        "能运用维护宪法权威的知识分析相关问题",
-        "能结合实例说明维护宪法权威的意义或应用"
+        "能说出宪法规定的公民基本权利",
+        "能举例说明宪法如何保障公民权利"
       ],
-      "assessmentPrompt": "让 {name} 说说维护宪法权威的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出宪法规定的公民基本权利",
       "cnStandards": [
         "moe-2022-moral:S4.坚持宪法.01"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1539",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "保障宪法实施",
-      "description": "理解保障宪法实施的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "坚持依宪治国",
+      "description": "理解依宪治国的重要性，学习宪法实施的要求。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
       "centrality": 0.230769,
       "evidence": [
-        "能说出保障宪法实施的基本内容",
-        "能运用保障宪法实施的知识分析相关问题",
-        "能结合实例说明保障宪法实施的意义或应用"
+        "能说出依宪治国的含义",
+        "能举例说明依宪治国的体现"
       ],
-      "assessmentPrompt": "让 {name} 说说保障宪法实施的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出依宪治国的含义",
       "cnStandards": [
         "moe-2022-moral:S4.坚持宪法.02"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1540",
@@ -34527,207 +34547,207 @@
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "我国国家机构",
-      "description": "理解我国国家机构的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "国家权力机关",
+      "description": "了解全国人民代表大会及地方各级人民代表大会的性质、组成和职权。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
       "centrality": 0.192308,
       "evidence": [
-        "能说出我国国家机构的基本内容",
-        "能运用我国国家机构的知识分析相关问题",
-        "能结合实例说明我国国家机构的意义或应用"
+        "能说出人民代表大会是国家权力机关",
+        "能列举人民代表大会的职权"
       ],
-      "assessmentPrompt": "让 {name} 说说我国国家机构的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出人民代表大会是国家权力机关",
       "cnStandards": [
         "moe-2022-moral:S4.人民当家.02"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1542",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "尊重自由平等",
-      "description": "理解尊重自由平等的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "自由平等的真谛",
+      "description": "理解自由和平等的含义及其在法律上的体现。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
       "centrality": 0.173077,
       "evidence": [
-        "能说出尊重自由平等的基本内容",
-        "能运用尊重自由平等的知识分析相关问题",
-        "能结合实例说明尊重自由平等的意义或应用"
+        "能说出自由的边界和限制",
+        "能解释平等的含义"
       ],
-      "assessmentPrompt": "让 {name} 说说尊重自由平等的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出自由的边界和限制",
       "cnStandards": [
         "moe-2022-moral:S4.崇尚法治.01"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1543",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "维护公平正义",
-      "description": "理解维护公平正义的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "公平正义的价值",
+      "description": "理解公平正义的重要性及其对社会的作用。",
       "ageRangeStart": 13,
       "ageRangeEnd": 14,
       "centrality": 0.153846,
       "evidence": [
-        "能说出维护公平正义的基本内容",
-        "能运用维护公平正义的知识分析相关问题",
-        "能结合实例说明维护公平正义的意义或应用"
+        "能说出公平的含义和重要性",
+        "能说出正义的含义和重要性"
       ],
-      "assessmentPrompt": "让 {name} 说说维护公平正义的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出公平的含义和重要性",
       "cnStandards": [
         "moe-2022-moral:S4.崇尚法治.02"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1544",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "踏上强国之路",
-      "description": "理解踏上强国之路的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "坚持改革开放",
+      "description": "了解改革开放的历史进程和成就。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
       "centrality": 0.134615,
       "evidence": [
-        "能说出踏上强国之路的基本内容",
-        "能运用踏上强国之路的知识分析相关问题",
-        "能结合实例说明踏上强国之路的意义或应用"
+        "能说出改革开放的开始时间和标志",
+        "能列举改革开放的重大成就"
       ],
-      "assessmentPrompt": "让 {name} 说说踏上强国之路的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出改革开放的开始时间和标志",
       "cnStandards": [
         "moe-2022-moral:S4.富强与创.01"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1545",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "创新驱动发展",
-      "description": "理解创新驱动发展的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "创新改变生活",
+      "description": "感受创新带来的变化，理解创新的重要性。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
       "centrality": 0.115385,
       "evidence": [
-        "能说出创新驱动发展的基本内容",
-        "能运用创新驱动发展的知识分析相关问题",
-        "能结合实例说明创新驱动发展的意义或应用"
+        "能举例说明创新如何改变生活",
+        "能说出创新对个人和社会的作用"
       ],
-      "assessmentPrompt": "让 {name} 说说创新驱动发展的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能举例说明创新如何改变生活",
       "cnStandards": [
         "moe-2022-moral:S4.富强与创.02"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1546",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "追求民主价值",
-      "description": "理解追求民主价值的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "生活在新型民主国家",
+      "description": "理解社会主义民主的特点和优势。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
       "centrality": 0.096154,
       "evidence": [
-        "能说出追求民主价值的基本内容",
-        "能运用追求民主价值的知识分析相关问题",
-        "能结合实例说明追求民主价值的意义或应用"
+        "能说出我国民主的特点",
+        "能举例说明新型民主的优势"
       ],
-      "assessmentPrompt": "让 {name} 说说追求民主价值的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出我国民主的特点",
       "cnStandards": [
         "moe-2022-moral:S4.民主与法.01"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1547",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "建设法治中国",
-      "description": "理解建设法治中国的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "夯实法治基础",
+      "description": "了解法治的内涵和重要性，学习依法治国的基本要求。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
       "centrality": 0.076923,
       "evidence": [
-        "能说出建设法治中国的基本内容",
-        "能运用建设法治中国的知识分析相关问题",
-        "能结合实例说明建设法治中国的意义或应用"
+        "能说出法治的含义",
+        "能列出依法治国的基本要求"
       ],
-      "assessmentPrompt": "让 {name} 说说建设法治中国的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出法治的含义",
       "cnStandards": [
         "moe-2022-moral:S4.民主与法.02"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1548",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "守望精神家园",
-      "description": "理解守望精神家园的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "延续文化血脉",
+      "description": "了解中华文化的特点、影响和传承。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
       "centrality": 0.057692,
       "evidence": [
-        "能说出守望精神家园的基本内容",
-        "能运用守望精神家园的知识分析相关问题",
-        "能结合实例说明守望精神家园的意义或应用"
+        "能说出中华文化的特点",
+        "能举例说明中华文化的传承"
       ],
-      "assessmentPrompt": "让 {name} 说说守望精神家园的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出中华文化的特点",
       "cnStandards": [
         "moe-2022-moral:S4.文明与家.01"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1549",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "建设美丽中国",
-      "description": "理解建设美丽中国的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "正视发展挑战",
+      "description": "认识我国面临的人口、资源、环境问题及挑战。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
       "centrality": 0.038462,
       "evidence": [
-        "能说出建设美丽中国的基本内容",
-        "能运用建设美丽中国的知识分析相关问题",
-        "能结合实例说明建设美丽中国的意义或应用"
+        "能列举我国面临的人口问题",
+        "能说出资源环境方面的挑战"
       ],
-      "assessmentPrompt": "让 {name} 说说建设美丽中国的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能列举我国面临的人口问题",
       "cnStandards": [
         "moe-2022-moral:S4.文明与家.02"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1550",
@@ -34757,161 +34777,162 @@
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "中国人 中国梦",
-      "description": "理解中国人 中国梦的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "我们的梦想",
+      "description": "了解中国梦的内涵和意义。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
       "centrality": 0,
       "evidence": [
-        "能说出中国人 中国梦的基本内容",
-        "能运用中国人 中国梦的知识分析相关问题",
-        "能结合实例说明中国人 中国梦的意义或应用"
+        "能说出中国梦的基本内涵",
+        "能说明中国梦与个人梦的关系"
       ],
-      "assessmentPrompt": "让 {name} 说说中国人 中国梦的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出中国梦的基本内涵",
       "cnStandards": [
         "moe-2022-moral:S4.和谐与梦.02"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1552",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "同住地球村",
-      "description": "理解同住地球村的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "开放互动的世界",
+      "description": "了解经济全球化和文化多样性。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
       "centrality": 0.134615,
       "evidence": [
-        "能说出同住地球村的基本内容",
-        "能运用同住地球村的知识分析相关问题",
-        "能结合实例说明同住地球村的意义或应用"
+        "能说出经济全球化的表现",
+        "能举例说明文化多样性"
       ],
-      "assessmentPrompt": "让 {name} 说说同住地球村的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出经济全球化的表现",
       "cnStandards": [
         "moe-2022-moral:S4.我们共同.01"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1553",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "构建人类命运共同体",
-      "description": "理解构建人类命运共同体的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "推动和平与发展",
+      "description": "理解和平与发展的时代主题，了解中国的贡献。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
       "centrality": 0.115385,
       "evidence": [
-        "能说出构建人类命运共同体的基本内容",
-        "能运用构建人类命运共同体的知识分析相关问题",
-        "能结合实例说明构建人类命运共同体的意义或应用"
+        "能说出和平与发展的含义",
+        "能举例说明中国对和平与发展的贡献"
       ],
-      "assessmentPrompt": "让 {name} 说说构建人类命运共同体的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出和平与发展的含义",
       "cnStandards": [
         "moe-2022-moral:S4.我们共同.02"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1554",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "与世界紧相连",
-      "description": "理解与世界紧相连的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "中国担当",
+      "description": "了解中国在国际事务中的责任和贡献。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
       "centrality": 0.096154,
       "evidence": [
-        "能说出与世界紧相连的基本内容",
-        "能运用与世界紧相连的知识分析相关问题",
-        "能结合实例说明与世界紧相连的意义或应用"
+        "能举例说明中国在国际救援中的担当",
+        "能说出中国在联合国的作用"
       ],
-      "assessmentPrompt": "让 {name} 说说与世界紧相连的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能举例说明中国在国际救援中的担当",
       "cnStandards": [
         "moe-2022-moral:S4.世界舞台.01"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1555",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "与世界共发展",
-      "description": "理解与世界共发展的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "中国的机遇与挑战",
+      "description": "分析中国发展面临的机遇和挑战。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
       "centrality": 0.076923,
       "evidence": [
-        "能说出与世界共发展的基本内容",
-        "能运用与世界共发展的知识分析相关问题",
-        "能结合实例说明与世界共发展的意义或应用"
+        "能列举中国面临的机遇",
+        "能列举中国面临的挑战"
       ],
-      "assessmentPrompt": "让 {name} 说说与世界共发展的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能列举中国面临的机遇",
       "cnStandards": [
         "moe-2022-moral:S4.世界舞台.02"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1556",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "少年的担当",
-      "description": "理解少年的担当的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "走向世界大舞台",
+      "description": "了解世界舞台上的中国青少年，培养国际视野。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
       "centrality": 0.057692,
       "evidence": [
-        "能说出少年的担当的基本内容",
-        "能运用少年的担当的知识分析相关问题",
-        "能结合实例说明少年的担当的意义或应用"
+        "能说出青少年走向世界的意义",
+        "能举例说明中国青少年在国际交流中的表现"
       ],
-      "assessmentPrompt": "让 {name} 说说少年的担当的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出青少年走向世界的意义",
       "cnStandards": [
         "moe-2022-moral:S4.走向未来.01"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1557",
       "type": "CONCEPTUAL",
       "subject": "Moral & Rule of Law",
       "domain": "Safety Education",
-      "name": "我的毕业季",
-      "description": "理解我的毕业季的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "回望成长",
+      "description": "回顾初中三年的成长历程，总结收获与不足，理解成长的意义。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
       "centrality": 0.038462,
       "evidence": [
-        "能说出我的毕业季的基本内容",
-        "能运用我的毕业季的知识分析相关问题",
-        "能结合实例说明我的毕业季的意义或应用"
+        "能说出初中三年主要的变化和收获",
+        "能运用成长实例分析个人成长要素",
+        "能举例说明成长中的关键事件对其影响"
       ],
-      "assessmentPrompt": "让 {name} 说说我的毕业季的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出初中三年主要的变化和收获",
       "cnStandards": [
         "moe-2022-moral:S4.走向未来.02"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1558",
@@ -45514,6 +45535,1038 @@
       "nodeKind": "concept",
       "granularity": "split-45min",
       "splitFrom": "mtc_1286"
+    },
+    {
+      "id": "mtc_2401",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "活出生命的精彩",
+      "description": "学习如何让生命充盈，拒绝冷漠，在平凡中创造伟大。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": 0.711538,
+      "evidence": [
+        "能说出活出生命的精彩的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出活出生命的精彩的基本内容",
+      "cnStandards": [
+        "moe-2022-moral:S4.生命的思.03"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1517"
+    },
+    {
+      "id": "mtc_2402",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "成长的不仅仅是身体",
+      "description": "发展独立思维、批判精神，开发创造潜力。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": 0.692308,
+      "evidence": [
+        "能说出成长的不仅仅是身体的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出成长的不仅仅是身体的基本内容",
+      "cnStandards": [
+        "moe-2022-moral:S4.青春时光.01"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1518"
+    },
+    {
+      "id": "mtc_2403",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "青春萌动",
+      "description": "正确处理异性之间的朦胧情感和交往方式。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": 0.673077,
+      "evidence": [
+        "能说出青春萌动的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出青春萌动的基本内容",
+      "cnStandards": [
+        "moe-2022-moral:S4.青春时光.02"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1519"
+    },
+    {
+      "id": "mtc_2404",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "青春有格",
+      "description": "理解行己有耻、止于至善，让青春有格。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": 0.653846,
+      "evidence": [
+        "能说出青春有格的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出青春有格的基本内容",
+      "cnStandards": [
+        "moe-2022-moral:S4.青春时光.03"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1520"
+    },
+    {
+      "id": "mtc_2405",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Mental Health",
+      "name": "情绪的管理",
+      "description": "掌握调节情绪的方法，合理表达情绪。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": 0,
+      "evidence": [
+        "能说出情绪的管理的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出情绪的管理的基本内容",
+      "cnStandards": [
+        "moe-2022-moral:S4.做情绪情.01"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1521"
+    },
+    {
+      "id": "mtc_2406",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "在品味情感中成长",
+      "description": "学会通过体验和创造传递情感正能量。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": 0.634615,
+      "evidence": [
+        "能说出在品味情感中成长的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出在品味情感中成长的基本内容",
+      "cnStandards": [
+        "moe-2022-moral:S4.做情绪情.02"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1522"
+    },
+    {
+      "id": "mtc_2407",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "集体生活成就我",
+      "description": "认识集体生活对个人成长的作用，在集体中发展个性。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": 0.615385,
+      "evidence": [
+        "能说出集体生活成就我的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出集体生活成就我的基本内容",
+      "cnStandards": [
+        "moe-2022-moral:S4.在集体中.01"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1523"
+    },
+    {
+      "id": "mtc_2408",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "节奏与旋律",
+      "description": "认识集体中的小群体与集体主义。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": 0.596154,
+      "evidence": [
+        "能说出节奏与旋律的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出节奏与旋律的基本内容",
+      "cnStandards": [
+        "moe-2022-moral:S4.在集体中.02"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1524"
+    },
+    {
+      "id": "mtc_2409",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "我与集体共成长",
+      "description": "在集体中担当，共建美好集体。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": 0.576923,
+      "evidence": [
+        "能说出我与集体共成长的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出我与集体共成长的基本内容",
+      "cnStandards": [
+        "moe-2022-moral:S4.在集体中.03"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1525"
+    },
+    {
+      "id": "mtc_2410",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "法律保障生活",
+      "description": "了解法律的特征和作用。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": 0.557692,
+      "evidence": [
+        "能说出法律保障生活的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出法律保障生活的基本内容",
+      "cnStandards": [
+        "moe-2022-moral:S4.走进法治.01"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1526"
+    },
+    {
+      "id": "mtc_2411",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "我们与法律同行",
+      "description": "学会依法办事，树立法治意识。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": 0.538462,
+      "evidence": [
+        "能说出我们与法律同行的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出我们与法律同行的基本内容",
+      "cnStandards": [
+        "moe-2022-moral:S4.走进法治.02"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1527"
+    },
+    {
+      "id": "mtc_2412",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "在社会中成长",
+      "description": "认识社会化过程，树立积极的生活态度。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 14,
+      "centrality": 0.423077,
+      "evidence": [
+        "能说出在社会中成长的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出在社会中成长的基本内容",
+      "cnStandards": [
+        "moe-2022-moral:S4.走进社会.01"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1528"
+    },
+    {
+      "id": "mtc_2413",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Digital Citizenship",
+      "name": "合理利用网络",
+      "description": "学会理性参与网络生活，传播正能量。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 14,
+      "centrality": 0.019231,
+      "evidence": [
+        "能说出合理利用网络的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出合理利用网络的基本内容",
+      "cnStandards": [
+        "moe-2022-moral:S4.走进社会.02"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1529"
+    },
+    {
+      "id": "mtc_2414",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "遵守规则",
+      "description": "自觉遵守规则，维护规则，改进规则。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 14,
+      "centrality": 0.115385,
+      "evidence": [
+        "能说出遵守规则的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出遵守规则的基本内容",
+      "cnStandards": [
+        "moe-2022-moral:S4.遵守社会.01"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1530"
+    },
+    {
+      "id": "mtc_2415",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "以礼待人",
+      "description": "认识礼的重要性，掌握文明有礼的要求。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 14,
+      "centrality": 0.096154,
+      "evidence": [
+        "能说出以礼待人的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出以礼待人的基本内容",
+      "cnStandards": [
+        "moe-2022-moral:S4.遵守社会.02"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1531"
+    },
+    {
+      "id": "mtc_2416",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "诚实守信",
+      "description": "理解诚信的价值，践行诚信。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 14,
+      "centrality": 0.096154,
+      "evidence": [
+        "能说出诚实守信的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出诚实守信的基本内容",
+      "cnStandards": [
+        "moe-2022-moral:S4.遵守社会.02"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1531"
+    },
+    {
+      "id": "mtc_2417",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "预防犯罪",
+      "description": "了解犯罪的特征、刑罚，加强自我防范。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 14,
+      "centrality": 0.076923,
+      "evidence": [
+        "能说出预防犯罪的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出预防犯罪的基本内容",
+      "cnStandards": [
+        "moe-2022-moral:S4.遵守社会.03"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1532"
+    },
+    {
+      "id": "mtc_2418",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "善用法律",
+      "description": "学会依法维权，同违法犯罪作斗争。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 14,
+      "centrality": 0.076923,
+      "evidence": [
+        "能说出善用法律的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出善用法律的基本内容",
+      "cnStandards": [
+        "moe-2022-moral:S4.遵守社会.03"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1532"
+    },
+    {
+      "id": "mtc_2419",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "做负责任的人",
+      "description": "培养责任感，勇于承担责任。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 14,
+      "centrality": 0.057692,
+      "evidence": [
+        "能说出做负责任的人的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出做负责任的人的基本内容",
+      "cnStandards": [
+        "moe-2022-moral:S4.勇担社会.01"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1533"
+    },
+    {
+      "id": "mtc_2420",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "服务社会",
+      "description": "理解服务社会的意义，参与社会公益活动。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 14,
+      "centrality": 0.038462,
+      "evidence": [
+        "能说出服务社会的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出服务社会的基本内容",
+      "cnStandards": [
+        "moe-2022-moral:S4.勇担社会.02"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1534"
+    },
+    {
+      "id": "mtc_2421",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "坚持国家利益至上",
+      "description": "树立国家利益意识，维护国家利益。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 14,
+      "centrality": 0.019231,
+      "evidence": [
+        "能说出坚持国家利益至上的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出坚持国家利益至上的基本内容",
+      "cnStandards": [
+        "moe-2022-moral:S4.维护国家.01"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1535"
+    },
+    {
+      "id": "mtc_2422",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "维护国家安全",
+      "description": "履行维护国家安全的法律义务，增强防范意识。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 14,
+      "centrality": 0,
+      "evidence": [
+        "能说出维护国家安全的基本内容",
+        "能运用该框知识分析相关问题",
+        "能结合实例说明该框的意义或应用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出维护国家安全的基本内容",
+      "cnStandards": [
+        "moe-2022-moral:S4.维护国家.02"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1536"
+    },
+    {
+      "id": "mtc_2423",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "天下兴亡匹夫有责",
+      "description": "理解个人与国家的关系，培养责任意识和实干精神。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 14,
+      "centrality": 0.288462,
+      "evidence": [
+        "能说明个人劳动对国家发展的意义",
+        "能结合实例阐述青少年的责任"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说明个人劳动对国家发展的意义",
+      "cnStandards": [
+        "moe-2022-moral:S4.维护国家.03"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1537"
+    },
+    {
+      "id": "mtc_2424",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "治国安邦的总章程",
+      "description": "理解宪法作为国家根本法的地位和作用。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 14,
+      "centrality": 0.269231,
+      "evidence": [
+        "能说明宪法在国家法律体系中的最高地位",
+        "能列举宪法的基本原则"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说明宪法在国家法律体系中的最高地位",
+      "cnStandards": [
+        "moe-2022-moral:S4.坚持宪法.01"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1538"
+    },
+    {
+      "id": "mtc_2425",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "加强宪法监督",
+      "description": "了解宪法监督制度，增强宪法意识。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 14,
+      "centrality": 0.230769,
+      "evidence": [
+        "能说出宪法监督的主体和方式",
+        "能说明加强宪法监督的意义"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出宪法监督的主体和方式",
+      "cnStandards": [
+        "moe-2022-moral:S4.坚持宪法.02"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1539"
+    },
+    {
+      "id": "mtc_2426",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "国家行政机关",
+      "description": "了解国家行政机关的性质、组成和职权。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 14,
+      "centrality": 0.192308,
+      "evidence": [
+        "能说出行政机关是权力机关的执行机关",
+        "能举例说明行政机关的职权"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出行政机关是权力机关的执行机关",
+      "cnStandards": [
+        "moe-2022-moral:S4.人民当家.02"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1541"
+    },
+    {
+      "id": "mtc_2427",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "国家司法机关",
+      "description": "了解人民法院和人民检察院的性质、组成和职权。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 14,
+      "centrality": 0.192308,
+      "evidence": [
+        "能说出人民法院是审判机关",
+        "能说出人民检察院是法律监督机关",
+        "能区别法院和检察院的职能"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出人民法院是审判机关",
+      "cnStandards": [
+        "moe-2022-moral:S4.人民当家.02"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1541"
+    },
+    {
+      "id": "mtc_2428",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "自由平等的追求",
+      "description": "学会如何在生活中践行自由平等，维护自身和他人权利。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 14,
+      "centrality": 0.173077,
+      "evidence": [
+        "能举例说明如何珍视自由",
+        "能举例说明如何践行平等"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能举例说明如何珍视自由",
+      "cnStandards": [
+        "moe-2022-moral:S4.崇尚法治.01"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1542"
+    },
+    {
+      "id": "mtc_2429",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "公平正义的守护",
+      "description": "学会在生活中维护公平正义，做有正义感的人。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 14,
+      "centrality": 0.153846,
+      "evidence": [
+        "能举例说明如何维护公平",
+        "能举例说明如何守护正义"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能举例说明如何维护公平",
+      "cnStandards": [
+        "moe-2022-moral:S4.崇尚法治.02"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1543"
+    },
+    {
+      "id": "mtc_2430",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "走向共同富裕",
+      "description": "理解共同富裕的内涵和实现途径。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": 0.134615,
+      "evidence": [
+        "能解释共同富裕的含义",
+        "能说出实现共同富裕的措施"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能解释共同富裕的含义",
+      "cnStandards": [
+        "moe-2022-moral:S4.富强与创.01"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1544"
+    },
+    {
+      "id": "mtc_2431",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "创新永无止境",
+      "description": "了解国家创新驱动发展战略，增强创新意识。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": 0.115385,
+      "evidence": [
+        "能说出创新驱动发展战略的内涵",
+        "能举例说明我国在创新方面的成就"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出创新驱动发展战略的内涵",
+      "cnStandards": [
+        "moe-2022-moral:S4.富强与创.02"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1545"
+    },
+    {
+      "id": "mtc_2432",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "参与民主生活",
+      "description": "了解民主参与的途径和方式，积极参与民主生活。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": 0.096154,
+      "evidence": [
+        "能列举民主参与的途径",
+        "能正确行使民主权利"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能列举民主参与的途径",
+      "cnStandards": [
+        "moe-2022-moral:S4.民主与法.01"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1546"
+    },
+    {
+      "id": "mtc_2433",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "凝聚法治共识",
+      "description": "理解法治社会需要共同努力，增强法治意识。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": 0.076923,
+      "evidence": [
+        "能说明公民在法治建设中的责任",
+        "能举例说明如何维护法治"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说明公民在法治建设中的责任",
+      "cnStandards": [
+        "moe-2022-moral:S4.民主与法.02"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1547"
+    },
+    {
+      "id": "mtc_2434",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "凝聚价值追求",
+      "description": "理解社会主义核心价值观的内涵和实践。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": 0.057692,
+      "evidence": [
+        "能说出社会主义核心价值观的内容",
+        "能举例说明如何践行核心价值观"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出社会主义核心价值观的内容",
+      "cnStandards": [
+        "moe-2022-moral:S4.文明与家.01"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1548"
+    },
+    {
+      "id": "mtc_2435",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "共筑生命家园",
+      "description": "了解绿色发展理念，学会保护环境。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": 0.038462,
+      "evidence": [
+        "能说出绿色发展理念的内涵",
+        "能举例说明如何保护环境"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出绿色发展理念的内涵",
+      "cnStandards": [
+        "moe-2022-moral:S4.文明与家.02"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1549"
+    },
+    {
+      "id": "mtc_2436",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "共圆中国梦",
+      "description": "了解实现中国梦的途径，增强责任意识。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": 0,
+      "evidence": [
+        "能说出实现中国梦的途径",
+        "能结合自身说明如何贡献力量"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出实现中国梦的途径",
+      "cnStandards": [
+        "moe-2022-moral:S4.和谐与梦.02"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1551"
+    },
+    {
+      "id": "mtc_2437",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "复杂多变的关系",
+      "description": "理解国际关系的复杂性和我国的外交政策。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": 0.134615,
+      "evidence": [
+        "能说出国际关系的基本形式",
+        "能说明我国的外交政策"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出国际关系的基本形式",
+      "cnStandards": [
+        "moe-2022-moral:S4.我们共同.01"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1552"
+    },
+    {
+      "id": "mtc_2438",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "谋求互利共赢",
+      "description": "了解构建人类命运共同体的理念和实践。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": 0.115385,
+      "evidence": [
+        "能说出人类命运共同体的内涵",
+        "能举例说明国际合作实现共赢"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出人类命运共同体的内涵",
+      "cnStandards": [
+        "moe-2022-moral:S4.我们共同.02"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1553"
+    },
+    {
+      "id": "mtc_2439",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "与世界深度互动",
+      "description": "理解中国与世界的相互影响。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": 0.096154,
+      "evidence": [
+        "能说明中外文化交流的例子",
+        "能说出中国对世界的影响"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说明中外文化交流的例子",
+      "cnStandards": [
+        "moe-2022-moral:S4.世界舞台.01"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1554"
+    },
+    {
+      "id": "mtc_2440",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "携手促发展",
+      "description": "了解中国促进共同发展的举措，增强合作意识。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": 0.076923,
+      "evidence": [
+        "能举例说明中国如何促进共同发展",
+        "能说出合作对发展的重要性"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能举例说明中国如何促进共同发展",
+      "cnStandards": [
+        "moe-2022-moral:S4.世界舞台.02"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1555"
+    },
+    {
+      "id": "mtc_2441",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "少年当自强",
+      "description": "理解自强不息的精神，增强自身修养。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": 0.057692,
+      "evidence": [
+        "能解释自强不息的含义",
+        "能结合自身说明如何做到自强"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能解释自强不息的含义",
+      "cnStandards": [
+        "moe-2022-moral:S4.走向未来.01"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1556"
+    },
+    {
+      "id": "mtc_2442",
+      "type": "CONCEPTUAL",
+      "subject": "Moral & Rule of Law",
+      "domain": "Safety Education",
+      "name": "走向未来",
+      "description": "规划未来的人生道路，增强责任感和使命感，为进入新的阶段做准备。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": 0.038462,
+      "evidence": [
+        "能说出未来规划的基本步骤和要素",
+        "能运用生涯规划知识分析自己的发展方向",
+        "能结合实例说明个人理想与社会需要的关系"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出未来规划的基本步骤和要素",
+      "cnStandards": [
+        "moe-2022-moral:S4.走向未来.02"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1557"
     }
   ]
 }

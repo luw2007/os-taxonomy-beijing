@@ -1,3 +1,6 @@
+import { findNextUnmastered } from './path-navigation.js';
+import { buildPathSequence, classifyPathGesture, applyKnowledgeDecision } from './mobile-path-state.js';
+
 'use strict';
 
 // ============================================================
@@ -7,7 +10,9 @@
 // ============================================================
 
 async function boot() {
-const XDATA = await (await fetch('/api/path-data')).json();
+const pathResponse = await fetch('/api/path-data');
+if (!pathResponse.ok) throw new Error(`知识数据加载失败（HTTP ${pathResponse.status}）`);
+const XDATA = await pathResponse.json();
 const { subjects: SUBJ, nodes: NODES, edges: EDGES, presets: PRESETS } = XDATA;
 
 // --- 邻接索引 ---
@@ -21,6 +26,7 @@ for (const e of EDGES) {
 const N = (id) => { const n = NODES[id]; return n ? { name: n[0], subject: n[1], age: n[2] } : null; };
 const sz = (s) => SUBJ[s] || s;
 const esc = (s) => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const NAV_NODES = Object.fromEntries(Object.entries(NODES).map(([id, node]) => [id, { name: node[0], age: node[2] }]));
 
 // --- toast ---
 let toastTimer;
@@ -57,16 +63,21 @@ const saveUsers = () => localStorage.setItem(UKEY, JSON.stringify(users));
 const activeUser = () => users.list.find(u => u.id === users.activeId);
 const mKey = () => `kg-demo-u-${users.activeId}-mastered`;
 const pKey = () => `kg-demo-u-${users.activeId}-profile`;
-const userKeys = (id) => [`kg-demo-u-${id}-mastered`, `kg-demo-u-${id}-profile`];
+const nrKey = () => `kg-demo-u-${users.activeId}-needs-review`;
+const userKeys = (id) => [`kg-demo-u-${id}-mastered`, `kg-demo-u-${id}-profile`, `kg-demo-u-${id}-needs-review`];
 
-let mastered, profile;
+let mastered, profile, needsReview;
+let refreshMobilePath = () => {};
 function loadActiveUser() {
   mastered = new Set(JSON.parse(localStorage.getItem(mKey()) || '[]').filter(id => NODES[id]));
   profile = JSON.parse(localStorage.getItem(pKey()) || '{}');
+  needsReview = new Set(JSON.parse(localStorage.getItem(nrKey()) || '[]').filter(id => NODES[id]));
+  refreshMobilePath();
 }
 loadActiveUser();
 const saveMastered = () => localStorage.setItem(mKey(), JSON.stringify([...mastered]));
 const saveProfile = () => localStorage.setItem(pKey(), JSON.stringify(profile));
+const saveNeedsReview = () => localStorage.setItem(nrKey(), JSON.stringify([...needsReview]));
 
 const PROFILE_LABEL = { age: '年龄', grade: '年级', region: '地区', gender: '性别', textbook: '教材', interests: '兴趣', other: '备注' };
 const fmtProfileVal = (k, v) => k === 'age' ? v + '岁' : Array.isArray(v) ? v.join('、') : String(v);
@@ -89,13 +100,18 @@ function mergeProfile(mem) {
   return true;
 }
 
+function notifyMasteryChange() {
+  if (graphLoaded) graphFrame.contentWindow.dispatchEvent(new Event('masterychanged'));
+}
+
 // 档案切换后的全量刷新
 function switchUser(id) {
   if (users.activeId === id) return;
   users.activeId = id; saveUsers();
   loadActiveUser();
+  notifyMasteryChange();
   openSubject = null;
-  renderUserBar(); renderMasteredBar(); renderNext();
+  renderUserBar(); renderMasteredBar(); renderNext(); renderPresets();
   if (curId) show(curId, false);
   toast('已切换到「' + activeUser().name + '」');
 }
@@ -129,11 +145,11 @@ function renderProfileModal() {
     const m = JSON.parse(localStorage.getItem(`kg-demo-u-${u.id}-mastered`) || '[]').length;
     const p = JSON.parse(localStorage.getItem(`kg-demo-u-${u.id}-profile`) || '{}');
     const meta = [p.age != null ? p.age + '岁' : null, p.grade, `已掌握 ${m} 个`].filter(Boolean).join(' · ');
-    return `<div class="profile-row ${u.id === users.activeId ? 'active' : ''}" data-id="${u.id}">
+    return `<div class="profile-row ${u.id === users.activeId ? 'active' : ''}" data-id="${esc(u.id)}">
       <span class="pname">${esc(u.name)}</span><span class="pmeta">${esc(meta)}</span>
       <span class="pspacer"></span>
       ${u.id === users.activeId ? '<span class="pmeta">当前</span>' : ''}
-      ${users.list.length > 1 ? `<span class="pdel" data-del="${u.id}" title="删除档案">🗑</span>` : ''}
+      ${users.list.length > 1 ? `<span class="pdel" data-del="${esc(u.id)}" title="删除档案">🗑</span>` : ''}
     </div>`;
   }).join('');
   list.querySelectorAll('.profile-row').forEach(r => r.addEventListener('click', (e) => {
@@ -255,7 +271,7 @@ function renderConfirm(claims, remembered) {
     } else {
       for (const [ki, k] of c.candidates.entries()) {
         const on = ki === 0 && k.confidence >= 0.8 && !mastered.has(k.id);
-        html += `<span class="cand ${on ? 'on' : ''}" data-id="${k.id}"><span class="ck">${on ? '✓' : ''}</span>
+        html += `<span class="cand ${on ? 'on' : ''}" data-id="${esc(k.id)}"><span class="ck">${on ? '✓' : ''}</span>
           <span>${esc(k.name)}</span><span class="s">${esc(k.subjectZh)}${k.age >= 0 ? ' · ' + k.age + '岁' : ''}</span>
           <span class="cf">${Math.round(k.confidence * 100)}%</span></span>`;
         if (k.note) html += `<div class="cand-note">↳ ${esc(k.note)}</div>`;
@@ -274,11 +290,16 @@ function renderConfirm(claims, remembered) {
   }));
   document.getElementById('confirm-ok').addEventListener('click', () => {
     const picked = [...confirmArea.querySelectorAll('.cand.on')].map(el => el.dataset.id);
-    for (const id of picked) mastered.add(id);
-    saveMastered();
+    for (const id of picked) { mastered.add(id); needsReview.delete(id); }
+    saveMastered(); saveNeedsReview();
+    notifyMasteryChange();
+
     confirmArea.hidden = true; confirmArea.innerHTML = ''; markInput.value = '';
-    renderMasteredBar(); renderNext();
-    if (curId) show(curId, false);
+    renderMasteredBar(); renderNext(); renderPresets();
+    const nextId = curId && picked.includes(curId)
+      ? findNextUnmastered(curId, mastered, NAV_NODES, EDGES)
+      : curId;
+    if (nextId) show(nextId, false);
     toast(picked.length ? `已标记 ${picked.length} 个知识点为已掌握` : '未勾选任何知识点');
   });
   document.getElementById('confirm-cancel').addEventListener('click', () => {
@@ -295,10 +316,16 @@ let openSubject = null;
 
 function toggleMastered(id) {
   const was = mastered.has(id);
-  if (was) mastered.delete(id); else mastered.add(id);
-  saveMastered();
-  renderMasteredBar(); renderNext();
-  if (curId) show(curId, false);
+  if (was) mastered.delete(id); else { mastered.add(id); needsReview.delete(id); }
+  saveMastered(); saveNeedsReview();
+  notifyMasteryChange();
+  renderMasteredBar(); renderNext(); renderPresets();
+  if (was) {
+    if (curId) show(curId, false);
+  } else {
+    const nextId = findNextUnmastered(id, mastered, NAV_NODES, EDGES);
+    show(nextId || id, false);
+  }
   toast(was ? '已取消掌握标记' : '已标记为已掌握');
 }
 
@@ -327,8 +354,8 @@ function renderMasteredBar() {
   }));
   document.getElementById('mb-clear').addEventListener('click', () => {
     if (!confirm(`清除全部 ${mastered.size} 个已掌握标记?`)) return;
-    mastered.clear(); saveMastered();
-    renderMasteredBar(); renderNext();
+    mastered.clear(); saveMastered(); notifyMasteryChange();
+    renderMasteredBar(); renderNext(); renderPresets();
     if (curId) show(curId, false);
     toast('已清除全部掌握标记');
   });
@@ -343,7 +370,7 @@ function renderMasteredBar() {
     }
     drawer.innerHTML = [...byAge.entries()].map(([ageLbl, items]) =>
       `<div class="mb-age-grp"><div class="mb-age-lbl">${ageLbl}</div>` +
-      items.map(it => `<span class="mchip" data-id="${it.id}"><span>${esc(it.name)}</span><span class="rm" title="取消标记">×</span></span>`).join('') +
+      items.map(it => `<span class="mchip" data-id="${esc(it.id)}"><span>${esc(it.name)}</span><span class="rm" title="取消标记">×</span></span>`).join('') +
       `</div>`
     ).join('');
     drawer.querySelectorAll('.mchip').forEach(c => {
@@ -407,7 +434,7 @@ function renderNext() {
   panel.hidden = ranked.length === 0;
   document.getElementById('next-n').textContent = `(基于已掌握的 ${mastered.size} 个知识点推算)`;
   document.getElementById('next-grid').innerHTML = ranked.map(r => `
-    <div class="tcard ${r.viaX ? 'xcard' : ''}" data-id="${r.id}">
+    <div class="tcard ${r.viaX ? 'xcard' : ''}" data-id="${esc(r.id)}">
       <div class="top">${r.viaX ? `<span class="tag x">跨学科</span>` : ''}<span class="nm">${esc(r.n.name)}</span>
         <span class="tag">${sz(r.n.subject)}</span>${r.n.age >= 0 ? `<span class="tag">${r.n.age}岁</span>` : ''}</div>
       <div class="rsn">前置就绪 ${Math.round(r.ratio * 100)}%</div>
@@ -428,7 +455,7 @@ function card(otherId, e, isX) {
   const subjTag = isX ? `<span class="tag x">${sz(n.subject)}</span>` : '';
   const machineTag = e.m ? `<span class="tag machine">AI 推测</span>` : '';
   const mTag = isM ? `<span class="tag ok">已掌握</span>` : '';
-  return `<div class="tcard ${isX ? 'xcard' : ''} ${isM ? 'mastered' : ''}" data-id="${otherId}">
+  return `<div class="tcard ${isX ? 'xcard' : ''} ${isM ? 'mastered' : ''}" data-id="${esc(otherId)}">
     <div class="top">${subjTag}<span class="nm">${esc(n.name)}</span>${ageTag}${mTag}${machineTag}</div>
     ${e.r ? `<div class="rsn">${esc(e.r)}</div>` : ''}
   </div>`;
@@ -482,10 +509,11 @@ function show(id, pushTrail = true) {
   document.getElementById('n-post').textContent = post.count ? `(${post.count}${post.xCount ? ` · 跨学科 ${post.xCount}` : ''})` : '';
   const isM = mastered.has(id);
   document.getElementById('me').innerHTML = `<div class="me">
+    <div class="me-action"><button id="me-toggle" class="mastery-action ${isM ? 'mastered' : ''}">${isM ? '↩︎ 取消掌握标记' : '✓ 标记为已掌握'}</button><a id="me-graph-link">在图谱中查看 ↗</a></div>
     <div class="nm">${esc(me.name)}</div>
     <div class="meta"><span class="tag">${sz(me.subject)}</span>${me.age >= 0 ? `<span class="tag">${me.age}岁</span>` : ''}${isM ? '<span class="tag ok">已掌握</span>' : ''}</div>
     <div class="me-detail" id="me-detail"><div class="skel skel-card" style="height:80px"></div></div>
-    <div class="lk"><a id="me-toggle">${isM ? '↩︎ 取消掌握标记' : '✓ 标记为已掌握'}</a><a id="me-graph-link">在图谱中查看 ↗</a></div>
+
   </div>`;
   document.getElementById('me-toggle').addEventListener('click', () => toggleMastered(id));
   document.getElementById('me-graph-link').addEventListener('click', () => showGraphTopic(id));
@@ -500,6 +528,7 @@ function show(id, pushTrail = true) {
   });
   renderTrail();
   document.querySelectorAll('.cols .tcard').forEach(c => c.addEventListener('click', () => show(c.dataset.id)));
+  syncMobileWithId(id);
 }
 
 function renderTrail() {
@@ -521,7 +550,7 @@ qEl.addEventListener('input', () => {
       if (n[0].toLowerCase().includes(q)) { hits.push([id, n]); if (hits.length >= 20) break; }
     }
     sgEl.innerHTML = hits.map(([id, n]) =>
-      `<div class="sg" data-id="${id}"><span class="s">${sz(n[1])}${n[2] >= 0 ? ' · ' + n[2] + '岁' : ''}</span>${esc(n[0])}</div>`).join('')
+      `<div class="sg" data-id="${esc(id)}"><span class="s">${sz(n[1])}${n[2] >= 0 ? ' · ' + n[2] + '岁' : ''}</span>${esc(n[0])}</div>`).join('')
       || '<div class="sg">无结果</div>';
     sgEl.querySelectorAll('.sg[data-id]').forEach(d => d.addEventListener('click', () => {
       sgEl.innerHTML = ''; qEl.value = '';
@@ -530,11 +559,18 @@ qEl.addEventListener('input', () => {
   }, 200);
 });
 document.addEventListener('click', (e) => { if (!e.target.closest('.sb-search')) sgEl.innerHTML = ''; });
+function renderPresets() {
+  const presets = PRESETS.filter(id => !mastered.has(id));
+  const el = document.getElementById('presets');
+  el.innerHTML = presets.length
+    ? presets.map(id => `<button class="preset" data-id="${esc(id)}">${esc(N(id)?.name || id)}</button>`).join(' ')
+    : '<span class="preset-empty">入口知识点均已掌握</span>';
+  el.querySelectorAll('.preset').forEach(button => button.addEventListener('click', () => show(button.dataset.id)));
+}
+
 
 // presets
-document.getElementById('presets').innerHTML = PRESETS.map(id =>
-  `<button class="preset" data-id="${id}">${esc(N(id)?.name || id)}</button>`).join(' ');
-document.querySelectorAll('.preset').forEach(b => b.addEventListener('click', () => show(b.dataset.id)));
+renderPresets();
 
 // === 共享侧边栏: 可收起 + 学科目录树(/api/subjects) ===
 const SBKEY = 'kg-demo-sb-open';
@@ -608,7 +644,7 @@ async function fillTopics(dEl) {
     const data = await (await fetch(`/api/topics?dimension=${curDim}&subject=${encodeURIComponent(dEl.dataset.s)}&domain=${encodeURIComponent(dEl.dataset.d)}`)).json();
     const tops = data.topics.sort((a, b) => (a.ageRangeStart ?? 99) - (b.ageRangeStart ?? 99));
     box.innerHTML = tops.map(t =>
-      `<a class="sb-topic" data-id="${t.id}">${esc(t.name)}${t.ageRangeStart != null ? `<span class="age">${t.ageRangeStart}岁</span>` : ''}</a>`).join('');
+      `<a class="sb-topic" data-id="${esc(t.id)}">${esc(t.name)}${t.ageRangeStart != null ? `<span class="age">${t.ageRangeStart}岁</span>` : ''}</a>`).join('');
     box.querySelectorAll('.sb-topic').forEach(a => a.addEventListener('click', () => openTopic(a.dataset.id)));
   } catch {
     box.innerHTML = '<p class="sb-loading" style="padding:4px 48px">加载失败</p>';
@@ -674,14 +710,298 @@ function showGraphTopic(id) {
   else graphFrame.addEventListener('load', nav, { once: true });
 }
 
+// === 移动端知识路径 ===
+const mobEl = (id) => document.getElementById(id);
+let mobileSeq = [];
+let mobilePos = 0;
+let mobileUndo = null;
+let mobilePointerId = null;
+let mobileGestureStart = null;
+
+function mobileAnnounce(msg) {
+  const el = mobEl('mobile-live');
+  if (el) el.textContent = msg;
+}
+
+function updateMobileControls() {
+  const empty = mobileSeq.length === 0;
+  const prev = mobEl('mobile-prev'), next = mobEl('mobile-next');
+  if (prev) prev.disabled = empty || mobilePos === 0;
+  if (next) next.disabled = empty || mobilePos === mobileSeq.length - 1;
+  const id = mobileSeq[mobilePos];
+  const masteredBtn = mobEl('mobile-decision-mastered'), reviewBtn = mobEl('mobile-decision-review');
+  if (masteredBtn) { masteredBtn.disabled = empty; masteredBtn.setAttribute('aria-pressed', String(Boolean(id && mastered.has(id)))); }
+  if (reviewBtn) { reviewBtn.disabled = empty; reviewBtn.setAttribute('aria-pressed', String(Boolean(id && needsReview.has(id)))); }
+  const undoBtn = mobEl('mobile-undo');
+  if (undoBtn) { undoBtn.hidden = !mobileUndo; undoBtn.disabled = !mobileUndo; }
+  const position = mobEl('mobile-position');
+  if (position) position.textContent = empty ? '0 / 0' : `${mobilePos + 1} / ${mobileSeq.length}`;
+}
+
+function renderMobileCard() {
+  const card = mobEl('mobile-path-card');
+  const scroll = mobEl('mobile-card-scroll');
+  const title = mobEl('mobile-card-title');
+  const tags = mobEl('mobile-card-tags');
+  const detail = mobEl('mobile-card-detail');
+  const emptyState = mobEl('mobile-card-empty');
+  const errorState = mobEl('mobile-card-error');
+  if (!mobileSeq.length) {
+    if (card) card.dataset.state = 'empty';
+    if (title) title.textContent = '当前范围没有知识点';
+    if (tags) tags.textContent = '';
+    if (detail) detail.hidden = true;
+    if (emptyState) emptyState.hidden = false;
+    if (errorState) errorState.hidden = true;
+    const ctx = mobEl('mobile-context'); if (ctx) ctx.textContent = '清除筛选或打开目录选择知识点';
+    updateMobileControls();
+    return;
+  }
+  const id = mobileSeq[mobilePos];
+  const n = N(id);
+  const isM = mastered.has(id), isR = needsReview.has(id);
+  if (card) card.dataset.state = isM ? 'mastered' : isR ? 'needs-review' : 'ready';
+  if (title) title.textContent = n.name;
+  if (tags) tags.innerHTML = `<span class="tag">${esc(sz(n.subject))}</span>${n.age >= 0 ? `<span class="tag">${n.age}岁</span>` : ''}<span class="tag">${isM ? '已掌握' : isR ? '暂未掌握' : '待判断'}</span>`;
+  if (detail) { detail.hidden = false; detail.innerHTML = '<div class="skel skel-card" style="height:60px"></div>'; }
+  if (emptyState) emptyState.hidden = true;
+  if (errorState) errorState.hidden = true;
+  const preNames = (inbound.get(id) || []).map(e => N(e.f)?.name).filter(Boolean).slice(0, 3);
+  const postNames = (outbound.get(id) || []).map(e => N(e.t)?.name).filter(Boolean).slice(0, 3);
+  const ctx = mobEl('mobile-context');
+  if (ctx) ctx.textContent = `前置 ${preNames.length ? preNames.join('、') : '无'} · 后续 ${postNames.length ? postNames.join('、') : '无'}`;
+  if (scroll) scroll.scrollTop = 0;
+  updateMobileControls();
+  fetch(`/api/topic/${encodeURIComponent(id)}`).then(r => {
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    return r.json();
+  }).then(d => {
+    if (mobileSeq[mobilePos] === id && detail) detail.innerHTML = renderMeDetail(d);
+  }).catch(() => {
+    if (mobileSeq[mobilePos] !== id) return;
+    if (detail) detail.hidden = true;
+    if (errorState) errorState.hidden = false;
+  });
+}
+
+function syncMobileWithId(id) {
+  if (!mobEl('mobile-path-card')) return;
+  const idx = mobileSeq.indexOf(id);
+  if (idx !== -1) { mobilePos = idx; renderMobileCard(); }
+}
+
+function mobileStep(delta) {
+  if (!mobileSeq.length) return;
+  const next = Math.max(0, Math.min(mobileSeq.length - 1, mobilePos + delta));
+  if (next === mobilePos) return;
+  mobilePos = next;
+  show(mobileSeq[mobilePos], false);
+}
+
+function decideMobile(id, decision) {
+  mobileUndo = { id, prevMastered: mastered.has(id), prevNeedsReview: needsReview.has(id) };
+  const next = applyKnowledgeDecision({ mastered, needsReview }, id, decision);
+  mastered = next.mastered; needsReview = next.needsReview;
+  saveMastered(); saveNeedsReview(); notifyMasteryChange();
+  renderMasteredBar(); renderNext(); renderPresets();
+  const nextIndex = Math.min(mobilePos + 1, mobileSeq.length - 1);
+  mobileAnnounce(`${decision === 'mastered' ? '已标记为已掌握' : '已标记为暂未掌握'}${nextIndex !== mobilePos ? `，已切换到${N(mobileSeq[nextIndex]).name}` : ''}`);
+  mobilePos = nextIndex;
+  show(mobileSeq[mobilePos], false);
+}
+
+function undoMobile() {
+  if (!mobileUndo) return;
+  const { id, prevMastered, prevNeedsReview } = mobileUndo;
+  const restored = applyKnowledgeDecision({ mastered, needsReview }, id,
+    prevMastered ? 'mastered' : prevNeedsReview ? 'needs-review' : 'clear');
+  mastered = restored.mastered; needsReview = restored.needsReview;
+  saveMastered(); saveNeedsReview(); notifyMasteryChange();
+  renderMasteredBar(); renderNext(); renderPresets();
+  const idx = mobileSeq.indexOf(id);
+  if (idx !== -1) mobilePos = idx;
+  mobileUndo = null;
+  mobileAnnounce('已撤销上次判定');
+  if (mobileSeq.length) show(mobileSeq[mobilePos], false); else renderMobileCard();
+}
+
+function populateMobileFilters() {
+  const subjSel = mobEl('mobile-subject-filter');
+  const ageSel = mobEl('mobile-age-filter');
+  if (subjSel) {
+    const subjects = [...new Set(Object.values(NODES).map(n => n[1]))].sort((a, b) => sz(a).localeCompare(sz(b), 'zh-Hans-CN'));
+    subjSel.innerHTML = '<option value="">全部学科</option>' + subjects.map(s => `<option value="${esc(s)}">${esc(sz(s))}</option>`).join('');
+  }
+  if (ageSel) {
+    const ages = [...new Set(Object.values(NODES).map(n => n[2]).filter(a => a >= 0))].sort((a, b) => a - b);
+    ageSel.innerHTML = '<option value="">全部年龄</option>' + ages.map(a => `<option value="${a}">${a}岁（学年参考）</option>`).join('');
+  }
+}
+
+function applyMobileFilters() {
+  const subject = mobEl('mobile-subject-filter')?.value || '';
+  const age = mobEl('mobile-age-filter')?.value || '';
+  const filters = {};
+  if (subject) filters.subject = subject;
+  if (age) filters.age = Number(age);
+  mobileSeq = buildPathSequence(NODES, EDGES, filters);
+  const firstUnmastered = mobileSeq.findIndex(id => !mastered.has(id));
+  mobilePos = mobileSeq.length ? (firstUnmastered === -1 ? 0 : firstUnmastered) : 0;
+  mobileUndo = null;
+  if (mobileSeq.length) show(mobileSeq[mobilePos], false); else renderMobileCard();
+  mobileAnnounce(mobileSeq.length ? `筛选范围已更新，共 ${mobileSeq.length} 个知识点` : '当前筛选范围没有知识点');
+}
+
+function clearMobileFilters() {
+  const subjSel = mobEl('mobile-subject-filter'); if (subjSel) subjSel.value = '';
+  const ageSel = mobEl('mobile-age-filter'); if (ageSel) ageSel.value = '';
+  applyMobileFilters();
+}
+
+function setupMobileGestures() {
+  const scroll = mobEl('mobile-card-scroll');
+  const card = mobEl('mobile-path-card');
+  if (!scroll || !card) return;
+  scroll.addEventListener('pointerdown', (e) => {
+    if (!e.isPrimary || mobilePointerId !== null) return;
+    mobilePointerId = e.pointerId;
+    mobileGestureStart = { x: e.clientX, y: e.clientY };
+    scroll.setPointerCapture?.(e.pointerId);
+  });
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  scroll.addEventListener('pointermove', (e) => {
+    if (e.pointerId !== mobilePointerId || !mobileGestureStart || reducedMotion.matches) return;
+    const dx = e.clientX - mobileGestureStart.x;
+    const dy = e.clientY - mobileGestureStart.y;
+    if (Math.abs(dx) > Math.abs(dy) * 1.25) card.style.transform = `translateX(${Math.max(-20, Math.min(20, dx))}px)`;
+  });
+  const finish = (e) => {
+    if (e.pointerId !== mobilePointerId || !mobileGestureStart) return;
+    const dx = e.clientX - mobileGestureStart.x;
+    const dy = e.clientY - mobileGestureStart.y;
+    const result = e.type === 'pointercancel' ? null : classifyPathGesture({ dx, dy }, {
+      atTop: scroll.scrollTop <= 0,
+      atBottom: scroll.scrollTop + scroll.clientHeight >= scroll.scrollHeight - 1,
+    });
+    card.style.transform = '';
+    mobilePointerId = null; mobileGestureStart = null;
+    if (!result || !mobileSeq.length) return;
+    if (result === 'mastered' || result === 'needs-review') decideMobile(mobileSeq[mobilePos], result);
+    else mobileStep(result === 'next' ? 1 : -1);
+  };
+  scroll.addEventListener('pointerup', finish);
+  scroll.addEventListener('pointercancel', finish);
+}
+
+function setupMobileKeyboard() {
+  document.addEventListener('keydown', (e) => {
+    const tag = (e.target.tagName || '').toLowerCase();
+    if (['input', 'select', 'textarea', 'button'].includes(tag)) return;
+    if (document.querySelectorAll('.modal-mask:not([hidden])').length) return;
+    if (!mobileSeq.length) return;
+    const id = mobileSeq[mobilePos];
+    if (e.key === 'ArrowUp') mobileStep(1);
+    else if (e.key === 'ArrowDown') mobileStep(-1);
+    else if (e.key === 'ArrowLeft') decideMobile(id, 'mastered');
+    else if (e.key === 'ArrowRight') decideMobile(id, 'needs-review');
+    else return;
+    e.preventDefault();
+  });
+}
+
+function setupMobileBottomNav() {
+  const activate = (tab) => document.querySelectorAll('#mobile-bottom-nav [data-mobile-tab]').forEach(btn => {
+    if (btn.dataset.mobileTab === tab) btn.setAttribute('aria-current', 'page'); else btn.removeAttribute('aria-current');
+  });
+  document.querySelectorAll('#mobile-bottom-nav [data-mobile-tab]').forEach(btn => btn.addEventListener('click', () => {
+    const tab = btn.dataset.mobileTab;
+    activate(tab);
+    if (tab === 'path') {
+      sbOpen = false; applySb();
+      document.querySelectorAll('.modal-mask:not([hidden])').forEach(mask => { if (mask.id !== 'agreement-mask') mask.hidden = true; });
+    } else if (tab === 'catalog') {
+      sbOpen = true; applySb();
+      mobEl('q')?.focus();
+    } else {
+      renderProfileModal(); openMask('profile-mask');
+    }
+  }));
+  mobEl('mobile-sidebar-close')?.addEventListener('click', () => { sbOpen = false; applySb(); activate('path'); });
+  mobEl('mobile-card-open-catalog')?.addEventListener('click', () => { sbOpen = true; applySb(); activate('catalog'); });
+}
+
+function setupMobileAI() {
+  const openBtn = mobEl('mobile-ai-open');
+  const mask = mobEl('mobile-ai-mask');
+  const closeBtn = mobEl('mobile-ai-close');
+  const loginBtn = mobEl('mobile-ai-login-unavailable');
+  if (!openBtn || !mask || !closeBtn || !loginBtn) return;
+  let lastTrigger = null;
+  const closeAI = () => {
+    mask.hidden = true;
+    lastTrigger?.focus();
+  };
+  openBtn.addEventListener('click', () => {
+    lastTrigger = document.activeElement;
+    mask.hidden = false;
+    mobEl('mobile-ai-title')?.focus();
+  });
+  closeBtn.addEventListener('click', closeAI);
+  loginBtn.addEventListener('click', () => toast('真实登录服务尚未接入'));
+  mobEl('mobile-login-btn')?.addEventListener('click', () => toast('真实登录服务尚未接入'));
+  mask.addEventListener('click', (e) => { if (e.target === mask) closeAI(); });
+  mask.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') { e.stopPropagation(); closeAI(); return; }
+    if (e.key !== 'Tab') return;
+    const first = loginBtn, last = closeBtn;
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+  const updateAIAvailability = () => {
+    const online = navigator.onLine;
+    openBtn.disabled = !online;
+    openBtn.textContent = online ? 'AI 伙伴' : 'AI 伙伴（离线）';
+    const offline = mobEl('mobile-card-offline'); if (offline) offline.hidden = online;
+  };
+  window.addEventListener('online', updateAIAvailability);
+  window.addEventListener('offline', updateAIAvailability);
+  updateAIAvailability();
+}
+
+function setupMobilePath() {
+  if (!mobEl('mobile-path-card') || !window.matchMedia('(max-width: 767px)').matches) return;
+  populateMobileFilters();
+  mobEl('mobile-filter-apply')?.addEventListener('click', applyMobileFilters);
+  mobEl('mobile-filter-clear')?.addEventListener('click', clearMobileFilters);
+  mobEl('mobile-card-clear-filter')?.addEventListener('click', clearMobileFilters);
+  mobEl('mobile-card-retry')?.addEventListener('click', renderMobileCard);
+  mobEl('mobile-decision-mastered')?.addEventListener('click', () => { if (mobileSeq.length) decideMobile(mobileSeq[mobilePos], 'mastered'); });
+  mobEl('mobile-decision-review')?.addEventListener('click', () => { if (mobileSeq.length) decideMobile(mobileSeq[mobilePos], 'needs-review'); });
+  mobEl('mobile-undo')?.addEventListener('click', undoMobile);
+  mobEl('mobile-prev')?.addEventListener('click', () => mobileStep(-1));
+  mobEl('mobile-next')?.addEventListener('click', () => mobileStep(1));
+  setupMobileGestures();
+  setupMobileKeyboard();
+  setupMobileBottomNav();
+  setupMobileAI();
+  refreshMobilePath = applyMobileFilters;
+  applyMobileFilters();
+}
+
 // === 启动 ===
 renderUserBar();
 renderMasteredBar(); renderNext();
 show(PRESETS[0]);
 loadDims().then(loadTree);
+setupMobilePath();
 
 }
 boot().catch(err => {
   console.error('初始化失败:', err);
-  document.getElementById('me').innerHTML = `<div class="me"><div class="nm">加载失败</div><div class="desc">${err.message}</div></div>`;
+  const card = document.getElementById('mobile-path-card'); if (card) card.dataset.state = 'error';
+  const title = document.getElementById('mobile-card-title'); if (title) title.textContent = '知识数据加载失败';
+  const desktopError = document.getElementById('me');
+  if (desktopError) { desktopError.innerHTML = '<div class="me"><div class="nm">加载失败</div><div class="desc"></div></div>'; desktopError.querySelector('.desc').textContent = String(err.message); }
+  const errorState = document.getElementById('mobile-card-error'); if (errorState) errorState.hidden = false;
+  const retry = document.getElementById('mobile-card-retry'); if (retry) retry.addEventListener('click', () => location.reload());
 });

@@ -29,6 +29,7 @@
 
 <!-- 共享侧边栏: 搜索 + 维度 + 学科目录树,两个 tab 通用,可收起 -->
 <aside id="sidebar">
+  <button class="mobile-sidebar-close" id="mobile-sidebar-close" type="button">关闭目录</button>
   <div class="sb-search">
     <input id="q" placeholder="🔍 搜知识点,如:分数、摩擦…" autocomplete="off">
     <div id="sugg"></div>
@@ -58,11 +59,6 @@
     </div>
   </div>
 
-  <!-- 推荐 -->
-  <div class="panel" id="next-panel" hidden>
-    <div class="section-title">🚀 接下来可以学 <span class="n" id="next-n"></span><span class="next-toggle" id="next-toggle"></span></div>
-    <div class="next-grid" id="next-grid"></div>
-  </div>
 
   <!-- 图谱探索 -->
   <div class="explorer-head" style="margin-top:28px">
@@ -84,6 +80,10 @@
       <div class="col-h">学了它,才能学 ➡️ <span class="n" id="n-post"></span></div>
       <div id="post"><div class="skel skel-card"></div><div class="skel skel-card"></div></div>
     </div>
+  </div>
+  <div class="panel" id="next-panel" hidden>
+    <div class="section-title">🚀 接下来可以学 <span class="n" id="next-n"></span><span class="next-toggle" id="next-toggle"></span></div>
+    <div class="next-grid" id="next-grid"></div>
   </div>
 </div>
 
@@ -130,7 +130,94 @@
   </div>
 </div>
 
+<!-- 移动端知识脉络壳层(320-767px),桌面结构保持不变 -->
+<div class="mobile-shell" id="mobile-shell">
+
+  <header class="mobile-header" id="mobile-header">
+    <div class="mobile-header-row mobile-filters">
+      <label class="mobile-field" for="mobile-age-filter">
+        <span class="mobile-field-label">学年</span>
+        <select class="mobile-select" id="mobile-age-filter"><option value="">全部</option></select>
+      </label>
+      <label class="mobile-field" for="mobile-subject-filter">
+        <span class="mobile-field-label">学科</span>
+        <select class="mobile-select" id="mobile-subject-filter"><option value="">全部</option></select>
+      </label>
+    </div>
+    <div class="mobile-header-row mobile-filter-actions">
+      <button class="mobile-btn" id="mobile-filter-clear" type="button">清除筛选</button>
+      <button class="mobile-btn primary" id="mobile-filter-apply" type="button">应用</button>
+    </div>
+    <div class="mobile-header-row mobile-entry-actions">
+      <button class="mobile-entry-btn" id="mobile-ai-open" type="button" aria-haspopup="dialog" aria-controls="mobile-ai-mask">💬 AI 伙伴</button>
+      <button class="mobile-entry-btn" id="mobile-login-btn" type="button">登录</button>
+    </div>
+  </header>
+
+  <main class="mobile-main" id="mobile-main">
+    <article class="mobile-path-card" id="mobile-path-card" aria-labelledby="mobile-card-title" data-state="loading">
+      <div class="mobile-card-scroll" id="mobile-card-scroll" tabindex="0">
+        <h1 class="mobile-card-title" id="mobile-card-title">加载中…</h1>
+        <p class="mobile-card-tags" id="mobile-card-tags"></p>
+        <div class="mobile-card-detail" id="mobile-card-detail">
+          <div class="skel skel-me"></div>
+        </div>
+        <p class="mobile-card-status mobile-empty-state" id="mobile-card-empty" hidden>
+          当前学年/学科组合下没有匹配的知识点。
+          <button class="mobile-btn" id="mobile-card-clear-filter" type="button">清除筛选</button>
+          <button class="mobile-btn" id="mobile-card-open-catalog" type="button">打开目录</button>
+        </p>
+        <p class="mobile-card-status mobile-error-state" id="mobile-card-error" hidden>
+          加载失败,请重试。
+          <button class="mobile-btn" id="mobile-card-retry" type="button">重试</button>
+        </p>
+        <p class="mobile-card-status mobile-offline-state" id="mobile-card-offline" hidden>
+          当前离线,已加载的知识数据和本地掌握状态仍可浏览。
+        </p>
+      </div>
+    </article>
+
+    <div class="mobile-decision-bar" role="group" aria-label="知识点判定">
+      <button class="mobile-decision-btn mobile-decision-mastered" id="mobile-decision-mastered" type="button" aria-label="标记为已掌握">已掌握</button>
+      <button class="mobile-decision-btn mobile-decision-review" id="mobile-decision-review" type="button" aria-label="标记为暂未掌握">暂未掌握</button>
+      <button class="mobile-decision-btn mobile-undo-btn" id="mobile-undo" type="button" hidden>撤销上次判定</button>
+    </div>
+
+    <div class="mobile-stepper" role="group" aria-label="上一个下一个知识点">
+      <button class="mobile-stepper-btn" id="mobile-prev" type="button" aria-label="上一个知识点">‹ 上一个</button>
+      <div class="mobile-position-wrap">
+        <span class="mobile-position" id="mobile-position"></span>
+        <span class="mobile-context" id="mobile-context"></span>
+      </div>
+      <button class="mobile-stepper-btn" id="mobile-next" type="button" aria-label="下一个知识点">下一个 ›</button>
+    </div>
+  </main>
+
+  <!-- AI 对话弹窗: 未登录时仅展示登录引导,不提供伪聊天输入 -->
+  <div class="modal-mask mobile-ai-mask" id="mobile-ai-mask" hidden>
+    <div class="modal mobile-ai-sheet" role="dialog" aria-modal="true" aria-labelledby="mobile-ai-title" aria-describedby="mobile-ai-login-required mobile-ai-note">
+      <h3 id="mobile-ai-title" tabindex="-1">💬 AI 学习伙伴</h3>
+      <div class="modal-body" id="mobile-ai-body">
+        <p id="mobile-ai-login-required">登录后可围绕这个知识点与 AI 继续交流。</p>
+        <p class="mobile-ai-note" id="mobile-ai-note">AI 将结合当前知识点与档案信息回答;结果仅供学习参考。</p>
+      </div>
+      <div class="modal-actions">
+        <button class="btn" id="mobile-ai-login-unavailable" type="button">登录暂不可用</button>
+        <button class="btn" id="mobile-ai-close" type="button">关闭</button>
+      </div>
+    </div>
+  </div>
+
+  <p class="mobile-sr-only" id="mobile-live" aria-live="polite"></p>
+
+  <nav class="mobile-bottom-nav" id="mobile-bottom-nav" aria-label="移动端导航">
+    <button class="mobile-nav-btn" type="button" data-mobile-tab="path" aria-current="page">脉络</button>
+    <button class="mobile-nav-btn" type="button" data-mobile-tab="catalog">目录</button>
+    <button class="mobile-nav-btn" type="button" data-mobile-tab="profile">我的</button>
+  </nav>
+</div>
+
 <div id="toast"></div>
-<script src="/path.js"></script>
+<script type="module" src="/path.js"></script>
 </body>
 </html>

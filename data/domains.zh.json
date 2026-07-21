@@ -210,6 +210,18 @@
     "General Technology / Control & Design": "Control & Design",
     "General Technology / Electronic Technology": "电子技术",
     "General Technology / Robotics & AI": "机器人与人工智能",
-    "General Technology / Digital Fabrication": "数字制造"
+    "General Technology / Digital Fabrication": "数字制造",
+    "Chemistry / Air & Oxygen": "空气与氧气",
+    "Chemistry / Water & Hydrogen": "水与氢",
+    "Chemistry / Carbon & Fuels": "碳与燃料",
+    "Chemistry / Metals": "金属",
+    "Chemistry / Combustion & Energy": "燃烧与能源",
+    "Chemistry / Acids Bases & Salts": "酸碱盐",
+    "Chemistry / Chemical Reactions": "化学反应原理",
+    "History / Thematic History": "专题史",
+    "Chinese / Modern Prose": "现代散文",
+    "Chinese / Fiction & Narrative": "小说与叙事",
+    "Chinese / Practical Texts": "实用文",
+    "Chinese / Argumentative Writing": "议论文"
   }
 }

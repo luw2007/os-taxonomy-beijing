@@ -2,7 +2,7 @@
   "version": "1.2.0-zh.0",
   "upstreamVersion": "1.0.0",
   "locale": "zh-CN",
-  "topicCount": 1846,
+  "topicCount": 1891,
   "originNote": "中国特有微主题（mtc_ 前缀）。已按原子粒度拆解——每条覆盖一个可独立评估的微技能。来源：课标自建(cn_only/progression/upstream_adapt) + 课本目录(textbook)。严守 codes-only 原则。教材来源节点中的作品名、部分作者名和来源作为事实性元数据保留；不包含教材正文、插图、练习题、版式、页码或 PDF 路径。详见 PROVENANCE.md。",
   "topics": [
     {
@@ -10037,23 +10037,23 @@
       "type": "CONCEPTUAL",
       "subject": "History",
       "domain": "Ancient Chinese History",
-      "name": "三国两晋南北朝的政权分立",
-      "description": "了解三国鼎立和两晋南北朝的政权更替，理解北魏孝文帝改革促进民族交融的意义。",
+      "name": "三国鼎立与西晋统一",
+      "description": "了解三国形成、西晋统一及短暂统一。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
       "centrality": 0.076923,
       "evidence": [
-        "能说出三国鼎立的局面",
-        "能说明北魏孝文帝改革的措施",
-        "能理解民族交融对统一的作用"
+        "能说出三国鼎立的形势",
+        "能说明西晋统一的过程"
       ],
-      "assessmentPrompt": "让 {{name}} 说说北魏孝文帝改革有哪些措施，对民族交融有什么作用。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出三国鼎立的形势",
       "cnStandards": [
         "moe-2022-history:S4.AC.02"
       ],
       "origin": "cn_only",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_431",
@@ -10129,23 +10129,23 @@
       "type": "CONCEPTUAL",
       "subject": "History",
       "domain": "Ancient Chinese History",
-      "name": "辽宋夏金元的并立",
-      "description": "了解辽宋夏金时期的民族政权并立，认识元朝完成统一的历史意义。",
+      "name": "辽宋夏金多民族政权并立",
+      "description": "了解辽、宋、夏、金时期民族关系与重要事件。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
       "centrality": 0,
       "evidence": [
-        "能说出澶渊之盟等民族关系的事件",
-        "能说明元朝统一的意义",
+        "能说出澶渊之盟等民族关系事件",
         "能理解民族政权并立的特点"
       ],
-      "assessmentPrompt": "让 {{name}} 说说辽宋夏金时期是怎样并立的，元朝统一有什么重要意义。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出澶渊之盟等民族关系事件",
       "cnStandards": [
         "moe-2022-history:S4.AC.04"
       ],
       "origin": "cn_only",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_435",
@@ -17476,23 +17476,24 @@
       "type": "CONCEPTUAL",
       "subject": "History",
       "domain": "Chinese History",
-      "name": "统一多民族国家的建立·秦汉时期",
-      "description": "理解秦统一的历史意义和巩固统一的措施（郡县制、统一文字货币度量衡），了解西汉的强盛（汉武帝大一统的政治经济文化措施），认识统一多民族封建国家的形成。",
+      "name": "秦的统一与巩固",
+      "description": "秦统一措施（郡县制、统一文字货币度量衡）及历史意义。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": 0.173077,
       "evidence": [
         "能说出秦巩固统一的主要措施",
-        "能说明汉武帝大一统的措施及影响",
-        "能理解秦汉在中国历史上的奠基意义"
+        "能说明郡县制的作用",
+        "能理解秦统一的历史意义"
       ],
-      "assessmentPrompt": "让 {{name}} 说说秦始皇和汉武帝各采取了哪些措施巩固统一，郡县制与分封制有什么本质不同。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出秦巩固统一的主要措施",
       "cnStandards": [
         "moe-2022-history:SH.CH.02"
       ],
       "origin": "progression",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_755",
@@ -17522,23 +17523,23 @@
       "type": "CONCEPTUAL",
       "subject": "History",
       "domain": "Chinese History",
-      "name": "繁荣",
-      "description": "了解隋唐时期的繁荣与开放（大运河、科举制、贞观之治、开元盛世），认识唐朝在制度建设（三省六部制）、民族关系和中外交流方面的成就，理解盛唐气象。",
+      "name": "隋唐制度创新",
+      "description": "科举制、三省六部制的内容与意义。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": 0.211538,
       "evidence": [
         "能说明科举制和三省六部制的意义",
-        "能说出贞观之治和开元盛世的特点",
-        "能举出唐朝中外交流的典型事例"
+        "能理解制度创新对隋唐繁荣的作用"
       ],
-      "assessmentPrompt": "让 {{name}} 说说科举制对中国社会产生了怎样的深远影响，唐朝为什么能出现开元盛世。",
+      "assessmentPrompt": "让 {{name}} 展示：能说明科举制和三省六部制的意义",
       "cnStandards": [
         "moe-2022-history:SH.CH.04"
       ],
       "origin": "progression",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_757",
@@ -25861,23 +25862,24 @@
       "type": "CONCEPTUAL",
       "subject": "History",
       "domain": "Ancient Chinese History",
-      "name": "从隋唐盛世到五代十国",
-      "description": "理解从隋唐盛世到五代十国的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "隋朝的统一与灭亡",
+      "description": "隋朝统一措施、大运河及灭亡原因。",
       "ageRangeStart": 15,
       "ageRangeEnd": 18,
       "centrality": 0.057692,
       "evidence": [
-        "能说出从隋唐盛世到五代十国的基本内容",
-        "能运用从隋唐盛世到五代十国的知识分析相关问题",
-        "能结合实例说明从隋唐盛世到五代十国的意义或应用"
+        "能说出隋朝统一的主要措施",
+        "能理解大运河的作用",
+        "能分析隋朝灭亡的原因"
       ],
-      "assessmentPrompt": "让 {name} 说说从隋唐盛世到五代十国的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出隋朝统一的主要措施",
       "cnStandards": [
         "moe-2022-history:SH.三国两晋.01"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1150",
@@ -25930,23 +25932,23 @@
       "type": "CONCEPTUAL",
       "subject": "History",
       "domain": "Ancient Chinese History",
-      "name": "两宋的政治",
-      "description": "理解两宋的政治和军事的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "两宋中央集权的加强",
+      "description": "学习宋太祖加强中央集权的措施，包括二府三司、通判、禁军等，理解其对巩固统治的作用。",
       "ageRangeStart": 15,
       "ageRangeEnd": 18,
       "centrality": 0,
       "evidence": [
-        "能说出两宋的政治和军事的基本内容",
-        "能运用两宋的政治和军事的知识分析相关问题",
-        "能结合实例说明两宋的政治和军事的意义或应用"
+        "能说出宋初加强中央集权的主要措施",
+        "能分析这些措施对解决藩镇割据问题的效果"
       ],
-      "assessmentPrompt": "让 {name} 说说两宋的政治和军事的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出宋初加强中央集权的主要措施",
       "cnStandards": [
         "moe-2022-history:SH.辽宋夏金.01"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1153",
@@ -25976,23 +25978,23 @@
       "type": "CONCEPTUAL",
       "subject": "History",
       "domain": "Ancient Chinese History",
-      "name": "辽宋夏金元的经济",
-      "description": "理解辽宋夏金元的经济与社会的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "辽宋夏金元的经济繁荣",
+      "description": "学习农业、手工业、商业、海外贸易的发展及经济重心南移的完成。",
       "ageRangeStart": 15,
       "ageRangeEnd": 18,
       "centrality": 0.192308,
       "evidence": [
-        "能说出辽宋夏金元的经济与社会的基本内容",
-        "能运用辽宋夏金元的经济与社会的知识分析相关问题",
-        "能结合实例说明辽宋夏金元的经济与社会的意义或应用"
+        "能说出宋代农业、手工业、商业发展的突出表现",
+        "能分析经济重心南移的原因和影响"
       ],
-      "assessmentPrompt": "让 {name} 说说辽宋夏金元的经济与社会的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出宋代农业、手工业、商业发展的突出表现",
       "cnStandards": [
         "moe-2022-history:SH.辽宋夏金.03"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1155",
@@ -26069,22 +26071,22 @@
       "subject": "History",
       "domain": "Ancient Chinese History",
       "name": "明至清中叶的经济",
-      "description": "理解明至清中叶的经济与文化的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "description": "学习农业、手工业、商业的发展及资本主义萌芽的表现。",
       "ageRangeStart": 15,
       "ageRangeEnd": 18,
       "centrality": 0.134615,
       "evidence": [
-        "能说出明至清中叶的经济与文化的基本内容",
-        "能运用明至清中叶的经济与文化的知识分析相关问题",
-        "能结合实例说明明至清中叶的经济与文化的意义或应用"
+        "能说出明清经济发展的主要表现",
+        "能分析资本主义萌芽的特点和局限性"
       ],
-      "assessmentPrompt": "让 {name} 说说明至清中叶的经济与文化的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出明清经济发展的主要表现",
       "cnStandards": [
         "moe-2022-history:SH.明清中国.03"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1159",
@@ -26114,23 +26116,23 @@
       "type": "CONCEPTUAL",
       "subject": "History",
       "domain": "Modern Chinese History",
-      "name": "国家出路的探索",
-      "description": "理解国家出路的探索与列强侵略的加剧的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "太平天国与洋务运动",
+      "description": "学习太平天国运动的过程、纲领及失败原因，洋务运动的背景、内容和评价。",
       "ageRangeStart": 15,
       "ageRangeEnd": 18,
       "centrality": 0.192308,
       "evidence": [
-        "能说出国家出路的探索与列强侵略的加剧的基本内容",
-        "能运用国家出路的探索与列强侵略的加剧的知识分析相关问题",
-        "能结合实例说明国家出路的探索与列强侵略的加剧的意义或应用"
+        "能说出太平天国和洋务运动的基本史实",
+        "能分析两者失败或局限性原因"
       ],
-      "assessmentPrompt": "让 {name} 说说国家出路的探索与列强侵略的加剧的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出太平天国和洋务运动的基本史实",
       "cnStandards": [
         "moe-2022-history:SH.晚清时期.02"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1161",
@@ -26160,23 +26162,23 @@
       "type": "CONCEPTUAL",
       "subject": "History",
       "domain": "Modern Chinese History",
-      "name": "北洋军阀统治时期的政治、经济",
-      "description": "理解北洋军阀统治时期的政治、经济与文化的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "北洋军阀的政治统治",
+      "description": "学习北洋军阀割据、军阀混战、府院之争等政治局面。",
       "ageRangeStart": 15,
       "ageRangeEnd": 18,
       "centrality": 0.230769,
       "evidence": [
-        "能说出北洋军阀统治时期的政治、经济与文化的基本内容",
-        "能运用北洋军阀统治时期的政治、经济与文化的知识分析相关问题",
-        "能结合实例说明北洋军阀统治时期的政治、经济与文化的意义或应用"
+        "能说出北洋军阀统治时期的主要政治事件",
+        "能分析军阀割据的社会原因"
       ],
-      "assessmentPrompt": "让 {name} 说说北洋军阀统治时期的政治、经济与文化的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出北洋军阀统治时期的主要政治事件",
       "cnStandards": [
         "moe-2022-history:SH.辛亥革命.02"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_2032",
@@ -26207,22 +26209,22 @@
       "subject": "History",
       "domain": "Modern Chinese History",
       "name": "南京国民政府的统治",
-      "description": "理解南京国民政府的统治和中国共产党开辟的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "description": "学习南京国民政府形式上统一、专制统治和经济发展。",
       "ageRangeStart": 15,
       "ageRangeEnd": 18,
       "centrality": 0.557692,
       "evidence": [
-        "能说出南京国民政府的统治和中国共产党开辟的基本内容",
-        "能运用南京国民政府的统治和中国共产党开辟的知识分析相关问题",
-        "能结合实例说明南京国民政府的统治和中国共产党开辟的意义或应用"
+        "能说出南京国民政府统治的主要措施",
+        "能分析其统治的特点"
       ],
-      "assessmentPrompt": "让 {name} 说说南京国民政府的统治和中国共产党开辟的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出南京国民政府统治的主要措施",
       "cnStandards": [
         "moe-2022-history:SH.中国共产.02"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1166",
@@ -26298,46 +26300,46 @@
       "type": "CONCEPTUAL",
       "subject": "History",
       "domain": "Contemporary Chinese History",
-      "name": "社会主义建设在探索中曲折发展",
-      "description": "理解社会主义建设在探索中曲折发展的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "社会主义建设初期探索",
+      "description": "学习八大、总路线、大跃进、人民公社化运动及调整。",
       "ageRangeStart": 15,
       "ageRangeEnd": 18,
       "centrality": 0,
       "evidence": [
-        "能说出社会主义建设在探索中曲折发展的基本内容",
-        "能运用社会主义建设在探索中曲折发展的知识分析相关问题",
-        "能结合实例说明社会主义建设在探索中曲折发展的意义或应用"
+        "能说出社会主义建设初期的主要探索事件",
+        "能分析大跃进和人民公社化运动的教训"
       ],
-      "assessmentPrompt": "让 {name} 说说社会主义建设在探索中曲折发展的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出社会主义建设初期的主要探索事件",
       "cnStandards": [
         "moe-2022-history:SH.中华人民.01"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1170",
       "type": "CONCEPTUAL",
       "subject": "History",
       "domain": "Contemporary Chinese History",
-      "name": "中国特色社会主义道路的开辟",
-      "description": "理解中国特色社会主义道路的开辟与发展的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "改革开放的起步与经济体制改革",
+      "description": "学习十一届三中全会、农村改革、城市改革及经济体制改革深化。",
       "ageRangeStart": 15,
       "ageRangeEnd": 18,
       "centrality": 0.519231,
       "evidence": [
-        "能说出中国特色社会主义道路的开辟与发展的基本内容",
-        "能运用中国特色社会主义道路的开辟与发展的知识分析相关问题",
-        "能结合实例说明中国特色社会主义道路的开辟与发展的意义或应用"
+        "能说出改革开放起步的主要措施",
+        "能分析经济体制改革对经济发展的作用"
       ],
-      "assessmentPrompt": "让 {name} 说说中国特色社会主义道路的开辟与发展的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出改革开放起步的主要措施",
       "cnStandards": [
         "moe-2022-history:SH.改革开放.01"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1171",
@@ -26804,92 +26806,92 @@
       "type": "CONCEPTUAL",
       "subject": "History",
       "domain": "Thematic History",
-      "name": "中国古代政治制度的形成",
-      "description": "理解中国古代政治制度的形成与发展的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "先秦至秦汉政治制度的奠基与初创",
+      "description": "学习从早期国家到秦朝中央集权制度的建立，包括禅让制、分封制、宗法制、皇帝制、三公九卿等。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.307692,
       "evidence": [
-        "能说出中国古代政治制度的形成与发展的基本内容",
-        "能运用中国古代政治制度的形成与发展的知识分析相关问题",
-        "能结合实例说明中国古代政治制度的形成与发展的意义或应用"
+        "能说出先秦至秦汉政治制度的主要内容和演进脉络",
+        "能分析秦朝中央集权制度的特点和影响"
       ],
-      "assessmentPrompt": "让 {name} 说说中国古代政治制度的形成与发展的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出先秦至秦汉政治制度的主要内容和演进脉络",
       "cnStandards": [
         "moe-2022-history:SH.基层治理.01"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1193",
       "type": "CONCEPTUAL",
       "subject": "History",
       "domain": "Modern Chinese History",
-      "name": "西方国家古代",
-      "description": "理解西方国家古代和近代政治制度的演变的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "古希腊罗马的政治制度",
+      "description": "学习雅典民主制、斯巴达寡头制、罗马共和制与帝制等。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.134615,
       "evidence": [
-        "能说出西方国家古代和近代政治制度的演变的基本内容",
-        "能运用西方国家古代和近代政治制度的演变的知识分析相关问题",
-        "能结合实例说明西方国家古代和近代政治制度的演变的意义或应用"
+        "能说出雅典民主制的特点和局限",
+        "能分析罗马法对后世的影响"
       ],
-      "assessmentPrompt": "让 {name} 说说西方国家古代和近代政治制度的演变的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出雅典民主制的特点和局限",
       "cnStandards": [
         "moe-2022-history:SH.政治制度.01"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1194",
       "type": "CONCEPTUAL",
       "subject": "History",
       "domain": "Modern Chinese History",
-      "name": "中国近代至当代政治制度的演变",
-      "description": "理解中国近代至当代政治制度的演变的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "近代中国政治制度的转型（1840-1949）",
+      "description": "学习晚清变法、民国建立、南京国民政府制度等。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.115385,
       "evidence": [
-        "能说出中国近代至当代政治制度的演变的基本内容",
-        "能运用中国近代至当代政治制度的演变的知识分析相关问题",
-        "能结合实例说明中国近代至当代政治制度的演变的意义或应用"
+        "能说出《中华民国临时约法》的主要内容",
+        "能分析近代中国政体尝试失败的原因"
       ],
-      "assessmentPrompt": "让 {name} 说说中国近代至当代政治制度的演变的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出《中华民国临时约法》的主要内容",
       "cnStandards": [
         "moe-2022-history:SH.政治制度.02"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1195",
       "type": "CONCEPTUAL",
       "subject": "History",
       "domain": "Ancient Chinese History",
-      "name": "中国历代变法",
-      "description": "理解中国历代变法和改革的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "古代中国的变法与改革",
+      "description": "学习商鞅变法、王安石变法、张居正改革等。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.096154,
       "evidence": [
-        "能说出中国历代变法和改革的基本内容",
-        "能运用中国历代变法和改革的知识分析相关问题",
-        "能结合实例说明中国历代变法和改革的意义或应用"
+        "能说出商鞅变法的主要内容及其影响",
+        "能比较王安石变法与张居正改革的异同"
       ],
-      "assessmentPrompt": "让 {name} 说说中国历代变法和改革的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出商鞅变法的主要内容及其影响",
       "cnStandards": [
         "moe-2022-history:SH.政治制度.03"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1196",
@@ -27057,23 +27059,23 @@
       "type": "CONCEPTUAL",
       "subject": "History",
       "domain": "Modern Chinese History",
-      "name": "近代西方民族国家",
-      "description": "理解近代西方民族国家与国际法的发展的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "近代西方民族国家的形成",
+      "description": "学习民族国家概念、法国、德国等统一历程。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.057692,
       "evidence": [
-        "能说出近代西方民族国家与国际法的发展的基本内容",
-        "能运用近代西方民族国家与国际法的发展的知识分析相关问题",
-        "能结合实例说明近代西方民族国家与国际法的发展的意义或应用"
+        "能说明民族国家的特征",
+        "能分析德国统一过程对欧洲格局的影响"
       ],
-      "assessmentPrompt": "让 {name} 说说近代西方民族国家与国际法的发展的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说明民族国家的特征",
       "cnStandards": [
         "moe-2022-history:SH.民族关系.02"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1204",
@@ -27126,23 +27128,23 @@
       "type": "PROCEDURAL",
       "subject": "History",
       "domain": "Thematic History",
-      "name": "货币的使用",
-      "description": "理解货币的使用与世界货币体系的形成的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "中国古代货币的演变",
+      "description": "学习从贝币到铜钱、纸币的演变过程。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.192308,
       "evidence": [
-        "能说出货币的使用与世界货币体系的形成的基本内容",
-        "能运用货币的使用与世界货币体系的形成的知识分析相关问题",
-        "能结合实例说明货币的使用与世界货币体系的形成的意义或应用"
+        "能说出秦半两、五铢钱、交子等货币特点",
+        "能分析中国古代货币演变的规律"
       ],
-      "assessmentPrompt": "让 {name} 说说货币的使用与世界货币体系的形成的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出秦半两、五铢钱、交子等货币特点",
       "cnStandards": [
         "moe-2022-history:SH.货币与赋.01"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "skill"
+      "nodeKind": "skill",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1207",
@@ -27195,23 +27197,23 @@
       "type": "CONCEPTUAL",
       "subject": "History",
       "domain": "Modern World History",
-      "name": "世界主要国家的基层治理",
-      "description": "理解世界主要国家的基层治理与社会保障的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "西方国家基层治理的演变",
+      "description": "学习古希腊城邦、中世纪庄园、近代地方自治等。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.115385,
       "evidence": [
-        "能说出世界主要国家的基层治理与社会保障的基本内容",
-        "能运用世界主要国家的基层治理与社会保障的知识分析相关问题",
-        "能结合实例说明世界主要国家的基层治理与社会保障的意义或应用"
+        "能说出西方国家基层治理的主要模式",
+        "能比较英美法德地方自治的异同"
       ],
-      "assessmentPrompt": "让 {name} 说说世界主要国家的基层治理与社会保障的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出西方国家基层治理的主要模式",
       "cnStandards": [
         "moe-2022-history:SH.基层治理.03"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1210",
@@ -27425,23 +27427,23 @@
       "type": "CONCEPTUAL",
       "subject": "History",
       "domain": "Thematic History",
-      "name": "古代的村落、集镇",
-      "description": "理解古代的村落、集镇和城市的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "古代村落的形成与发展",
+      "description": "从聚落到村落，原始村落、商周邑聚等",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.134615,
       "evidence": [
-        "能说出古代的村落、集镇和城市的基本内容",
-        "能运用古代的村落、集镇和城市的知识分析相关问题",
-        "能结合实例说明古代的村落、集镇和城市的意义或应用"
+        "能列举不同时期村落的主要特征",
+        "能分析村落形成的原因"
       ],
-      "assessmentPrompt": "让 {name} 说说古代的村落、集镇和城市的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能列举不同时期村落的主要特征",
       "cnStandards": [
         "moe-2022-history:SH.村落、城.01"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1220",
@@ -27655,23 +27657,23 @@
       "type": "CONCEPTUAL",
       "subject": "History",
       "domain": "Thematic History",
-      "name": "南亚、东亚",
-      "description": "理解南亚、东亚与美洲的文化的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "南亚文化",
+      "description": "古印度文明、佛教文化等",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.115385,
       "evidence": [
-        "能说出南亚、东亚与美洲的文化的基本内容",
-        "能运用南亚、东亚与美洲的文化的知识分析相关问题",
-        "能结合实例说明南亚、东亚与美洲的文化的意义或应用"
+        "能说出南亚文化主要成就",
+        "能分析宗教对社会的影响"
       ],
-      "assessmentPrompt": "让 {name} 说说南亚、东亚与美洲的文化的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出南亚文化主要成就",
       "cnStandards": [
         "moe-2022-history:SH.丰富多样.03"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1230",
@@ -27724,184 +27726,192 @@
       "type": "CONCEPTUAL",
       "subject": "History",
       "domain": "Ancient Chinese History",
-      "name": "现代社会的移民",
-      "description": "理解现代社会的移民和多元文化的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "移民的类型与原因",
+      "description": "学习经济移民、难民、劳动力迁移等主要类型及全球化背景下的迁移原因。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.019231,
       "evidence": [
-        "能说出现代社会的移民和多元文化的基本内容",
-        "能运用现代社会的移民和多元文化的知识分析相关问题",
-        "能结合实例说明现代社会的移民和多元文化的意义或应用"
+        "能列举三种常见移民类型（经济移民、难民、家庭团聚）并说明各自特点",
+        "能结合实例（如叙利亚难民）分析移民产生的政治、经济原因",
+        "能绘制简图说明战后全球移民的主要流向"
       ],
-      "assessmentPrompt": "让 {name} 说说现代社会的移民和多元文化的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能列举三种常见移民类型（经济移民、难民、家庭团聚）并说明各自特点",
       "cnStandards": [
         "moe-2022-history:SH.人口迁徙.03"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1233",
       "type": "CONCEPTUAL",
       "subject": "History",
       "domain": "Ancient Chinese History",
-      "name": "古代的商路、贸易",
-      "description": "理解古代的商路、贸易与文化交流的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "丝绸之路的路线与历史变迁",
+      "description": "掌握陆上丝绸之路与海上丝绸之路的路线、主要商品及历史发展脉络。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0,
       "evidence": [
-        "能说出古代的商路、贸易与文化交流的基本内容",
-        "能运用古代的商路、贸易与文化交流的知识分析相关问题",
-        "能结合实例说明古代的商路、贸易与文化交流的意义或应用"
+        "能在地图上标出陆上丝绸之路（长安至罗马）和海上丝绸之路（泉州至波斯湾）的关键节点",
+        "能说出丝绸、香料、瓷器等主要交易商品及其来源地",
+        "能概述汉、唐、宋元时期丝绸之路的兴衰原因"
       ],
-      "assessmentPrompt": "让 {name} 说说古代的商路、贸易与文化交流的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能在地图上标出陆上丝绸之路（长安至罗马）和海上丝绸之路（泉州至波斯湾）的关键节点",
       "cnStandards": [
         "moe-2022-history:SH.商路、贸.01"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1234",
       "type": "CONCEPTUAL",
       "subject": "History",
       "domain": "Modern Chinese History",
-      "name": "近代以来的世界贸易",
-      "description": "理解近代以来的世界贸易与文化交流的扩展的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "世界市场的形成与发展",
+      "description": "学习新航路开辟后至20世纪初世界市场逐步形成的过程、标志与影响。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.019231,
       "evidence": [
-        "能说出近代以来的世界贸易与文化交流的扩展的基本内容",
-        "能运用近代以来的世界贸易与文化交流的扩展的知识分析相关问题",
-        "能结合实例说明近代以来的世界贸易与文化交流的扩展的意义或应用"
+        "能说出世界市场形成的三个阶段（萌芽、初步形成、最终形成）及其关键事件",
+        "能分析两次工业革命如何推动世界市场深化",
+        "能以图表说明国际分工的基本格局（原料产地-工业中心）"
       ],
-      "assessmentPrompt": "让 {name} 说说近代以来的世界贸易与文化交流的扩展的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出世界市场形成的三个阶段（萌芽、初步形成、最终形成）及其关键事件",
       "cnStandards": [
         "moe-2022-history:SH.商路、贸.02"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1235",
       "type": "CONCEPTUAL",
       "subject": "History",
       "domain": "Ancient World History",
-      "name": "古代战争",
-      "description": "理解古代战争与地域文化的演变的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "古代帝国战争与地域扩张",
+      "description": "学习亚历山大东征、罗马征服、蒙古西征等战争的经过及其对文化版图的影响。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.076923,
       "evidence": [
-        "能说出古代战争与地域文化的演变的基本内容",
-        "能运用古代战争与地域文化的演变的知识分析相关问题",
-        "能结合实例说明古代战争与地域文化的演变的意义或应用"
+        "能在地图上标识亚历山大帝国、罗马帝国、蒙古帝国的最大疆域",
+        "能说出三次主要战争的结局和版图变化",
+        "能分析蒙古西征对欧亚文明交流的客观促进作用"
       ],
-      "assessmentPrompt": "让 {name} 说说古代战争与地域文化的演变的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能在地图上标识亚历山大帝国、罗马帝国、蒙古帝国的最大疆域",
       "cnStandards": [
         "moe-2022-history:SH.战争与文.01"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1236",
       "type": "CONCEPTUAL",
       "subject": "History",
       "domain": "Modern Chinese History",
-      "name": "近代战争",
-      "description": "理解近代战争与西方文化的扩张的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "殖民战争与西方文化植入",
+      "description": "学习殖民扩张中的典型战争（如征服美洲、鸦片战争）及其文化改造措施。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0,
       "evidence": [
-        "能说出近代战争与西方文化的扩张的基本内容",
-        "能运用近代战争与西方文化的扩张的知识分析相关问题",
-        "能结合实例说明近代战争与西方文化的扩张的意义或应用"
+        "能简述西班牙征服阿兹特克帝国和印加帝国的关键战役及文化后果",
+        "能分析鸦片战争后《南京条约》如何破坏中国传统文化自主性",
+        "能列举殖民者在非洲推行的西方教育、宗教同化政策实例"
       ],
-      "assessmentPrompt": "让 {name} 说说近代战争与西方文化的扩张的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能简述西班牙征服阿兹特克帝国和印加帝国的关键战役及文化后果",
       "cnStandards": [
         "moe-2022-history:SH.战争与文.02"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1237",
       "type": "CONCEPTUAL",
       "subject": "History",
       "domain": "Modern World History",
-      "name": "现代战争",
-      "description": "理解现代战争与不同文化的碰撞和交流的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "两次世界大战与文化冲击",
+      "description": "学习世界大战对现代主义文化、反战思潮及民族认同的深远影响。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.057692,
       "evidence": [
-        "能说出现代战争与不同文化的碰撞和交流的基本内容",
-        "能运用现代战争与不同文化的碰撞和交流的知识分析相关问题",
-        "能结合实例说明现代战争与不同文化的碰撞和交流的意义或应用"
+        "能举例说明一战如何催生达达主义、迷惘的一代等文化流派",
+        "能分析二战对殖民主义意识形态的打击及非殖民化进程的文化前提",
+        "能解读《凡尔赛条约》的文化条款（如德国战争罪条款）对德国民众心理的影响"
       ],
-      "assessmentPrompt": "让 {name} 说说现代战争与不同文化的碰撞和交流的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能举例说明一战如何催生达达主义、迷惘的一代等文化流派",
       "cnStandards": [
         "moe-2022-history:SH.战争与文.03"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1238",
       "type": "CONCEPTUAL",
       "subject": "History",
       "domain": "Thematic History",
-      "name": "文化传承的多种载体及其发展",
-      "description": "理解文化传承的多种载体及其发展的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "学校教育与知识传承",
+      "description": "学习从古代官学到现代教育体系，学校如何成为文化传递的核心载体。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.038462,
       "evidence": [
-        "能说出文化传承的多种载体及其发展的基本内容",
-        "能运用文化传承的多种载体及其发展的知识分析相关问题",
-        "能结合实例说明文化传承的多种载体及其发展的意义或应用"
+        "能比较中国古代太学与欧洲中世纪大学在课程内容与功能上的异同",
+        "能分析近代义务教育普及对民族国家文化整合的作用",
+        "能举例说明当代国际学校如何促进多元文化理解"
       ],
-      "assessmentPrompt": "让 {name} 说说文化传承的多种载体及其发展的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能比较中国古代太学与欧洲中世纪大学在课程内容与功能上的异同",
       "cnStandards": [
         "moe-2022-history:SH.文化的传.02"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1239",
       "type": "CONCEPTUAL",
       "subject": "History",
       "domain": "Thematic History",
-      "name": "文化遗产：全人类共同的财富",
-      "description": "理解文化遗产：全人类共同的财富的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "文化遗产的类型与价值",
+      "description": "区分物质文化遗产与非物质文化遗产，理解其历史、艺术、科学等多元价值。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.019231,
       "evidence": [
-        "能说出文化遗产：全人类共同的财富的基本内容",
-        "能运用文化遗产：全人类共同的财富的知识分析相关问题",
-        "能结合实例说明文化遗产：全人类共同的财富的意义或应用"
+        "能分别举例说明物质文化遗产（如长城）和非物质文化遗产（如昆曲）",
+        "能解释世界文化遗产的评定标准（原真性、完整性等）",
+        "能分析文化遗产对民族认同和旅游经济的双重作用"
       ],
-      "assessmentPrompt": "让 {name} 说说文化遗产：全人类共同的财富的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能分别举例说明物质文化遗产（如长城）和非物质文化遗产（如昆曲）",
       "cnStandards": [
         "moe-2022-history:SH.文化的传.03"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1240",
@@ -43146,6 +43156,1104 @@
       "nodeKind": "concept",
       "granularity": "split-45min",
       "splitFrom": "mtc_1268"
+    },
+    {
+      "id": "mtc_2305",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Ancient Chinese History",
+      "name": "东晋南北朝与民族交融",
+      "description": "了解东晋南朝政权更替，理解北魏孝文帝改革促进民族交融。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 14,
+      "centrality": 0.076923,
+      "evidence": [
+        "能说出东晋南朝的更替",
+        "能说明北魏孝文帝改革的措施和意义",
+        "能理解民族交融对统一的作用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出东晋南朝的更替",
+      "cnStandards": [
+        "moe-2022-history:S4.AC.02"
+      ],
+      "origin": "cn_only",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_430"
+    },
+    {
+      "id": "mtc_2306",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Ancient Chinese History",
+      "name": "元朝统一与民族关系",
+      "description": "了解元朝统一过程及历史意义。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 15,
+      "centrality": 0,
+      "evidence": [
+        "能说明元朝统一的意义",
+        "能理解元朝对中华民族形成的作用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说明元朝统一的意义",
+      "cnStandards": [
+        "moe-2022-history:S4.AC.04"
+      ],
+      "origin": "cn_only",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_434"
+    },
+    {
+      "id": "mtc_2307",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Chinese History",
+      "name": "西汉的强盛与大一统",
+      "description": "汉武帝大一统的政治、经济、文化措施及其影响。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": 0.173077,
+      "evidence": [
+        "能说明汉武帝大一统的主要措施",
+        "能理解西汉的强盛表现",
+        "能认识秦汉的奠基意义"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说明汉武帝大一统的主要措施",
+      "cnStandards": [
+        "moe-2022-history:SH.CH.02"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_754"
+    },
+    {
+      "id": "mtc_2308",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Chinese History",
+      "name": "隋唐盛世与民族关系",
+      "description": "贞观之治、开元盛世的特点及唐朝的民族政策。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": 0.211538,
+      "evidence": [
+        "能说出贞观之治和开元盛世的特点",
+        "能说明唐朝民族关系的基本政策"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出贞观之治和开元盛世的特点",
+      "cnStandards": [
+        "moe-2022-history:SH.CH.04"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_756"
+    },
+    {
+      "id": "mtc_2309",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Chinese History",
+      "name": "隋唐中外交流",
+      "description": "唐朝对外交往的典型事例（遣唐使、鉴真东渡等）。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": 0.211538,
+      "evidence": [
+        "能举出唐朝中外交流的典型事例",
+        "能理解开放与繁荣的关系"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能举出唐朝中外交流的典型事例",
+      "cnStandards": [
+        "moe-2022-history:SH.CH.04"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_756"
+    },
+    {
+      "id": "mtc_2310",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Ancient Chinese History",
+      "name": "唐朝的繁荣与衰落",
+      "description": "唐朝盛世（贞观之治、开元盛世）及安史之乱后的衰落。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 18,
+      "centrality": 0.057692,
+      "evidence": [
+        "能说明盛世的表现",
+        "能理解安史之乱的影响"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说明盛世的表现",
+      "cnStandards": [
+        "moe-2022-history:SH.三国两晋.01"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1149"
+    },
+    {
+      "id": "mtc_2311",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Ancient Chinese History",
+      "name": "五代十国",
+      "description": "五代十国政权更迭与历史特征。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 18,
+      "centrality": 0.057692,
+      "evidence": [
+        "能梳理五代十国的更迭线索",
+        "能理解分裂中的统一趋势"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能梳理五代十国的更迭线索",
+      "cnStandards": [
+        "moe-2022-history:SH.三国两晋.01"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1149"
+    },
+    {
+      "id": "mtc_2312",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Ancient Chinese History",
+      "name": "两宋的边防与财政危机",
+      "description": "学习北宋与辽、西夏的关系，财政危机表现，以及庆历新政和王安石变法的内容与影响。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 18,
+      "centrality": 0,
+      "evidence": [
+        "能说出北宋边防压力与和战策略",
+        "能分析王安石变法的背景、主要内容及成败原因"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出北宋边防压力与和战策略",
+      "cnStandards": [
+        "moe-2022-history:SH.辽宋夏金.01"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1152"
+    },
+    {
+      "id": "mtc_2313",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Ancient Chinese History",
+      "name": "辽宋夏金元的社会变化",
+      "description": "学习科举制发展、门第观念变化、社会阶层流动等社会新变化。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 18,
+      "centrality": 0.192308,
+      "evidence": [
+        "能说出宋代社会变化的主要表现",
+        "能结合实例说明社会变化的意义"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出宋代社会变化的主要表现",
+      "cnStandards": [
+        "moe-2022-history:SH.辽宋夏金.03"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1154"
+    },
+    {
+      "id": "mtc_2314",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Ancient Chinese History",
+      "name": "明至清中叶的文化",
+      "description": "学习明清思想（陆王心学、李贽、黄宗羲等）、科技（李时珍、宋应星等）和文学（小说、戏曲）。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 18,
+      "centrality": 0.134615,
+      "evidence": [
+        "能说出明清思想文化的主要成就",
+        "能结合实例说明文化发展的时代背景"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出明清思想文化的主要成就",
+      "cnStandards": [
+        "moe-2022-history:SH.明清中国.03"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1158"
+    },
+    {
+      "id": "mtc_2315",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Modern Chinese History",
+      "name": "甲午战争与列强侵略的加剧",
+      "description": "学习甲午战争背景、过程、马关条约影响及随后瓜分中国狂潮。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 18,
+      "centrality": 0.192308,
+      "evidence": [
+        "能说出甲午战争的主要战役和条约内容",
+        "能分析甲午战争后民族危机加深的表现"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出甲午战争的主要战役和条约内容",
+      "cnStandards": [
+        "moe-2022-history:SH.晚清时期.02"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1160"
+    },
+    {
+      "id": "mtc_2316",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Modern Chinese History",
+      "name": "民国初年的经济与文化",
+      "description": "学习民族资本主义短暂春天、新文化运动及五四前思想解放。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 18,
+      "centrality": 0.230769,
+      "evidence": [
+        "能说出民族资本主义发展的表现和原因",
+        "能分析新文化运动的主要内容与影响"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出民族资本主义发展的表现和原因",
+      "cnStandards": [
+        "moe-2022-history:SH.辛亥革命.02"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1163"
+    },
+    {
+      "id": "mtc_2317",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Modern Chinese History",
+      "name": "中国共产党开辟革命新道路",
+      "description": "学习南昌起义、八七会议、秋收起义、井冈山道路和土地革命。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 18,
+      "centrality": 0.557692,
+      "evidence": [
+        "能说出农村包围城市道路的开辟过程",
+        "能分析工农武装割据的含义与意义"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出农村包围城市道路的开辟过程",
+      "cnStandards": [
+        "moe-2022-history:SH.中国共产.02"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1165"
+    },
+    {
+      "id": "mtc_2318",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Contemporary Chinese History",
+      "name": "文化大革命与建设成就",
+      "description": "学习文革背景、过程、结束及两弹一星等建设成就。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 18,
+      "centrality": 0,
+      "evidence": [
+        "能说出文化大革命的基本史实",
+        "能列举社会主义建设取得的突出成就"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出文化大革命的基本史实",
+      "cnStandards": [
+        "moe-2022-history:SH.中华人民.01"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1169"
+    },
+    {
+      "id": "mtc_2319",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Contemporary Chinese History",
+      "name": "对外开放与中国特色社会主义道路的发展",
+      "description": "学习对外开放格局、邓小平理论、三个代表、科学发展观等。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 18,
+      "centrality": 0.519231,
+      "evidence": [
+        "能说出对外开放的步骤和格局",
+        "能说明中国特色社会主义理论体系的形成与发展"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出对外开放的步骤和格局",
+      "cnStandards": [
+        "moe-2022-history:SH.改革开放.01"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1170"
+    },
+    {
+      "id": "mtc_2320",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Thematic History",
+      "name": "魏晋至隋唐政治制度的演变与成熟",
+      "description": "学习三省六部制、科举制等制度的创立与发展，以及门阀政治的衰落。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.307692,
+      "evidence": [
+        "能解释三省六部制的运作机制",
+        "能说明科举制对官僚政治的影响"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能解释三省六部制的运作机制",
+      "cnStandards": [
+        "moe-2022-history:SH.基层治理.01"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1192"
+    },
+    {
+      "id": "mtc_2321",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Thematic History",
+      "name": "宋元明清政治制度的强化与僵化",
+      "description": "学习宋代二府三司、元朝行省制、明朝内阁制、清朝军机处等，理解君主专制强化的趋势。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.307692,
+      "evidence": [
+        "能列举宋元明清强化皇权的主要措施",
+        "能分析君主专制强化对中国社会的影响"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能列举宋元明清强化皇权的主要措施",
+      "cnStandards": [
+        "moe-2022-history:SH.基层治理.01"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1192"
+    },
+    {
+      "id": "mtc_2322",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Modern Chinese History",
+      "name": "中古西欧的政治制度",
+      "description": "学习封君封臣制、等级君主制、议会制的起源。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.134615,
+      "evidence": [
+        "能解释封君封臣关系的特点",
+        "能说明英国议会的形成过程"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能解释封君封臣关系的特点",
+      "cnStandards": [
+        "moe-2022-history:SH.政治制度.01"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1193"
+    },
+    {
+      "id": "mtc_2323",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Modern Chinese History",
+      "name": "近代西方民主政治的确立",
+      "description": "学习英国君主立宪制、美国联邦制、法国共和制等。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.134615,
+      "evidence": [
+        "能比较英、美、法政治制度的异同",
+        "能说明代议制民主的基本原则"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能比较英、美、法政治制度的异同",
+      "cnStandards": [
+        "moe-2022-history:SH.政治制度.01"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1193"
+    },
+    {
+      "id": "mtc_2324",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Modern Chinese History",
+      "name": "当代中国的政治制度（1949年至今）",
+      "description": "学习人民代表大会制度、中国共产党领导的多党合作和政治协商制度等。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.115385,
+      "evidence": [
+        "能说明人民代表大会制度的组织原则",
+        "能阐述中国特色社会主义政治制度的优越性"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说明人民代表大会制度的组织原则",
+      "cnStandards": [
+        "moe-2022-history:SH.政治制度.02"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1194"
+    },
+    {
+      "id": "mtc_2325",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Ancient Chinese History",
+      "name": "近代中国的改革与革命",
+      "description": "学习洋务运动、戊戌变法、清末新政等。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.096154,
+      "evidence": [
+        "能分析洋务运动‘中体西用’的局限",
+        "能说明戊戌变法的进步性"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能分析洋务运动‘中体西用’的局限",
+      "cnStandards": [
+        "moe-2022-history:SH.政治制度.03"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1195"
+    },
+    {
+      "id": "mtc_2326",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Ancient Chinese History",
+      "name": "当代中国的改革开放",
+      "description": "学习十一届三中全会以来的经济和政治体制改革。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.096154,
+      "evidence": [
+        "能概述家庭联产承包责任制的主要内容",
+        "能说明社会主义市场经济体制的建立过程"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能概述家庭联产承包责任制的主要内容",
+      "cnStandards": [
+        "moe-2022-history:SH.政治制度.03"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1195"
+    },
+    {
+      "id": "mtc_2327",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Modern Chinese History",
+      "name": "国际法的发展",
+      "description": "学习威斯特伐利亚体系、维也纳体系、联合国等国际法演变。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.057692,
+      "evidence": [
+        "能说出威斯特伐利亚体系的意义",
+        "能解释联合国在国际法中的地位"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出威斯特伐利亚体系的意义",
+      "cnStandards": [
+        "moe-2022-history:SH.民族关系.02"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1203"
+    },
+    {
+      "id": "mtc_2328",
+      "type": "PROCEDURAL",
+      "subject": "History",
+      "domain": "Thematic History",
+      "name": "世界货币体系的形成",
+      "description": "学习布雷顿森林体系、牙买加体系及当代货币格局。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.192308,
+      "evidence": [
+        "能说明布雷顿森林体系的内容和崩溃原因",
+        "能阐述当前国际货币体系的特点"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说明布雷顿森林体系的内容和崩溃原因",
+      "cnStandards": [
+        "moe-2022-history:SH.货币与赋.01"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "skill",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1206"
+    },
+    {
+      "id": "mtc_2329",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Modern World History",
+      "name": "现代社会保障制度的建立",
+      "description": "学习英国《济贫法》、德国保险制度、美国《社会保障法》等。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.115385,
+      "evidence": [
+        "能说明现代社会保障制度的起源",
+        "能分析社会保障制度对社会稳定的作用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说明现代社会保障制度的起源",
+      "cnStandards": [
+        "moe-2022-history:SH.基层治理.03"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1209"
+    },
+    {
+      "id": "mtc_2330",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Thematic History",
+      "name": "古代集镇与城市的兴起",
+      "description": "集镇的产生、唐宋城市革命、明清市镇",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.134615,
+      "evidence": [
+        "能描述集镇功能与城市布局变化",
+        "能举例说明城市经济功能增强"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能描述集镇功能与城市布局变化",
+      "cnStandards": [
+        "moe-2022-history:SH.村落、城.01"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1219"
+    },
+    {
+      "id": "mtc_2331",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Thematic History",
+      "name": "古代城市的管理与影响",
+      "description": "城市制度、市民生活、城乡关系",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.134615,
+      "evidence": [
+        "能概括古代城市管理的特点",
+        "能评价城市对文明发展的作用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能概括古代城市管理的特点",
+      "cnStandards": [
+        "moe-2022-history:SH.村落、城.01"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1219"
+    },
+    {
+      "id": "mtc_2332",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Thematic History",
+      "name": "东亚文化",
+      "description": "中华文化圈、日本、朝鲜等",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.115385,
+      "evidence": [
+        "能概述东亚文化共同特征",
+        "能举例说明汉字文化圈"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能概述东亚文化共同特征",
+      "cnStandards": [
+        "moe-2022-history:SH.丰富多样.03"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1229"
+    },
+    {
+      "id": "mtc_2333",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Thematic History",
+      "name": "美洲文化",
+      "description": "玛雅、阿兹特克、印加文明",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.115385,
+      "evidence": [
+        "能列举美洲古文明主要成就",
+        "能比较其独特性"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能列举美洲古文明主要成就",
+      "cnStandards": [
+        "moe-2022-history:SH.丰富多样.03"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1229"
+    },
+    {
+      "id": "mtc_2334",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Ancient Chinese History",
+      "name": "多元文化的内涵与挑战",
+      "description": "理解多元文化主义概念，探讨移民带来的文化多样性及社会融合问题。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.019231,
+      "evidence": [
+        "能用自己的话解释‘多元文化主义’的基本含义",
+        "能通过案例（如美国熔炉论与沙拉碗说）分析不同文化整合模式的利弊",
+        "能就“移民为何可能引发文化冲突”写出简要分析提纲"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能用自己的话解释‘多元文化主义’的基本含义",
+      "cnStandards": [
+        "moe-2022-history:SH.人口迁徙.03"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1232"
+    },
+    {
+      "id": "mtc_2335",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Ancient Chinese History",
+      "name": "移民对现代社会的影响",
+      "description": "分析移民在劳动力市场、文化创新、社会福利等方面的影响，并评价相关政策。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.019231,
+      "evidence": [
+        "能列举移民对接受国经济的积极影响（如填补劳动力缺口）和消极影响（如福利压力）",
+        "能结合具体国家（德国、加拿大）的移民政策说明其目的与效果",
+        "能写一段150字短文论述‘移民如何促进文化创新’"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能列举移民对接受国经济的积极影响（如填补劳动力缺口）和消极影响（如福利压力）",
+      "cnStandards": [
+        "moe-2022-history:SH.人口迁徙.03"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1232"
+    },
+    {
+      "id": "mtc_2336",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Ancient Chinese History",
+      "name": "古代贸易对文化交流的作用",
+      "description": "理解商路如何促进宗教、科技、艺术等文化要素的传播与融合。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0,
+      "evidence": [
+        "能举例说明佛教通过丝绸之路传入中国的过程及影响",
+        "能分析造纸术西传对欧洲文明发展的意义",
+        "能结合敦煌壁画等实例说明艺术风格的跨地域交融"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能举例说明佛教通过丝绸之路传入中国的过程及影响",
+      "cnStandards": [
+        "moe-2022-history:SH.商路、贸.01"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1233"
+    },
+    {
+      "id": "mtc_2337",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Ancient Chinese History",
+      "name": "海上丝绸之路与区域贸易网络",
+      "description": "聚焦宋元以后海上贸易的繁荣，认识东亚、东南亚、印度洋贸易圈的互动。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0,
+      "evidence": [
+        "能列举海上丝绸之路的主要港口（泉州、广州、马六甲）并说明其功能",
+        "能解释郑和下西洋对海上贸易网络扩展的贡献",
+        "能比较陆上与海上丝绸之路在运输商品、影响范围上的差异"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能列举海上丝绸之路的主要港口（泉州、广州、马六甲）并说明其功能",
+      "cnStandards": [
+        "moe-2022-history:SH.商路、贸.01"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1233"
+    },
+    {
+      "id": "mtc_2338",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Modern Chinese History",
+      "name": "殖民贸易与文化传播",
+      "description": "认识殖民扩张中商品流动与西方文化、语言、宗教的传播。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.019231,
+      "evidence": [
+        "能举例说明三角贸易中商品与人口流动及其文化后果",
+        "能分析西班牙、葡萄牙殖民者在拉美的语言和宗教强制手段",
+        "能评价殖民贸易对殖民地文化的双重影响（破坏与融合）"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能举例说明三角贸易中商品与人口流动及其文化后果",
+      "cnStandards": [
+        "moe-2022-history:SH.商路、贸.02"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1234"
+    },
+    {
+      "id": "mtc_2339",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Modern Chinese History",
+      "name": "近代贸易体系与规则",
+      "description": "了解自由贸易与保护主义之争，以及国际经济协调机制的早期尝试。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.019231,
+      "evidence": [
+        "能比较重商主义与自由贸易政策的特点和代表人物",
+        "能解释《南京条约》等不平等条约中的贸易条款如何体现殖民经济逻辑",
+        "能简述国际金本位制对贸易的推动作用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能比较重商主义与自由贸易政策的特点和代表人物",
+      "cnStandards": [
+        "moe-2022-history:SH.商路、贸.02"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1234"
+    },
+    {
+      "id": "mtc_2340",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Ancient World History",
+      "name": "战争中的文化交融与冲突",
+      "description": "理解战争如何导致语言、宗教、艺术等文化要素的混合与对抗。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.076923,
+      "evidence": [
+        "能举例说明希腊化文化在亚历山大帝国境内的扩散（如犍陀罗艺术）",
+        "能比较罗马对被征服地区文化的容忍与强制拉美化政策",
+        "能讨论十字军东征对东西方文化认知的深远影响"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能举例说明希腊化文化在亚历山大帝国境内的扩散（如犍陀罗艺术）",
+      "cnStandards": [
+        "moe-2022-history:SH.战争与文.01"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1235"
+    },
+    {
+      "id": "mtc_2341",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Ancient World History",
+      "name": "古代战争与文明格局演变",
+      "description": "从宏观视角分析战争如何推动文明中心转移与区域文化特色形成。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.076923,
+      "evidence": [
+        "能解释波斯战争如何强化希腊城邦的独立意识并催生古典文化繁荣",
+        "能分析匈奴、突厥等游牧民族的南下战争对中原文化的影响",
+        "能撰写短文阐述战争作为文化催化剂的双刃剑效应"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能解释波斯战争如何强化希腊城邦的独立意识并催生古典文化繁荣",
+      "cnStandards": [
+        "moe-2022-history:SH.战争与文.01"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1235"
+    },
+    {
+      "id": "mtc_2342",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Modern Chinese History",
+      "name": "拿破仑战争与欧洲文化传播",
+      "description": "认识拿破仑对外战争如何推动民族主义与启蒙思想的扩散。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0,
+      "evidence": [
+        "能说明拿破仑法典在欧洲多国的实施及其法律文化影响",
+        "能分析战争如何促进民族国家观念的觉醒（如德意志、意大利）",
+        "能举例说明拿破仑统治区域内的教育改革与艺术风格统一"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说明拿破仑法典在欧洲多国的实施及其法律文化影响",
+      "cnStandards": [
+        "moe-2022-history:SH.战争与文.02"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1236"
+    },
+    {
+      "id": "mtc_2343",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Modern Chinese History",
+      "name": "近代战争对殖民地文化的深远影响",
+      "description": "探讨战争如何引发殖民地社会的文化冲突、反抗与创造性转化。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0,
+      "evidence": [
+        "能分析印度民族大起义中文化因素的作用（如宗教、种姓）",
+        "能以日本明治维新为例说明战争压力下的主动文化转型",
+        "能比较中国太平天国运动与义和团运动在反洋教方面的异同"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能分析印度民族大起义中文化因素的作用（如宗教、种姓）",
+      "cnStandards": [
+        "moe-2022-history:SH.战争与文.02"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1236"
+    },
+    {
+      "id": "mtc_2344",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Modern World History",
+      "name": "冷战与意识形态文化对抗",
+      "description": "理解美苏通过宣传、教育、艺术等进行文化冷战，以及第三世界的中立主义文化选择。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.057692,
+      "evidence": [
+        "能列举美国新闻署、苏联国际出版社等文化冷战机构及活动",
+        "能分析好莱坞电影与苏联社会主义现实主义文艺的差异及政治功能",
+        "能讨论不结盟运动文化政策如何平衡东西方影响"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能列举美国新闻署、苏联国际出版社等文化冷战机构及活动",
+      "cnStandards": [
+        "moe-2022-history:SH.战争与文.03"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1237"
+    },
+    {
+      "id": "mtc_2345",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Modern World History",
+      "name": "现代战争中的文化变迁与反思",
+      "description": "从长时段看战争如何促进人权观念、多元文化主义及全球公民意识的上升。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.057692,
+      "evidence": [
+        "能说明二战后世贸组织、联合国教科文组织等机构对文化保护的推动",
+        "能以广岛核爆纪念馆为例分析战争记忆如何塑造和平文化",
+        "能评价‘文明冲突论’与‘文化共存论’两种观点的合理性"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说明二战后世贸组织、联合国教科文组织等机构对文化保护的推动",
+      "cnStandards": [
+        "moe-2022-history:SH.战争与文.03"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1237"
+    },
+    {
+      "id": "mtc_2346",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Thematic History",
+      "name": "书籍与印刷文化",
+      "description": "理解印刷术、出版业的发展对知识普及和文化保存的意义。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.038462,
+      "evidence": [
+        "能简述从雕版印刷到活字印刷再到数字出版的演变历程",
+        "能分析《百科全书》在启蒙运动中传播新思想的作用",
+        "能说明图书馆（如亚历山大图书馆）在保存文献方面的历史贡献"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能简述从雕版印刷到活字印刷再到数字出版的演变历程",
+      "cnStandards": [
+        "moe-2022-history:SH.文化的传.02"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1238"
+    },
+    {
+      "id": "mtc_2347",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Thematic History",
+      "name": "博物馆与文化遗产保护",
+      "description": "认识博物馆作为收藏、研究、展示文化传承的机构，及其在公共教育中的角色。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.038462,
+      "evidence": [
+        "能列出大英博物馆、故宫博物院等代表性博物馆及其核心藏品",
+        "能分析博物馆展览如何塑造观众的历史认知与文化认同",
+        "能讨论博物馆归还文物（如埃吉纳岛大理石）所涉及的道德与文化主权问题"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能列出大英博物馆、故宫博物院等代表性博物馆及其核心藏品",
+      "cnStandards": [
+        "moe-2022-history:SH.文化的传.02"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1238"
+    },
+    {
+      "id": "mtc_2348",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Thematic History",
+      "name": "国际文化遗产保护体系",
+      "description": "学习联合国教科文组织世界遗产公约、濒危名录以及国际援助机制。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.019231,
+      "evidence": [
+        "能简述《保护世界文化和自然遗产公约》的主要内容",
+        "能举例说明濒危世界遗产（如威尼斯）面临的威胁与保护措施",
+        "能评价国际社会在保护阿勒颇古城等冲突地区遗产时的合作成效"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能简述《保护世界文化和自然遗产公约》的主要内容",
+      "cnStandards": [
+        "moe-2022-history:SH.文化的传.03"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1239"
+    },
+    {
+      "id": "mtc_2349",
+      "type": "CONCEPTUAL",
+      "subject": "History",
+      "domain": "Thematic History",
+      "name": "中国的文化遗产保护实践",
+      "description": "聚焦中国在遗产保护立法、活化利用及申遗工作方面的成就与挑战。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.019231,
+      "evidence": [
+        "能列举中国列入世界遗产的典型案例（如莫高窟、大运河）",
+        "能分析《中华人民共和国文物保护法》的核心原则",
+        "能讨论故宫文创、数字化保护等活化利用方式的利与弊"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能列举中国列入世界遗产的典型案例（如莫高窟、大运河）",
+      "cnStandards": [
+        "moe-2022-history:SH.文化的传.03"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1239"
     }
   ]
 }

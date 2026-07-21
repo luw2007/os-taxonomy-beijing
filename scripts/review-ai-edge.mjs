@@ -5,6 +5,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DEPS_PATH = resolve(ROOT, 'data', 'cn-dependencies.json');
+const BRIDGE_DEPS_PATH = resolve(ROOT, 'data', 'cn-bridge-dependencies.json');
 
 export function reviewEdge(edge, decision) {
   if (!['reviewed', 'rejected'].includes(decision?.status)) throw new Error('status 必须为 reviewed 或 rejected');
@@ -18,6 +19,7 @@ export function reviewEdge(edge, decision) {
   };
   delete reviewed.rescopeRequired;
   delete reviewed.previousReviewStatus;
+  delete reviewed.ageRegression;
   return reviewed;
 }
 
@@ -33,15 +35,17 @@ function main() {
   const status = opt(argv, '--status');
   const reviewer = opt(argv, '--reviewer');
   const note = opt(argv, '--note');
+  const bridge = argv.includes('--bridge');
   const dryRun = argv.includes('--dry-run');
   if (!topicId || !prerequisiteId) throw new Error('需要 --topic 和 --prerequisite');
 
-  const doc = JSON.parse(readFileSync(DEPS_PATH, 'utf8'));
+  const path = bridge ? BRIDGE_DEPS_PATH : DEPS_PATH;
+  const doc = JSON.parse(readFileSync(path, 'utf8'));
   const index = doc.dependencies.findIndex(edge => edge.topicId === topicId && edge.prerequisiteId === prerequisiteId);
-  if (index < 0) throw new Error(`找不到边 ${topicId}<-${prerequisiteId}`);
+  if (index < 0) throw new Error(`找不到${bridge ? '桥接' : ''}边 ${topicId}<-${prerequisiteId}`);
   doc.dependencies[index] = reviewEdge(doc.dependencies[index], { status, reviewer, note });
   console.log(JSON.stringify(doc.dependencies[index], null, 2));
-  if (!dryRun) writeFileSync(DEPS_PATH, JSON.stringify(doc, null, 2) + '\n');
+  if (!dryRun) writeFileSync(path, JSON.stringify(doc, null, 2) + '\n');
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {

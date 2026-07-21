@@ -31,7 +31,10 @@
       "prerequisiteId": "mt_mqgu72aCMz",
       "strength": "soft",
       "reason": "上游的联立方程是中国二元一次方程组的解法基础",
-      "reviewStatus": "reviewed"
+      "reviewStatus": "machine",
+      "previousReviewStatus": "reviewed",
+      "rescopeRequired": true,
+      "rescopeBatchId": "granularity-rescope-20260721"
     },
     {
       "topicId": "mtc_280",
@@ -66,7 +69,10 @@
       "prerequisiteId": "mt_u23IGDxOpk",
       "strength": "soft",
       "reason": "上游的平行线是中国平行线性质的几何基础",
-      "reviewStatus": "reviewed"
+      "reviewStatus": "machine",
+      "previousReviewStatus": "reviewed",
+      "rescopeRequired": true,
+      "rescopeBatchId": "granularity-rescope-20260721"
     },
     {
       "topicId": "mtc_294",
@@ -297,7 +303,10 @@
       "prerequisiteId": "mt_FuVEZ1Ac9s",
       "strength": "soft",
       "reason": "上游的自然选择是中国生物的进化的理论基础",
-      "reviewStatus": "reviewed"
+      "reviewStatus": "machine",
+      "previousReviewStatus": "reviewed",
+      "rescopeRequired": true,
+      "rescopeBatchId": "granularity-rescope-20260721"
     },
     {
       "topicId": "mtc_385",
@@ -318,7 +327,10 @@
       "prerequisiteId": "mt_enj1sMcfOT",
       "strength": "soft",
       "reason": "上游的时态系统是中国英语语法常用时态的直接对应",
-      "reviewStatus": "reviewed"
+      "reviewStatus": "machine",
+      "previousReviewStatus": "reviewed",
+      "rescopeRequired": true,
+      "rescopeBatchId": "granularity-rescope-20260721"
     },
     {
       "topicId": "mtc_578",

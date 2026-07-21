@@ -266,9 +266,6 @@ if (cnDeps) {
   const total = cnDeps.dependencies.length;
   const reviewedPct = total > 0 ? (100 * reviewCounts.reviewed / total).toFixed(1) : '0';
   console.log(`  📋 审核覆盖率: reviewed ${reviewCounts.reviewed} / machine ${reviewCounts.machine} / rejected ${reviewCounts.rejected}（已审核 ${reviewedPct}%）`);
-  if (publishMode && cnOriginTopics) {
-    for (const problem of publicationProblems(cnOriginTopics.topics, cnDeps.dependencies)) errors.push(`publish: ${problem}`);
-  }
 }
 
 // --- 4d. 上游 mt_ → 中国 mtc_ 桥接依赖完整性 -----------------------------
@@ -286,6 +283,26 @@ if (cnBridgeDeps) {
       check(VALID_REVIEW_STATUS.has(d.reviewStatus),
         `cn-bridge ${d.topicId}->${d.prerequisiteId}: illegal reviewStatus "${d.reviewStatus}"`);
     }
+    const bridgeReviewStatus = d.reviewStatus ?? 'machine';
+    check(!(d.reviewStatus === 'reviewed' && d.rescopeRequired === true),
+      `cn-bridge ${d.topicId}->${d.prerequisiteId}: reviewed edge cannot have rescopeRequired`);
+    if (d.rescopeRequired === true) {
+      check(bridgeReviewStatus === 'machine',
+        `cn-bridge ${d.topicId}->${d.prerequisiteId}: rescopeRequired edge must be machine`);
+      check(typeof d.rescopeBatchId === 'string' && d.rescopeBatchId.length > 0,
+        `cn-bridge ${d.topicId}->${d.prerequisiteId}: rescopeRequired edge missing rescopeBatchId`);
+    }
+    if (d.previousReviewStatus !== undefined) {
+      check(d.previousReviewStatus === 'reviewed' && d.rescopeRequired === true,
+        `cn-bridge ${d.topicId}->${d.prerequisiteId}: previousReviewStatus requires active rescopeRequired`);
+    }
+    const hasBridgeReviewAudit = d.reviewedBy !== undefined || d.reviewedAt !== undefined || d.reviewNote !== undefined;
+    if (hasBridgeReviewAudit) {
+      check((bridgeReviewStatus === 'reviewed' || bridgeReviewStatus === 'rejected')
+        && typeof d.reviewedBy === 'string' && d.reviewedBy.length > 0
+        && typeof d.reviewedAt === 'string' && d.reviewedAt.length > 0,
+      `cn-bridge ${d.topicId}->${d.prerequisiteId}: incomplete human review audit metadata`);
+    }
     // topicId 必须是 mtc_ 且在 cn-topics 中存在
     check(typeof d.topicId === 'string' && d.topicId.startsWith('mtc_'),
       `cn-bridge: topicId must be mtc_, got ${d.topicId}`);
@@ -301,6 +318,11 @@ if (cnBridgeDeps) {
     if (bridgeSeen.has(key)) errors.push(`cn-bridge: duplicate edge ${key}`);
     bridgeSeen.add(key);
   }
+}
+if (publishMode && cnOriginTopics && cnDeps) {
+  for (const problem of publicationProblems(
+    cnOriginTopics.topics, cnDeps.dependencies, cnBridgeDeps?.dependencies,
+  )) errors.push(`publish: ${problem}`);
 }
 
 // --- 5. 依赖引用完整性 ----------------------------------------------------

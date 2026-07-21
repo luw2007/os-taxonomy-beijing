@@ -12,10 +12,10 @@ v1.2.0-zh.0 发版时已确认的已知问题/增量改进。经 opus + omp 双�
 - **处理**：逐条判断是"几何分割概念"还是"真分数"，重新对齐或新建中国特有节点
 - **缓存位置**：`data/.align-work/`（gitignored）里有完整 398 条原始 LLM 响应
 
-### 2. 审核覆盖率 37.6%，1,634 条 machine 边待人工核对
-- **现状**：cn-deps 2,619 条中 reviewed 985 / machine 1,634；其中 761 条旧父边因主题拆分后语义收窄标记 `rescopeRequired`，301 条原 reviewed 已降级
-- **处理**：使用 `review-ai-edge.mjs` 按边审核为 reviewed/rejected；儿童 viewer 不提供 machine 边入口
-- **目标**：先清零 `rescopeRequired`，再基于教师 gold set 校准发布覆盖率，不预设任意百分比
+### 2. 审核覆盖率 37.6%，1,634 条内部 machine 边待人工核对
+- **现状**：cn-deps 2,619 条中 reviewed 985 / machine 1,634；其中 761 条旧父边因主题拆分后语义收窄标记 `rescopeRequired`，301 条原 reviewed 已降级。另有 4 条 reviewed bridge 命中复用 ID，已同样降级隔离
+- **处理**：使用 `review-ai-edge.mjs` 按边审核为 reviewed/rejected；bridge 边增加 `--bridge`；儿童 viewer 不提供 machine 边入口
+- **目标**：先清零 761 条内部和 4 条 bridge `rescopeRequired`，再基于教师 gold set 校准发布覆盖率，不预设任意百分比
 
 ## 低优先级
 

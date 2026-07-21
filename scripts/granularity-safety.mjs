@@ -43,9 +43,10 @@ export function migrateExistingRescopes(topics, dependencies, rescopeBatchId) {
   return { parentIds, dependencies: migrated };
 }
 
-export function prepareGranularityChanges({ topicsDoc, depsDoc, results, generationBatchId }) {
+export function prepareGranularityChanges({ topicsDoc, depsDoc, bridgeDepsDoc, results, generationBatchId }) {
   const nextTopicsDoc = structuredClone(topicsDoc);
   const nextDepsDoc = structuredClone(depsDoc);
+  const nextBridgeDepsDoc = bridgeDepsDoc ? structuredClone(bridgeDepsDoc) : null;
   const topics = nextTopicsDoc.topics;
   const seenResults = new Set();
   const sortedResults = [...results].sort((a, b) => String(a.id).localeCompare(String(b.id)));
@@ -118,10 +119,14 @@ export function prepareGranularityChanges({ topicsDoc, depsDoc, results, generat
       });
     }
     nextDepsDoc.dependencies = rescopeEdgesForTopic(nextDepsDoc.dependencies, originalId, generationBatchId);
+    if (nextBridgeDepsDoc) {
+      nextBridgeDepsDoc.dependencies = rescopeEdgesForTopic(nextBridgeDepsDoc.dependencies, originalId, generationBatchId);
+    }
     splitCount++;
   }
 
   nextTopicsDoc.topicCount = topics.length;
   nextDepsDoc.edgeCount = nextDepsDoc.dependencies.length;
-  return { topicsDoc: nextTopicsDoc, depsDoc: nextDepsDoc, splitCount, coveredCount };
+  if (nextBridgeDepsDoc) nextBridgeDepsDoc.edgeCount = nextBridgeDepsDoc.dependencies.length;
+  return { topicsDoc: nextTopicsDoc, depsDoc: nextDepsDoc, bridgeDepsDoc: nextBridgeDepsDoc, splitCount, coveredCount };
 }

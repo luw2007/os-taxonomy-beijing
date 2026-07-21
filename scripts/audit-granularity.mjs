@@ -9,7 +9,7 @@
  * 两阶段：
  *   审计（默认）：按 subject|stage 分桶调 LLM，评估每条 estimateMinutes + verdict，
  *     拆分草案写 data/.granularity-work/<bucket>.json（人工可改后再 apply）。
- *   应用（--apply）：读 work 文件执行拆分，写回 cn-topics.json + cn-dependencies.json。
+ *   应用（--apply）：读 work 文件执行拆分，写回 cn-topics.json、cn-dependencies.json 与 bridge 边。
  *
  * 用法：
  *   node scripts/audit-granularity.mjs --plan                     # 只看分桶 + prompt 样本
@@ -52,6 +52,7 @@ const API_URL = 'https://api.deepseek.com/v1/chat/completions';
 // --- 数据 ---
 const cnPath = resolve(DATA, 'cn-topics.json');
 const depPath = resolve(DATA, 'cn-dependencies.json');
+const bridgeDepPath = resolve(DATA, 'cn-bridge-dependencies.json');
 const cnData = JSON.parse(readFileSync(cnPath, 'utf8'));
 const domainMap = JSON.parse(readFileSync(resolve(DATA, 'domains.zh.json'), 'utf8'));
 const subjectZh = (s) => domainMap.subjects[s] || s;
@@ -346,12 +347,16 @@ function apply(buckets) {
     return;
   }
   const depData = JSON.parse(readFileSync(depPath, 'utf8'));
+  const bridgeDepData = existsSync(bridgeDepPath) ? JSON.parse(readFileSync(bridgeDepPath, 'utf8')) : null;
   const generationBatchId = `granularity-${new Date().toISOString().slice(0, 10).replaceAll('-', '')}`;
-  const changes = prepareGranularityChanges({ topicsDoc: cnData, depsDoc: depData, results, generationBatchId });
+  const changes = prepareGranularityChanges({
+    topicsDoc: cnData, depsDoc: depData, bridgeDepsDoc: bridgeDepData, results, generationBatchId,
+  });
   console.log(`应用 ${changes.splitCount} 条拆分，持久化 ${changes.coveredCount} 条 covered；主题总数 ${changes.topicsDoc.topics.length}`);
   if (dryRun) { console.log('（--dry-run，未写盘）'); return; }
   writeFileSync(cnPath, JSON.stringify(changes.topicsDoc, null, 2) + '\n');
   writeFileSync(depPath, JSON.stringify(changes.depsDoc, null, 2) + '\n');
+  if (changes.bridgeDepsDoc) writeFileSync(bridgeDepPath, JSON.stringify(changes.bridgeDepsDoc, null, 2) + '\n');
   console.log('已写盘。后续: node scripts/compute-centrality.mjs && node scripts/checksum.mjs && node scripts/validate.mjs --publish');
 }
 

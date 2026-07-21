@@ -2,7 +2,7 @@
   "version": "1.2.0-zh.0",
   "upstreamVersion": "1.0.0",
   "locale": "zh-CN",
-  "topicCount": 1897,
+  "topicCount": 1942,
   "originNote": "中国特有微主题（mtc_ 前缀）。已按原子粒度拆解——每条覆盖一个可独立评估的微技能。来源：课标自建(cn_only/progression/upstream_adapt) + 课本目录(textbook)。严守 codes-only 原则。教材来源节点中的作品名、部分作者名和来源作为事实性元数据保留；不包含教材正文、插图、练习题、版式、页码或 PDF 路径。详见 PROVENANCE.md。",
   "topics": [
     {
@@ -6219,46 +6219,48 @@
       "type": "PROCEDURAL",
       "subject": "Mathematics",
       "domain": "Number & Algebra",
-      "name": "分式的运算",
-      "description": "掌握分式的加减乘除和乘方运算，能进行分式的混合运算。",
+      "name": "分式的加减运算",
+      "description": "掌握同分母和异分母分式的加减法，能正确通分与约分。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
       "centrality": 0.076923,
       "evidence": [
-        "能进行分式的加减运算",
-        "能进行分式的乘除运算",
-        "能完成分式的混合运算"
+        "能进行同分母分式的加减运算",
+        "能进行异分母分式的加减运算",
+        "能正确通分并化简结果"
       ],
-      "assessmentPrompt": "给 {{name}} 一道分式加减和一道分式乘除的题，检查他能否正确计算。",
+      "assessmentPrompt": "让 {{name}} 展示：能进行同分母分式的加减运算",
       "cnStandards": [
         "moe-2022-math:S4.NA.05"
       ],
       "origin": "cn_only",
       "stage": "初中",
-      "nodeKind": "skill"
+      "nodeKind": "skill",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_267",
       "type": "PROCEDURAL",
       "subject": "Mathematics",
       "domain": "Number & Algebra",
-      "name": "分式方程及其应用",
-      "description": "会解可化为一元一次方程的分式方程，理解验根的必要性，能列分式方程解简单的实际问题。",
+      "name": "分式方程的解法与验根",
+      "description": "掌握可化为一元一次方程的分式方程的解法，理解验根的必要性并正确验根。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
       "centrality": 0.057692,
       "evidence": [
-        "能解可化为一元一次方程的分式方程",
-        "能说明为什么必须验根并正确验根",
-        "能列分式方程解应用题"
+        "能通过去分母将分式方程化为整式方程",
+        "能解出整式方程并检验根",
+        "能说明验根的原因和步骤"
       ],
-      "assessmentPrompt": "让 {{name}} 解一道分式方程，并说明为什么要检验增根。",
+      "assessmentPrompt": "让 {{name}} 展示：能通过去分母将分式方程化为整式方程",
       "cnStandards": [
         "moe-2022-math:S4.NA.05"
       ],
       "origin": "cn_only",
       "stage": "初中",
-      "nodeKind": "skill"
+      "nodeKind": "skill",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_268",
@@ -6311,23 +6313,24 @@
       "type": "PROCEDURAL",
       "subject": "Mathematics",
       "domain": "Equations & Inequalities",
-      "name": "二元一次方程组的解法",
-      "description": "掌握代入消元法和加减消元法解二元一次方程组，体会消元思想。",
+      "name": "代入消元法解二元一次方程组",
+      "description": "掌握代入消元法的步骤，能用其解简单的二元一次方程组。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
       "centrality": 0.153846,
       "evidence": [
-        "能用代入消元法解方程组",
-        "能用加减消元法解方程组",
-        "能根据方程特点选择合适的方法"
+        "能将方程组中的一个方程变形为用含一个未知数的式子表示另一个未知数",
+        "能代入消元并求解",
+        "能写出方程组的解"
       ],
-      "assessmentPrompt": "让 {{name}} 用代入法和加减法分别解一个二元一次方程组。",
+      "assessmentPrompt": "让 {{name}} 展示：能将方程组中的一个方程变形为用含一个未知数的式子表示另一个未知数",
       "cnStandards": [
         "moe-2022-math:S4.EQ.02"
       ],
       "origin": "upstream_adapt",
       "stage": "初中",
-      "nodeKind": "skill"
+      "nodeKind": "skill",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_271",
@@ -6357,23 +6360,24 @@
       "type": "PROCEDURAL",
       "subject": "Mathematics",
       "domain": "Equations & Inequalities",
-      "name": "一元二次方程的解法",
-      "description": "掌握配方法、公式法和因式分解法（含直接开平方法）解一元二次方程，能根据方程特点选择合适方法。",
+      "name": "配方法解一元二次方程",
+      "description": "掌握配方法的步骤，能用配方法解数字系数的一元二次方程。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
       "centrality": 0.115385,
       "evidence": [
-        "能用配方法解一元二次方程",
-        "能用公式法求解",
-        "能用因式分解法求解"
+        "能将二次项系数化为1",
+        "能配方并写成完全平方形式",
+        "能用直接开平方法求解"
       ],
-      "assessmentPrompt": "让 {{name}} 用两种方法解 x的平方减5x加6等于0。",
+      "assessmentPrompt": "让 {{name}} 展示：能将二次项系数化为1",
       "cnStandards": [
         "moe-2022-math:S4.EQ.03"
       ],
       "origin": "cn_only",
       "stage": "初中",
-      "nodeKind": "skill"
+      "nodeKind": "skill",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_273",
@@ -6403,23 +6407,24 @@
       "type": "PROCEDURAL",
       "subject": "Mathematics",
       "domain": "Equations & Inequalities",
-      "name": "一元二次方程的应用",
-      "description": "能列一元二次方程解决面积问题、增长率问题和利润问题等实际应用。",
+      "name": "一元二次方程在面积与增长率问题中的应用",
+      "description": "能列一元二次方程解决面积问题和增长率问题。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
       "centrality": 0.076923,
       "evidence": [
-        "能根据实际问题列出一元二次方程",
-        "能正确求解",
-        "能根据实际意义舍去不合题意的根"
+        "能根据面积关系列方程",
+        "能根据增长率关系列方程",
+        "能求解并检验合理性"
       ],
-      "assessmentPrompt": "让 {{name}} 用一元二次方程解一道关于矩形面积的应用题。",
+      "assessmentPrompt": "让 {{name}} 展示：能根据面积关系列方程",
       "cnStandards": [
         "moe-2022-math:S4.EQ.03"
       ],
       "origin": "cn_only",
       "stage": "初中",
-      "nodeKind": "skill"
+      "nodeKind": "skill",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_275",
@@ -6826,22 +6831,22 @@
       "subject": "Mathematics",
       "domain": "Geometry & Shapes",
       "name": "平行线的性质",
-      "description": "掌握平行线的性质（同位角内错角同旁内角）和判定方法，能进行简单的推理书写。",
+      "description": "掌握两直线平行时同位角、内错角、同旁内角的关系，并能进行角度计算。",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": 0.269231,
       "evidence": [
-        "能区分平行线的性质和判定",
-        "能用平行线性质求角的大小",
-        "能用判定方法说明两直线平行"
+        "能说出平行线的三条性质",
+        "能用性质求角的度数"
       ],
-      "assessmentPrompt": "给 {{name}} 一个含平行线的图形，请他说明某两个角相等的理由。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出平行线的三条性质",
       "cnStandards": [
         "moe-2022-math:S4.GE.01"
       ],
       "origin": "upstream_adapt",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_293",
@@ -6896,23 +6901,23 @@
       "type": "CONCEPTUAL",
       "subject": "Mathematics",
       "domain": "Geometry & Shapes",
-      "name": "全等三角形的判定",
-      "description": "掌握三角形全等的判定方法（SSS/SAS/ASA/AAS/HL），能选择合适方法判定全等。",
+      "name": "全等三角形的判定（SSS、SAS）",
+      "description": "掌握边边边、边角边两种判定方法，能选择应用。",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
       "centrality": 0.211538,
       "evidence": [
-        "能说出全等三角形的四种判定方法",
-        "能根据条件选择合适方法",
-        "能正确书写全等的判定理由"
+        "能说出SSS和SAS的内容",
+        "能根据条件用SSS或SAS判定全等"
       ],
-      "assessmentPrompt": "给 {{name}} 两个三角形，请他判断用哪种方法证明它们全等。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出SSS和SAS的内容",
       "cnStandards": [
         "moe-2022-math:S4.GE.02"
       ],
       "origin": "upstream_adapt",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_296",
@@ -7012,45 +7017,45 @@
       "subject": "Mathematics",
       "domain": "Geometry & Shapes",
       "name": "平行四边形的性质",
-      "description": "掌握平行四边形的性质（对边相等、对角相等、对角线互相平分）和判定方法。",
+      "description": "掌握平行四边形对边相等、对角相等、对角线互相平分的性质。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
       "centrality": 0.115385,
       "evidence": [
-        "能说出平行四边形的性质",
-        "能说出平行四边形的判定方法",
-        "能用性质或判定解决问题"
+        "能说出平行四边形的三条性质",
+        "能用性质进行线段或角度的计算"
       ],
-      "assessmentPrompt": "让 {{name}} 证明一个四边形是平行四边形并说出判定依据。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出平行四边形的三条性质",
       "cnStandards": [
         "moe-2022-math:S4.GE.04"
       ],
       "origin": "upstream_adapt",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_301",
       "type": "CONCEPTUAL",
       "subject": "Mathematics",
       "domain": "Geometry & Shapes",
-      "name": "矩形菱形正方形的性质",
-      "description": "掌握矩形、菱形、正方形的特殊性质和判定方法，理解它们与平行四边形之间的包含关系。",
+      "name": "矩形和菱形的性质与判定",
+      "description": "掌握矩形和菱形的特殊性质及判定方法。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
       "centrality": 0.096154,
       "evidence": [
-        "能说出矩形菱形正方形各自的特殊性质",
-        "能判定一个四边形是特殊四边形",
-        "能说明它们之间的包含关系"
+        "能说出矩形和菱形的性质",
+        "能判定矩形或菱形"
       ],
-      "assessmentPrompt": "让 {{name}} 画图说明平行四边形、矩形、菱形、正方形之间的包含关系。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出矩形和菱形的性质",
       "cnStandards": [
         "moe-2022-math:S4.GE.04"
       ],
       "origin": "upstream_adapt",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_302",
@@ -7270,23 +7275,24 @@
       "type": "CONCEPTUAL",
       "subject": "Mathematics",
       "domain": "Transformations",
-      "name": "相似多边形",
-      "description": "理解相似多边形的概念和相似比，掌握相似三角形的判定和性质。",
+      "name": "相似多边形与相似比",
+      "description": "理解相似多边形的定义、相似比，能判断多边形相似并求相似比",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
       "centrality": 0.057692,
       "evidence": [
-        "能判断图形是否相似并求相似比",
-        "能证明三角形相似并求边长",
-        "能运用相似三角形的性质"
+        "能说出相似多边形的对应角相等、对应边成比例",
+        "能计算相似比",
+        "能判断两个多边形是否相似"
       ],
-      "assessmentPrompt": "让 {{name}} 说说什么样的两个多边形相似，相似三角形对应边和对应角有什么关系。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出相似多边形的对应角相等、对应边成比例",
       "cnStandards": [
         "moe-2022-math:S4.TR.02"
       ],
       "origin": "cn_only",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_312",
@@ -7598,46 +7604,47 @@
       "type": "META",
       "subject": "Mathematics",
       "domain": "Comprehensive Practice",
-      "name": "数学建模初步",
-      "description": "经历从实际问题中抽象数学模型、求解并验证的过程，体会数学建模的基本思想。",
+      "name": "数学建模的基本步骤",
+      "description": "理解数学建模的一般步骤：问题分析、模型假设、建立模型、求解、验证",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
       "centrality": 0.019231,
       "evidence": [
-        "能从实际问题中抽象数学关系",
-        "能建立模型并求解",
-        "能验证并反思模型的合理性"
+        "能说出数学建模的五个步骤",
+        "能针对简单问题写出建模步骤提纲",
+        "能解释每一步的作用"
       ],
-      "assessmentPrompt": "让 {{name}} 用数学方法分析一个最优方案选择问题，建立模型并求解。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出数学建模的五个步骤",
       "cnStandards": [
         "moe-2022-math:S4.CP.01"
       ],
       "origin": "cross_domain",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_326",
       "type": "META",
       "subject": "Mathematics",
       "domain": "Comprehensive Practice",
-      "name": "代数知识综合应用",
-      "description": "能综合运用代数（方程函数不等式）和几何知识解决综合性的实际问题或动点问题。",
+      "name": "代数与几何综合问题策略",
+      "description": "学习如何综合运用方程、函数与几何图形分析，解决非动点类的实际应用问题。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
       "centrality": 0,
       "evidence": [
-        "能综合运用方程函数等代数知识",
-        "能结合几何图形分析问题",
-        "能解决简单的动点或综合探究问题"
+        "能根据实际问题建立方程或函数模型并画出几何示意图",
+        "能结合图形分析数量关系并求解"
       ],
-      "assessmentPrompt": "给 {{name}} 一道结合一次函数与几何图形的综合题，请他分析求解。",
+      "assessmentPrompt": "让 {{name}} 展示：能根据实际问题建立方程或函数模型并画出几何示意图",
       "cnStandards": [
         "moe-2022-math:S4.CP.01"
       ],
       "origin": "cross_domain",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_327",
@@ -14775,23 +14782,24 @@
       "type": "CONCEPTUAL",
       "subject": "Mathematics",
       "domain": "Functions",
-      "name": "三角函数的图像",
-      "description": "掌握正弦函数、余弦函数的图像和性质（周期性、单调性、最大最小值），能用「五点法」画出正弦余弦函数的简图，了解 y=Asin(ωx+φ) 的图像变换。",
+      "name": "正弦函数的图像与性质",
+      "description": "用五点法画出y=sinx的图像，观察并说出周期、最值、单调性等性质",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
       "centrality": 0.038462,
       "evidence": [
-        "能用五点法画出 y=sinx 的图像",
-        "能说出正弦余弦函数的周期和最值",
-        "能说明 A、ω、φ 对图像的影响"
+        "能用五点法画出y=sinx在一个周期内的图像",
+        "能说出正弦函数的周期为2π，最大值为1，最小值为-1",
+        "能根据图像描述单调区间"
       ],
-      "assessmentPrompt": "让 {{name}} 用五点法画出 y=sinx 在 [0,2π] 上的图像，说出周期和最大最小值。",
+      "assessmentPrompt": "让 {{name}} 展示：能用五点法画出y=sinx在一个周期内的图像",
       "cnStandards": [
         "moe-2022-math:SH.FN.10"
       ],
       "origin": "progression",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_635",
@@ -14845,23 +14853,24 @@
       "type": "CONCEPTUAL",
       "subject": "Mathematics",
       "domain": "Geometry & Algebra",
-      "name": "平面向量的概念",
-      "description": "理解平面向量的概念（大小和方向），掌握向量的加法、减法和数乘运算及其几何意义，理解向量共线的条件。",
+      "name": "平面向量的概念与线性运算",
+      "description": "理解向量概念，掌握向量加法、减法、数乘的几何意义和运算法则",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
       "centrality": 0.076923,
       "evidence": [
-        "能用有向线段表示向量",
-        "能进行向量的加减和数乘运算",
-        "能判断两个向量是否共线"
+        "能用有向线段表示向量，区分向量与数量",
+        "能画出向量加法、减法的平行四边形法则和三角形法则",
+        "能进行向量的加减和数乘运算"
       ],
-      "assessmentPrompt": "给 {{name}} 两个向量，请他用几何作图的方法求出它们的和向量与差向量。",
+      "assessmentPrompt": "让 {{name}} 展示：能用有向线段表示向量，区分向量与数量",
       "cnStandards": [
         "moe-2022-math:SH.GA.01"
       ],
       "origin": "cn_only",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_638",
@@ -14915,23 +14924,24 @@
       "type": "PROCEDURAL",
       "subject": "Mathematics",
       "domain": "Geometry & Algebra",
-      "name": "平面向量的数量积及其应用",
-      "description": "掌握平面向量数量积（点积）的定义及其坐标表示，能用数量积解决向量的长度、夹角和垂直问题，能用向量方法解决简单的几何证明问题。",
+      "name": "平面向量数量积的定义与运算",
+      "description": "理解数量积的几何意义，掌握数量积的坐标表示，能求长度和夹角",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
       "centrality": 0.038462,
       "evidence": [
-        "能用坐标计算两个向量的数量积",
-        "能用数量积求向量的长度和夹角",
-        "能用数量积判断两个向量垂直并证明几何结论"
+        "能用坐标公式计算两个向量的数量积",
+        "能利用数量积求向量的长度和夹角",
+        "能判断向量垂直"
       ],
-      "assessmentPrompt": "给 {{name}} 向量 a=(1,2)、b=(3,4)，请他求数量积 a·b、|a| 以及 a 与 b 的夹角，并判断是否垂直。",
+      "assessmentPrompt": "让 {{name}} 展示：能用坐标公式计算两个向量的数量积",
       "cnStandards": [
         "moe-2022-math:SH.GA.03"
       ],
       "origin": "cn_only",
       "stage": "高中",
-      "nodeKind": "skill"
+      "nodeKind": "skill",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_641",
@@ -15103,69 +15113,72 @@
       "type": "PROCEDURAL",
       "subject": "Mathematics",
       "domain": "Probability & Statistics",
-      "name": "用样本估计总体",
-      "description": "能用样本的频率分布（频率分布直方图）和数字特征（平均数、标准差）估计总体的相应特征。",
+      "name": "频率分布直方图的制作与解读",
+      "description": "学会分组、列表、画频率分布直方图，并能从图中获取信息",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
       "centrality": 0,
       "evidence": [
-        "能制作频率分布直方图",
-        "能计算样本的平均数和标准差",
-        "能用样本特征估计总体"
+        "能根据数据确定组距和组数",
+        "能绘制频率分布直方图",
+        "能通过直方图估计总体的分布特征"
       ],
-      "assessmentPrompt": "给 {{name}} 一组数据，请他制作频率分布直方图并估计总体的平均数。",
+      "assessmentPrompt": "让 {{name}} 展示：能根据数据确定组距和组数",
       "cnStandards": [
         "moe-2022-math:SH.PS.04"
       ],
       "origin": "progression",
       "stage": "高中",
-      "nodeKind": "skill"
+      "nodeKind": "skill",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_649",
       "type": "META",
       "subject": "Mathematics",
       "domain": "Mathematical Modeling",
-      "name": "数学建模的完整过程",
-      "description": "经历数学建模的完整过程（发现问题→建立模型→求解→验证→推广），能从实际问题中抽象数学模型并撰写简单的建模报告。",
+      "name": "数学建模的步骤与问题发现",
+      "description": "了解数学建模的一般步骤，从实际情境中发现并提出问题",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.019231,
       "evidence": [
-        "能从实际问题中抽象出数学关系",
-        "能用模型求解并验证合理性",
-        "能反思并改进模型"
+        "能说出数学建模的主要步骤（发现问题、建立模型、求解、验证、推广）",
+        "能从实际问题中识别出关键变量和关系",
+        "能提出清晰的数学问题"
       ],
-      "assessmentPrompt": "让 {{name}} 对一个实际问题（如十字路口红绿灯时长设置）建立数学模型并求解。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出数学建模的主要步骤（发现问题、建立模型、求解、验证、推广）",
       "cnStandards": [
         "moe-2022-math:SH.MM.01"
       ],
       "origin": "progression",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_650",
       "type": "PROCEDURAL",
       "subject": "Mathematics",
       "domain": "Mathematical Modeling",
-      "name": "函数模型的实际应用",
-      "description": "能选择合适的函数模型（指数增长、对数增长、分段函数等）拟合实际数据，描述和解决现实中的增长、衰减等问题。",
+      "name": "常见函数模型的特征",
+      "description": "掌握指数函数、对数函数、幂函数、分段函数等常见模型的增长特点",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0,
       "evidence": [
-        "能根据数据特征选择合适的函数模型",
-        "能用模型拟合数据并求解",
-        "能解释模型结果的现实意义"
+        "能说出指数增长和对数增长的区别",
+        "能根据数据的变化趋势猜测合适的函数模型",
+        "能列举生活中的增长或衰减实例"
       ],
-      "assessmentPrompt": "给 {{name}} 一组细菌繁殖的数据，请他判断适合用哪种函数模型并说明理由。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出指数增长和对数增长的区别",
       "cnStandards": [
         "moe-2022-math:SH.MM.02"
       ],
       "origin": "progression",
       "stage": "高中",
-      "nodeKind": "skill"
+      "nodeKind": "skill",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_651",
@@ -28642,23 +28655,23 @@
       "type": "CONCEPTUAL",
       "subject": "Mathematics",
       "domain": "Number & Algebra",
-      "name": "投影",
-      "description": "理解投影与视图的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "投影的概念与分类",
+      "description": "了解中心投影和平行投影的定义，能区分两种投影并举例说明。",
       "ageRangeStart": 14,
       "ageRangeEnd": 15,
       "centrality": 0.019231,
       "evidence": [
-        "能说出投影与视图的基本内容",
-        "能运用投影与视图的知识分析相关问题",
-        "能结合实例说明投影与视图的意义或应用"
+        "能说出中心投影和平行投影的形成条件",
+        "能判断常见投影类型"
       ],
-      "assessmentPrompt": "让 {name} 说说投影与视图的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出中心投影和平行投影的形成条件",
       "cnStandards": [
         "moe-2022-math:S4.数与代数.04"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1273",
@@ -28712,23 +28725,24 @@
       "type": "CONCEPTUAL",
       "subject": "Mathematics",
       "domain": "Number & Algebra",
-      "name": "立体几何初步",
-      "description": "理解立体几何初步的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "空间几何体的结构特征",
+      "description": "认识柱、锥、台、球的结构特征，能识别多面体和旋转体",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
       "centrality": 0.192308,
       "evidence": [
-        "能说出立体几何初步的基本内容",
-        "能运用立体几何初步的知识分析相关问题",
-        "能结合实例说明立体几何初步的意义或应用"
+        "能说出棱柱、棱锥、棱台等的结构特征",
+        "能识别圆柱、圆锥、圆台、球",
+        "能根据展开图想象原几何体"
       ],
-      "assessmentPrompt": "让 {name} 说说立体几何初步的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出棱柱、棱锥、棱台等的结构特征",
       "cnStandards": [
         "moe-2022-math:SH.数与代数.04"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1277",
@@ -28758,115 +28772,115 @@
       "type": "CONCEPTUAL",
       "subject": "Mathematics",
       "domain": "Number & Algebra",
-      "name": "空间向量",
-      "description": "理解空间向量与立体几何的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "空间向量的概念与线性运算",
+      "description": "空间向量的表示、加法、减法、数乘、共线向量定理",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.153846,
       "evidence": [
-        "能说出空间向量与立体几何的基本内容",
-        "能运用空间向量与立体几何的知识分析相关问题",
-        "能结合实例说明空间向量与立体几何的意义或应用"
+        "能进行空间向量的线性运算",
+        "能判断向量共线"
       ],
-      "assessmentPrompt": "让 {name} 说说空间向量与立体几何的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能进行空间向量的线性运算",
       "cnStandards": [
         "moe-2022-math:SH.数与代数.06"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1279",
       "type": "CONCEPTUAL",
       "subject": "Mathematics",
       "domain": "Number & Algebra",
-      "name": "直线的方程",
-      "description": "理解直线和圆的方程的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "直线的倾斜角与斜率",
+      "description": "倾斜角定义、斜率公式、两点斜率",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.134615,
       "evidence": [
-        "能说出直线和圆的方程的基本内容",
-        "能运用直线和圆的方程的知识分析相关问题",
-        "能结合实例说明直线和圆的方程的意义或应用"
+        "能计算直线的倾斜角和斜率",
+        "能根据斜率判断方向"
       ],
-      "assessmentPrompt": "让 {name} 说说直线和圆的方程的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能计算直线的倾斜角和斜率",
       "cnStandards": [
         "moe-2022-math:SH.数与代数.07"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1280",
       "type": "CONCEPTUAL",
       "subject": "Mathematics",
       "domain": "Number & Algebra",
-      "name": "圆锥曲线的方程",
-      "description": "理解圆锥曲线的方程的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "椭圆的标准方程与性质",
+      "description": "椭圆定义、标准方程推导、焦点、顶点、离心率",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.115385,
       "evidence": [
-        "能说出圆锥曲线的方程的基本内容",
-        "能运用圆锥曲线的方程的知识分析相关问题",
-        "能结合实例说明圆锥曲线的方程的意义或应用"
+        "能写出椭圆标准方程",
+        "能求离心率等基本量"
       ],
-      "assessmentPrompt": "让 {name} 说说圆锥曲线的方程的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能写出椭圆标准方程",
       "cnStandards": [
         "moe-2022-math:SH.数与代数.08"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1281",
       "type": "CONCEPTUAL",
       "subject": "Mathematics",
       "domain": "Number & Algebra",
-      "name": "数列：",
-      "description": "理解数列：的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "等差数列的概念与通项公式",
+      "description": "等差数列定义、通项公式推导、等差中项",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.096154,
       "evidence": [
-        "能说出数列：的基本内容",
-        "能运用数列：的知识分析相关问题",
-        "能结合实例说明数列：的意义或应用"
+        "能写出等差数列通项公式",
+        "能判断和证明等差数列"
       ],
-      "assessmentPrompt": "让 {name} 说说数列：的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能写出等差数列通项公式",
       "cnStandards": [
         "moe-2022-math:SH.数与代数.09"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1282",
       "type": "CONCEPTUAL",
       "subject": "Mathematics",
       "domain": "Number & Algebra",
-      "name": "一元函数的导数及其应用",
-      "description": "理解一元函数的导数及其应用的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "导数的概念与几何意义",
+      "description": "导数定义、导数的几何意义（切线方程）",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.076923,
       "evidence": [
-        "能说出一元函数的导数及其应用的基本内容",
-        "能运用一元函数的导数及其应用的知识分析相关问题",
-        "能结合实例说明一元函数的导数及其应用的意义或应用"
+        "能用定义求导数",
+        "能求切线方程"
       ],
-      "assessmentPrompt": "让 {name} 说说一元函数的导数及其应用的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能用定义求导数",
       "cnStandards": [
         "moe-2022-math:SH.数与代数.10"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1283",
@@ -28919,46 +28933,46 @@
       "type": "CONCEPTUAL",
       "subject": "Mathematics",
       "domain": "Number & Algebra",
-      "name": "计数原理",
-      "description": "理解计数原理的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "分类加法与分步乘法计数原理",
+      "description": "掌握两个基本计数原理及其简单应用",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.019231,
       "evidence": [
-        "能说出计数原理的基本内容",
-        "能运用计数原理的知识分析相关问题",
-        "能结合实例说明计数原理的意义或应用"
+        "能区分分类与分步",
+        "能解决简单计数问题"
       ],
-      "assessmentPrompt": "让 {name} 说说计数原理的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能区分分类与分步",
       "cnStandards": [
         "moe-2022-math:SH.数与代数.13"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1286",
       "type": "CONCEPTUAL",
       "subject": "Mathematics",
       "domain": "Number & Algebra",
-      "name": "随机变量及其分布",
-      "description": "理解随机变量及其分布的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "离散型随机变量的分布列",
+      "description": "随机变量定义、分布列性质、两点分布、超几何分布",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0,
       "evidence": [
-        "能说出随机变量及其分布的基本内容",
-        "能运用随机变量及其分布的知识分析相关问题",
-        "能结合实例说明随机变量及其分布的意义或应用"
+        "能写出分布列",
+        "能求概率和期望"
       ],
-      "assessmentPrompt": "让 {name} 说说随机变量及其分布的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能写出分布列",
       "cnStandards": [
         "moe-2022-math:SH.数与代数.14"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1287",
@@ -44398,6 +44412,1108 @@
       "nodeKind": "skill",
       "granularity": "split-45min",
       "splitFrom": "mtc_825"
+    },
+    {
+      "id": "mtc_2356",
+      "type": "PROCEDURAL",
+      "subject": "Mathematics",
+      "domain": "Number & Algebra",
+      "name": "分式的乘除运算",
+      "description": "掌握分式的乘法与除法法则，能正确约分。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 15,
+      "centrality": 0.076923,
+      "evidence": [
+        "能进行分式的乘法运算",
+        "能进行分式的除法运算",
+        "能正确约分得到最简分式"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能进行分式的乘法运算",
+      "cnStandards": [
+        "moe-2022-math:S4.NA.05"
+      ],
+      "origin": "cn_only",
+      "stage": "初中",
+      "nodeKind": "skill",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_266"
+    },
+    {
+      "id": "mtc_2357",
+      "type": "PROCEDURAL",
+      "subject": "Mathematics",
+      "domain": "Number & Algebra",
+      "name": "分式的混合运算",
+      "description": "能综合运用分式的加减乘除法则进行混合运算，注意运算顺序。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 15,
+      "centrality": 0.076923,
+      "evidence": [
+        "能确定混合运算的顺序",
+        "能正确完成分式的混合运算",
+        "能简化运算步骤"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能确定混合运算的顺序",
+      "cnStandards": [
+        "moe-2022-math:S4.NA.05"
+      ],
+      "origin": "cn_only",
+      "stage": "初中",
+      "nodeKind": "skill",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_266"
+    },
+    {
+      "id": "mtc_2358",
+      "type": "PROCEDURAL",
+      "subject": "Mathematics",
+      "domain": "Number & Algebra",
+      "name": "分式方程的应用",
+      "description": "能分析实际问题中的等量关系，列分式方程求解并检验合理性。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 15,
+      "centrality": 0.057692,
+      "evidence": [
+        "能从实际问题中找出等量关系",
+        "能正确列出分式方程",
+        "能求解并检验解的合理性"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能从实际问题中找出等量关系",
+      "cnStandards": [
+        "moe-2022-math:S4.NA.05"
+      ],
+      "origin": "cn_only",
+      "stage": "初中",
+      "nodeKind": "skill",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_267"
+    },
+    {
+      "id": "mtc_2359",
+      "type": "PROCEDURAL",
+      "subject": "Mathematics",
+      "domain": "Equations & Inequalities",
+      "name": "加减消元法解二元一次方程组",
+      "description": "掌握加减消元法的步骤，能用其解简单的二元一次方程组。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 14,
+      "centrality": 0.153846,
+      "evidence": [
+        "能确定加减消元的目标",
+        "能通过加减消去一个未知数并求解",
+        "能写出方程组的解"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能确定加减消元的目标",
+      "cnStandards": [
+        "moe-2022-math:S4.EQ.02"
+      ],
+      "origin": "upstream_adapt",
+      "stage": "初中",
+      "nodeKind": "skill",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_270"
+    },
+    {
+      "id": "mtc_2360",
+      "type": "PROCEDURAL",
+      "subject": "Mathematics",
+      "domain": "Equations & Inequalities",
+      "name": "公式法解一元二次方程",
+      "description": "掌握求根公式，能用公式法解一元二次方程。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 15,
+      "centrality": 0.115385,
+      "evidence": [
+        "能正确写出求根公式",
+        "能计算判别式并判断根的情况",
+        "能用公式法求解"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能正确写出求根公式",
+      "cnStandards": [
+        "moe-2022-math:S4.EQ.03"
+      ],
+      "origin": "cn_only",
+      "stage": "初中",
+      "nodeKind": "skill",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_272"
+    },
+    {
+      "id": "mtc_2361",
+      "type": "PROCEDURAL",
+      "subject": "Mathematics",
+      "domain": "Equations & Inequalities",
+      "name": "因式分解法解一元二次方程",
+      "description": "能用因式分解法（提公因式、十字相乘法等）解一元二次方程。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 15,
+      "centrality": 0.115385,
+      "evidence": [
+        "能对一元二次方程进行因式分解",
+        "能利用因式分解法求解",
+        "能根据方程特点选择因式分解法"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能对一元二次方程进行因式分解",
+      "cnStandards": [
+        "moe-2022-math:S4.EQ.03"
+      ],
+      "origin": "cn_only",
+      "stage": "初中",
+      "nodeKind": "skill",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_272"
+    },
+    {
+      "id": "mtc_2362",
+      "type": "PROCEDURAL",
+      "subject": "Mathematics",
+      "domain": "Equations & Inequalities",
+      "name": "一元二次方程在利润与其它问题中的应用",
+      "description": "能列一元二次方程解决利润问题及其它常见实际应用。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 15,
+      "centrality": 0.076923,
+      "evidence": [
+        "能根据利润关系列方程",
+        "能解决其他类似问题",
+        "能根据实际意义舍去不合题意的根"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能根据利润关系列方程",
+      "cnStandards": [
+        "moe-2022-math:S4.EQ.03"
+      ],
+      "origin": "cn_only",
+      "stage": "初中",
+      "nodeKind": "skill",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_274"
+    },
+    {
+      "id": "mtc_2363",
+      "type": "CONCEPTUAL",
+      "subject": "Mathematics",
+      "domain": "Geometry & Shapes",
+      "name": "平行线的判定",
+      "description": "掌握用同位角、内错角、同旁内角判定两直线平行的方法。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": 0.269231,
+      "evidence": [
+        "能说出三种判定方法",
+        "能用判定方法证明两直线平行"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出三种判定方法",
+      "cnStandards": [
+        "moe-2022-math:S4.GE.01"
+      ],
+      "origin": "upstream_adapt",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_292"
+    },
+    {
+      "id": "mtc_2364",
+      "type": "CONCEPTUAL",
+      "subject": "Mathematics",
+      "domain": "Geometry & Shapes",
+      "name": "全等三角形的判定（ASA、AAS、HL）",
+      "description": "掌握角边角、角角边、斜边直角边三种判定方法，能综合选择。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 14,
+      "centrality": 0.211538,
+      "evidence": [
+        "能说出ASA、AAS、HL的内容",
+        "能根据条件选择合适方法判定全等"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出ASA、AAS、HL的内容",
+      "cnStandards": [
+        "moe-2022-math:S4.GE.02"
+      ],
+      "origin": "upstream_adapt",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_295"
+    },
+    {
+      "id": "mtc_2365",
+      "type": "CONCEPTUAL",
+      "subject": "Mathematics",
+      "domain": "Geometry & Shapes",
+      "name": "平行四边形的判定",
+      "description": "掌握平行四边形的几种判定方法。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 15,
+      "centrality": 0.115385,
+      "evidence": [
+        "能说出平行四边形的判定方法",
+        "能用判定方法证明四边形是平行四边形"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出平行四边形的判定方法",
+      "cnStandards": [
+        "moe-2022-math:S4.GE.04"
+      ],
+      "origin": "upstream_adapt",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_300"
+    },
+    {
+      "id": "mtc_2366",
+      "type": "CONCEPTUAL",
+      "subject": "Mathematics",
+      "domain": "Geometry & Shapes",
+      "name": "正方形的性质与判定",
+      "description": "掌握正方形的特殊性质及判定方法，理解与矩形、菱形的关系。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 15,
+      "centrality": 0.096154,
+      "evidence": [
+        "能说出正方形的性质",
+        "能判定正方形",
+        "能说明正方形与矩形、菱形的包含关系"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出正方形的性质",
+      "cnStandards": [
+        "moe-2022-math:S4.GE.04"
+      ],
+      "origin": "upstream_adapt",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_301"
+    },
+    {
+      "id": "mtc_2367",
+      "type": "CONCEPTUAL",
+      "subject": "Mathematics",
+      "domain": "Transformations",
+      "name": "相似三角形的判定",
+      "description": "掌握相似三角形的判定定理（AA、SAS、SSS等），能证明三角形相似",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": 0.057692,
+      "evidence": [
+        "能说出相似三角形的判定定理",
+        "能选择正确判定方法证明三角形相似",
+        "能解决含相似判定的简单题目"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出相似三角形的判定定理",
+      "cnStandards": [
+        "moe-2022-math:S4.TR.02"
+      ],
+      "origin": "cn_only",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_311"
+    },
+    {
+      "id": "mtc_2368",
+      "type": "CONCEPTUAL",
+      "subject": "Mathematics",
+      "domain": "Transformations",
+      "name": "相似三角形的性质",
+      "description": "理解相似三角形的对应线段（高、中线、角平分线）比等于相似比，面积比等于相似比的平方",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": 0.057692,
+      "evidence": [
+        "能说出相似三角形对应线段比等于相似比",
+        "能说出面积比等于相似比的平方",
+        "能运用性质求边长或面积"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出相似三角形对应线段比等于相似比",
+      "cnStandards": [
+        "moe-2022-math:S4.TR.02"
+      ],
+      "origin": "cn_only",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_311"
+    },
+    {
+      "id": "mtc_2369",
+      "type": "META",
+      "subject": "Mathematics",
+      "domain": "Comprehensive Practice",
+      "name": "数学建模的实践应用",
+      "description": "经历完整的建模过程，解决实际情境问题（如最优方案、预测等）",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 15,
+      "centrality": 0.019231,
+      "evidence": [
+        "能从实际问题中抽象出数学关系",
+        "能建立适当的数学模型并求解",
+        "能验证模型合理性并写出反思"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能从实际问题中抽象出数学关系",
+      "cnStandards": [
+        "moe-2022-math:S4.CP.01"
+      ],
+      "origin": "cross_domain",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_325"
+    },
+    {
+      "id": "mtc_2370",
+      "type": "META",
+      "subject": "Mathematics",
+      "domain": "Comprehensive Practice",
+      "name": "动点问题专题",
+      "description": "学习处理动点问题，建立函数关系并利用几何性质求解最值或位置关系。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 15,
+      "centrality": 0,
+      "evidence": [
+        "能识别动点问题中的变量与不变量",
+        "能建立含参数的函数表达式并求解"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能识别动点问题中的变量与不变量",
+      "cnStandards": [
+        "moe-2022-math:S4.CP.01"
+      ],
+      "origin": "cross_domain",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_326"
+    },
+    {
+      "id": "mtc_2371",
+      "type": "CONCEPTUAL",
+      "subject": "Mathematics",
+      "domain": "Number & Algebra",
+      "name": "三视图的画法",
+      "description": "掌握主视图、俯视图、左视图的绘制规则，能画出简单几何体的三视图。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": 0.019231,
+      "evidence": [
+        "能按规定位置画出三视图",
+        "能标注尺寸并保持比例一致"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能按规定位置画出三视图",
+      "cnStandards": [
+        "moe-2022-math:S4.数与代数.04"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1272"
+    },
+    {
+      "id": "mtc_2372",
+      "type": "CONCEPTUAL",
+      "subject": "Mathematics",
+      "domain": "Number & Algebra",
+      "name": "由三视图还原几何体",
+      "description": "根据三视图想象并还原立体几何形状，能计算简单几何体的表面积与体积。",
+      "ageRangeStart": 14,
+      "ageRangeEnd": 15,
+      "centrality": 0.019231,
+      "evidence": [
+        "能由三视图说出原几何体的形状",
+        "能计算长、宽、高等关键尺寸"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能由三视图说出原几何体的形状",
+      "cnStandards": [
+        "moe-2022-math:S4.数与代数.04"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1272"
+    },
+    {
+      "id": "mtc_2373",
+      "type": "CONCEPTUAL",
+      "subject": "Mathematics",
+      "domain": "Functions",
+      "name": "余弦函数的图像与性质",
+      "description": "用五点法画出y=cosx的图像，观察并说出周期、最值、单调性等性质",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 17,
+      "centrality": 0.038462,
+      "evidence": [
+        "能用五点法画出y=cosx在一个周期内的图像",
+        "能说出余弦函数的周期为2π，最大值为1，最小值为-1",
+        "能根据图像描述单调区间"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能用五点法画出y=cosx在一个周期内的图像",
+      "cnStandards": [
+        "moe-2022-math:SH.FN.10"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_634"
+    },
+    {
+      "id": "mtc_2374",
+      "type": "CONCEPTUAL",
+      "subject": "Mathematics",
+      "domain": "Functions",
+      "name": "y=Asin(ωx+φ)的图像变换",
+      "description": "理解参数A、ω、φ对函数图像的影响，能通过平移、伸缩变换得到y=Asin(ωx+φ)的图像",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 17,
+      "centrality": 0.038462,
+      "evidence": [
+        "能说明A、ω、φ分别控制振幅、周期、相位",
+        "能通过图像变换由y=sinx得到y=Asin(ωx+φ)的图像",
+        "能根据函数解析式说出图像变换步骤"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说明A、ω、φ分别控制振幅、周期、相位",
+      "cnStandards": [
+        "moe-2022-math:SH.FN.10"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_634"
+    },
+    {
+      "id": "mtc_2375",
+      "type": "CONCEPTUAL",
+      "subject": "Mathematics",
+      "domain": "Geometry & Algebra",
+      "name": "向量共线的条件",
+      "description": "理解向量共线的含义，掌握用数乘表示共线向量的方法",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 17,
+      "centrality": 0.076923,
+      "evidence": [
+        "能判断两个向量是否共线",
+        "能利用共线条件解决几何问题",
+        "理解非零向量共线等价于存在实数λ使a=λb"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能判断两个向量是否共线",
+      "cnStandards": [
+        "moe-2022-math:SH.GA.01"
+      ],
+      "origin": "cn_only",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_637"
+    },
+    {
+      "id": "mtc_2376",
+      "type": "PROCEDURAL",
+      "subject": "Mathematics",
+      "domain": "Geometry & Algebra",
+      "name": "平面向量数量积的应用",
+      "description": "运用数量积证明简单的几何结论，如垂直、长度关系等",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 17,
+      "centrality": 0.038462,
+      "evidence": [
+        "能用数量积证明两直线垂直",
+        "能用数量积证明线段相等或角度关系",
+        "能解决几何中的长度和夹角问题"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能用数量积证明两直线垂直",
+      "cnStandards": [
+        "moe-2022-math:SH.GA.03"
+      ],
+      "origin": "cn_only",
+      "stage": "高中",
+      "nodeKind": "skill",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_640"
+    },
+    {
+      "id": "mtc_2377",
+      "type": "PROCEDURAL",
+      "subject": "Mathematics",
+      "domain": "Probability & Statistics",
+      "name": "样本的数字特征与估计总体",
+      "description": "计算样本的平均数、标准差，并用来估计总体的集中趋势和离散程度",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 17,
+      "centrality": 0,
+      "evidence": [
+        "能计算样本的平均数和标准差",
+        "能说明平均数与标准差的含义",
+        "能用样本数字特征估计总体相应特征"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能计算样本的平均数和标准差",
+      "cnStandards": [
+        "moe-2022-math:SH.PS.04"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "skill",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_648"
+    },
+    {
+      "id": "mtc_2378",
+      "type": "META",
+      "subject": "Mathematics",
+      "domain": "Mathematical Modeling",
+      "name": "建立数学模型",
+      "description": "学会将实际问题转化为数学语言，建立合适的数学模型",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.019231,
+      "evidence": [
+        "能根据问题选择适当的函数、方程等数学结构",
+        "能将变量之间的关系用数学式子表示",
+        "能明确模型中的参数和假设"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能根据问题选择适当的函数、方程等数学结构",
+      "cnStandards": [
+        "moe-2022-math:SH.MM.01"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_649"
+    },
+    {
+      "id": "mtc_2379",
+      "type": "META",
+      "subject": "Mathematics",
+      "domain": "Mathematical Modeling",
+      "name": "模型求解与验证反思",
+      "description": "求解数学模型，验证结果合理性，并反思模型的局限",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.019231,
+      "evidence": [
+        "能正确求解模型（如解方程、画图分析）",
+        "能将结果与实际问题对比验证",
+        "能提出模型的改进方向"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能正确求解模型（如解方程、画图分析）",
+      "cnStandards": [
+        "moe-2022-math:SH.MM.01"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_649"
+    },
+    {
+      "id": "mtc_2380",
+      "type": "PROCEDURAL",
+      "subject": "Mathematics",
+      "domain": "Mathematical Modeling",
+      "name": "函数模型的选择与拟合应用",
+      "description": "根据实际数据选择模型，进行求解并解释现实意义",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0,
+      "evidence": [
+        "能根据数据特征选择指数、对数或分段函数模型",
+        "能用所选模型进行参数求解（如待定系数法）",
+        "能解释模型结果的实际含义并给出建议"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能根据数据特征选择指数、对数或分段函数模型",
+      "cnStandards": [
+        "moe-2022-math:SH.MM.02"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "skill",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_650"
+    },
+    {
+      "id": "mtc_2381",
+      "type": "CONCEPTUAL",
+      "subject": "Mathematics",
+      "domain": "Number & Algebra",
+      "name": "空间几何体的三视图与直观图",
+      "description": "掌握正投影法画三视图，能根据三视图还原几何体，会用斜二测画法画直观图",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 17,
+      "centrality": 0.192308,
+      "evidence": [
+        "能画出简单组合体的三视图",
+        "能根据三视图想象空间几何体",
+        "会用斜二测画法画水平放置的平面图形和立体图形"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能画出简单组合体的三视图",
+      "cnStandards": [
+        "moe-2022-math:SH.数与代数.04"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1276"
+    },
+    {
+      "id": "mtc_2382",
+      "type": "CONCEPTUAL",
+      "subject": "Mathematics",
+      "domain": "Number & Algebra",
+      "name": "空间几何体的表面积与体积",
+      "description": "掌握柱、锥、台、球的表面积和体积公式，并能进行应用计算",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 17,
+      "centrality": 0.192308,
+      "evidence": [
+        "能使用公式计算柱、锥、台、球的表面积和体积",
+        "能解决简单的实际应用问题",
+        "能理解公式的推导思路"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能使用公式计算柱、锥、台、球的表面积和体积",
+      "cnStandards": [
+        "moe-2022-math:SH.数与代数.04"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1276"
+    },
+    {
+      "id": "mtc_2383",
+      "type": "CONCEPTUAL",
+      "subject": "Mathematics",
+      "domain": "Number & Algebra",
+      "name": "空间点、线、面的位置关系",
+      "description": "理解空间点线面的位置关系，掌握公理与定理，能进行简单证明",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 17,
+      "centrality": 0.192308,
+      "evidence": [
+        "能判断空间直线与直线、直线与平面、平面与平面的位置关系",
+        "能运用公理和定理证明平行或垂直关系",
+        "能画出满足条件的直观图"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能判断空间直线与直线、直线与平面、平面与平面的位置关系",
+      "cnStandards": [
+        "moe-2022-math:SH.数与代数.04"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1276"
+    },
+    {
+      "id": "mtc_2384",
+      "type": "CONCEPTUAL",
+      "subject": "Mathematics",
+      "domain": "Number & Algebra",
+      "name": "空间向量的数量积与坐标表示",
+      "description": "数量积的定义、坐标运算、夹角与距离公式",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.153846,
+      "evidence": [
+        "能用坐标计算数量积",
+        "能求夹角和距离"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能用坐标计算数量积",
+      "cnStandards": [
+        "moe-2022-math:SH.数与代数.06"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1278"
+    },
+    {
+      "id": "mtc_2385",
+      "type": "CONCEPTUAL",
+      "subject": "Mathematics",
+      "domain": "Number & Algebra",
+      "name": "空间向量基本定理与立体几何应用",
+      "description": "空间向量基本定理、利用向量解决平行、垂直、角度问题",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.153846,
+      "evidence": [
+        "能证明线面平行或垂直",
+        "能求异面直线所成角"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能证明线面平行或垂直",
+      "cnStandards": [
+        "moe-2022-math:SH.数与代数.06"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1278"
+    },
+    {
+      "id": "mtc_2386",
+      "type": "CONCEPTUAL",
+      "subject": "Mathematics",
+      "domain": "Number & Algebra",
+      "name": "直线方程的几种形式",
+      "description": "点斜式、斜截式、两点式、一般式及其互化",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.134615,
+      "evidence": [
+        "能写出直线方程并互化",
+        "能根据条件选择最优形式"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能写出直线方程并互化",
+      "cnStandards": [
+        "moe-2022-math:SH.数与代数.07"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1279"
+    },
+    {
+      "id": "mtc_2387",
+      "type": "CONCEPTUAL",
+      "subject": "Mathematics",
+      "domain": "Number & Algebra",
+      "name": "两直线的位置关系",
+      "description": "平行、垂直的判定、相交直线交点、点到直线距离",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.134615,
+      "evidence": [
+        "能判断两直线位置关系",
+        "能求距离和交点坐标"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能判断两直线位置关系",
+      "cnStandards": [
+        "moe-2022-math:SH.数与代数.07"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1279"
+    },
+    {
+      "id": "mtc_2388",
+      "type": "CONCEPTUAL",
+      "subject": "Mathematics",
+      "domain": "Number & Algebra",
+      "name": "双曲线的标准方程与性质",
+      "description": "双曲线定义、标准方程、渐近线、离心率",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.115385,
+      "evidence": [
+        "能写出双曲线标准方程",
+        "能求渐近线和离心率"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能写出双曲线标准方程",
+      "cnStandards": [
+        "moe-2022-math:SH.数与代数.08"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1280"
+    },
+    {
+      "id": "mtc_2389",
+      "type": "CONCEPTUAL",
+      "subject": "Mathematics",
+      "domain": "Number & Algebra",
+      "name": "抛物线的标准方程与性质",
+      "description": "抛物线定义、标准方程、焦点、准线",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.115385,
+      "evidence": [
+        "能写出抛物线标准方程",
+        "能求焦点和准线方程"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能写出抛物线标准方程",
+      "cnStandards": [
+        "moe-2022-math:SH.数与代数.08"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1280"
+    },
+    {
+      "id": "mtc_2390",
+      "type": "CONCEPTUAL",
+      "subject": "Mathematics",
+      "domain": "Number & Algebra",
+      "name": "直线与圆锥曲线的位置关系",
+      "description": "联立方程、弦长公式、中点弦问题",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.115385,
+      "evidence": [
+        "能判断直线与曲线位置关系",
+        "能求弦长和中点"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能判断直线与曲线位置关系",
+      "cnStandards": [
+        "moe-2022-math:SH.数与代数.08"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1280"
+    },
+    {
+      "id": "mtc_2391",
+      "type": "CONCEPTUAL",
+      "subject": "Mathematics",
+      "domain": "Number & Algebra",
+      "name": "等差数列的前n项和",
+      "description": "求和公式推导与应用",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.096154,
+      "evidence": [
+        "能用求和公式计算",
+        "能解决实际应用问题"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能用求和公式计算",
+      "cnStandards": [
+        "moe-2022-math:SH.数与代数.09"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1281"
+    },
+    {
+      "id": "mtc_2392",
+      "type": "CONCEPTUAL",
+      "subject": "Mathematics",
+      "domain": "Number & Algebra",
+      "name": "等比数列的概念与通项公式",
+      "description": "等比数列定义、通项公式、等比中项",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.096154,
+      "evidence": [
+        "能写出等比数列通项公式",
+        "能判断和证明等比数列"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能写出等比数列通项公式",
+      "cnStandards": [
+        "moe-2022-math:SH.数与代数.09"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1281"
+    },
+    {
+      "id": "mtc_2393",
+      "type": "CONCEPTUAL",
+      "subject": "Mathematics",
+      "domain": "Number & Algebra",
+      "name": "导数的基本运算",
+      "description": "基本初等函数导数公式、四则运算法则、复合函数求导",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.076923,
+      "evidence": [
+        "能求初等函数的导数",
+        "能求复合函数的导数"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能求初等函数的导数",
+      "cnStandards": [
+        "moe-2022-math:SH.数与代数.10"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1282"
+    },
+    {
+      "id": "mtc_2394",
+      "type": "CONCEPTUAL",
+      "subject": "Mathematics",
+      "domain": "Number & Algebra",
+      "name": "导数与函数的单调性",
+      "description": "利用导数判断单调性、求单调区间",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.076923,
+      "evidence": [
+        "能通过导数求单调区间",
+        "能证明单调性"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能通过导数求单调区间",
+      "cnStandards": [
+        "moe-2022-math:SH.数与代数.10"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1282"
+    },
+    {
+      "id": "mtc_2395",
+      "type": "CONCEPTUAL",
+      "subject": "Mathematics",
+      "domain": "Number & Algebra",
+      "name": "导数与函数的极值、最值",
+      "description": "极值点定义、极值求法、闭区间最值",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.076923,
+      "evidence": [
+        "能求函数极值",
+        "能求实际最值问题"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能求函数极值",
+      "cnStandards": [
+        "moe-2022-math:SH.数与代数.10"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1282"
+    },
+    {
+      "id": "mtc_2396",
+      "type": "CONCEPTUAL",
+      "subject": "Mathematics",
+      "domain": "Number & Algebra",
+      "name": "排列与排列数",
+      "description": "排列定义、排列数公式、全排列",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.019231,
+      "evidence": [
+        "能计算排列数",
+        "能解决排列问题"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能计算排列数",
+      "cnStandards": [
+        "moe-2022-math:SH.数与代数.13"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1285"
+    },
+    {
+      "id": "mtc_2397",
+      "type": "CONCEPTUAL",
+      "subject": "Mathematics",
+      "domain": "Number & Algebra",
+      "name": "组合与组合数",
+      "description": "组合定义、组合数公式、组合与排列的区别",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.019231,
+      "evidence": [
+        "能计算组合数",
+        "能解决组合问题"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能计算组合数",
+      "cnStandards": [
+        "moe-2022-math:SH.数与代数.13"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1285"
+    },
+    {
+      "id": "mtc_2398",
+      "type": "CONCEPTUAL",
+      "subject": "Mathematics",
+      "domain": "Number & Algebra",
+      "name": "二项分布及其应用",
+      "description": "独立重复试验、二项分布公式及应用",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0,
+      "evidence": [
+        "能识别二项分布",
+        "能计算概率和期望"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能识别二项分布",
+      "cnStandards": [
+        "moe-2022-math:SH.数与代数.14"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1286"
+    },
+    {
+      "id": "mtc_2399",
+      "type": "CONCEPTUAL",
+      "subject": "Mathematics",
+      "domain": "Number & Algebra",
+      "name": "离散型随机变量的均值与方差",
+      "description": "均值、方差的定义与计算",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0,
+      "evidence": [
+        "能计算均值与方差",
+        "能解释意义"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能计算均值与方差",
+      "cnStandards": [
+        "moe-2022-math:SH.数与代数.14"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1286"
+    },
+    {
+      "id": "mtc_2400",
+      "type": "CONCEPTUAL",
+      "subject": "Mathematics",
+      "domain": "Number & Algebra",
+      "name": "正态分布",
+      "description": "正态分布曲线、标准正态分布、3σ原则",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0,
+      "evidence": [
+        "能识别正态分布特征",
+        "能利用概率表计算"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能识别正态分布特征",
+      "cnStandards": [
+        "moe-2022-math:SH.数与代数.14"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1286"
     }
   ]
 }

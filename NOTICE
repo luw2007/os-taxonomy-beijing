@@ -26,11 +26,14 @@ Local textbook source files were obtained through the public ChinaTextbook
 repository:
 https://github.com/TapXWorld/ChinaTextbook
 
-The released Git repository does not contain those textbook PDFs or converted
-Markdown files. `data/cn-topics.json` nevertheless contains textbook-derived
-knowledge-topic metadata, including 209 records classified as specific reading
-texts; some retain work titles and author attributions. Those third-party facts
-and any underlying rights are excluded from this project's CC BY-SA grant.
+The released Git repository does not contain textbook PDFs, converted Markdown,
+prose, illustrations, exercises, page layouts, or page numbers.
+`data/cn-topics.json` contains textbook-derived knowledge-topic metadata,
+including 209 records classified as specific reading texts. Work titles,
+some author names, and source references are retained as factual metadata for
+identification, indexing, and provenance; this project claims no exclusive
+copyright in those facts. Project-authored teaching text and database
+arrangement are licensed as described in LICENSES.md.
 No publisher, author, Ministry, Marble, or ChinaTextbook endorsement is implied.
 
 See PROVENANCE.md and LICENSES.md for the complete scope boundaries.

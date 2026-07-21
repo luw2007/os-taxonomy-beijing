@@ -3,7 +3,7 @@
   "upstreamVersion": "1.0.0",
   "locale": "zh-CN",
   "topicCount": 1640,
-  "originNote": "中国特有微主题（mtc_ 前缀）。已按原子粒度拆解——每条覆盖一个可独立评估的微技能。来源：课标自建(cn_only/progression/upstream_adapt) + 课本目录(textbook)。严守 codes-only 原则。教材来源节点包含具体阅读文本元数据，第三方权利不由本项目再许可；详见 PROVENANCE.md。",
+  "originNote": "中国特有微主题（mtc_ 前缀）。已按原子粒度拆解——每条覆盖一个可独立评估的微技能。来源：课标自建(cn_only/progression/upstream_adapt) + 课本目录(textbook)。严守 codes-only 原则。教材来源节点中的作品名、部分作者名和来源作为事实性元数据保留；不包含教材正文、插图、练习题、版式、页码或 PDF 路径。详见 PROVENANCE.md。",
   "topics": [
     {
       "id": "mtc_001",

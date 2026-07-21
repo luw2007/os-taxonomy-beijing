@@ -203,12 +203,12 @@ node scripts/serve.mjs --port 8080 --upstream /path/to/os-taxonomy
 |---|---|---|
 | **代码** | `scripts/`、`viewer/`、schema 与构建文件 | [**MIT**](LICENSE-CODE) |
 | **数据库** | 集合结构、ID、关系 | [**ODbL 1.0**](LICENSE) — share-alike，商用友好 |
-| **文本** | Marble 中文译文及本项目有权许可的原创文本 | [**CC BY-SA 4.0**](LICENSE-CONTENT) — 署名 + share-alike |
-| **中国课标编号** | 项目自建映射键，不含课标原文 | 上游权利不由本项目再许可 |
-| **教材来源元数据** | 809 个教材来源节点，含 209 个具体阅读文本节点 | 作品标题、作者署名及教材编排的第三方权利不由本项目再许可 |
+| **文本** | Marble 中文译文及本项目原创或有权许可的文本 | [**CC BY-SA 4.0**](LICENSE-CONTENT) — 署名 + share-alike |
+| **中国课标编号** | 项目自建映射键，不含课标原文 | 事实性标识符；不授予课标原文权利 |
+| **教材来源元数据** | 809 个教材来源节点，含 209 个具体阅读文本节点 | 作品名、部分作者名和来源作为事实性元数据保留；项目不主张独占版权 |
 
-本项目不发布教育部课标原文、教材 PDF 或 Markdown 转换产物。详见
-[PROVENANCE.md](PROVENANCE.md)。
+本项目不发布教育部课标原文、教材 PDF、Markdown 转换产物、正文、插图、练习题、
+版式或页码。详见 [PROVENANCE.md](PROVENANCE.md)。
 
 ### 署名
 
@@ -216,9 +216,9 @@ node scripts/serve.mjs --port 8080 --upstream /path/to/os-taxonomy
 
 > Beijing Skill Taxonomy (zh-CN, v1.2.0-zh.0) · 衍生自 Marble Skill Taxonomy (v1)，
 > © Generative Spark, Inc. (Marble) · https://withmarble.com ·
-> 数据库 ODbL 1.0，项目有权许可的文本 CC BY-SA 4.0，代码 MIT。
+> 数据库 ODbL 1.0，项目原创及有权许可的文本 CC BY-SA 4.0，代码 MIT。
 > 课程标准编号来源于教育部《义务教育课程方案和课程标准（2022年版）》；
-> 教材来源元数据的第三方权利不由本项目再许可。
+> 教材作品名、部分作者名和来源作为事实性元数据保留。
 
 ## Roadmap
 
@@ -245,6 +245,6 @@ codes-only 原则——**不要在 PR 中收录教育部课标的原文条款**�
 - [**Marble Skill Taxonomy**](https://github.com/withmarbleapp/os-taxonomy) —
   本项目的上游，提供了 1,590 个微主题的知识图谱结构（DAG）、ID 体系和依赖关系。
 - [**ChinaTextbook**](https://github.com/TapXWorld/ChinaTextbook) —
-  提供了北京海淀各学段教材 PDF 来源（人教/部编/北师大/中图/鲁科/教科等版本）。
+  提供了北京海淀各学段教材来源；本项目据此保留作品名、部分作者名和来源引用。
 
-> 教材 PDF 及其 Markdown 转换产物为本地 source 文件，不纳入版本库（见 `.gitignore`）。
+> 教材 PDF、Markdown 转换产物、正文、插图、练习题、版式和页码不纳入版本库。

@@ -457,7 +457,7 @@ function renderMeDetail(d) {
     html += `<div class="me-sec"><h4>✓ 掌握证据</h4><ul class="me-evi">${t.evidence.map(e => `<li>${esc(e)}</li>`).join('')}</ul></div>`;
   }
   if (t.assessmentPrompt) {
-    const a = esc(t.assessmentPrompt).replace(/\{\{name\}\}/g, '<span class="me-ph">孩子名字</span>');
+    const a = esc(t.assessmentPrompt).replace(/\{\{name\}\}/g, `<span class="me-ph">${esc(activeUser().name)}</span>`);
     html += `<div class="me-sec"><h4>🎯 评估话术</h4><div class="me-assess">${a}</div></div>`;
   }
   if (d.standards && d.standards.length) {

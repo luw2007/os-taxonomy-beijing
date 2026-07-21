@@ -2,7 +2,7 @@
   "version": "1.2.0-zh.0",
   "upstreamVersion": "1.0.0",
   "locale": "zh-CN",
-  "topicCount": 1820,
+  "topicCount": 1846,
   "originNote": "中国特有微主题（mtc_ 前缀）。已按原子粒度拆解——每条覆盖一个可独立评估的微技能。来源：课标自建(cn_only/progression/upstream_adapt) + 课本目录(textbook)。严守 codes-only 原则。教材来源节点中的作品名、部分作者名和来源作为事实性元数据保留；不包含教材正文、插图、练习题、版式、页码或 PDF 路径。详见 PROVENANCE.md。",
   "topics": [
     {
@@ -11681,23 +11681,23 @@
       "type": "CONCEPTUAL",
       "subject": "Geography",
       "domain": "Geography of China",
-      "name": "中国的气候",
-      "description": "了解中国气候复杂多样和季风气候显著的特点，理解季风对我国生产生活的影响。",
+      "name": "中国的气候特征与季风区划分",
+      "description": "理解中国气候复杂多样、季风气候显著的特点，掌握季风区与非季风区的分界线。",
       "ageRangeStart": 12,
       "ageRangeEnd": 15,
       "centrality": 0.211538,
       "evidence": [
         "能说出中国气候的主要特征",
-        "能说明季风区和非季风区的分界线",
-        "能解释季风对农业的影响"
+        "能在地图上指出季风区与非季风区的分界线"
       ],
-      "assessmentPrompt": "让 {{name}} 说说中国的气候有什么特点，季风对我国的农业有什么影响。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出中国气候的主要特征",
       "cnStandards": [
         "moe-2022-geo:S4.CG.02"
       ],
       "origin": "cn_only",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_501",
@@ -11752,23 +11752,23 @@
       "type": "CONCEPTUAL",
       "subject": "Geography",
       "domain": "Geography of China",
-      "name": "中国的自然资源",
-      "description": "了解我国自然资源总量丰富人均不足的特点，认识土地资源和水资源分布及合理利用。",
+      "name": "中国的自然资源概况与土地资源",
+      "description": "了解我国自然资源总量丰富、人均不足的特征，掌握耕地、林地、草地的分布。",
       "ageRangeStart": 12,
       "ageRangeEnd": 15,
       "centrality": 0.153846,
       "evidence": [
         "能说出中国自然资源的基本特征",
-        "能说明耕地林地草地的分布",
-        "能说明水资源的分布和南水北调的意义"
+        "能在地图上指出耕地、林地、草地的主要分布区"
       ],
-      "assessmentPrompt": "让 {{name}} 说说中国的水资源分布有什么特点，南水北调有什么意义。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出中国自然资源的基本特征",
       "cnStandards": [
         "moe-2022-geo:S4.CG.02"
       ],
       "origin": "cn_only",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_504",
@@ -17920,23 +17920,23 @@
       "type": "CONCEPTUAL",
       "subject": "Geography",
       "domain": "Physical Geography",
-      "name": "地球公转的地理意义",
-      "description": "理解地球公转的轨道、方向、速度和周期，掌握黄赤交角及其影响，理解地球公转产生的地理意义：正午太阳高度的变化、昼夜长短的变化、四季的更替和五带的划分。",
+      "name": "黄赤交角与太阳直射点移动",
+      "description": "理解黄赤交角概念及其导致太阳直射点回归运动的原理",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": 0.173077,
       "evidence": [
-        "能说明黄赤交角的存在导致太阳直射点移动",
-        "能计算正午太阳高度",
-        "能分析昼夜长短的季节变化"
+        "能说明黄赤交角的度数及存在意义",
+        "能画出太阳直射点移动轨迹示意图"
       ],
-      "assessmentPrompt": "让 {{name}} 解释为什么北京夏至日白昼最长而冬至日白昼最短，计算夏至日北京的正午太阳高度。",
+      "assessmentPrompt": "让 {{name}} 展示：能说明黄赤交角的度数及存在意义",
       "cnStandards": [
         "moe-2022-geo:SH.PG.03"
       ],
       "origin": "progression",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_776",
@@ -17966,23 +17966,23 @@
       "type": "CONCEPTUAL",
       "subject": "Geography",
       "domain": "Physical Geography",
-      "name": "大气环流",
-      "description": "理解单圈环流、三圈环流的形成和全球七气压带六风带的分布，理解气压带和风带的季节移动规律，了解海陆分布对大气环流的影响（季风环流）。",
+      "name": "全球气压带风带的形成与分布",
+      "description": "理解单圈环流到三圈环流的形成，掌握全球七个气压带和六个风带的分布",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": 0.134615,
       "evidence": [
         "能画出全球气压带风带分布图",
-        "能说明气压带风带的移动规律",
-        "能分析季风环流的形成"
+        "能说明各气压带风带的气流运动方向"
       ],
-      "assessmentPrompt": "让 {{name}} 画出全球七气压带六风带的分布图，并解释我国东部季风区冬夏风向为什么相反。",
+      "assessmentPrompt": "让 {{name}} 展示：能画出全球气压带风带分布图",
       "cnStandards": [
         "moe-2022-geo:SH.PG.05"
       ],
       "origin": "progression",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_778",
@@ -18058,23 +18058,23 @@
       "type": "CONCEPTUAL",
       "subject": "Geography",
       "domain": "Physical Geography",
-      "name": "内力作用",
-      "description": "了解内力作用的能量来源和表现形式（板块运动、岩浆活动、变质作用、地震），理解板块构造学说，认识褶皱山系、断块山和火山等内力作用形成的地貌。",
+      "name": "板块构造与内力作用表现形式",
+      "description": "理解板块构造学说，认识内力作用的四种表现形式",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
       "centrality": 0.057692,
       "evidence": [
-        "能说明板块学说的基本观点",
-        "能分析褶皱和断层的形成及地貌",
-        "能解释地震和火山的分布规律"
+        "能说明板块构造学说的基本观点",
+        "能说出内力作用的表现形式及能量来源"
       ],
-      "assessmentPrompt": "让 {{name}} 用板块学说解释喜马拉雅山是怎样形成的，环太平洋地震带与板块运动有什么关系。",
+      "assessmentPrompt": "让 {{name}} 展示：能说明板块构造学说的基本观点",
       "cnStandards": [
         "moe-2022-geo:SH.PG.09"
       ],
       "origin": "progression",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_782",
@@ -18152,23 +18152,23 @@
       "type": "CONCEPTUAL",
       "subject": "Geography",
       "domain": "Human Geography",
-      "name": "人口的变化",
-      "description": "了解人口的自然增长和人口迁移，理解人口增长模式的类型和转变，认识不同国家和地区的人口问题（人口增长过快/老龄化）及对策。",
+      "name": "人口增长模式与人口问题",
+      "description": "理解人口增长模式的类型、转变及不同国家和地区的人口问题",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": 0.019231,
       "evidence": [
-        "能说明影响人口增长的因素",
-        "能分析人口迁移的原因",
-        "能说出人口问题的对策"
+        "能判断不同人口增长模式",
+        "能分析人口增长过快或老龄化带来的问题及对策"
       ],
-      "assessmentPrompt": "让 {{name}} 说说人口老龄化会带来哪些问题，比较发达国家和发展中国家的人口增长特点。",
+      "assessmentPrompt": "让 {{name}} 展示：能判断不同人口增长模式",
       "cnStandards": [
         "moe-2022-geo:SH.HG.01"
       ],
       "origin": "cn_only",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_786",
@@ -28027,69 +28027,69 @@
       "type": "CONCEPTUAL",
       "subject": "Geography",
       "domain": "Geography",
-      "name": "我们生活的大洲——亚洲",
-      "description": "理解我们生活的大洲——亚洲的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "亚洲的位置和范围",
+      "description": "学习亚洲的经纬度位置、海陆位置和面积范围",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": 0.442308,
       "evidence": [
-        "能说出我们生活的大洲——亚洲的基本内容",
-        "能运用我们生活的大洲——亚洲的知识分析相关问题",
-        "能结合实例说明我们生活的大洲——亚洲的意义或应用"
+        "能说出亚洲的半球位置和海陆位置",
+        "能在地图上指出亚洲的边界"
       ],
-      "assessmentPrompt": "让 {name} 说说我们生活的大洲——亚洲的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出亚洲的半球位置和海陆位置",
       "cnStandards": [
         "moe-2022-geo:S4.地理.06"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1246",
       "type": "CONCEPTUAL",
       "subject": "Geography",
       "domain": "Geography",
-      "name": "我们邻近的地区和国家",
-      "description": "理解我们邻近的地区和国家的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "认识印度",
+      "description": "了解印度的自然环境和人口文化",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": 0.423077,
       "evidence": [
-        "能说出我们邻近的地区和国家的基本内容",
-        "能运用我们邻近的地区和国家的知识分析相关问题",
-        "能结合实例说明我们邻近的地区和国家的意义或应用"
+        "能说出印度的地形和气候特征",
+        "能说明印度的人口问题和城市"
       ],
-      "assessmentPrompt": "让 {name} 说说我们邻近的地区和国家的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出印度的地形和气候特征",
       "cnStandards": [
         "moe-2022-geo:S4.地理.07"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1247",
       "type": "CONCEPTUAL",
       "subject": "Geography",
       "domain": "Geography",
-      "name": "东半球其他的地区和国家",
-      "description": "理解东半球其他的地区和国家的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "认识撒哈拉以南非洲",
+      "description": "学习非洲的自然环境和人文特点",
       "ageRangeStart": 12,
       "ageRangeEnd": 13,
       "centrality": 0.403846,
       "evidence": [
-        "能说出东半球其他的地区和国家的基本内容",
-        "能运用东半球其他的地区和国家的知识分析相关问题",
-        "能结合实例说明东半球其他的地区和国家的意义或应用"
+        "能说出非洲的地形和气候类型",
+        "能说明非洲的人口、经济问题"
       ],
-      "assessmentPrompt": "让 {name} 说说东半球其他的地区和国家的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出非洲的地形和气候类型",
       "cnStandards": [
         "moe-2022-geo:S4.地理.08"
       ],
       "origin": "textbook",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1248",
@@ -28234,23 +28234,24 @@
       "type": "CONCEPTUAL",
       "subject": "Geography",
       "domain": "Geography",
-      "name": "自然地理要素及现象",
-      "description": "理解自然地理要素及现象的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "自然地理要素的组成与特征",
+      "description": "学习大气、水、岩石、生物等自然地理要素的基本组成和主要特征。",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": 0.25,
       "evidence": [
-        "能说出自然地理要素及现象的基本内容",
-        "能运用自然地理要素及现象的知识分析相关问题",
-        "能结合实例说明自然地理要素及现象的意义或应用"
+        "能列举大气、水、岩石等要素的组成部分",
+        "能描述各要素的基本特征",
+        "能举例说明要素之间的相互作用"
       ],
-      "assessmentPrompt": "让 {name} 说说自然地理要素及现象的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能列举大气、水、岩石等要素的组成部分",
       "cnStandards": [
         "moe-2022-geo:SH.地理.01"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1256",
@@ -28326,46 +28327,48 @@
       "type": "CONCEPTUAL",
       "subject": "Geography",
       "domain": "Geography",
-      "name": "乡村和城镇",
-      "description": "理解乡村和城镇的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "乡村聚落与城镇的区别",
+      "description": "比较乡村和城镇的功能、形态、景观及产业特点。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
       "centrality": 0.173077,
       "evidence": [
-        "能说出乡村和城镇的基本内容",
-        "能运用乡村和城镇的知识分析相关问题",
-        "能结合实例说明乡村和城镇的意义或应用"
+        "能列举乡村和城镇的主要差异",
+        "能解释形成差异的原因",
+        "能举例说明不同类型的聚落"
       ],
-      "assessmentPrompt": "让 {name} 说说乡村和城镇的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能列举乡村和城镇的主要差异",
       "cnStandards": [
         "moe-2022-geo:SH.地理.05"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1260",
       "type": "CONCEPTUAL",
       "subject": "Geography",
       "domain": "Geography",
-      "name": "国土开发与保护",
-      "description": "理解国土开发与保护的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "国土开发的原则与方式",
+      "description": "学习国土开发需遵循的基本原则及主要开发方式。",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
       "centrality": 0.153846,
       "evidence": [
-        "能说出国土开发与保护的基本内容",
-        "能运用国土开发与保护的知识分析相关问题",
-        "能结合实例说明国土开发与保护的意义或应用"
+        "能说出国土开发的基本原则",
+        "能列举常见的开发方式",
+        "能分析开发中的利弊"
       ],
-      "assessmentPrompt": "让 {name} 说说国土开发与保护的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出国土开发的基本原则",
       "cnStandards": [
         "moe-2022-geo:SH.地理.06"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1261",
@@ -28418,23 +28421,24 @@
       "type": "CONCEPTUAL",
       "subject": "Geography",
       "domain": "Geography",
-      "name": "天气的成因与气候的形成",
-      "description": "理解天气的成因与气候的形成的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "常见天气系统的成因",
+      "description": "学习锋面、气旋、反气旋等天气系统的形成与特点。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.096154,
       "evidence": [
-        "能说出天气的成因与气候的形成的基本内容",
-        "能运用天气的成因与气候的形成的知识分析相关问题",
-        "能结合实例说明天气的成因与气候的形成的意义或应用"
+        "能画出锋面示意图并说明天气变化",
+        "能区分气旋与反气旋的气压和气流",
+        "能分析典型天气现象与系统的关系"
       ],
-      "assessmentPrompt": "让 {name} 说说天气的成因与气候的形成的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能画出锋面示意图并说明天气变化",
       "cnStandards": [
         "moe-2022-geo:SH.地理.09"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1264",
@@ -28487,69 +28491,72 @@
       "type": "CONCEPTUAL",
       "subject": "Geography",
       "domain": "Geography",
-      "name": "自然资源",
-      "description": "理解自然资源与人类活动的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "自然资源的分类与特征",
+      "description": "学习可再生与非可再生资源的划分及各自特征。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.038462,
       "evidence": [
-        "能说出自然资源与人类活动的基本内容",
-        "能运用自然资源与人类活动的知识分析相关问题",
-        "能结合实例说明自然资源与人类活动的意义或应用"
+        "能区分可再生与非可再生资源",
+        "能描述不同资源的主要特征",
+        "能举例说明资源的分布"
       ],
-      "assessmentPrompt": "让 {name} 说说自然资源与人类活动的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能区分可再生与非可再生资源",
       "cnStandards": [
         "moe-2022-geo:SH.地理.12"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1267",
       "type": "CONCEPTUAL",
       "subject": "Geography",
       "domain": "Geography",
-      "name": "自然资源的开发利用",
-      "description": "理解自然资源的开发利用与国家安全30的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "自然资源开发利用的原则和方式",
+      "description": "学习开发应遵循的原则及常见利用方式。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.019231,
       "evidence": [
-        "能说出自然资源的开发利用与国家安全30的基本内容",
-        "能运用自然资源的开发利用与国家安全30的知识分析相关问题",
-        "能结合实例说明自然资源的开发利用与国家安全30的意义或应用"
+        "能说出开发利用的基本原则",
+        "能列举不同资源的利用方式",
+        "能分析利用方式的优缺点"
       ],
-      "assessmentPrompt": "让 {name} 说说自然资源的开发利用与国家安全30的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出开发利用的基本原则",
       "cnStandards": [
         "moe-2022-geo:SH.地理.13"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1268",
       "type": "CONCEPTUAL",
       "subject": "Geography",
       "domain": "Geography",
-      "name": "环境",
-      "description": "理解环境与国家安全的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "环境问题的类型与成因",
+      "description": "区分污染、生态破坏、全球变暖等环境问题及成因。",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0,
       "evidence": [
-        "能说出环境与国家安全的基本内容",
-        "能运用环境与国家安全的知识分析相关问题",
-        "能结合实例说明环境与国家安全的意义或应用"
+        "能列出主要环境问题类型",
+        "能分析每个问题的成因",
+        "能举例说明环境问题的地域差异"
       ],
-      "assessmentPrompt": "让 {name} 说说环境与国家安全的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能列出主要环境问题类型",
       "cnStandards": [
         "moe-2022-geo:SH.地理.14"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_1269",
@@ -42501,6 +42508,644 @@
       "nodeKind": "concept",
       "granularity": "split-45min",
       "splitFrom": "mtc_834"
+    },
+    {
+      "id": "mtc_2279",
+      "type": "CONCEPTUAL",
+      "subject": "Geography",
+      "domain": "Geography of China",
+      "name": "季风对中国农业的影响",
+      "description": "分析季风气候对农业生产（如降水季节分配、旱涝灾害等）的具体影响。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 15,
+      "centrality": 0.211538,
+      "evidence": [
+        "能结合实例解释季风如何影响农业",
+        "能说明夏季风异常带来的农业问题"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能结合实例解释季风如何影响农业",
+      "cnStandards": [
+        "moe-2022-geo:S4.CG.02"
+      ],
+      "origin": "cn_only",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_500"
+    },
+    {
+      "id": "mtc_2280",
+      "type": "CONCEPTUAL",
+      "subject": "Geography",
+      "domain": "Geography of China",
+      "name": "中国的水资源分布与南水北调",
+      "description": "认识我国水资源的时空分布不均，理解南水北调工程的意义。",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 15,
+      "centrality": 0.153846,
+      "evidence": [
+        "能说明我国水资源的分布特点",
+        "能解释南水北调工程的路线和作用"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说明我国水资源的分布特点",
+      "cnStandards": [
+        "moe-2022-geo:S4.CG.02"
+      ],
+      "origin": "cn_only",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_503"
+    },
+    {
+      "id": "mtc_2281",
+      "type": "CONCEPTUAL",
+      "subject": "Geography",
+      "domain": "Geography",
+      "name": "亚洲的地形",
+      "description": "认识亚洲的地形特点和主要地形区",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": 0.442308,
+      "evidence": [
+        "能说出亚洲地势特征",
+        "能列举主要高原、山脉和河流"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出亚洲地势特征",
+      "cnStandards": [
+        "moe-2022-geo:S4.地理.06"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1245"
+    },
+    {
+      "id": "mtc_2282",
+      "type": "CONCEPTUAL",
+      "subject": "Geography",
+      "domain": "Geography",
+      "name": "亚洲的气候",
+      "description": "分析亚洲气候类型分布和特征",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": 0.442308,
+      "evidence": [
+        "能说出亚洲气候类型及分布",
+        "能解释气候对农业的影响"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出亚洲气候类型及分布",
+      "cnStandards": [
+        "moe-2022-geo:S4.地理.06"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1245"
+    },
+    {
+      "id": "mtc_2283",
+      "type": "CONCEPTUAL",
+      "subject": "Geography",
+      "domain": "Geography",
+      "name": "认识俄罗斯",
+      "description": "掌握俄罗斯的自然地理和资源工业",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": 0.423077,
+      "evidence": [
+        "能指出俄罗斯的地形分区",
+        "能说出俄罗斯的工业分布"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能指出俄罗斯的地形分区",
+      "cnStandards": [
+        "moe-2022-geo:S4.地理.07"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1246"
+    },
+    {
+      "id": "mtc_2284",
+      "type": "CONCEPTUAL",
+      "subject": "Geography",
+      "domain": "Geography",
+      "name": "认识澳大利亚",
+      "description": "了解澳大利亚的自然和人文特征",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 13,
+      "centrality": 0.403846,
+      "evidence": [
+        "能指出澳大利亚特有生物",
+        "能说出澳大利亚经济特点"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能指出澳大利亚特有生物",
+      "cnStandards": [
+        "moe-2022-geo:S4.地理.08"
+      ],
+      "origin": "textbook",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1247"
+    },
+    {
+      "id": "mtc_2285",
+      "type": "CONCEPTUAL",
+      "subject": "Geography",
+      "domain": "Physical Geography",
+      "name": "正午太阳高度与昼夜长短的变化",
+      "description": "掌握正午太阳高度的计算和昼夜长短的季节变化规律",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": 0.173077,
+      "evidence": [
+        "能计算某地正午太阳高度",
+        "能分析昼夜长短的变化原因和规律"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能计算某地正午太阳高度",
+      "cnStandards": [
+        "moe-2022-geo:SH.PG.03"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_775"
+    },
+    {
+      "id": "mtc_2286",
+      "type": "CONCEPTUAL",
+      "subject": "Geography",
+      "domain": "Physical Geography",
+      "name": "四季更替与五带划分",
+      "description": "理解四季更替的天文含义和五带划分的界限与依据",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": 0.173077,
+      "evidence": [
+        "能解释四季更替的原因",
+        "能说出五带划分的纬度和热量特点"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能解释四季更替的原因",
+      "cnStandards": [
+        "moe-2022-geo:SH.PG.03"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_775"
+    },
+    {
+      "id": "mtc_2287",
+      "type": "CONCEPTUAL",
+      "subject": "Geography",
+      "domain": "Physical Geography",
+      "name": "气压带风带季节移动与季风环流",
+      "description": "掌握气压带风带随太阳直射点移动的规律，理解海陆分布导致的季风环流",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": 0.134615,
+      "evidence": [
+        "能说明气压带风带季节移动的规律",
+        "能分析东亚和南亚季风的成因"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说明气压带风带季节移动的规律",
+      "cnStandards": [
+        "moe-2022-geo:SH.PG.05"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_777"
+    },
+    {
+      "id": "mtc_2288",
+      "type": "CONCEPTUAL",
+      "subject": "Geography",
+      "domain": "Physical Geography",
+      "name": "褶皱与断层的形成及地貌",
+      "description": "掌握褶皱和断层的形成原理及其形成的地貌形态",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 17,
+      "centrality": 0.057692,
+      "evidence": [
+        "能区分背斜和向斜并说明其形成的地貌",
+        "能分析断层对地表形态的影响"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能区分背斜和向斜并说明其形成的地貌",
+      "cnStandards": [
+        "moe-2022-geo:SH.PG.09"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_781"
+    },
+    {
+      "id": "mtc_2289",
+      "type": "CONCEPTUAL",
+      "subject": "Geography",
+      "domain": "Physical Geography",
+      "name": "地震与火山的分布规律",
+      "description": "了解地震和火山的成因及全球分布规律",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 17,
+      "centrality": 0.057692,
+      "evidence": [
+        "能说出世界主要地震带和火山带",
+        "能解释地震和火山分布与板块运动的关系"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出世界主要地震带和火山带",
+      "cnStandards": [
+        "moe-2022-geo:SH.PG.09"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_781"
+    },
+    {
+      "id": "mtc_2290",
+      "type": "CONCEPTUAL",
+      "subject": "Geography",
+      "domain": "Human Geography",
+      "name": "人口迁移的原因与影响",
+      "description": "掌握人口迁移的类型、原因及对迁入地和迁出地的影响",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": 0.019231,
+      "evidence": [
+        "能分析影响人口迁移的主要因素",
+        "能说明人口迁移对地理环境的影响"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能分析影响人口迁移的主要因素",
+      "cnStandards": [
+        "moe-2022-geo:SH.HG.01"
+      ],
+      "origin": "cn_only",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_785"
+    },
+    {
+      "id": "mtc_2291",
+      "type": "CONCEPTUAL",
+      "subject": "Geography",
+      "domain": "Geography",
+      "name": "自然地理现象的形成过程",
+      "description": "理解天气、气候、地貌等典型自然地理现象的形成机制。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": 0.25,
+      "evidence": [
+        "能解释常见天气现象（如降水）的成因",
+        "能说明气候形成的主要因素",
+        "能分析地貌（如河流地貌）的形成过程"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能解释常见天气现象（如降水）的成因",
+      "cnStandards": [
+        "moe-2022-geo:SH.地理.01"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1255"
+    },
+    {
+      "id": "mtc_2292",
+      "type": "CONCEPTUAL",
+      "subject": "Geography",
+      "domain": "Geography",
+      "name": "自然地理环境的整体性与差异性",
+      "description": "掌握自然地理环境的整体性和地域分异规律。",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": 0.25,
+      "evidence": [
+        "能举例说明环境整体性的表现",
+        "能区分水平、垂直地域分异规律",
+        "能应用规律分析具体区域特征"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能举例说明环境整体性的表现",
+      "cnStandards": [
+        "moe-2022-geo:SH.地理.01"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1255"
+    },
+    {
+      "id": "mtc_2293",
+      "type": "CONCEPTUAL",
+      "subject": "Geography",
+      "domain": "Geography",
+      "name": "城镇空间结构",
+      "description": "学习城镇功能区和空间布局的规律（如同心圆、扇形、多核心模式）。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 17,
+      "centrality": 0.173077,
+      "evidence": [
+        "能识别城镇的主要功能区",
+        "能分析城镇空间结构模式",
+        "能应用模式分析实际城镇规划"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能识别城镇的主要功能区",
+      "cnStandards": [
+        "moe-2022-geo:SH.地理.05"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1259"
+    },
+    {
+      "id": "mtc_2294",
+      "type": "CONCEPTUAL",
+      "subject": "Geography",
+      "domain": "Geography",
+      "name": "城市化进程与问题",
+      "description": "掌握城市化阶段、标志及带来的环境、社会问题与对策。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 17,
+      "centrality": 0.173077,
+      "evidence": [
+        "能描述城市化不同阶段的特征",
+        "能分析城市化对地理环境的影响",
+        "能提出解决城市化问题的措施"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能描述城市化不同阶段的特征",
+      "cnStandards": [
+        "moe-2022-geo:SH.地理.05"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1259"
+    },
+    {
+      "id": "mtc_2295",
+      "type": "CONCEPTUAL",
+      "subject": "Geography",
+      "domain": "Geography",
+      "name": "国土保护的意义与措施",
+      "description": "理解保护耕地、生态、水资源等的意义和具体措施。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 17,
+      "centrality": 0.153846,
+      "evidence": [
+        "能解释保护国土资源的必要性",
+        "能列举环境保护的主要措施",
+        "能举例说明保护案例"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能解释保护国土资源的必要性",
+      "cnStandards": [
+        "moe-2022-geo:SH.地理.06"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1260"
+    },
+    {
+      "id": "mtc_2296",
+      "type": "CONCEPTUAL",
+      "subject": "Geography",
+      "domain": "Geography",
+      "name": "区域协调与可持续发展",
+      "description": "掌握区域协调发展的机制及实现可持续发展的途径。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 17,
+      "centrality": 0.153846,
+      "evidence": [
+        "能说明区域协调发展的内涵",
+        "能分析区域协调的实践案例",
+        "能提出促进可持续发展的建议"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说明区域协调发展的内涵",
+      "cnStandards": [
+        "moe-2022-geo:SH.地理.06"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1260"
+    },
+    {
+      "id": "mtc_2297",
+      "type": "CONCEPTUAL",
+      "subject": "Geography",
+      "domain": "Geography",
+      "name": "气候的形成因素",
+      "description": "分析太阳辐射、大气环流、下垫面、人类活动对气候的影响。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.096154,
+      "evidence": [
+        "能解释各因素对气候的作用机制",
+        "能举例说明不同因素的综合影响",
+        "能分析具体气候的成因"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能解释各因素对气候的作用机制",
+      "cnStandards": [
+        "moe-2022-geo:SH.地理.09"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1263"
+    },
+    {
+      "id": "mtc_2298",
+      "type": "CONCEPTUAL",
+      "subject": "Geography",
+      "domain": "Geography",
+      "name": "主要气候类型的分布与特征",
+      "description": "掌握世界主要气候类型的分布规律、成因及特征（高中深化层次）。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.096154,
+      "evidence": [
+        "能绘制全球气候分布模式图",
+        "能区分不同气候类型的特征",
+        "能运用气候成因解释分布规律"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能绘制全球气候分布模式图",
+      "cnStandards": [
+        "moe-2022-geo:SH.地理.09"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1263"
+    },
+    {
+      "id": "mtc_2299",
+      "type": "CONCEPTUAL",
+      "subject": "Geography",
+      "domain": "Geography",
+      "name": "自然资源的分布规律",
+      "description": "掌握中国及世界主要资源的分布特点和规律。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.038462,
+      "evidence": [
+        "能在地图上指出主要资源分布区",
+        "能分析资源分布的影响因素",
+        "能总结资源分布的规律"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能在地图上指出主要资源分布区",
+      "cnStandards": [
+        "moe-2022-geo:SH.地理.12"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1266"
+    },
+    {
+      "id": "mtc_2300",
+      "type": "CONCEPTUAL",
+      "subject": "Geography",
+      "domain": "Geography",
+      "name": "自然资源与人类活动的关系",
+      "description": "探讨资源开发利用对人类社会和环境的影响。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.038462,
+      "evidence": [
+        "能说明资源对人类文明的作用",
+        "能分析资源问题及其原因",
+        "能提出可持续利用资源的策略"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说明资源对人类文明的作用",
+      "cnStandards": [
+        "moe-2022-geo:SH.地理.12"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1266"
+    },
+    {
+      "id": "mtc_2301",
+      "type": "CONCEPTUAL",
+      "subject": "Geography",
+      "domain": "Geography",
+      "name": "自然资源与国家安全的关系",
+      "description": "理解资源安全对国家政治、经济、生态安全的重要性。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.019231,
+      "evidence": [
+        "能解释资源安全的内涵",
+        "能举例说明资源短缺对国家的影响",
+        "能分析保障资源安全的措施"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能解释资源安全的内涵",
+      "cnStandards": [
+        "moe-2022-geo:SH.地理.13"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1267"
+    },
+    {
+      "id": "mtc_2302",
+      "type": "CONCEPTUAL",
+      "subject": "Geography",
+      "domain": "Geography",
+      "name": "可持续开发利用策略",
+      "description": "掌握循环经济、清洁生产等可持续发展策略。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.019231,
+      "evidence": [
+        "能描述循环经济的原理",
+        "能举例说明清洁生产实践",
+        "能制定简单的资源可持续利用方案"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能描述循环经济的原理",
+      "cnStandards": [
+        "moe-2022-geo:SH.地理.13"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1267"
+    },
+    {
+      "id": "mtc_2303",
+      "type": "CONCEPTUAL",
+      "subject": "Geography",
+      "domain": "Geography",
+      "name": "环境保护措施",
+      "description": "学习资源保护、污染治理、生态修复等具体措施。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0,
+      "evidence": [
+        "能说出环境保护的一般原则",
+        "能列举不同环境问题的治理措施",
+        "能设计一个简单的保护方案"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出环境保护的一般原则",
+      "cnStandards": [
+        "moe-2022-geo:SH.地理.14"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1268"
+    },
+    {
+      "id": "mtc_2304",
+      "type": "CONCEPTUAL",
+      "subject": "Geography",
+      "domain": "Geography",
+      "name": "环境与国家安全",
+      "description": "理解环境恶化对国家安全的威胁及国际环境合作。",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0,
+      "evidence": [
+        "能解释环境安全的概念",
+        "能分析跨国环境问题的影响",
+        "能说明国际合作的重要性"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能解释环境安全的概念",
+      "cnStandards": [
+        "moe-2022-geo:SH.地理.14"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_1268"
     }
   ]
 }

@@ -297,7 +297,16 @@ body.sb-open #graph-pane { left: 290px; }
 
   /* --- 主区: 单张知识卡 + 判定 + 步进器 --- */
   .mobile-main { flex: 1; display: flex; flex-direction: column; gap: 12px; padding: 14px 16px calc(14px + env(safe-area-inset-bottom) + 64px); overflow: hidden; }
-  .mobile-path-card { flex: 1; min-height: 0; background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; display: flex; transition: transform .2s, border-color .2s, background-color .2s; touch-action: pan-y; }
+  .mobile-path-card { flex: 1; min-height: 0; position: relative; background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); overflow: hidden; display: flex; transition: transform .2s ease, opacity .2s ease, border-color .15s, background-color .15s; touch-action: pan-y; will-change: transform; }
+  .mobile-path-card.swiping-mastered { border-color: var(--green); background: var(--green-light); }
+  .mobile-path-card.swiping-review { border-color: var(--accent); background: var(--accent-light); }
+  .mobile-path-card.swipe-cancel { transform: none !important; }
+  .mobile-path-card.swipe-commit-left { transform: translateX(-110%) rotate(-3deg) !important; opacity: 0; }
+  .mobile-path-card.swipe-commit-right { transform: translateX(110%) rotate(3deg) !important; opacity: 0; }
+  .mobile-swipe-cue { position: absolute; top: 18px; z-index: 2; padding: 7px 10px; border: 2px solid currentColor; border-radius: 8px; background: var(--card-bg); font-size: 13px; font-weight: 700; opacity: 0; pointer-events: none; transition: opacity .12s, transform .12s; }
+  .mobile-swipe-cue-mastered { right: 18px; color: var(--green); transform: rotate(5deg) scale(.94); }
+  .mobile-swipe-cue-review { left: 18px; color: var(--accent); transform: rotate(-5deg) scale(.94); }
+  .mobile-path-card.swiping-mastered .mobile-swipe-cue-mastered, .mobile-path-card.swiping-review .mobile-swipe-cue-review { opacity: 1; transform: rotate(0) scale(1); }
   .mobile-card-scroll { flex: 1; min-height: 0; overflow-y: auto; padding: 20px; }
   .mobile-card-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
   .mobile-decision-mastered[aria-pressed="true"] { box-shadow: inset 0 0 0 2px var(--card-bg), 0 0 0 2px var(--green); }
@@ -345,6 +354,7 @@ body.sb-open #graph-pane { left: 290px; }
   body.sb-open .main, body.sb-open #graph-pane { margin-left: 0; left: 0; }
 
   @media (prefers-reduced-motion: reduce) {
-    .mobile-path-card, .mobile-decision-btn, .mobile-nav-btn { transition: none !important; animation: none !important; }
+    .mobile-path-card, .mobile-decision-btn, .mobile-nav-btn, .mobile-swipe-cue { transition: none !important; animation: none !important; }
+    .mobile-path-card.swipe-commit-left, .mobile-path-card.swipe-commit-right { transform: none !important; opacity: 1; }
   }
 }

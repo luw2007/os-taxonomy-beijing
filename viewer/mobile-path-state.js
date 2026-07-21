@@ -51,19 +51,25 @@ export function buildPathSequence(nodes, edges, filters = {}) {
   return [...output, ...unresolved];
 }
 
+export const HORIZONTAL_GESTURE_THRESHOLD = 88;
+
 export function classifyPathGesture(gesture, options = {}) {
   const { dx, dy } = gesture;
-  const { minDistance = 48, dominance = 1.25, atTop = false, atBottom = false } = options;
+  const {
+    horizontalMinDistance = HORIZONTAL_GESTURE_THRESHOLD,
+    verticalMinDistance = 48,
+    dominance = 1.5,
+    atTop = false,
+    atBottom = false,
+  } = options;
   const absDx = Math.abs(dx);
   const absDy = Math.abs(dy);
 
-  if (Math.max(absDx, absDy) < minDistance) return null;
-
-  if (absDx >= absDy * dominance) {
+  if (absDx >= horizontalMinDistance && absDx >= absDy * dominance) {
     return dx < 0 ? 'mastered' : 'needs-review';
   }
 
-  if (absDy >= absDx * dominance) {
+  if (absDy >= verticalMinDistance && absDy >= absDx * dominance) {
     if (dy < 0) return atBottom ? 'next' : null;
     return atTop ? 'previous' : null;
   }

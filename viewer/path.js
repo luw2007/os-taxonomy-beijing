@@ -1,5 +1,5 @@
 import { findNextUnmastered } from './path-navigation.js';
-import { buildPathSequence, classifyPathGesture, applyKnowledgeDecision } from './mobile-path-state.js';
+import { HORIZONTAL_GESTURE_THRESHOLD, buildPathSequence, classifyPathGesture, applyKnowledgeDecision } from './mobile-path-state.js';
 
 'use strict';
 
@@ -862,18 +862,26 @@ function setupMobileGestures() {
   const scroll = mobEl('mobile-card-scroll');
   const card = mobEl('mobile-path-card');
   if (!scroll || !card) return;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const threshold = HORIZONTAL_GESTURE_THRESHOLD;
+  const clearPreview = () => {
+    card.style.transform = '';
+    card.classList.remove('swiping-mastered', 'swiping-review');
+  };
   scroll.addEventListener('pointerdown', (e) => {
-    if (!e.isPrimary || mobilePointerId !== null) return;
+    if (!e.isPrimary || mobilePointerId !== null || card.classList.contains('swipe-committing')) return;
     mobilePointerId = e.pointerId;
     mobileGestureStart = { x: e.clientX, y: e.clientY };
-    scroll.setPointerCapture?.(e.pointerId);
   });
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   scroll.addEventListener('pointermove', (e) => {
-    if (e.pointerId !== mobilePointerId || !mobileGestureStart || reducedMotion.matches) return;
+    if (e.pointerId !== mobilePointerId || !mobileGestureStart) return;
     const dx = e.clientX - mobileGestureStart.x;
     const dy = e.clientY - mobileGestureStart.y;
-    if (Math.abs(dx) > Math.abs(dy) * 1.25) card.style.transform = `translateX(${Math.max(-20, Math.min(20, dx))}px)`;
+    if (Math.abs(dx) < Math.abs(dy) * 1.5) { clearPreview(); return; }
+    const committed = Math.abs(dx) >= threshold;
+    card.classList.toggle('swiping-mastered', committed && dx < 0);
+    card.classList.toggle('swiping-review', committed && dx > 0);
+    if (!reducedMotion.matches) card.style.transform = `translateX(${Math.max(-96, Math.min(96, dx * .72))}px) rotate(${Math.max(-2.5, Math.min(2.5, dx / 45))}deg)`;
   });
   const finish = (e) => {
     if (e.pointerId !== mobilePointerId || !mobileGestureStart) return;
@@ -883,11 +891,27 @@ function setupMobileGestures() {
       atTop: scroll.scrollTop <= 0,
       atBottom: scroll.scrollTop + scroll.clientHeight >= scroll.scrollHeight - 1,
     });
-    card.style.transform = '';
     mobilePointerId = null; mobileGestureStart = null;
-    if (!result || !mobileSeq.length) return;
-    if (result === 'mastered' || result === 'needs-review') decideMobile(mobileSeq[mobilePos], result);
-    else mobileStep(result === 'next' ? 1 : -1);
+    card.classList.remove('swiping-mastered', 'swiping-review');
+    if (!result || !mobileSeq.length) {
+      card.classList.add('swipe-cancel');
+      clearPreview();
+      setTimeout(() => card.classList.remove('swipe-cancel'), 200);
+      return;
+    }
+    if (result === 'mastered' || result === 'needs-review') {
+      const id = mobileSeq[mobilePos];
+      card.classList.add('swipe-committing', result === 'mastered' ? 'swipe-commit-left' : 'swipe-commit-right');
+      const delay = reducedMotion.matches ? 0 : 200;
+      setTimeout(() => {
+        decideMobile(id, result);
+        card.classList.remove('swipe-committing', 'swipe-commit-left', 'swipe-commit-right');
+        clearPreview();
+      }, delay);
+    } else {
+      clearPreview();
+      mobileStep(result === 'next' ? 1 : -1);
+    }
   };
   scroll.addEventListener('pointerup', finish);
   scroll.addEventListener('pointercancel', finish);
@@ -898,6 +922,7 @@ function setupMobileKeyboard() {
     const tag = (e.target.tagName || '').toLowerCase();
     if (['input', 'select', 'textarea', 'button'].includes(tag)) return;
     if (document.querySelectorAll('.modal-mask:not([hidden])').length) return;
+    if (mobEl('mobile-path-card')?.classList.contains('swipe-committing')) return;
     if (!mobileSeq.length) return;
     const id = mobileSeq[mobilePos];
     if (e.key === 'ArrowUp') mobileStep(1);

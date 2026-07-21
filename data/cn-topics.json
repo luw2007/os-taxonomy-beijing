@@ -2,7 +2,7 @@
   "version": "1.2.0-zh.0",
   "upstreamVersion": "1.0.0",
   "locale": "zh-CN",
-  "topicCount": 1692,
+  "topicCount": 1710,
   "originNote": "中国特有微主题（mtc_ 前缀）。已按原子粒度拆解——每条覆盖一个可独立评估的微技能。来源：课标自建(cn_only/progression/upstream_adapt) + 课本目录(textbook)。严守 codes-only 原则。教材来源节点中的作品名、部分作者名和来源作为事实性元数据保留；不包含教材正文、插图、练习题、版式、页码或 PDF 路径。详见 PROVENANCE.md。",
   "topics": [
     {
@@ -7764,23 +7764,24 @@
       "type": "PROCEDURAL",
       "subject": "Chemistry",
       "domain": "Chemical Inquiry",
-      "name": "实验室制取氧气",
-      "description": "掌握实验室用过氧化氢（二氧化锰催化）和高锰酸钾制取氧气的原理、装置、收集和检验方法。",
+      "name": "用过氧化氢制取氧气",
+      "description": "掌握过氧化氢在二氧化锰催化下制取氧气的原理、装置搭建、收集和检验方法",
       "ageRangeStart": 12,
       "ageRangeEnd": 14,
       "centrality": 0.153846,
       "evidence": [
-        "能写出制取氧气的化学方程式",
-        "能选择并组装制取氧气的装置",
-        "能用排水法和向上排空气法收集氧气并检验"
+        "能写出过氧化氢制氧气的化学方程式",
+        "能选择并组装固液不加热装置",
+        "能用排水法或向上排空气法收集氧气并检验"
       ],
-      "assessmentPrompt": "让 {{name}} 设计实验制取一瓶氧气，说明用什么药品和装置、怎么收集和检验。",
+      "assessmentPrompt": "让 {{name}} 展示：能写出过氧化氢制氧气的化学方程式",
       "cnStandards": [
         "moe-2022-chem:S4.EX.01"
       ],
       "origin": "cn_only",
       "stage": "初中",
-      "nodeKind": "skill"
+      "nodeKind": "skill",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_333",
@@ -8279,46 +8280,48 @@
       "type": "CONCEPTUAL",
       "subject": "Chemistry",
       "domain": "Air & Oxygen",
-      "name": "常见的酸及其性质",
-      "description": "认识盐酸和硫酸的性质和用途，掌握酸的四条通性（与指示剂金属金属氧化物碱盐反应）。",
+      "name": "盐酸和硫酸的性质和用途",
+      "description": "掌握盐酸和硫酸的物理性质、主要化学性质及用途，能写出与金属、金属氧化物等反应的方程式。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
       "centrality": 0.288462,
       "evidence": [
-        "能说出盐酸硫酸的物理性质和用途",
-        "能说出酸的化学通性",
-        "能写出酸与金属氧化物反应的方程式"
+        "能说出盐酸和硫酸的物理性质",
+        "能写出盐酸与镁、氧化铁反应的化学方程式",
+        "能举例说明盐酸和硫酸的用途"
       ],
-      "assessmentPrompt": "让 {{name}} 说说稀盐酸有哪些化学性质，并用它清除铁锈的原理写出方程式。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出盐酸和硫酸的物理性质",
       "cnStandards": [
         "moe-2022-chem:S4.PA.05"
       ],
       "origin": "cn_only",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_355",
       "type": "CONCEPTUAL",
       "subject": "Chemistry",
       "domain": "Air & Oxygen",
-      "name": "常见的碱及其性质",
-      "description": "认识氢氧化钠和氢氧化钙的性质和用途，掌握碱的通性（与指示剂非金属氧化物酸盐反应）。",
+      "name": "氢氧化钠和氢氧化钙的性质和用途",
+      "description": "掌握氢氧化钠和氢氧化钙的物理性质、化学性质（与指示剂、非金属氧化物）及用途。",
       "ageRangeStart": 13,
       "ageRangeEnd": 15,
       "centrality": 0.269231,
       "evidence": [
-        "能说出氢氧化钠和氢氧化钙的性质和用途",
-        "能说出碱的化学通性",
-        "能写出碱与非金属氧化物反应的方程式"
+        "能说出氢氧化钠和氢氧化钙的物理性质",
+        "能写出氢氧化钠与二氧化碳反应的化学方程式",
+        "能举例说明氢氧化钙的用途"
       ],
-      "assessmentPrompt": "让 {{name}} 说说氢氧化钠为什么必须密封保存，以及它吸收二氧化碳的原理。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出氢氧化钠和氢氧化钙的物理性质",
       "cnStandards": [
         "moe-2022-chem:S4.PA.05"
       ],
       "origin": "cn_only",
       "stage": "初中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_356",
@@ -16260,23 +16263,23 @@
       "type": "CONCEPTUAL",
       "subject": "Chemistry",
       "domain": "Inorganic Substances",
-      "name": "钠及其化合物",
-      "description": "了解钠的物理性质和化学性质（与氧气、水反应），掌握氧化钠和过氧化钠、碳酸钠和碳酸氢钠的性质差异和用途。",
+      "name": "钠单质",
+      "description": "掌握钠的物理性质、化学性质（与氧气、水反应）及安全操作",
       "ageRangeStart": 15,
       "ageRangeEnd": 16,
       "centrality": 0.096154,
       "evidence": [
-        "能写出钠与水和氧气反应的方程式",
-        "能说明过氧化钠的特殊性质",
-        "能比较碳酸钠和碳酸氢钠的性质差异"
+        "能写出钠与水反应的方程式及现象",
+        "能说明钠的保存方法"
       ],
-      "assessmentPrompt": "让 {{name}} 说说钠投入水中会有什么现象并写出反应方程式，再说说小苏打和苏打的区别。",
+      "assessmentPrompt": "让 {{name}} 展示：能写出钠与水反应的方程式及现象",
       "cnStandards": [
         "moe-2022-chem:SH.IN.01"
       ],
       "origin": "progression",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_702",
@@ -16375,23 +16378,23 @@
       "type": "CONCEPTUAL",
       "subject": "Chemistry",
       "domain": "Inorganic Substances",
-      "name": "氮及其化合物",
-      "description": "了解氮气、氮的氧化物（NO、NO₂）的性质，掌握硝酸（强氧化性）的特性，了解氨气的实验室制法和铵盐的性质。",
+      "name": "氮的氧化物及硝酸",
+      "description": "掌握NO、NO2的性质，硝酸的强氧化性及与金属反应",
       "ageRangeStart": 16,
       "ageRangeEnd": 17,
       "centrality": 0,
       "evidence": [
-        "能写出 NO 和 NO₂ 的性质反应",
-        "能说明硝酸的强氧化性",
-        "能写出氨气的实验室制法和喷泉实验原理"
+        "能写出NO2与水反应的方程式",
+        "能说明硝酸与铜反应的原理"
       ],
-      "assessmentPrompt": "让 {{name}} 说说氨气怎么在实验室制取，并解释氨气喷泉实验的原理。",
+      "assessmentPrompt": "让 {{name}} 展示：能写出NO2与水反应的方程式",
       "cnStandards": [
         "moe-2022-chem:SH.IN.06"
       ],
       "origin": "progression",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_707",
@@ -21558,23 +21561,24 @@
       "type": "CONCEPTUAL",
       "subject": "Chemistry",
       "domain": "Water & Hydrogen",
-      "name": "弱电解质的电离 盐类的水解",
-      "description": "理解弱电解质的电离 盐类的水解的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "弱电解质的电离平衡",
+      "description": "电离平衡概念、电离常数、影响电离平衡的因素",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0,
       "evidence": [
-        "能说出弱电解质的电离 盐类的水解的基本内容",
-        "能运用弱电解质的电离 盐类的水解的知识分析相关问题",
-        "能结合实例说明弱电解质的电离 盐类的水解的意义或应用"
+        "能写出弱电解质的电离方程式",
+        "能用K、Q判断电离平衡移动方向",
+        "能比较电离常数大小"
       ],
-      "assessmentPrompt": "让 {name} 说说弱电解质的电离 盐类的水解的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能写出弱电解质的电离方程式",
       "cnStandards": [
         "moe-2022-chem:SH.物质的性.14"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_945",
@@ -21650,23 +21654,24 @@
       "type": "CONCEPTUAL",
       "subject": "Chemistry",
       "domain": "Composition & Structure",
-      "name": "共价键",
-      "description": "理解共价键与分子的空间结构的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "共价键的成键本质与类型",
+      "description": "σ键、π键的形成、键参数及其应用",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.115385,
       "evidence": [
-        "能说出共价键与分子的空间结构的基本内容",
-        "能运用共价键与分子的空间结构的知识分析相关问题",
-        "能结合实例说明共价键与分子的空间结构的意义或应用"
+        "能判断σ键和π键",
+        "能计算键角、键能",
+        "能说明共价键极性与分子极性的关系"
       ],
-      "assessmentPrompt": "让 {name} 说说共价键与分子的空间结构的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能判断σ键和π键",
       "cnStandards": [
         "moe-2022-chem:SH.物质的性.20"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_949",
@@ -21674,22 +21679,23 @@
       "subject": "Chemistry",
       "domain": "Metals",
       "name": "离子键",
-      "description": "理解离子键、配位键与金属键的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "description": "离子键的形成、特征及离子晶体性质",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.096154,
       "evidence": [
-        "能说出离子键、配位键与金属键的基本内容",
-        "能运用离子键、配位键与金属键的知识分析相关问题",
-        "能结合实例说明离子键、配位键与金属键的意义或应用"
+        "能用电子式表示离子化合物的形成",
+        "能解释晶格能对离子晶体性质的影响",
+        "能判断离子晶体的结构与性质"
       ],
-      "assessmentPrompt": "让 {name} 说说离子键、配位键与金属键的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能用电子式表示离子化合物的形成",
       "cnStandards": [
         "moe-2022-chem:SH.物质的性.21"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_950",
@@ -21766,22 +21772,23 @@
       "subject": "Chemistry",
       "domain": "Composition & Structure",
       "name": "液晶",
-      "description": "理解液晶、纳米材料与超分子的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "description": "液晶的概念、分类及在显示技术中的应用",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.019231,
       "evidence": [
-        "能说出液晶、纳米材料与超分子的基本内容",
-        "能运用液晶、纳米材料与超分子的知识分析相关问题",
-        "能结合实例说明液晶、纳米材料与超分子的意义或应用"
+        "能说出液晶的基本特征",
+        "能举例说明液晶的应用",
+        "能区分液晶与液态、晶态"
       ],
-      "assessmentPrompt": "让 {name} 说说液晶、纳米材料与超分子的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能说出液晶的基本特征",
       "cnStandards": [
         "moe-2022-chem:SH.物质的性.25"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_962",
@@ -21811,138 +21818,138 @@
       "type": "CONCEPTUAL",
       "subject": "Chemistry",
       "domain": "Organic Chemistry",
-      "name": "有机化合物的结构",
-      "description": "理解有机化合物的结构与性质的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "碳原子的成键特点与有机物结构表示",
+      "description": "学习碳原子的价键规则、单键双键三键、结构简式与键线式",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.153846,
       "evidence": [
-        "能说出有机化合物的结构与性质的基本内容",
-        "能运用有机化合物的结构与性质的知识分析相关问题",
-        "能结合实例说明有机化合物的结构与性质的意义或应用"
+        "能画出甲烷、乙烯、乙炔的结构简式",
+        "能判断碳原子形成的共价键类型"
       ],
-      "assessmentPrompt": "让 {name} 说说有机化合物的结构与性质的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能画出甲烷、乙烯、乙炔的结构简式",
       "cnStandards": [
         "moe-2022-chem:SH.物质的性.35"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_964",
       "type": "CONCEPTUAL",
       "subject": "Chemistry",
       "domain": "Chemical Reactions",
-      "name": "有机化学反应类型",
-      "description": "理解有机化学反应类型的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "取代反应与加成反应",
+      "description": "学习取代反应（卤代、硝化等）和加成反应（加氢、加卤素等）的机理与实例",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.115385,
       "evidence": [
-        "能说出有机化学反应类型的基本内容",
-        "能运用有机化学反应类型的知识分析相关问题",
-        "能结合实例说明有机化学反应类型的意义或应用"
+        "能写出甲烷与氯气取代的方程式",
+        "能判断乙烯与溴水反应的类型"
       ],
-      "assessmentPrompt": "让 {name} 说说有机化学反应类型的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能写出甲烷与氯气取代的方程式",
       "cnStandards": [
         "moe-2022-chem:SH.物质的性.36"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_965",
       "type": "CONCEPTUAL",
       "subject": "Chemistry",
       "domain": "Organic Chemistry",
-      "name": "醇",
-      "description": "理解醇和酚的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "醇的结构与化学性质",
+      "description": "学习乙醇及醇类的结构、物理性质、取代、氧化、消去反应",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.096154,
       "evidence": [
-        "能说出醇和酚的基本内容",
-        "能运用醇和酚的知识分析相关问题",
-        "能结合实例说明醇和酚的意义或应用"
+        "能书写乙醇与钠反应的方程式",
+        "能设计实验检验醇羟基"
       ],
-      "assessmentPrompt": "让 {name} 说说醇和酚的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能书写乙醇与钠反应的方程式",
       "cnStandards": [
         "moe-2022-chem:SH.物质的性.37"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_966",
       "type": "CONCEPTUAL",
       "subject": "Chemistry",
       "domain": "Acids Bases & Salts",
-      "name": "醛",
-      "description": "理解醛和酮 糖类和核酸的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "醛与酮的结构和性质",
+      "description": "学习醛基、酮基的化学性质，包括加成、氧化、还原",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.076923,
       "evidence": [
-        "能说出醛和酮 糖类和核酸的基本内容",
-        "能运用醛和酮 糖类和核酸的知识分析相关问题",
-        "能结合实例说明醛和酮 糖类和核酸的意义或应用"
+        "能写出乙醛与银氨溶液反应的方程式",
+        "能区分醛和酮"
       ],
-      "assessmentPrompt": "让 {name} 说说醛和酮 糖类和核酸的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能写出乙醛与银氨溶液反应的方程式",
       "cnStandards": [
         "moe-2022-chem:SH.物质的性.38"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_967",
       "type": "CONCEPTUAL",
       "subject": "Chemistry",
       "domain": "Acids Bases & Salts",
-      "name": "羧酸",
-      "description": "理解羧酸 氨基酸和蛋白质的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "羧酸的结构与性质",
+      "description": "学习羧基的酸性、酯化反应，以及典型羧酸（乙酸、硬脂酸等）",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.057692,
       "evidence": [
-        "能说出羧酸 氨基酸和蛋白质的基本内容",
-        "能运用羧酸 氨基酸和蛋白质的知识分析相关问题",
-        "能结合实例说明羧酸 氨基酸和蛋白质的意义或应用"
+        "能书写乙酸与乙醇的酯化反应方程式",
+        "能比较乙酸与碳酸的酸性"
       ],
-      "assessmentPrompt": "让 {name} 说说羧酸 氨基酸和蛋白质的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能书写乙酸与乙醇的酯化反应方程式",
       "cnStandards": [
         "moe-2022-chem:SH.物质的性.39"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_968",
       "type": "CONCEPTUAL",
       "subject": "Chemistry",
       "domain": "Organic Chemistry",
-      "name": "有机化合物的合成",
-      "description": "理解有机化合物的合成的核心概念和基本原理，能运用相关知识分析和解决简单问题。",
+      "name": "有机合成的基本策略",
+      "description": "学习逆合成分析思路，设计简单合成路线",
       "ageRangeStart": 16,
       "ageRangeEnd": 18,
       "centrality": 0.038462,
       "evidence": [
-        "能说出有机化合物的合成的基本内容",
-        "能运用有机化合物的合成的知识分析相关问题",
-        "能结合实例说明有机化合物的合成的意义或应用"
+        "能分析由乙醇合成乙酸的路线",
+        "能设计由乙烯制乙酸乙酯的流程"
       ],
-      "assessmentPrompt": "让 {name} 说说有机化合物的合成的主要内容，并举一个例子说明。",
+      "assessmentPrompt": "让 {{name}} 展示：能分析由乙醇合成乙酸的路线",
       "cnStandards": [
         "moe-2022-chem:SH.物质的性.40"
       ],
       "origin": "textbook",
       "stage": "高中",
-      "nodeKind": "concept"
+      "nodeKind": "concept",
+      "granularity": "split-45min"
     },
     {
       "id": "mtc_969",
@@ -39318,6 +39325,447 @@
       "nodeKind": "skill",
       "granularity": "split-45min",
       "splitFrom": "mtc_1062"
+    },
+    {
+      "id": "mtc_2151",
+      "type": "PROCEDURAL",
+      "subject": "Chemistry",
+      "domain": "Chemical Inquiry",
+      "name": "用高锰酸钾制取氧气",
+      "description": "掌握高锰酸钾加热制取氧气的原理、装置搭建、收集和检验方法，注意试管口放棉花",
+      "ageRangeStart": 12,
+      "ageRangeEnd": 14,
+      "centrality": 0.153846,
+      "evidence": [
+        "能写出高锰酸钾制氧气的化学方程式",
+        "能选择并组装固固加热装置",
+        "能用排水法收集氧气并检验"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能写出高锰酸钾制氧气的化学方程式",
+      "cnStandards": [
+        "moe-2022-chem:S4.EX.01"
+      ],
+      "origin": "cn_only",
+      "stage": "初中",
+      "nodeKind": "skill",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_332"
+    },
+    {
+      "id": "mtc_2152",
+      "type": "CONCEPTUAL",
+      "subject": "Chemistry",
+      "domain": "Air & Oxygen",
+      "name": "酸的通性",
+      "description": "掌握酸的五条化学通性（与指示剂、金属、金属氧化物、碱、盐反应），并能写出相关方程式。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 15,
+      "centrality": 0.288462,
+      "evidence": [
+        "能说出酸的通性",
+        "能写出酸与碱中和反应的方程式",
+        "能写出酸与盐反应的方程式（如盐酸与碳酸钠）"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出酸的通性",
+      "cnStandards": [
+        "moe-2022-chem:S4.PA.05"
+      ],
+      "origin": "cn_only",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_354"
+    },
+    {
+      "id": "mtc_2153",
+      "type": "CONCEPTUAL",
+      "subject": "Chemistry",
+      "domain": "Air & Oxygen",
+      "name": "碱的通性",
+      "description": "掌握碱的四条化学通性（与指示剂、非金属氧化物、酸、盐反应），并能写出相关方程式。",
+      "ageRangeStart": 13,
+      "ageRangeEnd": 15,
+      "centrality": 0.269231,
+      "evidence": [
+        "能说出碱的通性",
+        "能写出氢氧化钠与盐酸中和的方程式",
+        "能写出氢氧化钙与碳酸钠反应的方程式"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出碱的通性",
+      "cnStandards": [
+        "moe-2022-chem:S4.PA.05"
+      ],
+      "origin": "cn_only",
+      "stage": "初中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_355"
+    },
+    {
+      "id": "mtc_2154",
+      "type": "CONCEPTUAL",
+      "subject": "Chemistry",
+      "domain": "Inorganic Substances",
+      "name": "钠的化合物",
+      "description": "掌握氧化钠、过氧化钠、碳酸钠、碳酸氢钠的性质差异及用途",
+      "ageRangeStart": 15,
+      "ageRangeEnd": 16,
+      "centrality": 0.096154,
+      "evidence": [
+        "能写出过氧化钠与水和二氧化碳反应的方程式",
+        "能鉴别碳酸钠和碳酸氢钠"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能写出过氧化钠与水和二氧化碳反应的方程式",
+      "cnStandards": [
+        "moe-2022-chem:SH.IN.01"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_701"
+    },
+    {
+      "id": "mtc_2155",
+      "type": "CONCEPTUAL",
+      "subject": "Chemistry",
+      "domain": "Inorganic Substances",
+      "name": "氨气及铵盐",
+      "description": "掌握氨气的实验室制法、喷泉实验原理及铵盐性质",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 17,
+      "centrality": 0,
+      "evidence": [
+        "能写出氨气制取的化学方程式",
+        "能说明喷泉实验的原理",
+        "能检验铵盐"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能写出氨气制取的化学方程式",
+      "cnStandards": [
+        "moe-2022-chem:SH.IN.06"
+      ],
+      "origin": "progression",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_706"
+    },
+    {
+      "id": "mtc_2156",
+      "type": "CONCEPTUAL",
+      "subject": "Chemistry",
+      "domain": "Water & Hydrogen",
+      "name": "盐类的水解平衡",
+      "description": "水解原理、水解常数、影响水解平衡的因素及应用",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0,
+      "evidence": [
+        "能判断盐溶液的酸碱性",
+        "能写出水解离子方程式",
+        "能用K、Q判断水解平衡移动"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能判断盐溶液的酸碱性",
+      "cnStandards": [
+        "moe-2022-chem:SH.物质的性.14"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_942"
+    },
+    {
+      "id": "mtc_2157",
+      "type": "CONCEPTUAL",
+      "subject": "Chemistry",
+      "domain": "Composition & Structure",
+      "name": "分子的空间结构",
+      "description": "VSEPR理论、杂化轨道理论、分子空间结构判断",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.115385,
+      "evidence": [
+        "能用VSEPR预测分子构型",
+        "能判断中心原子杂化轨道类型",
+        "能说明杂化轨道与分子空间结构的关系"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能用VSEPR预测分子构型",
+      "cnStandards": [
+        "moe-2022-chem:SH.物质的性.20"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_948"
+    },
+    {
+      "id": "mtc_2158",
+      "type": "CONCEPTUAL",
+      "subject": "Chemistry",
+      "domain": "Metals",
+      "name": "配位键与金属键",
+      "description": "配位键的形成条件、配合物；金属键理论及金属晶体性质",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.096154,
+      "evidence": [
+        "能识别配位键并书写配合物化学式",
+        "能用自由电子理论解释金属性质",
+        "能比较不同金属晶体的熔沸点"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能识别配位键并书写配合物化学式",
+      "cnStandards": [
+        "moe-2022-chem:SH.物质的性.21"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_949"
+    },
+    {
+      "id": "mtc_2159",
+      "type": "CONCEPTUAL",
+      "subject": "Chemistry",
+      "domain": "Composition & Structure",
+      "name": "纳米材料",
+      "description": "纳米材料的概念、特性及常见纳米材料的制备与应用",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.019231,
+      "evidence": [
+        "能解释纳米材料的量子尺寸效应",
+        "能列举纳米材料在催化、医学等领域的应用",
+        "能说出常见纳米材料（如纳米二氧化钛、石墨烯）"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能解释纳米材料的量子尺寸效应",
+      "cnStandards": [
+        "moe-2022-chem:SH.物质的性.25"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_953"
+    },
+    {
+      "id": "mtc_2160",
+      "type": "CONCEPTUAL",
+      "subject": "Chemistry",
+      "domain": "Composition & Structure",
+      "name": "超分子",
+      "description": "超分子的概念、分子识别与自组装原理",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.019231,
+      "evidence": [
+        "能说出超分子的定义和基本特征",
+        "能举例说明超分子在生命科学和材料科学中的应用",
+        "能分析分子识别与自组装的基本原理"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出超分子的定义和基本特征",
+      "cnStandards": [
+        "moe-2022-chem:SH.物质的性.25"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_953"
+    },
+    {
+      "id": "mtc_2161",
+      "type": "CONCEPTUAL",
+      "subject": "Chemistry",
+      "domain": "Organic Chemistry",
+      "name": "同分异构现象与常见类型",
+      "description": "学习同分异构的概念、碳链异构、位置异构、官能团异构",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.153846,
+      "evidence": [
+        "能写出C4H10的同分异构体",
+        "能识别给定分子的同分异构类型"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能写出C4H10的同分异构体",
+      "cnStandards": [
+        "moe-2022-chem:SH.物质的性.35"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_963"
+    },
+    {
+      "id": "mtc_2162",
+      "type": "CONCEPTUAL",
+      "subject": "Chemistry",
+      "domain": "Organic Chemistry",
+      "name": "官能团的概念与分类",
+      "description": "认识常见官能团（羟基、醛基、羧基等），理解官能团决定性质",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.153846,
+      "evidence": [
+        "能列举至少5种官能团及其结构",
+        "能根据官能团判断有机物类别"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能列举至少5种官能团及其结构",
+      "cnStandards": [
+        "moe-2022-chem:SH.物质的性.35"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_963"
+    },
+    {
+      "id": "mtc_2163",
+      "type": "CONCEPTUAL",
+      "subject": "Chemistry",
+      "domain": "Chemical Reactions",
+      "name": "氧化反应与还原反应及消去反应",
+      "description": "学习有机物的氧化（醇→醛→酸）与还原（醛→醇），以及消去反应（醇脱水）",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.115385,
+      "evidence": [
+        "能写出乙醇催化氧化的方程式",
+        "能区分氧化与还原反应"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能写出乙醇催化氧化的方程式",
+      "cnStandards": [
+        "moe-2022-chem:SH.物质的性.36"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_964"
+    },
+    {
+      "id": "mtc_2164",
+      "type": "CONCEPTUAL",
+      "subject": "Chemistry",
+      "domain": "Organic Chemistry",
+      "name": "酚的结构与化学性质",
+      "description": "学习苯酚的结构、弱酸性、取代反应及显色反应",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.096154,
+      "evidence": [
+        "能用化学方法区别乙醇与苯酚",
+        "能书写苯酚与溴水的反应"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能用化学方法区别乙醇与苯酚",
+      "cnStandards": [
+        "moe-2022-chem:SH.物质的性.37"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_965"
+    },
+    {
+      "id": "mtc_2165",
+      "type": "CONCEPTUAL",
+      "subject": "Chemistry",
+      "domain": "Acids Bases & Salts",
+      "name": "糖类的结构与性质",
+      "description": "学习单糖（葡萄糖、果糖）、二糖（蔗糖、麦芽糖）的结构与特征反应",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.076923,
+      "evidence": [
+        "能写出葡萄糖的银镜反应",
+        "能鉴别葡萄糖与蔗糖"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能写出葡萄糖的银镜反应",
+      "cnStandards": [
+        "moe-2022-chem:SH.物质的性.38"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_966"
+    },
+    {
+      "id": "mtc_2166",
+      "type": "CONCEPTUAL",
+      "subject": "Chemistry",
+      "domain": "Acids Bases & Salts",
+      "name": "核酸的化学组成简介",
+      "description": "了解核酸的基本组成单位核糖核苷酸、脱氧核糖核苷酸",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.076923,
+      "evidence": [
+        "能说出DNA和RNA的基本组成单位",
+        "能区分核糖与脱氧核糖"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能说出DNA和RNA的基本组成单位",
+      "cnStandards": [
+        "moe-2022-chem:SH.物质的性.38"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_966"
+    },
+    {
+      "id": "mtc_2167",
+      "type": "CONCEPTUAL",
+      "subject": "Chemistry",
+      "domain": "Acids Bases & Salts",
+      "name": "氨基酸与蛋白质",
+      "description": "学习氨基酸的两性、缩合反应，蛋白质的盐析、变性及颜色反应",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.057692,
+      "evidence": [
+        "能写出甘氨酸形成二肽的方程式",
+        "能设计实验验证蛋白质变性"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能写出甘氨酸形成二肽的方程式",
+      "cnStandards": [
+        "moe-2022-chem:SH.物质的性.39"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_967"
+    },
+    {
+      "id": "mtc_2168",
+      "type": "CONCEPTUAL",
+      "subject": "Chemistry",
+      "domain": "Organic Chemistry",
+      "name": "常见官能团的引入与转化",
+      "description": "系统归纳官能团引入方法（加成、取代、氧化、还原）",
+      "ageRangeStart": 16,
+      "ageRangeEnd": 18,
+      "centrality": 0.038462,
+      "evidence": [
+        "能列出引入羟基的三种方法",
+        "能完成官能团转化图"
+      ],
+      "assessmentPrompt": "让 {{name}} 展示：能列出引入羟基的三种方法",
+      "cnStandards": [
+        "moe-2022-chem:SH.物质的性.40"
+      ],
+      "origin": "textbook",
+      "stage": "高中",
+      "nodeKind": "concept",
+      "granularity": "split-45min",
+      "splitFrom": "mtc_968"
     }
   ]
 }

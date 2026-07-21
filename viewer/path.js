@@ -627,7 +627,7 @@ function switchTab(tab) {
   document.getElementById('path-pane').style.display = tab === 'path' ? '' : 'none';
   document.getElementById('graph-pane').hidden = tab !== 'graph';
   if (tab === 'graph' && !graphLoaded) {
-    graphFrame.src = '/';
+    graphFrame.src = '/graph.html';
     graphLoaded = true;
     // 壳层已提供共享侧栏,注入 CSS 隐藏 iframe 内主 viewer 自己的侧栏,避免双侧栏
     graphFrame.addEventListener('load', () => {

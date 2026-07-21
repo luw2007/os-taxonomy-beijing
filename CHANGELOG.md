@@ -7,6 +7,12 @@
 
 **DAG 完整性 + 审核闸门 + 核心度 + 课标对齐**。经 omp + opus 多轮双审迭代完成。
 
+### 初高中微主题粒度优化
+- 新增 `scripts/audit-granularity.mjs`，使用 deepseek-v4-flash 按 `subject|stage` 审计初高中微主题，以普通学生 45 分钟内完成全部掌握证据为上限。
+- 全量审计 1,463 条未拆主题，人工抽查后逐科应用 238 个父主题，新增 340 个子主题；49 个父主题已被现有节点覆盖，111 个边界不清的主题留待人工复核。
+- `cn-topics` 由 1,668 增至 2,008；拆分子主题使用 `splitFrom` 记录来源，不臆造平行子主题之间的先修关系，`cn-dependencies` 保持 2,290 条。
+- 缓存绑定模型与完整 prompt；LLM 批次失败不覆盖审核文件；正式 apply 前重新验证父主题时长、子主题数量/时长和全局重名。
+
 ### DAG 完整性修复（P0/v1.1）
 - **破环**：删 283 条成环边（含 200 反平行对），密度 1.55→1.377，0 含环 SCC。删除旧 `removeCycles` 的 3 个 bug（`_weak` 未赋值/`pass<10` 上限/先破环后合并导致重新成环），重写为 `scripts/break-cycles.mjs`（迭代 Tarjan + 贪心评分，全局破环）。
 - **审核闸门**：每条依赖边加 `reviewStatus`（machine/reviewed/rejected）。规则边标 reviewed（1286）/ LLM 边标 machine（976），覆盖率 56.9%。viewer 默认只展示 reviewed，machine 边降级为"AI 推测·未核对"。

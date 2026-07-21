@@ -14,6 +14,9 @@
 - 缓存绑定模型与完整 prompt；LLM 批次失败不覆盖审核文件；正式 apply 前重新验证父主题时长、子主题数量/时长和全局重名。
 - 使用 `scripts/backfill-split-relations.mjs` 对 340 个零度 `splitFrom` 子主题运行 deepseek-v4-flash 增量关系审计：356 个先修提案中只追加 329 条 `machine` 边；拒绝重复 24 条、成环 1 条、跨学段倒退 2 条。旧 2,290 条边保持原内容和顺序，相关但非先修的 83 条关系仅保留在 gitignored work 文件。
 - 同步 `manifest.json`、README 与 BACKLOG 的上层统计；`scripts/checksum.mjs` 现从真实数据数组自动更新主题、依赖、聚类和课标计数，避免后续数据变更再次产生手工计数漂移。
+- Claude Opus 复审后采用 Option B：260 个复用父 ID 家族触及的 761 条旧边全部标记 `rescopeRequired`，其中 301 条旧 reviewed 降级为 machine；49 个 covered 父主题持久化 `coveredBy` 并退出儿童视图。
+- 拆分 apply 新增强制 child 完整性、重复 ID、确定排序和旧边重定责；关系 apply 新增输入图 fingerprint、批次 provenance、年龄倒退警告及受控结构/课标候选召回。
+- 儿童 API、详情页和知识脉络只使用 reviewed 且非 rescope 的边；canonical centrality 同样只由可发布边计算。迁移后 reviewed 985 / machine 1,634（37.6%），纠正此前被语义漂移旧边虚高的覆盖率。
 
 ### DAG 完整性修复（P0/v1.1）
 - **破环**：删 283 条成环边（含 200 反平行对），密度 1.55→1.377，0 含环 SCC。删除旧 `removeCycles` 的 3 个 bug（`_weak` 未赋值/`pass<10` 上限/先破环后合并导致重新成环），重写为 `scripts/break-cycles.mjs`（迭代 Tarjan + 贪心评分，全局破环）。

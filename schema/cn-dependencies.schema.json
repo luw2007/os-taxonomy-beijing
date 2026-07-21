@@ -11,6 +11,21 @@
     "locale": { "type": "string" },
     "edgeCount": { "type": "integer", "minimum": 0 },
     "note": { "type": "string" },
+    "generationBatches": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "model", "generatedAt", "strategy"],
+        "properties": {
+          "id": { "type": "string" },
+          "model": { "type": "string" },
+          "inputFingerprint": { "type": ["string", "null"], "pattern": "^[a-f0-9]{64}$", "description": "历史批次未知时为 null" },
+          "generatedAt": { "type": "string" },
+          "strategy": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
     "dependencies": {
       "type": "array",
       "items": {
@@ -36,8 +51,16 @@
           "reviewStatus": {
             "type": "string",
             "enum": ["machine", "reviewed", "rejected"],
-            "description": "审核状态：machine=LLM/规则产出未审核（默认 viewer 降级显示为\"AI 推测·未核对\"）；reviewed=已审核（默认展示，可显示\"必须先学/建议先学\"）；rejected=已拒绝（永不展示）。缺失视为 machine（向后兼容）。"
+            "description": "审核状态：machine=未审核（不进入儿童 API/路径）；reviewed=人工审核通过；rejected=人工拒绝。缺失视为 machine（向后兼容）。"
           }
+          ,"rescopeRequired": { "type": "boolean", "description": "主题拆分后，旧边语义已收窄，必须重新审核" },
+          "previousReviewStatus": { "type": "string", "enum": ["reviewed"], "description": "拆分重定责前的审核状态" },
+          "rescopeBatchId": { "type": "string", "description": "触发重定责的拆分批次" },
+          "ageRegression": { "type": "boolean", "description": "同学段内先修起始年龄高于目标，需人工复核" },
+          "generationBatchId": { "type": "string", "description": "机器关系生成批次" },
+          "reviewedBy": { "type": "string", "description": "人工审核人标识" },
+          "reviewedAt": { "type": "string", "description": "人工审核时间" },
+          "reviewNote": { "type": "string", "description": "人工审核说明" }
         },
         "additionalProperties": false
       }

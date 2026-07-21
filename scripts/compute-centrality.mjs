@@ -29,13 +29,14 @@
  *
  * 有效性验证：用 Top-20 语义抽查（清理后应是基础概念，不是课文）。
  *
- * CLI：
+ *   node scripts/compute-centrality.mjs --check      验证存储值与当前 reviewed 图一致
  *   node scripts/compute-centrality.mjs --dry-run    只报告分布，不写盘
  *   node scripts/compute-centrality.mjs              写盘到 data/cn-topics.json
  */
 import { readFileSync, writeFileSync, mkdirSync, copyFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { publishedGraph } from './review-policy.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = resolve(ROOT, 'data');
@@ -67,49 +68,47 @@ function computeReachableConcepts(startIds, outAdj, countingPred) {
   }
   return result;
 }
+function computeCentrality(topics, edges) {
+  const outAdj = new Map();
+  for (const edge of edges) {
+    if (!outAdj.has(edge.prerequisiteId)) outAdj.set(edge.prerequisiteId, new Set());
+    outAdj.get(edge.prerequisiteId).add(edge.topicId);
+  }
+  const isCounting = topic => topic.nodeKind === 'concept' || topic.nodeKind === 'skill' || !topic.nodeKind;
+  const countingSet = new Set(topics.filter(isCounting).map(topic => topic.id));
+  const countingIds = [...countingSet];
+  const reachable = computeReachableConcepts(countingIds, outAdj, countingSet);
+  const maxReach = Math.max(...countingIds.map(id => reachable.get(id) || 0), 1);
+  const centrality = new Map(topics.map(topic => [topic.id,
+    countingSet.has(topic.id) ? +((reachable.get(topic.id) || 0) / maxReach).toFixed(6) : null]));
+  return { centrality, countingSet, reachable, maxReach };
+}
 
 async function main() {
   const dryRun = process.argv.includes('--dry-run');
+  const checkOnly = process.argv.includes('--check');
 
   const data = JSON.parse(readFileSync(TOPICS_PATH, 'utf8'));
   const topics = data.topics;
   const topicById = new Map(topics.map(t => [t.id, t]));
-
-  // 加载依赖（只取非 rejected 边，与 viewer 展示一致）
+  // canonical centrality 只基于儿童可发布图，避免 machine/rescope/covered 影响路径排序
   const depsData = JSON.parse(readFileSync(resolve(DATA, 'cn-dependencies.json'), 'utf8'));
-  const edges = depsData.dependencies.filter(e => e.reviewStatus !== 'rejected');
-
-  // 全图邻接（含 text 中转节点）
-  const outAdj = new Map();
-  for (const e of edges) {
-    if (!outAdj.has(e.prerequisiteId)) outAdj.set(e.prerequisiteId, new Set());
-    outAdj.get(e.prerequisiteId).add(e.topicId);
-  }
-
-  // 参与计算 centrality 的节点：nodeKind ∈ {concept, skill}
-  // nodeKind 缺失视为 concept（向后兼容，理论上 backfill 后不会缺失）
-  const isCounting = (t) => t.nodeKind === 'concept' || t.nodeKind === 'skill' || !t.nodeKind;
-  const countingSet = new Set(topics.filter(isCounting).map(t => t.id));
+  const graph = publishedGraph(topics, depsData.dependencies);
+  const computed = computeCentrality(graph.topics, graph.dependencies);
+  const centrality = new Map(topics.map(topic => [topic.id, computed.centrality.get(topic.id) ?? null]));
+  const countingSet = computed.countingSet;
+  const reachable = computed.reachable;
+  const maxReach = computed.maxReach;
   const countingIds = [...countingSet];
+  const reachVals = countingIds.map(id => reachable.get(id) || 0);
 
   console.log(`=== centrality 计算 ===`);
   console.log(`  总节点: ${topics.length}`);
   console.log(`  参与 centrality（concept+skill）: ${countingIds.length}`);
-  console.log(`  text 节点（centrality=null）: ${topics.length - countingIds.length}`);
-  console.log(`  有效边数（非 rejected）: ${edges.length}`);
-
+  console.log(`  covered/text 不参与: ${topics.length - countingIds.length}`);
+  console.log(`  有效边数（reviewed published）: ${graph.dependencies.length}`);
   const t0 = Date.now();
-  const reachable = computeReachableConcepts(countingIds, outAdj, countingSet);
   const dt = ((Date.now() - t0) / 1000).toFixed(2);
-
-  const reachVals = countingIds.map(id => reachable.get(id) || 0);
-  const maxReach = Math.max(...reachVals, 1);
-
-  // 每个 topic 的 centrality：concept/skill 算归一化值，text 为 null
-  const centrality = new Map();
-  for (let i = 0; i < countingIds.length; i++) {
-    centrality.set(countingIds[i], +(reachVals[i] / maxReach).toFixed(6));
-  }
 
   // 分布统计（只看 concept+skill）
   const sorted = [...reachVals.map(r => r / maxReach)].sort((a, b) => b - a);
@@ -132,6 +131,12 @@ async function main() {
     console.log(`  ${r.c.toFixed(4)} reach=${String(r.reach).padStart(3)} [${r.subject}/${r.stage}/${r.kind}] ${r.name}`);
   }
 
+  if (checkOnly) {
+    const mismatches = topics.filter(topic => topic.centrality !== centrality.get(topic.id));
+    if (mismatches.length) throw new Error(`${mismatches.length} 个 centrality 字段已过期`);
+    console.log('✓ centrality 与当前 reviewed 图一致');
+    return;
+  }
   if (dryRun) {
     console.log('\n（--dry-run 模式，未写盘）');
     return;
@@ -166,5 +171,5 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   main().catch(e => { console.error('Fatal:', e); process.exit(1); });
 }
 
-export { computeReachableConcepts };
+export { computeCentrality, computeReachableConcepts };
 

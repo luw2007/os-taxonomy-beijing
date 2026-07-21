@@ -224,10 +224,8 @@ const reviewStatus = (d) => (d && (d.reviewStatus === 'machine' || d.reviewStatu
 const reviewCounts = { reviewed: 0, machine: 0, rejected: 0 };
 for (const d of mergedDeps) reviewCounts[reviewStatus(d)]++;
 
-// 默认及儿童 viewer 只返回 reviewed、非 rescope 边；实验路径另行离线检查 machine。
-function filterDepsByReview(deps) {
-  return filterPublishedDependencies(deps);
-}
+// 儿童 API 只返回 reviewed、非 rescope 边；machine 仅供离线审核工具使用。
+const filterDepsByReview = filterPublishedDependencies;
 
 // 把单条依赖规范化为对外 API 的形态(带 reviewStatus,缺失补 machine)
 const withReviewStatus = (d) => ({ ...d, reviewStatus: reviewStatus(d) });
@@ -428,16 +426,14 @@ function apiResponse(pathname, search) {
     return { count: result.length, topics: result };
   }
 
-  // GET /api/topic/:id — 单个 topic 详情 + 依赖关系(详情页本身不过滤,可查看任意 topic)
-  //   ?review=all       返回所有非 rejected 边(含 machine)
-  //   其他(默认)        只返回 reviewed(rejected 永不返回)
+  // GET /api/topic/:id — 单个可发布 topic 详情 + reviewed 依赖关系
   const topicMatch = pathname.match(/^\/api\/topic\/(.+)$/);
   if (topicMatch) {
     const id = decodeURIComponent(topicMatch[1]);
     const topic = mergedTopics.find(t => t.id === id);
     if (!topic) return { error: 'topic not found', id };
+    if (topic.status === 'covered') return { error: 'topic covered by finer topics', id, coveredBy: topic.coveredBy };
 
-    const reviewParam = params.get('review'); // 'all' 看全部非 rejected,缺省只看 reviewed
     const dimCfg = dimensionsConfig.dimensions[dimension];
     // 关联 topic 标注当前维度可见性
     const annotate = (t) => t ? {
@@ -445,16 +441,14 @@ function apiResponse(pathname, search) {
       dimensionVisible: dimCfg ? isTopicVisibleInDimension(t, dimCfg) : true,
     } : null;
 
-    // 找该 topic 的前置依赖和被依赖(按 review 过滤,带 reviewStatus,rejected 永不返回)
+    const publishedIds = new Set(filterPublishedTopics(mergedTopics).map(item => item.id));
     const prerequisites = filterDepsByReview(
-      mergedDeps.filter(d => d.topicId === id),
-      reviewParam
-    ).map(d => withReviewStatus({ ...d, prerequisiteTopic: annotate(mergedTopics.find(t => t.id === d.prerequisiteId)) }));
+      mergedDeps.filter(dependency => dependency.topicId === id && publishedIds.has(dependency.prerequisiteId))
+    ).map(dependency => withReviewStatus({ ...dependency, prerequisiteTopic: annotate(mergedTopics.find(item => item.id === dependency.prerequisiteId)) }));
 
     const dependents = filterDepsByReview(
-      mergedDeps.filter(d => d.prerequisiteId === id),
-      reviewParam
-    ).map(d => withReviewStatus({ ...d, dependentTopic: annotate(mergedTopics.find(t => t.id === d.topicId)) }));
+      mergedDeps.filter(dependency => dependency.prerequisiteId === id && publishedIds.has(dependency.topicId))
+    ).map(dependency => withReviewStatus({ ...dependency, dependentTopic: annotate(mergedTopics.find(item => item.id === dependency.topicId)) }));
 
     // 课标详情
     const standards = (topic.cnStandards ?? []).map(key => {

@@ -39,14 +39,32 @@ const similarity = (a, b) => {
   for (const g of ga) if (gb.has(g)) common++;
   return common / Math.sqrt(ga.size * gb.size);
 };
+export function graphFingerprint(topics, dependencies) {
+  const topicState = topics.map(topic => ({
+    id: topic.id, name: topic.name, description: topic.description, subject: topic.subject,
+    domain: topic.domain, stage: topic.stage, ageRangeStart: topic.ageRangeStart,
+    splitFrom: topic.splitFrom, cnStandards: topic.cnStandards,
+  })).sort((a, b) => a.id.localeCompare(b.id));
+  const edgeState = dependencies.map(edge => ({
+    topicId: edge.topicId, prerequisiteId: edge.prerequisiteId, strength: edge.strength,
+    reviewStatus: edge.reviewStatus, rescopeRequired: edge.rescopeRequired,
+  })).sort((a, b) => edgeKey(a).localeCompare(edgeKey(b)));
+  return createHash('sha256').update(JSON.stringify({ topics: topicState, dependencies: edgeState })).digest('hex');
+}
+
+export function staleWorkFiles(works, fingerprint) {
+  return works.filter(work => work.inputFingerprint !== fingerprint).map(work => work.bucket).sort();
+}
 
 export function buildCandidates(target, topics, dependencies, options = {}) {
   const localLimit = options.localLimit ?? 8;
   const crossStageLimit = options.crossStageLimit ?? 4;
-  const byId = new Map(topics.map(t => [t.id, t]));
+  const structuralLimit = options.structuralLimit ?? 4;
+  const byId = new Map(topics.map(topic => [topic.id, topic]));
   const found = new Map();
   const add = (id, source, score = 1) => {
-    if (!id || id === target.id || !byId.has(id)) return;
+    const topic = byId.get(id);
+    if (!topic || topic.status === 'covered' || id === target.id) return;
     if (!found.has(id)) found.set(id, { id, sources: [], score: 0 });
     const item = found.get(id);
     if (!item.sources.includes(source)) item.sources.push(source);
@@ -68,24 +86,54 @@ export function buildCandidates(target, topics, dependencies, options = {}) {
   }
 
   const local = topics
-    .filter(t => t.id !== target.id && t.subject === target.subject
-      && t.domain === target.domain && t.stage === target.stage)
-    .map(t => ({ id: t.id, score: similarity(target, t) }))
-    .filter(x => x.score > 0)
+    .filter(topic => topic.id !== target.id && topic.status !== 'covered' && topic.subject === target.subject
+      && topic.domain === target.domain && topic.stage === target.stage)
+    .map(topic => ({ id: topic.id, score: similarity(target, topic) }))
+    .filter(item => item.score > 0)
     .sort((a, b) => b.score - a.score || a.id.localeCompare(b.id))
     .slice(0, localLimit);
   for (const item of local) add(item.id, 'local', item.score);
 
   const targetStage = STAGE_ORDER.get(target.stage);
   const crossStage = topics
-    .filter(t => t.id !== target.id && t.subject === target.subject && t.domain === target.domain
-      && STAGE_ORDER.has(t.stage) && Math.abs(STAGE_ORDER.get(t.stage) - targetStage) === 1)
-    .map(t => ({ id: t.id, score: similarity(target, t) }))
-    .filter(x => x.score > 0)
+    .filter(topic => topic.id !== target.id && topic.status !== 'covered' && topic.subject === target.subject
+      && topic.domain === target.domain && STAGE_ORDER.has(topic.stage)
+      && Math.abs(STAGE_ORDER.get(topic.stage) - targetStage) === 1)
+    .map(topic => ({ id: topic.id, score: similarity(target, topic) }))
+    .filter(item => item.score > 0)
     .sort((a, b) => b.score - a.score || a.id.localeCompare(b.id))
     .slice(0, crossStageLimit);
   for (const item of crossStage) add(item.id, 'cross-stage', item.score);
 
+  const structuralSeeds = new Set(found.keys());
+  const structural = new Map();
+  const crossSubjectStructural = new Map();
+  for (const edge of dependencies) {
+    let id = null;
+    if (structuralSeeds.has(edge.topicId)) id = edge.prerequisiteId;
+    if (structuralSeeds.has(edge.prerequisiteId)) id = edge.topicId;
+    const topic = byId.get(id);
+    if (!topic || topic.id === target.id || topic.status === 'covered') continue;
+    const score = similarity(target, topic);
+    if (topic.subject === target.subject) structural.set(id, Math.max(structural.get(id) || 0, score));
+    else if (topic.stage === target.stage) crossSubjectStructural.set(id, Math.max(crossSubjectStructural.get(id) || 0, score));
+  }
+  for (const [id, score] of [...structural].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).slice(0, structuralLimit)) {
+    add(id, 'structural', score);
+  }
+
+  const standardIds = new Set(target.cnStandards || []);
+  if (standardIds.size) {
+    const curriculum = topics.filter(topic => topic.id !== target.id && topic.status !== 'covered'
+      && topic.subject === target.subject && (topic.cnStandards || []).some(key => standardIds.has(key)))
+      .sort((a, b) => similarity(target, b) - similarity(target, a) || a.id.localeCompare(b.id))
+      .slice(0, 4);
+    for (const topic of curriculum) add(topic.id, 'curriculum', similarity(target, topic));
+  }
+  for (const [id, score] of [...crossSubjectStructural]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).slice(0, 2)) {
+    add(id, 'cross-subject-structural', score);
+  }
   return [...found.values()]
     .map(item => ({ ...item, topic: byId.get(item.id) }))
     .sort((a, b) => b.score - a.score || a.id.localeCompare(b.id));
@@ -141,17 +189,22 @@ const reachable = (from, to, edges) => {
   return false;
 };
 
-export function selectAppendableEdges(existingEdges, proposals, validIds, topicsById = new Map()) {
+export function selectAppendableEdges(existingEdges, proposals, validIds, topicsById = new Map(), options = {}) {
   const appended = [], rejected = [];
   const current = existingEdges.map(edge => ({ ...edge }));
   const keys = new Set(current.map(edgeKey));
-  for (const proposal of proposals) {
+  for (const proposal of [...proposals].sort((a, b) => edgeKey(a).localeCompare(edgeKey(b)))) {
     const key = edgeKey(proposal);
     const reverse = `${proposal.prerequisiteId}|${proposal.topicId}`;
     const topicStage = STAGE_ORDER.get(topicsById.get(proposal.topicId)?.stage);
     const prerequisiteStage = STAGE_ORDER.get(topicsById.get(proposal.prerequisiteId)?.stage);
     const stageRegression = topicStage !== undefined && prerequisiteStage !== undefined
       && prerequisiteStage > topicStage;
+    const topic = topicsById.get(proposal.topicId);
+    const prerequisite = topicsById.get(proposal.prerequisiteId);
+    const ageRegression = topic?.stage && topic.stage === prerequisite?.stage
+      && Number.isFinite(topic.ageRangeStart) && Number.isFinite(prerequisite.ageRangeStart)
+      && prerequisite.ageRangeStart > topic.ageRangeStart;
     if (!validIds.has(proposal.topicId) || !validIds.has(proposal.prerequisiteId)
       || proposal.topicId === proposal.prerequisiteId) {
       rejected.push({ ...proposal, rejectedReason: 'invalid-endpoint' });
@@ -170,6 +223,8 @@ export function selectAppendableEdges(existingEdges, proposals, validIds, topics
         strength: proposal.strength === 'hard' ? 'hard' : 'soft',
         reason: proposal.reason,
         reviewStatus: 'machine',
+        ...(ageRegression ? { ageRegression: true } : {}),
+        ...(options.generationBatchId ? { generationBatchId: options.generationBatchId } : {}),
       };
       appended.push(edge);
       current.push(edge);
@@ -233,11 +288,14 @@ async function callDeepSeek(prompt, slug, apiKey) {
 }
 
 function parseArgs(argv) {
-  const opt = flag => { const i = argv.indexOf(flag); return i >= 0 ? argv[i + 1] : null; };
+  const opt = flag => { const index = argv.indexOf(flag); return index >= 0 ? argv[index + 1] : null; };
   return {
     mode: argv.includes('--plan') ? 'plan' : argv.includes('--apply') ? 'apply' : 'audit',
-    dryRun: argv.includes('--dry-run'), subject: opt('--subject'), stage: opt('--stage'),
-    limit: Number(opt('--limit') || 0), concurrency: Number(opt('--concurrency') || 4),
+    dryRun: argv.includes('--dry-run'),
+    subject: opt('--subject'),
+    stage: opt('--stage'),
+    limit: Number(opt('--limit') || 0),
+    concurrency: Number(opt('--concurrency') || 4),
   };
 }
 
@@ -248,14 +306,23 @@ function loadData() {
   };
 }
 
-function targetNodes(topics, dependencies, args) {
-  const degree = new Map(topics.map(t => [t.id, 0]));
+export function targetNodes(topics, dependencies, args = {}) {
+  const degree = new Map(topics.map(topic => [topic.id, 0]));
+  const byId = new Map(topics.map(topic => [topic.id, topic]));
+  const reusedParentIds = new Set(topics.filter(topic => topic.splitFrom && byId.get(topic.splitFrom)?.granularity === 'split-45min')
+    .map(topic => topic.splitFrom));
+  const rescopeIds = new Set();
   for (const edge of dependencies) {
     degree.set(edge.topicId, (degree.get(edge.topicId) || 0) + 1);
     degree.set(edge.prerequisiteId, (degree.get(edge.prerequisiteId) || 0) + 1);
+    if (edge.rescopeRequired) {
+      if (reusedParentIds.has(edge.topicId)) rescopeIds.add(edge.topicId);
+      if (reusedParentIds.has(edge.prerequisiteId)) rescopeIds.add(edge.prerequisiteId);
+    }
   }
-  let targets = topics.filter(t => t.splitFrom && (degree.get(t.id) || 0) === 0
-    && (!args.subject || t.subject === args.subject) && (!args.stage || t.stage === args.stage));
+  let targets = topics.filter(topic => topic.status !== 'covered'
+    && ((topic.splitFrom && (degree.get(topic.id) || 0) === 0) || rescopeIds.has(topic.id))
+    && (!args.subject || topic.subject === args.subject) && (!args.stage || topic.stage === args.stage));
   targets.sort((a, b) => a.subject.localeCompare(b.subject) || a.stage.localeCompare(b.stage) || a.id.localeCompare(b.id));
   if (args.limit > 0) targets = targets.slice(0, args.limit);
   return targets;
@@ -266,6 +333,7 @@ async function audit(topics, dependencies, args) {
   if (!apiKey) throw new Error('缺少 DEEPSEEK_API_KEY');
   const targets = targetNodes(topics, dependencies, args);
   const validIds = new Set(topics.map(t => t.id));
+  const inputFingerprint = graphFingerprint(topics, dependencies);
   const grouped = new Map();
   let done = 0;
   for (let i = 0; i < targets.length; i += args.concurrency) {
@@ -307,7 +375,10 @@ async function audit(topics, dependencies, args) {
     const workPath = resolve(WORK, `${slug}.json`);
     let priorTargets = [];
     if (existsSync(workPath)) {
-      try { priorTargets = JSON.parse(readFileSync(workPath, 'utf8')).targets || []; } catch { /* replace corrupt work */ }
+      try {
+        const prior = JSON.parse(readFileSync(workPath, 'utf8'));
+        if (prior.inputFingerprint === inputFingerprint) priorTargets = prior.targets || [];
+      } catch { /* replace corrupt work */ }
     }
     const currentTargets = results.map(r => ({
       id: r.target.id, name: r.target.name,
@@ -320,7 +391,8 @@ async function audit(topics, dependencies, args) {
     const allBucketIds = new Set(allTargets.filter(t => `${t.subject}|${t.stage}` === bucket).map(t => t.id));
     const complete = allBucketIds.size > 0 && [...allBucketIds].every(id => mergedTargets.some(t => t.id === id));
     writeFileSync(workPath, JSON.stringify({
-      bucket, model: MODEL, auditedAt: new Date().toISOString(), complete, targets: mergedTargets,
+      bucket, model: MODEL, auditedAt: new Date().toISOString(), inputFingerprint,
+      complete, targets: mergedTargets,
     }, null, 2));
   }
   console.log(`\n审计完成：${targets.length} 个零度 splitFrom 节点；work=${WORK}`);
@@ -336,7 +408,7 @@ function apply(topics, depsDoc, args) {
   const expectedTargets = targetNodes(topics, depsDoc.dependencies, { ...args, limit: 0 });
   const selectedWorks = [];
   const proposals = [];
-  for (const file of readdirSync(WORK).filter(f => f.endsWith('.json'))) {
+  for (const file of readdirSync(WORK).filter(f => f.endsWith('.json')).sort()) {
     const work = JSON.parse(readFileSync(resolve(WORK, file), 'utf8'));
     const [subject, stage] = work.bucket.split('|');
     if ((args.subject && subject !== args.subject) || (args.stage && stage !== args.stage)) continue;
@@ -348,12 +420,16 @@ function apply(topics, depsDoc, args) {
       }
     }
   }
+  const fingerprint = graphFingerprint(topics, depsDoc.dependencies);
+  const stale = staleWorkFiles(selectedWorks, fingerprint);
+  if (!args.dryRun && stale.length) throw new Error(`work 基于旧图，需重新审计: ${stale.slice(0, 3).join(', ')}`);
   if (!args.dryRun) {
     const missing = missingTargetIds(expectedTargets, selectedWorks);
     if (missing.length) throw new Error(`筛选范围 work 缺少 ${missing.length} 个目标；先完成审计（如 ${missing.slice(0, 3).join(', ')}）`);
   }
   const topicMap = new Map(topics.map(topic => [topic.id, topic]));
-  const selected = selectAppendableEdges(depsDoc.dependencies, proposals, new Set(topicMap.keys()), topicMap);
+  const generationBatchId = `split-relations-${new Date().toISOString().slice(0, 10).replaceAll('-', '')}`;
+  const selected = selectAppendableEdges(depsDoc.dependencies, proposals, new Set(topicMap.keys()), topicMap, { generationBatchId });
   console.log(`候选先修 ${proposals.length}：可追加 ${selected.appended.length}，拒绝 ${selected.rejected.length}`);
   const reasons = {};
   for (const item of selected.rejected) reasons[item.rejectedReason] = (reasons[item.rejectedReason] || 0) + 1;
@@ -362,6 +438,10 @@ function apply(topics, depsDoc, args) {
   if (!selected.appended.length) { console.log('无新边，不写盘'); return; }
   depsDoc.dependencies = selected.finalEdges;
   depsDoc.edgeCount = selected.finalEdges.length;
+  depsDoc.generationBatches = [...(depsDoc.generationBatches || []), {
+    id: generationBatchId, model: MODEL, inputFingerprint: fingerprint,
+    generatedAt: new Date().toISOString(), strategy: 'bounded-split-relations-v2',
+  }];
   writeFileSync(resolve(DATA, 'cn-dependencies.json'), JSON.stringify(depsDoc, null, 2) + '\n');
   console.log(`✓ 仅在尾部追加 ${selected.appended.length} 条 machine 边；旧 ${selected.finalEdges.length - selected.appended.length} 条边未改动`);
 }

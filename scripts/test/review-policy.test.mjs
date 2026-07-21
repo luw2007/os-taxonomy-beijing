@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-import { filterPublishedDependencies } from '../review-policy.mjs';
+import { filterPublishedDependencies, filterPublishedTopics } from '../review-policy.mjs';
 
 test('child-facing publication exposes only reviewed, non-rescope dependencies', () => {
   const edges = [
@@ -11,4 +11,8 @@ test('child-facing publication exposes only reviewed, non-rescope dependencies',
     { topicId: 'e', prerequisiteId: 'a', reviewStatus: 'rejected' },
   ];
   assert.deepEqual(filterPublishedDependencies(edges).map(edge => edge.topicId), ['b']);
+});
+
+test('child-facing publication hides covered parent topics', () => {
+  assert.deepEqual(filterPublishedTopics([{ id: 'a' }, { id: 'b', status: 'covered' }]).map(topic => topic.id), ['a']);
 });

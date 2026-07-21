@@ -27,6 +27,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from 
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
+import { prepareGranularityChanges, validateSplitResult } from './granularity-safety.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = resolve(ROOT, 'data');
@@ -198,17 +199,23 @@ function parseResults(content, slug) {
   }
   const byId = new Map(cnData.topics.map(t => [t.id, t]));
   const out = [];
+  const seen = new Set();
   for (const r of parsed.results || []) {
+    if (seen.has(r.id)) {
+      out.push({ id: r.id, name: byId.get(r.id)?.name || r.id, estimateMinutes: null, verdict: 'review', reason: `协议不合规：重复 id ${r.id}` });
+      continue;
+    }
+    seen.add(r.id);
     if (!r.id || !byId.has(r.id)) continue;
     let verdict = ['ok', 'split', 'covered', 'review'].includes(r.verdict) ? r.verdict : 'review';
     let reason = r.reason || '';
     let children;
     if (verdict === 'split') {
-      children = (r.children || []).filter(c => c.name && Number.isFinite(c.estimateMinutes)
-        && c.estimateMinutes > 0 && c.estimateMinutes <= 45);
-      if (!(r.estimateMinutes > 45) || children.length < 2 || children.length > 5) {
+      children = Array.isArray(r.children) ? r.children : [];
+      const validation = validateSplitResult({ ...r, children });
+      if (!validation.valid) {
         verdict = 'review';
-        reason = `协议不合规：${reason}`;
+        reason = `协议不合规：${validation.reason}；${reason}`;
       }
       const duplicateChild = verdict === 'split' && children.find(c =>
         (topicIdsByName.get(normalizeTopicName(c.name)) || []).some(id => id !== r.id));
@@ -327,81 +334,25 @@ function report() {
 
 // ========== 应用拆分 ==========
 function apply(buckets) {
-  const files = readdirSync(WORK).filter(f => f.endsWith('.json'));
+  const files = readdirSync(WORK).filter(f => f.endsWith('.json')).sort();
   const wanted = new Set([...buckets.keys()].map(slugOf));
-  const splits = []; // { topic, children }
-  const appliedNames = new Set();
-  for (const f of files) {
-    const w = JSON.parse(readFileSync(resolve(WORK, f), 'utf8'));
-    if (!wanted.has(slugOf(w.bucket))) continue;
-    for (const r of w.results) {
-      if (r.verdict !== 'split') continue;
-      const validChildren = Array.isArray(r.children) && r.children.length >= 2 && r.children.length <= 5
-        && r.children.every(c => c?.name && Number.isFinite(c.estimateMinutes)
-          && c.estimateMinutes > 0 && c.estimateMinutes <= 45);
-      if (!(r.estimateMinutes > 45) || !validChildren) {
-        console.error(`  跳过 ${r.id}（work 文件中的拆分不满足父级 >45 分钟、2~5 子主题且各 ≤45 分钟）`);
-        continue;
-      }
-      const topic = cnData.topics.find(t => t.id === r.id);
-      if (!topic) continue;
-      if (topic.splitFrom || topic.granularity === 'split-45min') {
-        console.log(`  跳过 ${r.id}（已是拆分产物）`);
-        continue;
-      }
-      const normalizedChildren = r.children.map(c => normalizeTopicName(c.name));
-      if (normalizedChildren.some(name =>
-        (topicIdsByName.get(name) || []).some(id => id !== r.id) || appliedNames.has(name))) {
-        console.error(`  跳过 ${r.id}（work 文件中的子主题与现有节点或本次拆分重名）`);
-        continue;
-      }
-      for (const name of normalizedChildren) appliedNames.add(name);
-      splits.push({ topic, children: r.children });
-    }
+  const results = [];
+  for (const file of files) {
+    const work = JSON.parse(readFileSync(resolve(WORK, file), 'utf8'));
+    if (wanted.has(slugOf(work.bucket))) results.push(...work.results);
   }
-  if (!splits.length) { console.log('无待应用的拆分（检查 --subject/--stage 与 work 文件）'); return; }
-
-  let nextId = Math.max(...cnData.topics.map(t => +(/^mtc_(\d+)$/.exec(t.id)?.[1] || 0))) + 1;
+  if (!results.some(result => result.verdict === 'split' || result.verdict === 'covered')) {
+    console.log('无待应用的拆分或 covered 标记（检查 --subject/--stage 与 work 文件）');
+    return;
+  }
   const depData = JSON.parse(readFileSync(depPath, 'utf8'));
-  const newTopics = [];
-
-  for (const { topic, children } of splits) {
-    const splitIds = [];
-    children.forEach((c, i) => {
-      const isFirst = i === 0;
-      const id = isFirst ? topic.id : `mtc_${nextId++}`;
-      if (isFirst) {
-        // 原条目改写为第一个子主题
-        topic.name = c.name;
-        topic.description = c.description || topic.description;
-        topic.evidence = c.evidence?.length ? c.evidence : topic.evidence;
-        topic.assessmentPrompt = `让 {{name}} 展示：${(c.evidence || topic.evidence || [])[0] || c.name}`;
-        topic.granularity = 'split-45min';
-      } else {
-        newTopics.push({
-          ...topic, id, name: c.name,
-          description: c.description || '',
-          evidence: c.evidence || [],
-          assessmentPrompt: `让 {{name}} 展示：${(c.evidence || [])[0] || c.name}`,
-          splitFrom: topic.id, granularity: 'split-45min',
-        });
-      }
-      splitIds.push(id);
-    });
-    console.log(`  拆分 ${topic.id} → ${splitIds.length} 子主题: ${children.map(c => c.name).join(' / ')}`);
-  }
-
-  // 不臆造子主题间先修。原节点依赖保留在复用原 id 的首个子主题；
-  // 其他子主题只通过 splitFrom 记录来源，后续由关系审计单独补边。
-  cnData.topics.push(...newTopics);
-
-  console.log(`\n拆分 ${splits.length} 条 → 新增 ${newTopics.length} 主题；依赖关系保持不变`);
+  const generationBatchId = `granularity-${new Date().toISOString().slice(0, 10).replaceAll('-', '')}`;
+  const changes = prepareGranularityChanges({ topicsDoc: cnData, depsDoc: depData, results, generationBatchId });
+  console.log(`应用 ${changes.splitCount} 条拆分，持久化 ${changes.coveredCount} 条 covered；主题总数 ${changes.topicsDoc.topics.length}`);
   if (dryRun) { console.log('（--dry-run，未写盘）'); return; }
-  depData.edgeCount = depData.dependencies.length;
-  if (typeof cnData.topicCount === 'number') cnData.topicCount = cnData.topics.length;
-  writeFileSync(cnPath, JSON.stringify(cnData, null, 2) + '\n');
-  writeFileSync(depPath, JSON.stringify(depData, null, 2) + '\n');
-  console.log(`已写盘。后续: node scripts/validate.mjs && node scripts/checksum.mjs`);
+  writeFileSync(cnPath, JSON.stringify(changes.topicsDoc, null, 2) + '\n');
+  writeFileSync(depPath, JSON.stringify(changes.depsDoc, null, 2) + '\n');
+  console.log('已写盘。后续: node scripts/compute-centrality.mjs && node scripts/checksum.mjs && node scripts/validate.mjs --publish');
 }
 
 // ========== 入口 ==========

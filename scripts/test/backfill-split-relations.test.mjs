@@ -11,7 +11,7 @@ import {
 } from '../backfill-split-relations.mjs';
 
 const topics = [
-  { id: 'parent', subject: 'Biology', domain: 'Immunity', stage: '高中', ageRangeStart: 16, name: '特异性免疫', description: '体液免疫和细胞免疫' },
+  { id: 'parent', granularity: 'split-45min', subject: 'Biology', domain: 'Immunity', stage: '高中', ageRangeStart: 16, name: '体液免疫', description: '抗体参与的免疫' },
   { id: 'child-a', splitFrom: 'parent', subject: 'Biology', domain: 'Immunity', stage: '高中', ageRangeStart: 16, name: '体液免疫', description: '抗体参与的免疫' },
   { id: 'child-b', splitFrom: 'parent', subject: 'Biology', domain: 'Immunity', stage: '高中', ageRangeStart: 16, name: '细胞免疫', description: '细胞参与的免疫' },
   { id: 'prior', subject: 'Biology', domain: 'Immunity', stage: '高中', ageRangeStart: 16, name: '免疫系统组成', description: '免疫器官和免疫细胞' },
@@ -20,10 +20,13 @@ const topics = [
   { id: 'junior', subject: 'Biology', domain: 'Immunity', stage: '初中', ageRangeStart: 13, name: '人体免疫防线', description: '人体三道防线' },
   { id: 'unrelated', splitFrom: 'parent', subject: 'Geography', domain: 'Climate', stage: '高中', ageRangeStart: 16, name: '季风气候', description: '季风气候' },
   { id: 'cross-domain', subject: 'Biology', domain: 'Cells', stage: '高中', ageRangeStart: 16, name: '细胞膜的结构', description: '细胞膜结构与功能' },
+  { id: 'cross-subject', subject: 'Chemistry', domain: 'Matter', stage: '高中', ageRangeStart: 16, name: '物质结构', description: '物质结构基础' },
 ];
 const existing = [
   { topicId: 'parent', prerequisiteId: 'prior', strength: 'hard', reason: '先理解组成' },
   { topicId: 'later', prerequisiteId: 'parent', strength: 'soft', reason: '再理解失调' },
+  { topicId: 'cross-domain', prerequisiteId: 'prior', strength: 'soft', reason: 'structural bridge' },
+  { topicId: 'cross-subject', prerequisiteId: 'prior', strength: 'soft', reason: 'teacher-seeded cross-subject bridge' },
 ];
 
 const candidates = buildCandidates(topics[1], topics, existing, { localLimit: 4, crossStageLimit: 2 });
@@ -38,6 +41,8 @@ assert.ok(!corruptCandidates.some(c => ['parent', 'prior', 'later'].includes(c.i
   '跨学科错误 splitFrom 不得召回父节点及父边邻居');
 assert.ok(candidates.some(c => c.id === 'cross-domain' && c.sources.includes('structural')),
   '应通过父边两跳结构召回同学科跨领域候选');
+assert.ok(candidates.some(c => c.id === 'cross-subject' && c.sources.includes('cross-subject-structural')),
+  '只通过已有结构种子受控召回跨学科候选');
 
 assert.deepEqual(
   missingTargetIds([{ id: 'a' }, { id: 'b' }], [{ targets: [{ id: 'a' }] }]),

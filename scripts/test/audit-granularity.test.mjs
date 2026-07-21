@@ -43,7 +43,7 @@ test('split apply demotes inherited reviewed edges and marks every touching edge
   assert.ok(rewritten.every(edge => edge.reviewStatus === 'machine' && edge.rescopeRequired === true));
   assert.equal(rewritten[0].previousReviewStatus, 'reviewed');
   assert.equal(rewritten[1].previousReviewStatus, undefined);
-  assert.ok(rewritten.every(edge => edge.generationBatchId === 'split-batch'));
+  assert.ok(rewritten.every(edge => edge.rescopeBatchId === 'split-batch'));
   assert.equal(out.topicsDoc.topics.find(topic => topic.id === 'mtc_10').centrality, null);
   const second = out.topicsDoc.topics.find(topic => topic.splitFrom === 'mtc_10');
   assert.equal(second.name, '细胞免疫');

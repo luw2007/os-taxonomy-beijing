@@ -22,15 +22,17 @@ import { createHash } from 'node:crypto';
 import { readFileSync, existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { publicationProblems } from './publication-safety.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = resolve(ROOT, 'data');
 
-// --- 解析 --upstream / --no-dag 参数 -------------------------------------
+// --- 解析 --upstream / --no-dag / --publish 参数 -------------------------
 let upstreamPath = resolve(ROOT, '..', 'os-taxonomy');
 const upIdx = process.argv.indexOf('--upstream');
 if (upIdx !== -1 && process.argv[upIdx + 1]) upstreamPath = process.argv[upIdx + 1];
 const skipDag = process.argv.includes('--no-dag');
+const publishMode = process.argv.includes('--publish');
 
 const UPSTREAM_DATA = resolve(upstreamPath, 'data');
 const hasUpstream = existsSync(resolve(UPSTREAM_DATA, 'topics.json'));
@@ -165,6 +167,12 @@ if (cnOriginTopics) {
       check(cnStandardKeys.has(key),
         `cn-origin topic ${t.id} references unknown cnStandard ${key}`);
     }
+    if (t.status === 'covered') {
+      check(Array.isArray(t.coveredBy) && t.coveredBy.length >= 2,
+        `cn-origin topic ${t.id}: covered status requires at least two coveredBy ids`);
+      for (const id of (t.coveredBy || [])) check(cnOriginIds.has(id) || cnOriginTopics.topics.some(topic => topic.id === id),
+        `cn-origin topic ${t.id}: coveredBy references unknown topic ${id}`);
+    }
   }
 }
 
@@ -177,6 +185,7 @@ if (cnDeps) {
   // DAG 校验用的邻接表（仅当 !skipDag）
   const dagAdj = new Map();
   const dagNodes = new Set();
+  const batchIds = new Set((cnDeps.generationBatches || []).map(batch => batch.id));
   for (const d of cnDeps.dependencies) {
     check(typeof d.topicId === 'string' && d.topicId.startsWith('mtc_'),
       `cn-dep: topicId malformed: ${d.topicId}`);
@@ -188,10 +197,37 @@ if (cnDeps) {
     const rs = d.reviewStatus ?? 'machine';
     check(VALID_REVIEW_STATUS.has(d.reviewStatus || 'machine'),
       `cn-dep ${d.topicId}->${d.prerequisiteId}: illegal reviewStatus "${d.reviewStatus}"`);
+    check(!(d.reviewStatus === 'reviewed' && d.rescopeRequired === true),
+      `cn-dep ${d.topicId}->${d.prerequisiteId}: reviewed edge cannot have rescopeRequired`);
     reviewCounts[rs] = (reviewCounts[rs] || 0) + 1;
     // 两端必须在 cn-topics 中存在
     check(cnOriginIds.has(d.topicId), `cn-dep: topicId ${d.topicId} not in cn-topics`);
     check(cnOriginIds.has(d.prerequisiteId), `cn-dep: prerequisiteId ${d.prerequisiteId} not in cn-topics`);
+    if (d.rescopeRequired === true) {
+      check(rs === 'machine', `cn-dep ${d.topicId}->${d.prerequisiteId}: rescopeRequired edge must be machine`);
+      check(typeof d.rescopeBatchId === 'string' && d.rescopeBatchId.length > 0,
+        `cn-dep ${d.topicId}->${d.prerequisiteId}: rescopeRequired edge missing rescopeBatchId`);
+    }
+    if (d.previousReviewStatus !== undefined) {
+      check(d.previousReviewStatus === 'reviewed' && d.rescopeRequired === true,
+        `cn-dep ${d.topicId}->${d.prerequisiteId}: previousReviewStatus requires active rescopeRequired`);
+    }
+    if (d.generationBatchId !== undefined) {
+      check(batchIds.has(d.generationBatchId),
+        `cn-dep ${d.topicId}->${d.prerequisiteId}: unknown generationBatchId ${d.generationBatchId}`);
+    }
+    if (d.ageRegression === true) {
+      const topic = cnOriginTopics?.topics.find(item => item.id === d.topicId);
+      const prerequisite = cnOriginTopics?.topics.find(item => item.id === d.prerequisiteId);
+      check(rs === 'machine' && topic?.stage === prerequisite?.stage && prerequisite?.ageRangeStart > topic?.ageRangeStart,
+        `cn-dep ${d.topicId}->${d.prerequisiteId}: invalid ageRegression flag`);
+    }
+    const hasReviewAudit = d.reviewedBy !== undefined || d.reviewedAt !== undefined || d.reviewNote !== undefined;
+    if (hasReviewAudit) {
+      check((rs === 'reviewed' || rs === 'rejected') && typeof d.reviewedBy === 'string' && d.reviewedBy.length > 0
+        && typeof d.reviewedAt === 'string' && d.reviewedAt.length > 0,
+      `cn-dep ${d.topicId}->${d.prerequisiteId}: incomplete human review audit metadata`);
+    }
     const key = `${d.topicId}->${d.prerequisiteId}`;
     if (cnDepSeen.has(key)) errors.push(`cn-dep: duplicate edge ${key}`);
     cnDepSeen.add(key);
@@ -230,6 +266,9 @@ if (cnDeps) {
   const total = cnDeps.dependencies.length;
   const reviewedPct = total > 0 ? (100 * reviewCounts.reviewed / total).toFixed(1) : '0';
   console.log(`  📋 审核覆盖率: reviewed ${reviewCounts.reviewed} / machine ${reviewCounts.machine} / rejected ${reviewCounts.rejected}（已审核 ${reviewedPct}%）`);
+  if (publishMode && cnOriginTopics) {
+    for (const problem of publicationProblems(cnOriginTopics.topics, cnDeps.dependencies)) errors.push(`publish: ${problem}`);
+  }
 }
 
 // --- 4d. 上游 mt_ → 中国 mtc_ 桥接依赖完整性 -----------------------------

@@ -90,6 +90,23 @@
             "type": ["string", "null"],
             "description": "分裂部分标记（a/b/c，复合主题拆分后的序号）"
           }
+          ,"granularity": {
+            "type": "string",
+            "enum": ["split-45min"],
+            "description": "已按单课时粒度拆分"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["covered"],
+            "description": "该宽泛主题已被更细主题完整覆盖"
+          },
+          "coveredBy": {
+            "type": "array",
+            "minItems": 2,
+            "uniqueItems": true,
+            "items": { "type": "string", "pattern": "^mtc_" },
+            "description": "完整覆盖本主题的同学科同学段主题"
+          }
         },
         "additionalProperties": false
       }

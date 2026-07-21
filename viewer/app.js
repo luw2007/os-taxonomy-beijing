@@ -1,3 +1,7 @@
+import { formatMasteryProgress } from './mastery-progress.js';
+import { toggleMastery } from './mastery-state.js';
+
+
 /* === Beijing Skill Taxonomy 知识浏览器前端 (2D 列表布局) ===
  * 路由设计:location.hash 是唯一状态源。
  *   #/                              概览
@@ -20,15 +24,6 @@ let route = { view: 'overview', id: null, dim: 'us', subject: null, domain: null
 let dimensionsData = null;
 let subjectsTree = null;
 
-// --- 审核闸门: 是否只看已审核关联 ---
-// 默认勾选(只显示 reviewed),保护儿童不看到未审核的 AI 推测关联。
-// 字段缺失(老数据)按 machine 处理,不会出现"指令性措辞"误导。
-const REVIEW_FILTER_KEY = 'kg-viewer-review-filter';
-let reviewFilterOnlyReviewed = (() => {
-  const saved = localStorage.getItem(REVIEW_FILTER_KEY);
-  // 显式存 '0' 才关闭;否则(包括首次/null)默认开启
-  return saved !== '0';
-})();
 
 // 年龄段筛选按钮值 → ageRange 区间
 const FILTER_TO_RANGE = { young: '4-7', mid: '8-10', old: '11-15' };
@@ -37,11 +32,6 @@ const RANGE_TO_FILTER = Object.fromEntries(Object.entries(FILTER_TO_RANGE).map((
 async function api(path) {
   const url = new URL(path, location.origin);
   url.searchParams.set('dimension', route.dim);
-  // 审核闸门: 关闭 toggle 时带 review=all 看全部(含 machine);
-  // 开启时(默认)不带参数 → API 只返回 reviewed。
-  if (!reviewFilterOnlyReviewed && !url.searchParams.has('review')) {
-    url.searchParams.set('review', 'all');
-  }
   const res = await fetch(url);
   if (!res.ok) throw new Error(`API ${path} 返回 ${res.status}`);
   return res.json();
@@ -131,6 +121,26 @@ function syncFilterButtons() {
   });
 }
 
+function currentMasteredIds() {
+  const users = JSON.parse(localStorage.getItem('kg-demo-users') || 'null');
+  const activeId = users?.activeId;
+  return new Set(JSON.parse(localStorage.getItem(activeId ? `kg-demo-u-${activeId}-mastered` : 'kg-demo-mastered') || '[]'));
+}
+
+function saveMasteredIds(ids) {
+  const users = JSON.parse(localStorage.getItem('kg-demo-users') || 'null');
+  const activeId = users?.activeId;
+  localStorage.setItem(activeId ? `kg-demo-u-${activeId}-mastered` : 'kg-demo-mastered', JSON.stringify([...ids]));
+}
+
+function toggleCurrentTopicMastery() {
+  if (!route.id) return;
+  const mastered = toggleMastery(currentMasteredIds(), route.id);
+  saveMasteredIds(mastered);
+  loadDetail();
+}
+window.toggleCurrentTopicMastery = toggleCurrentTopicMastery;
+
 // === 渲染:概览 ===
 async function loadSummary() {
   const summary = await api('/api/summary');
@@ -140,8 +150,8 @@ async function loadSummary() {
     document.getElementById('hero-desc').textContent = dimensionsData.dimensions[route.dim].description || '';
   }
   const statsEl = document.getElementById('overview-stats');
-  const pct = summary.totalTopics > 0 ? (summary.translatedTopics / summary.totalTopics * 100).toFixed(1) : 0;
-  statsEl.innerHTML = `<div class="stat-card"><div class="num">${summary.totalTopics}</div><div class="label">微主题总数</div></div><div class="stat-card highlight"><div class="num">${summary.translatedTopics}</div><div class="label">已翻译(${pct}%)</div></div><div class="stat-card"><div class="num">${summary.totalDeps}</div><div class="label">依赖关系</div></div><div class="stat-card"><div class="num">${Object.keys(summary.subjectCounts).length}</div><div class="label">学科</div></div>`;
+  const progress = formatMasteryProgress(currentMasteredIds(), new Set(summary.topicIds));
+  statsEl.innerHTML = `<div class="stat-card"><div class="num">${summary.totalTopics}</div><div class="label">微主题总数</div></div><div class="stat-card highlight"><div class="num">${progress.count}</div><div class="label">已掌握(${progress.percent}%)</div></div><div class="stat-card"><div class="num">${summary.totalDeps}</div><div class="label">依赖关系</div></div><div class="stat-card"><div class="num">${Object.keys(summary.subjectCounts).length}</div><div class="label">学科</div></div>`;
   await loadSubjectCards();
   await loadTextbookGapCards();
 }
@@ -311,51 +321,31 @@ async function loadDetail() {
     : '<p style="color:var(--text-muted);font-size:13px;">暂无中国课标对齐。</p>';
   // 依赖链接改成 href,可中键打开
   const depLink = (id) => `#/${id}?dim=${route.dim}`;
-  // 审核闸门: reviewed 边显示指令性强度标签;machine(或字段缺失)降级为"AI 推测·未核对"。
-  // 字段缺失时按 machine 处理(向后兼容老数据)。
-  const isReviewed = (d) => d && d.reviewStatus === 'reviewed';
-  const strengthTag = (d) => isReviewed(d)
-    ? `<span class="dep-strength ${d.strength}">${d.strength === 'hard' ? '必须先学' : '建议先学'}</span>`
-    : `<span class="dep-strength unverified" title="这条关联由 AI 推测，尚未经教师核对">AI 推测·未核对</span>`;
+  const strengthTag = (dependency) =>
+    `<span class="dep-strength ${dependency.strength}">${dependency.strength === 'hard' ? '必须先学' : '建议先学'}</span>`;
   const renderPrereq = (d) => {
     const pt = d.prerequisiteTopic; const hidden = pt && pt.dimensionVisible === false;
-    const cls = ['dep-link', hidden ? 'dim-hidden' : '', isReviewed(d) ? '' : 'machine'].filter(Boolean).join(' ');
+    const cls = ['dep-link', hidden ? 'dim-hidden' : ''].filter(Boolean).join(' ');
     return `<a class="${cls}" href="${depLink(d.prerequisiteId)}"><span class="dep-name">${pt ? escapeHtml(pt.name) : d.prerequisiteId}</span>${hidden ? '<span class="dim-hidden-tag">美版</span>' : ''}${strengthTag(d)}</a>${d.reason ? `<div class="dep-reason">${escapeHtml(d.reason)}</div>` : ''}`;
   };
   const renderDependent = (d) => {
     const dt = d.dependentTopic; const hidden = dt && dt.dimensionVisible === false;
-    const cls = ['dep-link', hidden ? 'dim-hidden' : '', isReviewed(d) ? '' : 'machine'].filter(Boolean).join(' ');
+    const cls = ['dep-link', hidden ? 'dim-hidden' : ''].filter(Boolean).join(' ');
     return `<a class="${cls}" href="${depLink(d.topicId)}"><span class="dep-name">${dt ? escapeHtml(dt.name) : d.topicId}</span>${hidden ? '<span class="dim-hidden-tag">美版</span>' : ''}${strengthTag(d)}</a>`;
   };
   const prereqs = data.prerequisites || [];
   const dependents = data.dependents || [];
-  // 仅显示已审核(默认): 没有已审核边时给空态提示;取消勾选则显示全部(含 machine)。
-  const emptyPrereq = reviewFilterOnlyReviewed
-    ? '<p class="dep-empty">暂无已审核关联<a class="dep-empty-toggle" onclick="toggleReviewFilter()">（显示全部含 AI 推测）</a></p>'
-    : '<p class="dep-empty">无（这是基础知识）</p>';
-  const emptyDependents = reviewFilterOnlyReviewed
-    ? '<p class="dep-empty">暂无已审核关联<a class="dep-empty-toggle" onclick="toggleReviewFilter()">（显示全部含 AI 推测）</a></p>'
-    : '<p class="dep-empty">无</p>';
+  const emptyPrereq = '<p class="dep-empty">暂无已审核关联</p>';
+  const emptyDependents = '<p class="dep-empty">暂无已审核关联</p>';
   const prereqHtml = prereqs.length > 0 ? prereqs.map(renderPrereq).join('') : emptyPrereq;
   const dependentsHtml = dependents.length > 0 ? dependents.map(renderDependent).join('') : emptyDependents;
-  // 依赖区顶部的"仅显示已审核关联"toggle。勾选=只看 reviewed(默认),取消=看全部含 machine。
-  const toggleHtml = `<label class="review-toggle"><input type="checkbox" id="review-filter" ${reviewFilterOnlyReviewed ? 'checked' : ''} onchange="toggleReviewFilter()"><span>仅显示已审核关联</span><span class="review-toggle-hint">${reviewFilterOnlyReviewed ? '✓ 教师已核对' : '含 AI 推测·未核对'}</span></label>`;
-  body.innerHTML = `<h2>${escapeHtml(t.name)}</h2><div class="detail-id">${t.id}</div><div class="detail-section"><h3>📖 描述</h3><div class="detail-desc">${escapeHtml(t.description || '(无描述)')}</div></div>${t.evidence && t.evidence.length > 0 ? `<div class="detail-section"><h3>✓ 掌握证据</h3><ul class="evidence-list">${t.evidence.map(e => `<li>${escapeHtml(e)}</li>`).join('')}</ul></div>` : ''}<div class="detail-section"><h3>🎯 评估话术</h3><div class="assessment-box">${assessment}</div></div><div class="detail-section"><h3>📋 中国课标对齐</h3>${standardsHtml}</div><div class="detail-section"><h3>🔗 知识依赖关系</h3>${toggleHtml}<div class="dep-section"><div class="dep-box"><h4>前置(学这个之前要先掌握)</h4>${prereqHtml}</div><div class="dep-box"><h4>后续(学了这个才能学的)</h4>${dependentsHtml}</div></div></div>`;
+  const masteryAction = currentMasteredIds().has(t.id)
+    ? '<button class="mastery-action mastered" id="detail-mastery-action">↩︎ 取消掌握标记</button>'
+    : '<button class="mastery-action" id="detail-mastery-action">✓ 标记为已掌握</button>';
+  body.innerHTML = `<div class="detail-title-row"><h2>${escapeHtml(t.name)}</h2>${masteryAction}</div><div class="detail-id">${t.id}</div><div class="detail-section"><h3>📖 描述</h3><div class="detail-desc">${escapeHtml(t.description || '(无描述)')}</div></div>${t.evidence && t.evidence.length > 0 ? `<div class="detail-section"><h3>✓ 掌握证据</h3><ul class="evidence-list">${t.evidence.map(e => `<li>${escapeHtml(e)}</li>`).join('')}</ul></div>` : ''}<div class="detail-section"><h3>🎯 评估话术</h3><div class="assessment-box">${assessment}</div></div><div class="detail-section"><h3>📋 中国课标对齐</h3>${standardsHtml}</div><div class="detail-section"><h3>🔗 已审核知识依赖</h3><div class="dep-section"><div class="dep-box"><h4>前置(学这个之前要先掌握)</h4>${prereqHtml}</div><div class="dep-box"><h4>后续(掌握后可继续学习)</h4>${dependentsHtml}</div></div></div>`;
+  document.getElementById('detail-mastery-action').addEventListener('click', toggleCurrentTopicMastery);
 }
 
-// === 审核闸门 toggle ===
-// 切换"仅显示已审核关联":写 localStorage + 重新拉取当前 topic 渲染。
-function toggleReviewFilter() {
-  reviewFilterOnlyReviewed = !reviewFilterOnlyReviewed;
-  localStorage.setItem(REVIEW_FILTER_KEY, reviewFilterOnlyReviewed ? '1' : '0');
-  // 同步 checkbox 状态(空态提示里的 a 也会触发,此时 checkbox 可能刚渲染)
-  const cb = document.getElementById('review-filter');
-  if (cb) cb.checked = reviewFilterOnlyReviewed;
-  if (route.view === 'detail' && route.id) {
-    loadDetail();
-  }
-}
-window.toggleReviewFilter = toggleReviewFilter;
 
 // === hashchange:唯一渲染入口 ===
 async function render() {
@@ -450,6 +440,10 @@ document.getElementById('detail-back').addEventListener('click', () => {
 function goOverview() { location.hash = buildHash({ id: null, subject: null, domain: null, q: null, ageRange: route.ageRange }); }
 
 // === 工具 ===
+window.addEventListener('masterychanged', () => {
+  if (route.view === 'list' && !route.subject && !route.domain && !route.q) loadSummary();
+});
+
 function escapeHtml(str) {
   if (str == null) return '';
   return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');

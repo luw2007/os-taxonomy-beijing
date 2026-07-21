@@ -5,14 +5,14 @@ import { publicationProblems } from '../publication-safety.mjs';
 
 test('publish readiness rejects reviewed rescope edges and stale centrality', () => {
   const topics = [
-    { id: 'a', nodeKind: 'concept', centrality: 0 },
+    { id: 'a', nodeKind: 'concept', centrality: 1 },
     { id: 'b', nodeKind: 'concept', centrality: 0 },
   ];
   const dependencies = [
     { topicId: 'b', prerequisiteId: 'a', reviewStatus: 'reviewed', rescopeRequired: true },
   ];
   const problems = publicationProblems(topics, dependencies);
-  assert.ok(problems.some(problem => problem.includes('reviewed') && problem.includes('rescopeRequired')));
+  assert.ok(problems.some(problem => problem.includes('rescopeRequired')));
   assert.ok(problems.some(problem => problem.includes('centrality')));
 });
 

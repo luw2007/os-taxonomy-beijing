@@ -48,20 +48,20 @@
       "sha256": "138d492cdafcce012a5c12e6b8ae04f279f0d8687ea179b9e14126a4aaba22cb"
     },
     "domains.zh.json": {
-      "bytes": 11909,
-      "sha256": "bea9cef7a82dc36e088e7412a556be34bfcfc8aab8574df31f3274af5fbf9721"
+      "bytes": 12512,
+      "sha256": "714a4e99631ec293f09d11b41f3e93bf2d31d3d2c0ea3d252350f088e3f91987"
     },
     "cn-topics.json": {
-      "bytes": 1438027,
-      "sha256": "f0d99c4358439bf034a816345295bc6966c7e6c43a4b562f69ea1440840f916e"
+      "bytes": 1460220,
+      "sha256": "007cf583d79c301da955a7a52bbe69dbf0bbe87583e5e6c5e931ec442d5607cd"
     },
     "terminology.json": {
       "bytes": 4006,
       "sha256": "2c631de7157436f5c732b6ed4fa83447c52fe4e00a7ac6ef0278ed19cdc3c2a8"
     },
     "cn-dependencies.json": {
-      "bytes": 510155,
-      "sha256": "81b602a2c3b1140436717a1811bee34356ce8fdbb5e472b558d63cb635562978"
+      "bytes": 516591,
+      "sha256": "3e600e2073e22d69c50c2c6a80db74d9e4bd459a724ceaf6e4de6f5b8c04c14f"
     },
     "cn-bridge-dependencies.json": {
       "bytes": 10886,

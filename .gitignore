@@ -37,3 +37,4 @@ data/.align-work/
 # .env 备份（含 API key）
 .env.backup-*
 .env.backup
+data/.granularity-work/

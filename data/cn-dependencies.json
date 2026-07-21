@@ -2,7 +2,7 @@
   "version": "1.2.0-zh.0",
   "upstreamVersion": "v1",
   "locale": "zh-CN",
-  "edgeCount": 2262,
+  "edgeCount": 2290,
   "note": "mtc_ 主题知识依赖 DAG。LLM 逐桶语义建图(桶内先修) + 规则跨domain先修链。详见 scripts/build-deps-llm.mjs。",
   "dependencies": [
     {
@@ -3535,7 +3535,7 @@
     },
     {
       "topicId": "mtc_427",
-      "prerequisiteId": "mtc_426",
+      "prerequisiteId": "mtc_2099",
       "strength": "soft",
       "reason": "Ancient Chinese History 渐进：百家争鸣 → 秦的统一",
       "reviewStatus": "reviewed"
@@ -3549,7 +3549,7 @@
     },
     {
       "topicId": "mtc_429",
-      "prerequisiteId": "mtc_428",
+      "prerequisiteId": "mtc_2100",
       "strength": "soft",
       "reason": "Ancient Chinese History 渐进：西汉的建立 → 丝绸之路的开辟",
       "reviewStatus": "reviewed"
@@ -3605,14 +3605,14 @@
     },
     {
       "topicId": "mtc_438",
-      "prerequisiteId": "mtc_437",
+      "prerequisiteId": "mtc_2101",
       "strength": "soft",
       "reason": "Ancient Chinese History 渐进：明朝的统治 → 清朝君主专制的强化",
       "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_1133",
-      "prerequisiteId": "mtc_438",
+      "prerequisiteId": "mtc_2102",
       "strength": "soft",
       "reason": "Ancient Chinese History 渐进：清朝君主专制的强化 → 日本明治维新",
       "reviewStatus": "reviewed"
@@ -3759,7 +3759,7 @@
     },
     {
       "topicId": "mtc_446",
-      "prerequisiteId": "mtc_445",
+      "prerequisiteId": "mtc_2104",
       "strength": "soft",
       "reason": "Modern Chinese History 渐进：五四运动 → 北伐战争",
       "reviewStatus": "reviewed"
@@ -3773,21 +3773,21 @@
     },
     {
       "topicId": "mtc_448",
-      "prerequisiteId": "mtc_447",
+      "prerequisiteId": "mtc_2105",
       "strength": "soft",
       "reason": "Modern Chinese History 渐进：中国工农红军长征 → 抗日战争",
       "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_449",
-      "prerequisiteId": "mtc_448",
+      "prerequisiteId": "mtc_2107",
       "strength": "soft",
       "reason": "Modern Chinese History 渐进：抗日战争 → 人民解放战争的胜利",
       "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_1135",
-      "prerequisiteId": "mtc_449",
+      "prerequisiteId": "mtc_2108",
       "strength": "soft",
       "reason": "Modern Chinese History 渐进：人民解放战争的胜利 → 近代科学",
       "reviewStatus": "reviewed"
@@ -3906,7 +3906,7 @@
     },
     {
       "topicId": "mtc_452",
-      "prerequisiteId": "mtc_451",
+      "prerequisiteId": "mtc_2109",
       "strength": "soft",
       "reason": "Contemporary Chinese History 渐进：社会主义制度的建立 → 探索建设社会主义的道路",
       "reviewStatus": "reviewed"
@@ -3920,7 +3920,7 @@
     },
     {
       "topicId": "mtc_1169",
-      "prerequisiteId": "mtc_453",
+      "prerequisiteId": "mtc_2111",
       "strength": "soft",
       "reason": "Contemporary Chinese History 渐进：改革开放 → 社会主义建设在探索中曲折发展",
       "reviewStatus": "reviewed"
@@ -3934,14 +3934,14 @@
     },
     {
       "topicId": "mtc_457",
-      "prerequisiteId": "mtc_456",
+      "prerequisiteId": "mtc_2112",
       "strength": "hard",
       "reason": "小学高段→初中：西欧封建社会 → 新航路开辟",
       "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_458",
-      "prerequisiteId": "mtc_457",
+      "prerequisiteId": "mtc_2113",
       "strength": "soft",
       "reason": "World History 渐进：新航路开辟 → 英国资产阶级革命",
       "reviewStatus": "reviewed"
@@ -3976,7 +3976,7 @@
     },
     {
       "topicId": "mtc_463",
-      "prerequisiteId": "mtc_462",
+      "prerequisiteId": "mtc_2115",
       "strength": "soft",
       "reason": "World History 渐进：第一次世界大战 → 十月革命",
       "reviewStatus": "reviewed"
@@ -3990,7 +3990,7 @@
     },
     {
       "topicId": "mtc_465",
-      "prerequisiteId": "mtc_464",
+      "prerequisiteId": "mtc_2117",
       "strength": "soft",
       "reason": "World History 渐进：第二次世界大战 → 冷战",
       "reviewStatus": "reviewed"
@@ -6881,14 +6881,14 @@
     },
     {
       "topicId": "mtc_1145",
-      "prerequisiteId": "mtc_1142",
+      "prerequisiteId": "mtc_2122",
       "strength": "soft",
       "reason": "Historical Thinking 渐进：亚非拉国家的新发展 → 不断发展的现代社会",
       "reviewStatus": "reviewed"
     },
     {
       "topicId": "mtc_1146",
-      "prerequisiteId": "mtc_1145",
+      "prerequisiteId": "mtc_2126",
       "strength": "soft",
       "reason": "Historical Thinking 渐进：不断发展的现代社会 → 活动课：时事溯源",
       "reviewStatus": "reviewed"
@@ -7231,7 +7231,7 @@
     },
     {
       "topicId": "mtc_1140",
-      "prerequisiteId": "mtc_1130",
+      "prerequisiteId": "mtc_2119",
       "strength": "soft",
       "reason": "Modern World History 渐进：殖民地人民的反抗斗争 → 二战后资本主义的新变化",
       "reviewStatus": "reviewed"
@@ -7252,7 +7252,7 @@
     },
     {
       "topicId": "mtc_1179",
-      "prerequisiteId": "mtc_1144",
+      "prerequisiteId": "mtc_2124",
       "strength": "soft",
       "reason": "Modern World History 渐进：冷战后的世界格局 → 影响世界的工业革命",
       "reviewStatus": "reviewed"
@@ -10738,7 +10738,7 @@
     },
     {
       "topicId": "mtc_1074",
-      "prerequisiteId": "mtc_428",
+      "prerequisiteId": "mtc_2100",
       "strength": "hard",
       "reason": "西晋的统一是在西汉之后，东汉之前的时期",
       "reviewStatus": "machine"
@@ -13601,7 +13601,7 @@
     },
     {
       "topicId": "mtc_1109",
-      "prerequisiteId": "mtc_2018",
+      "prerequisiteId": "mtc_2118",
       "strength": "hard",
       "reason": "外交事业的发展受到国际共产主义运动的影响",
       "reviewStatus": "machine"
@@ -13650,7 +13650,7 @@
     },
     {
       "topicId": "mtc_1109",
-      "prerequisiteId": "mtc_1137",
+      "prerequisiteId": "mtc_2120",
       "strength": "hard",
       "reason": "外交事业的发展受到亚非拉民族民主运动的影响",
       "reviewStatus": "machine"
@@ -13664,21 +13664,21 @@
     },
     {
       "topicId": "mtc_1109",
-      "prerequisiteId": "mtc_1141",
+      "prerequisiteId": "mtc_2121",
       "strength": "hard",
       "reason": "外交事业的发展受到社会主义的发展与挫折的影响",
       "reviewStatus": "machine"
     },
     {
       "topicId": "mtc_1109",
-      "prerequisiteId": "mtc_1142",
+      "prerequisiteId": "mtc_2122",
       "strength": "hard",
       "reason": "外交事业的发展受到亚非拉国家的新发展的影响",
       "reviewStatus": "machine"
     },
     {
       "topicId": "mtc_1131",
-      "prerequisiteId": "mtc_1130",
+      "prerequisiteId": "mtc_2119",
       "strength": "hard",
       "reason": "了解古代社会的变迁是理解俄国改革的前提。",
       "reviewStatus": "machine"
@@ -13699,7 +13699,7 @@
     },
     {
       "topicId": "mtc_1145",
-      "prerequisiteId": "mtc_1141",
+      "prerequisiteId": "mtc_2121",
       "strength": "hard",
       "reason": "理解社会主义的发展和挫折有助于了解现代社会的形成过程。",
       "reviewStatus": "machine"
@@ -15838,6 +15838,202 @@
       "strength": "soft",
       "reason": "小学\"古诗·节奏与意境初感\"建立感悟，初中\"古诗文·诗意理解\"系统分析",
       "reviewStatus": "reviewed"
+    },
+    {
+      "topicId": "mtc_2099",
+      "prerequisiteId": "mtc_426",
+      "strength": "hard",
+      "reason": "粒度拆分链: 儒家与道家思想 → 法家、墨家与百家争鸣影响",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2100",
+      "prerequisiteId": "mtc_428",
+      "strength": "hard",
+      "reason": "粒度拆分链: 西汉建立与文景之治 → 汉武帝大一统",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2101",
+      "prerequisiteId": "mtc_437",
+      "strength": "hard",
+      "reason": "粒度拆分链: 明朝建立与君权强化 → 郑和下西洋",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2102",
+      "prerequisiteId": "mtc_438",
+      "strength": "hard",
+      "reason": "粒度拆分链: 军机处与君主专制强化 → 抗击侵略与巩固边疆",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2103",
+      "prerequisiteId": "mtc_442",
+      "strength": "hard",
+      "reason": "粒度拆分链: 甲午中日战争与《马关条约》 → 戊戌变法",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2104",
+      "prerequisiteId": "mtc_445",
+      "strength": "hard",
+      "reason": "粒度拆分链: 五四运动 → 中国共产党的成立",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2105",
+      "prerequisiteId": "mtc_447",
+      "strength": "hard",
+      "reason": "粒度拆分链: 红军长征的原因和经过 → 遵义会议与长征精神",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2106",
+      "prerequisiteId": "mtc_448",
+      "strength": "hard",
+      "reason": "粒度拆分链: 日本侵华史实 → 全民族抗战",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2107",
+      "prerequisiteId": "mtc_2106",
+      "strength": "hard",
+      "reason": "粒度拆分链: 全民族抗战 → 抗日战争的胜利",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2108",
+      "prerequisiteId": "mtc_449",
+      "strength": "hard",
+      "reason": "粒度拆分链: 重庆谈判与解放战争的开始 → 解放战争的胜利",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2109",
+      "prerequisiteId": "mtc_451",
+      "strength": "hard",
+      "reason": "粒度拆分链: 第一个五年计划 → 三大改造",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2110",
+      "prerequisiteId": "mtc_453",
+      "strength": "hard",
+      "reason": "粒度拆分链: 十一届三中全会 → 农村改革与城市改革",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2111",
+      "prerequisiteId": "mtc_2110",
+      "strength": "hard",
+      "reason": "粒度拆分链: 农村改革与城市改革 → 对外开放格局的形成",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2112",
+      "prerequisiteId": "mtc_456",
+      "strength": "hard",
+      "reason": "粒度拆分链: 西欧封建等级制度与庄园经济 → 拜占庭帝国与阿拉伯帝国",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2113",
+      "prerequisiteId": "mtc_457",
+      "strength": "hard",
+      "reason": "粒度拆分链: 新航路开辟 → 文艺复兴",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2114",
+      "prerequisiteId": "mtc_462",
+      "strength": "hard",
+      "reason": "粒度拆分链: 一战爆发原因与导火线 → 一战主要战役与进程",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2115",
+      "prerequisiteId": "mtc_2114",
+      "strength": "hard",
+      "reason": "粒度拆分链: 一战主要战役与进程 → 一战结果与影响",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2116",
+      "prerequisiteId": "mtc_464",
+      "strength": "hard",
+      "reason": "粒度拆分链: 二战爆发与初期战况 → 反法西斯联盟形成与转折",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2117",
+      "prerequisiteId": "mtc_2116",
+      "strength": "hard",
+      "reason": "粒度拆分链: 反法西斯联盟形成与转折 → 二战胜利与影响",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2118",
+      "prerequisiteId": "mtc_2018",
+      "strength": "hard",
+      "reason": "粒度拆分链: 马克思主义的诞生 → 国际共产主义运动的发展",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2119",
+      "prerequisiteId": "mtc_1130",
+      "strength": "hard",
+      "reason": "粒度拆分链: 拉丁美洲独立运动 → 印度民族大起义",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2120",
+      "prerequisiteId": "mtc_1137",
+      "strength": "hard",
+      "reason": "粒度拆分链: 印度的非暴力不合作运动 → 土耳其凯末尔革命和埃及华夫脱运动",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2121",
+      "prerequisiteId": "mtc_1141",
+      "strength": "hard",
+      "reason": "粒度拆分链: 苏联的改革 → 东欧剧变与苏联解体",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2122",
+      "prerequisiteId": "mtc_1142",
+      "strength": "hard",
+      "reason": "粒度拆分链: 万隆会议与不结盟运动 → 非洲独立运动与拉美国家的发展",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2123",
+      "prerequisiteId": "mtc_1144",
+      "strength": "hard",
+      "reason": "粒度拆分链: 冷战后的世界格局概述 → 多极化趋势与大国关系",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2124",
+      "prerequisiteId": "mtc_2123",
+      "strength": "hard",
+      "reason": "粒度拆分链: 多极化趋势与大国关系 → 全球化与地区冲突",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2125",
+      "prerequisiteId": "mtc_1145",
+      "strength": "hard",
+      "reason": "粒度拆分链: 科技革命与信息时代 → 社会问题的挑战与应对",
+      "reviewStatus": "machine"
+    },
+    {
+      "topicId": "mtc_2126",
+      "prerequisiteId": "mtc_2125",
+      "strength": "hard",
+      "reason": "粒度拆分链: 社会问题的挑战与应对 → 可持续发展与全球治理",
+      "reviewStatus": "machine"
     }
   ]
 }

@@ -75,13 +75,15 @@ test('classifies downward navigation as previous only when content is at its top
   assert.equal(classifyPathGesture({ dx: 0, dy: 80 }, { atTop: false }), null);
 });
 
-test('classifies dominant horizontal swipes as knowledge decisions', () => {
-  assert.equal(classifyPathGesture({ dx: -80, dy: 5 }), 'mastered');
-  assert.equal(classifyPathGesture({ dx: 80, dy: 5 }), 'needs-review');
+test('requires a deliberate horizontal swipe for knowledge decisions', () => {
+  assert.equal(classifyPathGesture({ dx: -64, dy: 5 }), null);
+  assert.equal(classifyPathGesture({ dx: 64, dy: 5 }), null);
+  assert.equal(classifyPathGesture({ dx: -96, dy: 5 }), 'mastered');
+  assert.equal(classifyPathGesture({ dx: 96, dy: 5 }), 'needs-review');
 });
 
-test('rejects short gestures below the distance threshold', () => {
-  assert.equal(classifyPathGesture({ dx: 5, dy: 1 }), null);
+test('rejects short gestures below the vertical distance threshold', () => {
+  assert.equal(classifyPathGesture({ dx: 5, dy: 40 }, { atTop: true }), null);
 });
 
 test('rejects diagonal gestures that are not dominant in either axis', () => {
@@ -93,9 +95,10 @@ test('rejects vertical gestures that conflict with scroll position', () => {
   assert.equal(classifyPathGesture({ dx: 0, dy: 80 }, { atBottom: false, atTop: false }), null);
 });
 
-test('honors configurable distance and dominance thresholds', () => {
-  assert.equal(classifyPathGesture({ dx: -20, dy: 1 }, { minDistance: 50 }), null);
-  assert.equal(classifyPathGesture({ dx: -20, dy: 1 }, { minDistance: 10 }), 'mastered');
+test('honors configurable horizontal distance and dominance thresholds', () => {
+  assert.equal(classifyPathGesture({ dx: -70, dy: 1 }, { horizontalMinDistance: 80 }), null);
+  assert.equal(classifyPathGesture({ dx: -70, dy: 1 }, { horizontalMinDistance: 60 }), 'mastered');
+  assert.equal(classifyPathGesture({ dx: -90, dy: 65 }, { dominance: 1.5 }), null);
 });
 
 // --- applyKnowledgeDecision -------------------------------------------------

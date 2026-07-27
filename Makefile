@@ -1,6 +1,6 @@
 .PHONY: all install serve translate validate checksum term-lint check clean help
 .PHONY: normalize-domains dedupe-topics build-deps deps-plan deps-dryrun
-.PHONY: snapshot snapshot-pre snapshot-list snapshot-diff
+.PHONY: snapshot snapshot-pre snapshot-list snapshot-diff export-jsonl
 
 NODE ?= node
 
@@ -80,6 +80,13 @@ term-lint-fix:
 check: checksum validate term-lint-strict
 	@echo "✓ 全量校验通过（checksum + validate + term-lint strict）"
 
+# --- 互操作导出（JSONL，产物 gitignore）---
+#   make export-jsonl                              默认上游 ../os-taxonomy → exports/
+#   make export-jsonl UPSTREAM=/path/to/os-taxonomy OUT=dist/graph
+#   先跑 validate：未通过校验的图不应导出分发
+export-jsonl: validate
+	$(NODE) scripts/export-jsonl.mjs $(if $(UPSTREAM),--upstream $(UPSTREAM)) $(if $(OUT),--out $(OUT))
+
 # --- 数据快照（本地备份，gitignore，作为大改动前的回滚点）---
 #   make snapshot              默认标签 manual
 #   make snapshot-pre          发版前快照（SNAPSHOT_LABEL=pre-v1.2 make snapshot-pre）
@@ -129,6 +136,9 @@ help:
 	@echo "    make term-lint-strict     术语检查（命中即失败，CI 用）"
 	@echo "    make check                全量校验（checksum + validate + term-lint strict）"
 	@echo "    make clean                清理缓存文件"
+	@echo ""
+	@echo "  导出："
+	@echo "    make export-jsonl         导出发布图为 JSONL（UPSTREAM= / OUT= 可选）"
 	@echo ""
 	@echo "  数据快照（本地备份）："
 	@echo "    make snapshot             创建快照（默认标签 manual）"

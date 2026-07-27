@@ -39,3 +39,6 @@ data/.align-work/
 .env.backup
 data/.granularity-work/
 data/.split-relations-work/
+
+# JSONL 互操作导出产物（make export-jsonl，可重新生成，不入版本库）
+exports/

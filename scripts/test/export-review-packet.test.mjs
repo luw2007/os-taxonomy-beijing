@@ -1,7 +1,8 @@
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import test from 'node:test';
 
-import { buildReviewPacket } from '../export-review-packet.mjs';
+import { assertPacketSourceChecksums, buildReviewPacket } from '../export-review-packet.mjs';
 
 const topics = {
   topics: [
@@ -44,4 +45,16 @@ test('review packet rejects missing topic context and never includes non-machine
   assert.throws(() => buildReviewPacket({
     topics: { topics: [] }, dependencies: { dependencies: [dependencies.dependencies[1]], generationBatches: [] }, source, options: {},
   }), /missing topic context/);
+});
+
+test('packet source checksum guard rejects a stale manifest', () => {
+  const sha256 = value => createHash('sha256').update(value).digest('hex');
+  assert.doesNotThrow(() => assertPacketSourceChecksums({
+    manifest: { files: { 'cn-topics.json': { sha256: sha256('topics') }, 'cn-dependencies.json': { sha256: sha256('dependencies') } } },
+    cnTopicsBytes: Buffer.from('topics'), cnDependenciesBytes: Buffer.from('dependencies'),
+  }));
+  assert.throws(() => assertPacketSourceChecksums({
+    manifest: { files: { 'cn-topics.json': { sha256: sha256('stale') }, 'cn-dependencies.json': { sha256: sha256('dependencies') } } },
+    cnTopicsBytes: Buffer.from('topics'), cnDependenciesBytes: Buffer.from('dependencies'),
+  }), /checksum mismatch/);
 });

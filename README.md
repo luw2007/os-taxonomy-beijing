@@ -206,6 +206,8 @@ manifest 的 `generatedAt` 固定取 `data/manifest.json`，同一版本可逐�
 
 本地 HTTP API 的公开 topic/edge 字段、内部字段边界与 alpha 稳定性说明见 [docs/api-contract.md](docs/api-contract.md)。
 
+剩余 `machine` 中国特有依赖可用 `make export-review-packet SUBJECT=Mathematics LIMIT=50 OUT=/tmp/review.json` 导出可复现的人工审阅分片；它不写入决策，也不构成教师审核证据，详见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+
 
 ## 本地知识浏览器
 

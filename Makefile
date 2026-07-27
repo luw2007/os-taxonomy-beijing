@@ -1,6 +1,6 @@
 .PHONY: all install serve translate validate checksum term-lint check clean help
 .PHONY: normalize-domains dedupe-topics build-deps deps-plan deps-dryrun
-.PHONY: snapshot snapshot-pre snapshot-list snapshot-diff export-jsonl export-case audit-math-alignment
+.PHONY: snapshot snapshot-pre snapshot-list snapshot-diff export-jsonl export-case export-review-packet audit-math-alignment
 
 NODE ?= node
 
@@ -91,6 +91,11 @@ export-jsonl: validate
 #   make export-case BASE_URL=https://example.org/taxonomy
 export-case: validate
 	$(NODE) scripts/export-case.mjs --base-url "$(BASE_URL)" $(if $(UPSTREAM),--upstream $(UPSTREAM)) $(if $(OUT),--out $(OUT))
+
+# --- machine 边人工审阅包（只读；不写入任何审核结论）---
+#   make export-review-packet SUBJECT=Mathematics LIMIT=50 OFFSET=0 OUT=/tmp/math-review.json
+export-review-packet: validate
+	$(NODE) scripts/export-review-packet.mjs $(if $(SUBJECT),--subject $(SUBJECT)) $(if $(DOMAIN),--domain $(DOMAIN)) $(if $(GENERATION_BATCH),--generation-batch $(GENERATION_BATCH)) $(if $(LIMIT),--limit $(LIMIT)) $(if $(OFFSET),--offset $(OFFSET)) $(if $(OUT),--out $(OUT))
 
 # --- 数据审计（只读）---
 audit-math-alignment:

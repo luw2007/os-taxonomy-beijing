@@ -41,6 +41,9 @@
 ### Round 4：HTTP topic publication contract
 - `/api/topics` 与 `/api/topic/:id` 现在使用共享 `PUBLISHED_TOPIC_PROPS` 白名单；保留本地详情页所需教学字段，拒绝 `splitFrom`、`coveredBy`、生成批次和粒度等内部构建簿记。新增 [HTTP API 契约](docs/api-contract.md)，明确当前是未版本化的 alpha 本地接口，并推荐 JSONL/CASE 用于机器交换。
 
+### Round 5：machine 边可复现审阅包
+- 新增 `scripts/export-review-packet.mjs` 与 Makefile/CI smoke：按学科、领域或可追溯生成批次稳定切分未审核 `machine` 中国特有边，并携带两端自拟教学上下文及 manifest checksum。导出前逐字节验证这两份输入与 manifest 指纹一致；审阅包严格只读、不含审核结论，逐边决定仍必须走 `review-ai-edge.mjs`，不会将 AI 批次或导出包表述为教师审核。
+
 ## [1.2.0-zh.0] — 2026-07-20
 
 **DAG 完整性 + 审核闸门 + 核心度 + 课标对齐**。经 omp + opus 多轮双审迭代完成。

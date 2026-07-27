@@ -62,6 +62,14 @@ jobs:
           cmp exports/relationships.jsonl /tmp/taxonomy-jsonl-repeat/relationships.jsonl
           cmp exports/manifest.json /tmp/taxonomy-jsonl-repeat/manifest.json
 
+      - name: Machine-edge review packet smoke
+        working-directory: os-taxonomy-beijing
+        run: |
+          node scripts/export-review-packet.mjs --subject Mathematics --limit 10 --out /tmp/taxonomy-review-a.json
+          node scripts/export-review-packet.mjs --subject Mathematics --limit 10 --out /tmp/taxonomy-review-b.json
+          cmp /tmp/taxonomy-review-a.json /tmp/taxonomy-review-b.json
+          jq -e '.format == "beijing-skill-taxonomy-edge-review-packet/v1" and (.edges | length == 10) and ([.edges[] | has("reviewStatus") or has("reviewProvenance") or has("reviewedBy") or has("reviewerRole")] | any | not)' /tmp/taxonomy-review-a.json
+
       - name: CASE v1.1 export smoke
         working-directory: os-taxonomy-beijing
         run: |

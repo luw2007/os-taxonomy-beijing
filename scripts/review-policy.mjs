@@ -26,6 +26,22 @@ export const UPSTREAM_EDGE_REVIEW = Object.freeze({ reviewStatus: 'reviewed', re
 // reviewerRole 仅为经验证的公开角色，不含身份信息或审核记录。
 export const PUBLISHED_EDGE_PROPS = Object.freeze(['strength', 'reason', 'reviewStatus', 'reviewProvenance', 'reviewerRole']);
 
+// HTTP 主题 API 的公开字段。保留本地浏览器所需的教学载荷与显示派生字段；
+// split/coverage/generation 等内部构建簿记绝不通过 API 暴露。
+export const PUBLISHED_TOPIC_PROPS = Object.freeze([
+  'id', 'name', 'description', 'subject', 'domain', 'ageRangeStart', 'ageRangeEnd',
+  'type', 'nodeKind', 'centrality', 'translationStatus', 'cnStandards',
+  'evidence', 'assessmentPrompt', 'translated', 'subjectZh', 'domainZh',
+]);
+
+export function publishedTopic(topic) {
+  const published = {};
+  for (const key of PUBLISHED_TOPIC_PROPS) {
+    if (topic[key] !== undefined) published[key] = topic[key];
+  }
+  return published;
+}
+
 /**
  * 合并出完整图的全部边：上游边（中文 reason 覆盖）+ 中国内部边 + 跨图桥接边。
  * serve.mjs 与 export-jsonl.mjs 共用，避免两处合并逻辑漂移。

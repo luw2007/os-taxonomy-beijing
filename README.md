@@ -204,6 +204,8 @@ raw 响应缓存在 `data/.llm-deps-work/raw/`（gitignore），支持断点续�
 JSONL 导出的 `nodes.jsonl`、`relationships.jsonl` 和 manifest 都只由受校验的数据输入决定；
 manifest 的 `generatedAt` 固定取 `data/manifest.json`，同一版本可逐字节重建。
 
+本地 HTTP API 的公开 topic/edge 字段、内部字段边界与 alpha 稳定性说明见 [docs/api-contract.md](docs/api-contract.md)。
+
 
 ## 本地知识浏览器
 

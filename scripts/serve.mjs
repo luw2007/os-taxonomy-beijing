@@ -18,7 +18,7 @@ import { createServer } from 'node:http';
 import { gzipSync } from 'node:zlib';
 import { createResolver } from './llm-resolve.mjs';
 import { createChatResponder, createSlidingWindowLimiter, validateChatRequest } from './llm-chat.mjs';
-import { filterPublishedDependencies, filterPublishedTopics, mergeDependencies, mergeTopics, publishedGraph, PUBLISHED_EDGE_PROPS } from './review-policy.mjs';
+import { filterPublishedDependencies, filterPublishedTopics, mergeDependencies, mergeTopics, publishedGraph, publishedTopic, PUBLISHED_EDGE_PROPS } from './review-policy.mjs';
 import { parseHost } from './serve-config.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -369,7 +369,7 @@ function apiResponse(pathname, search) {
       );
     }
 
-    return { count: result.length, topics: result };
+    return { count: result.length, topics: result.map(publishedTopic) };
   }
 
   // GET /api/topic/:id — 单个可发布 topic 详情 + reviewed 依赖关系
@@ -378,7 +378,7 @@ function apiResponse(pathname, search) {
     const id = decodeURIComponent(topicMatch[1]);
     const topic = mergedTopics.find(t => t.id === id);
     if (!topic) return { error: 'topic not found', id };
-    if (topic.status === 'covered') return { error: 'topic covered by finer topics', id, coveredBy: topic.coveredBy };
+    if (topic.status === 'covered') return { error: 'topic covered by finer topics', id };
 
     const dimCfg = dimensionsConfig.dimensions[dimension];
     // 关联 topic 标注当前维度可见性
@@ -407,7 +407,7 @@ function apiResponse(pathname, search) {
 
     return {
       dimension,
-      topic: { ...topic, dimensionVisible: dimCfg ? isTopicVisibleInDimension(topic, dimCfg) : true },
+      topic: { ...publishedTopic(topic), dimensionVisible: dimCfg ? isTopicVisibleInDimension(topic, dimCfg) : true },
       prerequisites, dependents, standards,
     };
   }

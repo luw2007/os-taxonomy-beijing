@@ -38,6 +38,9 @@
 - 修正 CASE v1.1 CFPackage：移除 package `CFItems` 不允许的 `CFDocumentURI`，为每条 `CFAssociation` 补齐 `lastChangeDateTime`；新增零依赖 required-field/allowlist gate 并接入 exporter 与 CI。该 gate 不冒充完整 JSON Schema validator。
 - 历史 `project-curation` bridge 明确标记 `reviewerRole: curator`；知识脉络显示“人工整理”。只有带 `reviewRubric`、`reviewEvidenceRef` 的 `reviewerRole: teacher` 才显示“教师审核”；身份、rubric 和 evidence reference 均不对外导出。
 
+### Round 4：HTTP topic publication contract
+- `/api/topics` 与 `/api/topic/:id` 现在使用共享 `PUBLISHED_TOPIC_PROPS` 白名单；保留本地详情页所需教学字段，拒绝 `splitFrom`、`coveredBy`、生成批次和粒度等内部构建簿记。新增 [HTTP API 契约](docs/api-contract.md)，明确当前是未版本化的 alpha 本地接口，并推荐 JSONL/CASE 用于机器交换。
+
 ## [1.2.0-zh.0] — 2026-07-20
 
 **DAG 完整性 + 审核闸门 + 核心度 + 课标对齐**。经 omp + opus 多轮双审迭代完成。

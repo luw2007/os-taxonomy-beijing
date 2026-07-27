@@ -12,9 +12,9 @@
 - 上游 3,221 条 mt_ 依赖此前因缺 `reviewStatus` 被发布过滤器整体拦下，儿童知识脉络只剩 1,332 条边。现于合并期统一打标 `reviewed/upstream`（stamp-at-merge，永不写入 `dependencies.zh.json`），发布图恢复 3,549 节点 / 4,553 边；`/api/summary` 新增 `publishedDeps` 消除口径误导。
 
 ### 审核证据分级（reviewProvenance）
-- 新增四档证据等级 `upstream / rule / ai-consensus / human`，迁移脚本按 `(reviewStatus, reviewedBy)` 打标：cn 内部边 rule 985 / ai-consensus 761；bridge 边 human 43（补 `project-curation` 逐边审计，时间取引入提交 10e1ee9）/ ai-consensus 4。
-- validate 强制五条不变量（含 rule⟺无 reviewedBy 双向校验、upstream 禁止落盘），`--publish` 要求 reviewed/rejected 边全量携带 provenance。
-- HTTP API 与 JSONL 导出共用 `PUBLISHED_EDGE_PROPS` 白名单，reviewedBy/reviewNote/rescopeBatchId 等内部审核簿记不再出网（修复 `/api/topic` 泄漏）。
+- 新增四档证据等级 `upstream / rule / ai-consensus / human`，迁移脚本按 `(reviewStatus, reviewedBy)` 打标：cn 内部边 rule 985 / ai-consensus 761；bridge 边 human 43（`project-curation` 历史人工整理，非教师审核）/ ai-consensus 4。
+- validate 强制 provenance 与 reviewer role 不变量（含 rule⟺无 reviewedBy 双向校验、teacher 必须有 rubric/evidence reference、upstream 禁止落盘），`--publish` 要求 reviewed/rejected 边全量携带 provenance。
+- HTTP API 与 JSONL 导出共用 `PUBLISHED_EDGE_PROPS` 白名单，reviewedBy/reviewNote/rescopeBatchId/rubric/evidence reference 等内部审核簿记不再出网（修复 `/api/topic` 泄漏）。
 
 ### 互操作与评估
 - 新增 `scripts/export-jsonl.mjs`：发布图导出 nodes/relationships JSONL + 署名 manifest（ODbL 1.0 + CC BY-SA 4.0）。
@@ -27,12 +27,16 @@
 
 ### Round 2：本地安全、证据可见性与 CASE 互操作
 - 本地服务默认绑定 `127.0.0.1`；开放 LAN 必须显式 `--host 0.0.0.0`。修复匿名 AI 端点随 `server.listen(port)` 意外暴露所有网卡的风险。
-- `path-data` 恢复紧凑 provenance 字段 `p`，知识脉络卡片显示上游·Marble / 规则 / AI 共识 / 人工审核；移除永远不会出现的 machine badge。
+- `path-data` 恢复紧凑 provenance 字段 `p`，知识脉络卡片显示上游·Marble / 规则 / AI 共识 / 人工来源；Round 3 后历史 curator 显示“人工整理”，只有证据完备的 teacher role 才显示“教师审核”。移除永远不会出现的 machine badge。
 - 抽取共享 `mergeTopics`，serve、JSONL、CASE 三个消费者统一合并语义并阻断 cn ID collision。
-- 新增 `scripts/export-case.mjs`：基于 1EdTech CASE v1.1 JSON Schema 导出 CFPackage（CFDocument / CFItems / CFAssociations）；先修边以 prerequisite → topic 的 `precedes` 关联表达，需显式给 `--base-url`。
+- 新增 `scripts/export-case.mjs`：按 1EdTech CASE v1.1 CFPackage required 字段导出 CFDocument / CFItems / CFAssociations；先修边以 prerequisite → topic 的 `precedes` 关联表达，需显式给 `--base-url`。
 - 领域聚类 4→183，新增可恢复的 `translate-clusters.mjs`；移除 1 条上游不存在、此前启动时被静默丢弃的 orphan。
 - 新增 `audit-math-alignment.mjs`，只读报告 446 数学候选的分档缺口，不推断 2 条未处置候选。
 - 增加 bridge 描述性 schema；CI 扩展 CASE v1.1 导出冒烟。
+
+### Round 3：CASE required-field gate 与人工证据边界
+- 修正 CASE v1.1 CFPackage：移除 package `CFItems` 不允许的 `CFDocumentURI`，为每条 `CFAssociation` 补齐 `lastChangeDateTime`；新增零依赖 required-field/allowlist gate 并接入 exporter 与 CI。该 gate 不冒充完整 JSON Schema validator。
+- 历史 `project-curation` bridge 明确标记 `reviewerRole: curator`；知识脉络显示“人工整理”。只有带 `reviewRubric`、`reviewEvidenceRef` 的 `reviewerRole: teacher` 才显示“教师审核”；身份、rubric 和 evidence reference 均不对外导出。
 
 ## [1.2.0-zh.0] — 2026-07-20
 

@@ -2,6 +2,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { validateReviewerEvidence } from './reviewer-evidence.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DEPS_PATH = resolve(ROOT, 'data', 'cn-dependencies.json');
@@ -22,7 +23,11 @@ export function reviewEdge(edge, decision) {
     reviewedAt: decision.reviewedAt || new Date().toISOString(),
     ...(decision.note?.trim() ? { reviewNote: decision.note.trim() } : {}),
     reviewProvenance: provenance,
+    ...(provenance === 'human' ? { reviewerRole: decision.reviewerRole || 'curator' } : {}),
+    ...(decision.reviewRubric ? { reviewRubric: decision.reviewRubric } : {}),
+    ...(decision.reviewEvidenceRef ? { reviewEvidenceRef: decision.reviewEvidenceRef } : {}),
   };
+  validateReviewerEvidence(reviewed);
   delete reviewed.rescopeRequired;
   delete reviewed.previousReviewStatus;
   delete reviewed.ageRegression;
@@ -42,6 +47,9 @@ function main() {
   const reviewer = opt(argv, '--reviewer');
   const note = opt(argv, '--note');
   const provenance = opt(argv, '--provenance');
+  const reviewerRole = opt(argv, '--reviewer-role');
+  const reviewRubric = opt(argv, '--review-rubric');
+  const reviewEvidenceRef = opt(argv, '--review-evidence-ref');
   const bridge = argv.includes('--bridge');
   const dryRun = argv.includes('--dry-run');
   if (!topicId || !prerequisiteId) throw new Error('需要 --topic 和 --prerequisite');
@@ -50,7 +58,7 @@ function main() {
   const doc = JSON.parse(readFileSync(path, 'utf8'));
   const index = doc.dependencies.findIndex(edge => edge.topicId === topicId && edge.prerequisiteId === prerequisiteId);
   if (index < 0) throw new Error(`找不到${bridge ? '桥接' : ''}边 ${topicId}<-${prerequisiteId}`);
-  doc.dependencies[index] = reviewEdge(doc.dependencies[index], { status, reviewer, note, provenance });
+  doc.dependencies[index] = reviewEdge(doc.dependencies[index], { status, reviewer, note, provenance, reviewerRole, reviewRubric, reviewEvidenceRef });
   console.log(JSON.stringify(doc.dependencies[index], null, 2));
   if (!dryRun) writeFileSync(path, JSON.stringify(doc, null, 2) + '\n');
 }

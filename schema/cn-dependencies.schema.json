@@ -65,7 +65,10 @@
           "generationBatchId": { "type": "string", "description": "机器关系生成批次" },
           "reviewedBy": { "type": "string", "description": "人工审核人标识" },
           "reviewedAt": { "type": "string", "description": "人工审核时间" },
-          "reviewNote": { "type": "string", "description": "人工审核说明" }
+          "reviewNote": { "type": "string", "description": "人工审核说明" },
+          "reviewerRole": { "type": "string", "enum": ["curator", "teacher"], "description": "teacher 需要 reviewRubric 与 reviewEvidenceRef；curator 不代表教师审核" },
+          "reviewRubric": { "type": "string" },
+          "reviewEvidenceRef": { "type": "string" }
         },
         "additionalProperties": false
       }

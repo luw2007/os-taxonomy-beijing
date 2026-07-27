@@ -34,9 +34,10 @@ test('review requires a human identity and a terminal status', () => {
   assert.throws(() => reviewEdge(edge, { status: 'machine', reviewer: 'teacher' }), /status/);
 });
 
-test('review defaults to human provenance when none is declared', () => {
-  const reviewed = reviewEdge(edge, { status: 'reviewed', reviewer: 'teacher-1', reviewedAt: '2026-07-21T00:00:00.000Z' });
+test('review defaults to curator role for human provenance', () => {
+  const reviewed = reviewEdge(edge, { status: 'reviewed', reviewer: 'curator-1', reviewedAt: '2026-07-21T00:00:00.000Z' });
   assert.equal(reviewed.reviewProvenance, 'human');
+  assert.equal(reviewed.reviewerRole, 'curator');
 });
 
 test('review honors an explicit ai-consensus provenance', () => {
@@ -45,6 +46,12 @@ test('review honors an explicit ai-consensus provenance', () => {
     reviewedAt: '2026-07-21T00:00:00.000Z', provenance: 'ai-consensus',
   });
   assert.equal(reviewed.reviewProvenance, 'ai-consensus');
+});
+
+test('teacher role requires rubric and evidence reference', () => {
+  assert.throws(() => reviewEdge(edge, { status: 'reviewed', reviewer: 'teacher-1', reviewerRole: 'teacher' }), /reviewRubric/);
+  const reviewed = reviewEdge(edge, { status: 'reviewed', reviewer: 'teacher-1', reviewerRole: 'teacher', reviewRubric: 'edge-review-v1', reviewEvidenceRef: 'reviews/t-001.json' });
+  assert.equal(reviewed.reviewerRole, 'teacher');
 });
 
 test('review rejects rule and upstream as a declared provenance', () => {

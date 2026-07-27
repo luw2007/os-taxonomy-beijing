@@ -28,7 +28,10 @@
           "rescopeBatchId": { "type": "string" },
           "reviewedBy": { "type": "string" },
           "reviewedAt": { "type": "string" },
-          "reviewNote": { "type": "string" }
+          "reviewNote": { "type": "string" },
+          "reviewerRole": { "type": "string", "enum": ["curator", "teacher"], "description": "teacher 需要 reviewRubric 与 reviewEvidenceRef；curator 仅表示项目人工整理，不代表教师审核" },
+          "reviewRubric": { "type": "string" },
+          "reviewEvidenceRef": { "type": "string" }
         },
         "additionalProperties": false
       }

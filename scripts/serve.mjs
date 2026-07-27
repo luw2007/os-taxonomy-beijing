@@ -177,8 +177,8 @@ const withReviewStatus = (d) => {
 
 // --- 「知识脉络」页数据(紧凑格式,一次性喂给前端) ----------------------------
 // 只是发布图的序列化视图，不含新的推荐逻辑。
-// nodes: id → [name, subject, ageRangeStart]; edges: {f,t,r,x,p}
-// x=1 跨学科边；p=审核证据等级（upstream/rule/ai-consensus/human）。
+// nodes: id → [name, subject, ageRangeStart]; edges: {f,t,r,x,p,q}
+// x=1 跨学科边；p=审核证据等级；q=可公开显示的审核角色（teacher/curator）。
 const pathData = (() => {
   const nodes = {};
   const subjMap = new Map();
@@ -190,7 +190,7 @@ const pathData = (() => {
   for (const d of publishedGraphData.dependencies) {
     const s1 = subjMap.get(d.prerequisiteId), s2 = subjMap.get(d.topicId);
     if (!s1 || !s2) continue;
-    edges.push({ f: d.prerequisiteId, t: d.topicId, r: d.reason || '', x: s1 !== s2 ? 1 : 0, p: d.reviewProvenance });
+    edges.push({ f: d.prerequisiteId, t: d.topicId, r: d.reason || '', x: s1 !== s2 ? 1 : 0, p: d.reviewProvenance, q: d.reviewerRole });
   }
   // preset 入口: 跨学科度最高的节点(排除 Learning to Learn 的元技能噪音)
   const xdeg = new Map();

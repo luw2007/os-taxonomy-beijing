@@ -13,7 +13,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_262",
@@ -23,7 +24,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_268",
@@ -33,7 +35,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_270",
@@ -55,7 +58,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_287",
@@ -65,7 +69,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_257",
@@ -75,7 +80,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_264",
@@ -85,7 +91,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_292",
@@ -107,7 +114,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_313",
@@ -117,7 +125,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_317",
@@ -127,7 +136,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_323",
@@ -137,7 +147,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_613",
@@ -147,7 +158,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_320",
@@ -157,7 +169,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_179",
@@ -167,7 +180,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_176",
@@ -177,7 +191,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_184",
@@ -187,7 +202,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_182",
@@ -197,7 +213,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_185",
@@ -207,7 +224,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_205",
@@ -217,7 +235,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_858",
@@ -227,7 +246,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_195",
@@ -237,7 +257,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_201",
@@ -247,7 +268,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_220",
@@ -257,7 +279,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_226",
@@ -267,7 +290,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_215",
@@ -277,7 +301,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_362",
@@ -287,7 +312,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_707",
@@ -297,7 +323,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_904",
@@ -307,7 +334,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_375",
@@ -317,7 +345,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_337",
@@ -327,7 +356,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_342",
@@ -337,7 +367,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_853",
@@ -347,7 +378,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_377",
@@ -357,7 +389,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_400",
@@ -367,7 +400,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_401",
@@ -377,7 +411,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_403",
@@ -387,7 +422,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_409",
@@ -397,7 +433,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_411",
@@ -407,7 +444,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_415",
@@ -417,7 +455,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_421",
@@ -439,7 +478,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_575",
@@ -449,7 +489,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_584",
@@ -471,7 +512,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     },
     {
       "topicId": "mtc_580",
@@ -481,7 +523,8 @@
       "reviewStatus": "reviewed",
       "reviewProvenance": "human",
       "reviewedBy": "project-curation",
-      "reviewedAt": "2026-07-17T22:15:08+08:00"
+      "reviewedAt": "2026-07-17T22:15:08+08:00",
+      "reviewerRole": "curator"
     }
   ]
 }

@@ -1,0 +1,38 @@
+name: Bug report
+description: Report a reproducible defect in scripts, exports, API, or local viewer.
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include API keys, personal data, or unlicensed source text. See [SECURITY.md](../../SECURITY.md) for vulnerabilities and [CODE_OF_CONDUCT.md](../../CODE_OF_CONDUCT.md) for participation expectations.
+  - type: input
+    id: version
+    attributes:
+      label: Taxonomy version or commit
+      placeholder: "1.2.0-zh.0 or abc1234"
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal reproduction
+      description: Include the exact command or UI steps and expected versus actual behavior.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Node version, OS, browser, and upstream checkout revision when relevant.
+    validations:
+      required: true
+  - type: checkboxes
+    id: conduct
+    attributes:
+      label: Code of Conduct
+      options:
+        - label: I agree to follow this project's Code of Conduct.
+          required: true

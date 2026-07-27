@@ -9,5 +9,12 @@ test('project curation is never labeled as teacher review', () => {
 
 test('teacher label requires role, rubric and evidence reference', () => {
   assert.equal(reviewerLabel({ reviewProvenance: 'human', reviewerRole: 'teacher', reviewRubric: 'edge-review-v1', reviewEvidenceRef: 'reviews/teacher-001.json' }), '教师审核');
-  assert.throws(() => validateReviewerEvidence({ reviewProvenance: 'human', reviewerRole: 'teacher' }), /rubric/);
+  assert.throws(() => validateReviewerEvidence({ reviewProvenance: 'human', reviewerRole: 'teacher' }), /reviewRubric/);
+});
+
+test('published edge whitelist contains only safe reviewer role metadata', async () => {
+  const { PUBLISHED_EDGE_PROPS } = await import('../review-policy.mjs');
+  assert.ok(PUBLISHED_EDGE_PROPS.includes('reviewerRole'));
+  assert.equal(PUBLISHED_EDGE_PROPS.includes('reviewedBy'), false);
+  assert.equal(PUBLISHED_EDGE_PROPS.includes('reviewEvidenceRef'), false);
 });

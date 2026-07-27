@@ -22,8 +22,9 @@ export const REVIEW_PROVENANCE = Object.freeze(['upstream', 'rule', 'ai-consensu
 export const UPSTREAM_EDGE_REVIEW = Object.freeze({ reviewStatus: 'reviewed', reviewProvenance: 'upstream' });
 
 // 对外发布（HTTP API / JSONL 导出）允许透出的边属性白名单。
-// reviewedBy/reviewedAt/reviewNote/rescopeBatchId/generationBatchId 等内部审核簿记一律不出网。
-export const PUBLISHED_EDGE_PROPS = Object.freeze(['strength', 'reason', 'reviewStatus', 'reviewProvenance']);
+// reviewedBy/reviewedAt/reviewNote/rescopeBatchId/generationBatchId 等内部审核簿记一律不出网；
+// reviewerRole 仅为经验证的公开角色，不含身份信息或审核记录。
+export const PUBLISHED_EDGE_PROPS = Object.freeze(['strength', 'reason', 'reviewStatus', 'reviewProvenance', 'reviewerRole']);
 
 /**
  * 合并出完整图的全部边：上游边（中文 reason 覆盖）+ 中国内部边 + 跨图桥接边。

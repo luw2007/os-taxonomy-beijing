@@ -448,8 +448,8 @@ function renderNext() {
 let trail = [];
 let curId = null;
 
-function provenanceTag(provenance) {
-  const labels = { upstream: '上游·Marble', rule: '规则', 'ai-consensus': 'AI 共识', human: '人工审核' };
+function provenanceTag(provenance, reviewerRole) {
+  const labels = { upstream: '上游·Marble', rule: '规则', 'ai-consensus': 'AI 共识', human: reviewerRole === 'teacher' ? '教师审核' : '人工整理' };
   return labels[provenance] ? `<span class="tag provenance ${esc(provenance)}">${labels[provenance]}</span>` : '';
 }
 
@@ -460,7 +460,7 @@ function card(otherId, e, isX) {
   const subjTag = isX ? `<span class="tag x">${sz(n.subject)}</span>` : '';
   const mTag = isM ? `<span class="tag ok">已掌握</span>` : '';
   return `<div class="tcard ${isX ? 'xcard' : ''} ${isM ? 'mastered' : ''}" data-id="${esc(otherId)}">
-    <div class="top">${subjTag}<span class="nm">${esc(n.name)}</span>${ageTag}${mTag}${provenanceTag(e.p)}</div>
+    <div class="top">${subjTag}<span class="nm">${esc(n.name)}</span>${ageTag}${mTag}${provenanceTag(e.p, e.q)}</div>
     ${e.r ? `<div class="rsn">${esc(e.r)}</div>` : ''}
   </div>`;
 }

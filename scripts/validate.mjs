@@ -24,6 +24,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { publicationProblems } from './publication-safety.mjs';
 import { REVIEW_PROVENANCE } from './review-policy.mjs';
+import { validateReviewerEvidence } from './reviewer-evidence.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = resolve(ROOT, 'data');
@@ -157,8 +158,10 @@ const VALID_REVIEW_PROVENANCE = new Set(REVIEW_PROVENANCE);
 // reviewProvenance 不变量（cn-deps 与 cn-bridge 共用）。迁移前 reviewProvenance 缺失是
 // 合法过渡态，只在字段存在时才校验——覆盖率要求见 --publish 模式检查（4c/4d 循环内）。
 function checkReviewProvenance(edge, status, label) {
-  if (edge.reviewProvenance === undefined) return;
   const key = `${label} ${edge.topicId}->${edge.prerequisiteId}`;
+  try { validateReviewerEvidence(edge); }
+  catch (error) { errors.push(`${key}: ${error.message}`); }
+  if (edge.reviewProvenance === undefined) return;
   check(VALID_REVIEW_PROVENANCE.has(edge.reviewProvenance),
     `${key}: illegal reviewProvenance "${edge.reviewProvenance}"`);
   check(edge.reviewProvenance !== 'upstream',
@@ -172,6 +175,7 @@ function checkReviewProvenance(edge, status, label) {
       && typeof edge.reviewedAt === 'string' && edge.reviewedAt.length > 0,
     `${key}: ${edge.reviewProvenance} 边必须携带 reviewedBy 与 reviewedAt`);
   }
+  // reviewerRole 的独立校验必须在上方的 provenance early-return 之前执行。
 }
 
 const cnOriginIds = new Set();

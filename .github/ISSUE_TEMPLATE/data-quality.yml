@@ -1,0 +1,43 @@
+name: Data quality report
+description: Report a factual, translation, curriculum-mapping, or prerequisite-edge problem.
+title: "[Data]: "
+labels: ["data-quality", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for improving the taxonomy. Do not paste curriculum or textbook source text that the project is not licensed to redistribute. See [CONTRIBUTING.md](../../CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](../../CODE_OF_CONDUCT.md).
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Translation
+        - Curriculum mapping identifier
+        - Topic metadata
+        - Prerequisite edge
+        - License or provenance
+    validations:
+      required: true
+  - type: textarea
+    id: affected-records
+    attributes:
+      label: Affected record identifiers
+      description: List topic IDs, dependency endpoints, mapping keys, or exported artifact paths.
+      placeholder: "mtc_...; mt_xxx -> mtc_yyy"
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and proposed correction
+      description: Link to a public, redistributable source or describe reproducible evidence. Do not quote restricted curriculum or textbook text.
+    validations:
+      required: true
+  - type: checkboxes
+    id: conduct
+    attributes:
+      label: Code of Conduct
+      options:
+        - label: I agree to follow this project's Code of Conduct.
+          required: true

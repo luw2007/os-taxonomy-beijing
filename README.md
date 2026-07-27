@@ -14,6 +14,8 @@
 > `data/cn-curriculum-standards.json` 里的课标编号是**项目自建的映射标识符**，不是教育部
 > 官方代码，详见 [PROVENANCE.md](PROVENANCE.md)。
 
+> **协作状态：** 当前工作副本没有公开 remote，因此没有可核验的 GitHub Actions run、issue/PR 历史或发布标签。公开托管后，贡献者入口见 [CONTRIBUTING.md](CONTRIBUTING.md)、[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) 与 [SUPPORT.md](SUPPORT.md)。
+
 ## 这是什么
 
 上游 Marble 做了一件有价值的事：把英美课程体系拆成 1,590 个细粒度"微主题"，
@@ -189,6 +191,18 @@ node scripts/build-deps-llm.mjs --only-bucket Chinese_Literacy-_-Handwriting_小
 raw 响应缓存在 `data/.llm-deps-work/raw/`（gitignore），支持断点续跑。
 配套的数据治理脚本：`scripts/normalize-cn-domains.mjs`（domain 命名归一化）、
 `scripts/dedupe-cn-topics.mjs`（清理 splitFrom 残留重复节点）。
+
+### 审核证据语义
+
+发布边的 `reviewProvenance` 表示来源等级，不等同于教师资格。`human` 边只有在
+`reviewerRole: "teacher"`、`reviewRubric` 和 `reviewEvidenceRef` 三项都存在时，界面才会标为“教师审核”；
+历史 `project-curation` 边标为 `reviewerRole: "curator"`，界面显示“人工整理”。AI 共识与规则结果均不会被表述为人工或教师审核。
+
+`node scripts/validate-case.mjs <package.json>` 是 CASE v1.1 的零依赖 required-field/allowlist gate，
+覆盖本项目 CFPackage 的结构约束；它不是通用 JSON Schema validator。
+
+JSONL 导出的 `nodes.jsonl`、`relationships.jsonl` 和 manifest 都只由受校验的数据输入决定；
+manifest 的 `generatedAt` 固定取 `data/manifest.json`，同一版本可逐字节重建。
 
 
 ## 本地知识浏览器

@@ -69,6 +69,15 @@ export function buildExport({ upstreamTopics, zhTopics, cnTopics, upstreamDeps, 
   return { nodes: graph.topics.map(toNodeRow), relationships: graph.dependencies.map(toRelationshipRow) };
 }
 
+export function buildExportManifest({ taxonomyVersion, generatedAt, nodes, relationships }) {
+  return {
+    version: taxonomyVersion,
+    generatedAt,
+    counts: { nodes: nodes.length, relationships: relationships.length },
+    attribution: attribution(taxonomyVersion),
+  };
+}
+
 const opt = (flag, fallback) => {
   const index = process.argv.indexOf(flag);
   return index !== -1 && process.argv[index + 1] ? process.argv[index + 1] : fallback;
@@ -95,12 +104,12 @@ function main() {
   const jsonl = rows => rows.map(row => JSON.stringify(row)).join('\n') + '\n';
   writeFileSync(resolve(outDir, 'nodes.jsonl'), jsonl(nodes));
   writeFileSync(resolve(outDir, 'relationships.jsonl'), jsonl(relationships));
-  writeFileSync(resolve(outDir, 'manifest.json'), JSON.stringify({
-    version: manifest.taxonomyVersion,
-    generatedAt: new Date().toISOString(),
-    counts: { nodes: nodes.length, relationships: relationships.length },
-    attribution: attribution(manifest.taxonomyVersion),
-  }, null, 2) + '\n');
+  writeFileSync(resolve(outDir, 'manifest.json'), JSON.stringify(buildExportManifest({
+    taxonomyVersion: manifest.taxonomyVersion,
+    generatedAt: manifest.generatedAt,
+    nodes,
+    relationships,
+  }), null, 2) + '\n');
 
   console.log(`✓ ${outDir}: ${nodes.length} nodes / ${relationships.length} relationships`);
 }

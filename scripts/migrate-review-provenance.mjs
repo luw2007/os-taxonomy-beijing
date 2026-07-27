@@ -52,10 +52,14 @@ export function migrateEdge(edge, isBridge) {
     throw new Error(`${key}: 非法 reviewStatus "${edge.reviewStatus}"`);
   }
 
-  // 已迁移：以 reviewProvenance 是否存在为幂等信号，不重新从 reviewedBy 推导。
+  // 已迁移：以 reviewProvenance 是否存在为幂等信号。历史 project-curation bridge
+  // 不是教师审核，补 curator 角色以修正此前模糊的 human 展示语义。
   if (edge.reviewProvenance !== undefined) {
     if (!REVIEW_PROVENANCE_SET.has(edge.reviewProvenance) || edge.reviewProvenance === 'upstream') {
       throw new Error(`${key}: 非法的既有 reviewProvenance "${edge.reviewProvenance}"`);
+    }
+    if (isBridge && edge.reviewProvenance === 'human' && edge.reviewedBy === BRIDGE_CURATION_REVIEWER && edge.reviewerRole === undefined) {
+      return { edge: { ...edge, reviewerRole: 'curator' }, bucket: 'human' };
     }
     return { edge, bucket: 'alreadyStamped' };
   }
@@ -72,7 +76,7 @@ export function migrateEdge(edge, isBridge) {
   // status === 'reviewed'，reviewedBy 缺失
   if (isBridge) {
     return {
-      edge: { ...edge, reviewProvenance: 'human', reviewedBy: BRIDGE_CURATION_REVIEWER, reviewedAt: BRIDGE_CURATION_REVIEWED_AT },
+      edge: { ...edge, reviewProvenance: 'human', reviewedBy: BRIDGE_CURATION_REVIEWER, reviewedAt: BRIDGE_CURATION_REVIEWED_AT, reviewerRole: 'curator' },
       bucket: 'human',
     };
   }

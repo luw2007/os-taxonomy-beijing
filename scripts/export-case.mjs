@@ -17,6 +17,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 import { mergeDependencies, mergeTopics, publishedGraph } from './review-policy.mjs';
+import { validateCasePackage } from './validate-case.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = resolve(ROOT, 'data');
@@ -44,19 +45,22 @@ export function buildCasePackage({ topics, dependencies, baseUrl, version, gener
   const documentLink = link(baseUrl, 'documents', documentId, 'Beijing Skill Taxonomy');
   const topicById = new Map(topics.map(topic => [topic.id, topic]));
 
-  const CFItems = topics.map(topic => ({
-    CFDocumentURI: documentLink,
-    identifier: stableUuid(`item:${topic.id}`),
-    fullStatement: topic.name,
-    alternativeLabel: topic.description || undefined,
-    CFItemType: topic.nodeKind || topic.type || 'Competency',
-    uri: uriFor(baseUrl, 'items', topic.id),
-    humanCodingScheme: topic.id,
-    subject: topic.subject ? [topic.subject] : undefined,
-    language: 'zh',
-    educationLevel: topic.ageRangeStart == null ? undefined : [`age-${topic.ageRangeStart}`],
-    lastChangeDateTime: generatedAt,
-  }));
+  const CFItems = topics.map(topic => {
+    const item = {
+      identifier: stableUuid(`item:${topic.id}`),
+      fullStatement: topic.name,
+      alternativeLabel: topic.description || undefined,
+      CFItemType: topic.nodeKind || topic.type || 'Competency',
+      uri: uriFor(baseUrl, 'items', topic.id),
+      humanCodingScheme: topic.id,
+      subject: topic.subject ? [topic.subject] : undefined,
+      language: 'zh',
+      educationLevel: topic.ageRangeStart == null ? undefined : [`age-${topic.ageRangeStart}`],
+      lastChangeDateTime: generatedAt,
+    };
+    for (const key of Object.keys(item)) if (item[key] === undefined) delete item[key];
+    return item;
+  });
   for (const item of CFItems) for (const key of Object.keys(item)) if (item[key] === undefined) delete item[key];
 
   const CFAssociations = dependencies.map(edge => {
@@ -69,6 +73,8 @@ export function buildCasePackage({ topics, dependencies, baseUrl, version, gener
       uri: uriFor(baseUrl, 'associations', `${edge.prerequisiteId}->${edge.topicId}`),
       originNodeURI: link(baseUrl, 'items', prerequisite.id, prerequisite.name, 'item'),
       destinationNodeURI: link(baseUrl, 'items', topic.id, topic.name, 'item'),
+      lastChangeDateTime: generatedAt,
+      notes: edge.reason || undefined,
     };
   });
   for (const association of CFAssociations) if (association.notes === undefined) delete association.notes;
@@ -111,6 +117,8 @@ function main() {
     topics: graph.topics, dependencies: graph.dependencies, baseUrl, version: manifest.taxonomyVersion,
     generatedAt: manifest.generatedAt,
   });
+  const errors = validateCasePackage(output);
+  if (errors.length) throw new Error(`CASE v1.1 required-field gate failed: ${errors.join('; ')}`);
   mkdirSync(dirname(out), { recursive: true });
   writeFileSync(out, JSON.stringify(output, null, 2) + '\n');
   console.log(`✓ ${out}: ${output.CFItems.length} CFItems / ${output.CFAssociations.length} CFAssociations`);

@@ -4,6 +4,9 @@
 `node scripts/validate.mjs --publish --upstream ../os-taxonomy`（CI 会跑同一套闸门，
 见 [`.github/workflows/ci.yml`](.github/workflows/ci.yml)）。
 
+参与前请阅读 [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)；支持范围见 [SUPPORT.md](SUPPORT.md)，
+公开托管后的可复现发布闸门见 [docs/release-process.md](docs/release-process.md)。
+
 ## 一、合规红线：codes-only（违反者一律拒绝合并）
 
 教育部课标在本项目里**只以编号键的形式出现**（如 `moe-2022-math:S1.NA.01`），
@@ -39,12 +42,13 @@ CI 的 `Manifest drift` 步骤失败。
 | 字段 | 含义 |
 |---|---|
 | `reviewStatus` | `machine`（未经任何审核，不进发布图）/ `reviewed`（通过，进发布图）/ `rejected`（拒绝） |
-| `reviewProvenance` | 审核结论的证据等级，仅四档：`upstream`（上游自带的边，只在服务端合并/导出时打标，**永不写入 data 文件**）/ `rule`（确定性规则脚本产出，脚本自动盖章，不需要 `reviewedBy`）/ `ai-consensus`（用户授权的 AI 批量复审）/ `human`（人工审核） |
+| `reviewProvenance` | 审核结论的证据等级，仅四档：`upstream`（上游自带的边，只在服务端合并/导出时打标，**永不写入 data 文件**）/ `rule`（确定性规则脚本产出，脚本自动盖章，不需要 `reviewedBy`）/ `ai-consensus`（用户授权的 AI 批量复审）/ `human`（人工来源，角色由 `reviewerRole` 进一步限定） |
 
-**只有 `reviewProvenance: human` 的边才能在文档、note 或 PR 描述里被称为"人工审核"**。
-`ai-consensus` 不是人工审核，不得如此描述或暗示。`reviewProvenance: human / ai-consensus`
-的边必须带 `reviewedBy` + `reviewedAt`；`rule` 边则禁止携带 `reviewedBy`（迁移与校验
-脚本对此做双向强制）。`rejected` 且没有 `reviewedBy` 会被判定为不合规数据，直接报错。
+只有 `reviewProvenance: human` 的边可以称为“人工决策”；`reviewerRole: teacher` 还必须同时有
+`reviewRubric` 与 `reviewEvidenceRef`，才能称为“教师审核”。`reviewerRole: curator` 是项目人工整理，
+不代表教师审核。`ai-consensus` 不是人工审核，不得如此描述或暗示。`human / ai-consensus`
+边必须带 `reviewedBy` + `reviewedAt`；`rule` 边则禁止携带 `reviewedBy`（迁移与校验脚本对此做
+双向强制）。`rejected` 且没有 `reviewedBy` 会被判定为不合规数据，直接报错。
 
 **不要手改 JSON**。人工或 AI 复审一条边走 `scripts/review-ai-edge.mjs`：
 

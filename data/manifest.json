@@ -19,7 +19,22 @@
     "alignedMathHigh": 215,
     "alignedMathMedium": 120,
     "alignedMathLowExcluded": 109,
-    "alignedMathTotal": 446
+    "alignedMathTotal": 446,
+    "cnDepsReview": {
+      "reviewed": 1326,
+      "machine": 873,
+      "rejected": 420
+    },
+    "cnBridgeReview": {
+      "reviewed": 46,
+      "machine": 0,
+      "rejected": 1
+    },
+    "cnDepsProvenance": {
+      "rule": 985,
+      "ai-consensus": 761,
+      "human": 0
+    }
   },
   "upstreamCounts": {
     "topics": 1590,
@@ -60,12 +75,12 @@
       "sha256": "2c631de7157436f5c732b6ed4fa83447c52fe4e00a7ac6ef0278ed19cdc3c2a8"
     },
     "cn-dependencies.json": {
-      "bytes": 1189475,
-      "sha256": "7ad561fe85b942089b6387a802dd02d63cd5f5ca9a77adff2234c5ba0b473a9f"
+      "bytes": 1254927,
+      "sha256": "21fd3166e456f3d78ccc118b858fc208ee781b119073b2145fa61c25f5b5821b"
     },
     "cn-bridge-dependencies.json": {
-      "bytes": 14869,
-      "sha256": "f52dc89c720688e4d96ddeae38979404087dfe280d6ffc255e737667820f0d15"
+      "bytes": 20369,
+      "sha256": "ea201589d32062ed296938d7cca3d168156587f098bb23829efb63ae83e4cfbc"
     }
   },
   "excluded": [

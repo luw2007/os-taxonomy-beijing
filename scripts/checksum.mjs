@@ -29,7 +29,17 @@ const FILES = [
   'terminology.json',
 ];
 
-export function deriveManifestCounts({ topicsZh, cnTopics, dependenciesZh, cnDependencies, clustersZh, cnStandards }) {
+// 按 keys 枚举给字段计数；getKey 命中 keys 之外的值（含 undefined，即迁移前尚无该字段）一律计零，不抛错
+function tallyBy(items, getKey, keys) {
+  const counts = Object.fromEntries(keys.map(key => [key, 0]));
+  for (const item of items) {
+    const key = getKey(item);
+    if (key in counts) counts[key]++;
+  }
+  return counts;
+}
+
+export function deriveManifestCounts({ topicsZh, cnTopics, dependenciesZh, cnDependencies, cnBridgeDependencies, clustersZh, cnStandards }) {
   return {
     topicsZh: topicsZh.topics.length,
     cnTopics: cnTopics.topics.length,
@@ -38,6 +48,11 @@ export function deriveManifestCounts({ topicsZh, cnTopics, dependenciesZh, cnDep
     cnCurricula: cnStandards.curricula.length,
     cnCurriculumEntries: cnStandards.curricula.reduce((sum, curriculum) => sum + curriculum.topics.length, 0),
     cnDeps: cnDependencies.dependencies.length,
+    // reviewStatus 缺失（尚未跑迁移）时按 machine 兜底，与 serve.mjs 的 REVIEW_DEFAULT 口径一致
+    cnDepsReview: tallyBy(cnDependencies.dependencies, edge => edge.reviewStatus ?? 'machine', ['reviewed', 'machine', 'rejected']),
+    cnBridgeReview: tallyBy(cnBridgeDependencies.dependencies, edge => edge.reviewStatus ?? 'machine', ['reviewed', 'machine', 'rejected']),
+    // reviewProvenance 由迁移脚本注入；迁移前该字段不存在，三项全零而非报错
+    cnDepsProvenance: tallyBy(cnDependencies.dependencies, edge => edge.reviewProvenance, ['rule', 'ai-consensus', 'human']),
   };
 }
 export function mergeManifestCounts(currentCounts, derivedCounts) {
@@ -59,6 +74,7 @@ function main() {
     cnTopics: JSON.parse(readFileSync(resolve(DATA, 'cn-topics.json'), 'utf8')),
     dependenciesZh: JSON.parse(readFileSync(resolve(DATA, 'dependencies.zh.json'), 'utf8')),
     cnDependencies: JSON.parse(readFileSync(resolve(DATA, 'cn-dependencies.json'), 'utf8')),
+    cnBridgeDependencies: JSON.parse(readFileSync(resolve(DATA, 'cn-bridge-dependencies.json'), 'utf8')),
     clustersZh: JSON.parse(readFileSync(resolve(DATA, 'clusters.zh.json'), 'utf8')),
     cnStandards: JSON.parse(readFileSync(resolve(DATA, 'cn-curriculum-standards.json'), 'utf8')),
   }));

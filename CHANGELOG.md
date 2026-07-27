@@ -3,6 +3,28 @@
 本项目是 [Marble Skill Taxonomy](https://github.com/withmarbleapp/os-taxonomy) 的中文衍生版。
 版本号格式：`<上游版本>-zh.<中文修订号>`（如 `v1-zh.0`）。
 
+## [Unreleased]
+
+**发布加固：provenance 证据分级 + 上游边回归发布图 + 互操作导出**。
+对抗式双规划（Opus/Codex 互评）+ 4 路并行开发 + Sonnet review 完成。
+
+### 发布策略修复（P0）
+- 上游 3,221 条 mt_ 依赖此前因缺 `reviewStatus` 被发布过滤器整体拦下，儿童知识脉络只剩 1,332 条边。现于合并期统一打标 `reviewed/upstream`（stamp-at-merge，永不写入 `dependencies.zh.json`），发布图恢复 3,549 节点 / 4,553 边；`/api/summary` 新增 `publishedDeps` 消除口径误导。
+
+### 审核证据分级（reviewProvenance）
+- 新增四档证据等级 `upstream / rule / ai-consensus / human`，迁移脚本按 `(reviewStatus, reviewedBy)` 打标：cn 内部边 rule 985 / ai-consensus 761；bridge 边 human 43（补 `project-curation` 逐边审计，时间取引入提交 10e1ee9）/ ai-consensus 4。
+- validate 强制五条不变量（含 rule⟺无 reviewedBy 双向校验、upstream 禁止落盘），`--publish` 要求 reviewed/rejected 边全量携带 provenance。
+- HTTP API 与 JSONL 导出共用 `PUBLISHED_EDGE_PROPS` 白名单，reviewedBy/reviewNote/rescopeBatchId 等内部审核簿记不再出网（修复 `/api/topic` 泄漏）。
+
+### 互操作与评估
+- 新增 `scripts/export-jsonl.mjs`：发布图导出 nodes/relationships JSONL + 署名 manifest（ODbL 1.0 + CC BY-SA 4.0）。
+- `evaluate-ai-gold-set.mjs` 支持分学科 precision/recall/F1、`--json`、`GOLD_SET_MIN_CONSENSUS` 覆盖。
+
+### 文档与协作基建
+- README 增设 alpha 声明（机翻 1,586/1,590、873 条 machine 边不入儿童路径、AI 共识审核≠教师审核、课标键为项目自建映射标识符）；修复合规计数漂移（教材来源节点 809→1,069、阅读文本 209→290，涉 README/PROVENANCE/NOTICE 许可边界表）。
+- 新增 CI（test → validate --publish → checksum → manifest 漂移 → 导出冒烟，上游 pin 至 Marble v1 提交）、CONTRIBUTING（codes-only 红线 + 边审核工作流）、SECURITY。
+- 新增 `scripts/test/docs-stats.test.mjs`：文档数字对数据实测的可执行断言。测试 26 → 73 个。
+
 ## [1.2.0-zh.0] — 2026-07-20
 
 **DAG 完整性 + 审核闸门 + 核心度 + 课标对齐**。经 omp + opus 多轮双审迭代完成。

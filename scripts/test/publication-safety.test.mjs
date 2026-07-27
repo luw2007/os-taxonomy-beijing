@@ -35,3 +35,14 @@ test('publish readiness accepts reviewed graph with fresh centrality', () => {
   const dependencies = [{ topicId: 'b', prerequisiteId: 'a', reviewStatus: 'reviewed' }];
   assert.deepEqual(publicationProblems(topics, dependencies), []);
 });
+
+test('publish readiness is unaffected by reviewProvenance metadata (coverage lives in validate.mjs --publish)', () => {
+  const topics = [
+    { id: 'a', nodeKind: 'concept', centrality: 1 },
+    { id: 'b', nodeKind: 'concept', centrality: 0 },
+  ];
+  const withProvenance = [{ topicId: 'b', prerequisiteId: 'a', reviewStatus: 'reviewed', reviewProvenance: 'rule' }];
+  const withoutProvenance = [{ topicId: 'b', prerequisiteId: 'a', reviewStatus: 'reviewed' }];
+  assert.deepEqual(publicationProblems(topics, withProvenance), []);
+  assert.deepEqual(publicationProblems(topics, withoutProvenance), []);
+});

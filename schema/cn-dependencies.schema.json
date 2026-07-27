@@ -51,7 +51,12 @@
           "reviewStatus": {
             "type": "string",
             "enum": ["machine", "reviewed", "rejected"],
-            "description": "审核状态：machine=未审核（不进入儿童 API/路径）；reviewed=人工审核通过；rejected=人工拒绝。缺失视为 machine（向后兼容）。"
+            "description": "审核状态：machine=未审核（不进入儿童 API/路径）；reviewed=已通过审核（证据等级见 reviewProvenance）；rejected=已拒绝。缺失视为 machine（向后兼容）。"
+          }
+          ,"reviewProvenance": {
+            "type": "string",
+            "enum": ["rule", "ai-consensus", "human"],
+            "description": "审核结论的证据等级：rule=确定性规则脚本产出；ai-consensus=用户授权的 AI 复审；human=人工审核。仅当 reviewStatus 为 reviewed/rejected 时出现。upstream 只在服务端合并期标记，不写入数据文件。"
           }
           ,"rescopeRequired": { "type": "boolean", "description": "主题拆分后，旧边语义已收窄，必须重新审核" },
           "previousReviewStatus": { "type": "string", "enum": ["reviewed"], "description": "拆分重定责前的审核状态" },

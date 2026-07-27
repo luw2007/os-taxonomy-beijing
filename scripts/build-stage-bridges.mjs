@@ -91,6 +91,7 @@ async function main() {
       strength: 'soft',
       reason,
       reviewStatus: 'reviewed', // 规则产生，可审计
+      reviewProvenance: 'rule',
     });
     console.log(`  + ${prereq}(${topicById.get(prereq).name.slice(0,12)}) → ${topic}(${topicById.get(topic).name.slice(0,12)})`);
   }

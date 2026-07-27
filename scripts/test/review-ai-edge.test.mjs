@@ -33,3 +33,21 @@ test('review requires a human identity and a terminal status', () => {
   assert.throws(() => reviewEdge(edge, { status: 'reviewed', reviewer: '' }), /reviewer/);
   assert.throws(() => reviewEdge(edge, { status: 'machine', reviewer: 'teacher' }), /status/);
 });
+
+test('review defaults to human provenance when none is declared', () => {
+  const reviewed = reviewEdge(edge, { status: 'reviewed', reviewer: 'teacher-1', reviewedAt: '2026-07-21T00:00:00.000Z' });
+  assert.equal(reviewed.reviewProvenance, 'human');
+});
+
+test('review honors an explicit ai-consensus provenance', () => {
+  const reviewed = reviewEdge(edge, {
+    status: 'reviewed', reviewer: 'user-delegated-claude-opus-consensus',
+    reviewedAt: '2026-07-21T00:00:00.000Z', provenance: 'ai-consensus',
+  });
+  assert.equal(reviewed.reviewProvenance, 'ai-consensus');
+});
+
+test('review rejects rule and upstream as a declared provenance', () => {
+  assert.throws(() => reviewEdge(edge, { status: 'reviewed', reviewer: 'teacher-1', provenance: 'rule' }), /provenance/);
+  assert.throws(() => reviewEdge(edge, { status: 'reviewed', reviewer: 'teacher-1', provenance: 'upstream' }), /provenance/);
+});

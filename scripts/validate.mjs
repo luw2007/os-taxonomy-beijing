@@ -23,6 +23,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { publicationProblems } from './publication-safety.mjs';
+import { REVIEW_PROVENANCE } from './review-policy.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = resolve(ROOT, 'data');
@@ -135,6 +136,28 @@ const VALID_TYPES = new Set(['CONCEPTUAL', 'PROCEDURAL', 'REPRESENTATIONAL', 'LA
 const VALID_NODE_KINDS = new Set(['concept', 'text', 'skill']);
 const VALID_REVIEW_STATUS = new Set(['machine', 'reviewed', 'rejected']);
 const VALID_ORIGINS = new Set(['cn_only', 'cross_domain', 'upstream_adapt', 'progression', 'textbook']);
+const VALID_REVIEW_PROVENANCE = new Set(REVIEW_PROVENANCE);
+
+// reviewProvenance 不变量（cn-deps 与 cn-bridge 共用）。迁移前 reviewProvenance 缺失是
+// 合法过渡态，只在字段存在时才校验——覆盖率要求见 --publish 模式检查（4c/4d 循环内）。
+function checkReviewProvenance(edge, status, label) {
+  if (edge.reviewProvenance === undefined) return;
+  const key = `${label} ${edge.topicId}->${edge.prerequisiteId}`;
+  check(VALID_REVIEW_PROVENANCE.has(edge.reviewProvenance),
+    `${key}: illegal reviewProvenance "${edge.reviewProvenance}"`);
+  check(edge.reviewProvenance !== 'upstream',
+    `${key}: upstream 只在合并期标记，不得写入数据文件`);
+  check(status === 'reviewed' || status === 'rejected',
+    `${key}: reviewProvenance 需要终态 reviewStatus（当前 ${status}）`);
+  check((edge.reviewProvenance === 'rule') === (edge.reviewedBy === undefined),
+    `${key}: rule 边不得有 reviewedBy；ai-consensus/human 边必须有 reviewedBy`);
+  if (edge.reviewProvenance === 'human' || edge.reviewProvenance === 'ai-consensus') {
+    check(typeof edge.reviewedBy === 'string' && edge.reviewedBy.length > 0
+      && typeof edge.reviewedAt === 'string' && edge.reviewedAt.length > 0,
+    `${key}: ${edge.reviewProvenance} 边必须携带 reviewedBy 与 reviewedAt`);
+  }
+}
+
 const cnOriginIds = new Set();
 if (cnOriginTopics) {
   check(cnOriginTopics.topicCount === cnOriginTopics.topics.length,
@@ -228,6 +251,11 @@ if (cnDeps) {
         && typeof d.reviewedAt === 'string' && d.reviewedAt.length > 0,
       `cn-dep ${d.topicId}->${d.prerequisiteId}: incomplete human review audit metadata`);
     }
+    checkReviewProvenance(d, rs, 'cn-dep');
+    if (publishMode && (rs === 'reviewed' || rs === 'rejected')) {
+      check(d.reviewProvenance !== undefined,
+        `cn-dep ${d.topicId}->${d.prerequisiteId}: ${rs} 边缺 reviewProvenance（运行 node scripts/migrate-review-provenance.mjs 后再发布）`);
+    }
     const key = `${d.topicId}->${d.prerequisiteId}`;
     if (cnDepSeen.has(key)) errors.push(`cn-dep: duplicate edge ${key}`);
     cnDepSeen.add(key);
@@ -303,6 +331,11 @@ if (cnBridgeDeps) {
         && typeof d.reviewedAt === 'string' && d.reviewedAt.length > 0,
       `cn-bridge ${d.topicId}->${d.prerequisiteId}: incomplete human review audit metadata`);
     }
+    checkReviewProvenance(d, bridgeReviewStatus, 'cn-bridge');
+    if (publishMode && (bridgeReviewStatus === 'reviewed' || bridgeReviewStatus === 'rejected')) {
+      check(d.reviewProvenance !== undefined,
+        `cn-bridge ${d.topicId}->${d.prerequisiteId}: ${bridgeReviewStatus} 边缺 reviewProvenance（运行 node scripts/migrate-review-provenance.mjs 后再发布）`);
+    }
     // topicId 必须是 mtc_ 且在 cn-topics 中存在
     check(typeof d.topicId === 'string' && d.topicId.startsWith('mtc_'),
       `cn-bridge: topicId must be mtc_, got ${d.topicId}`);
@@ -326,7 +359,13 @@ if (publishMode && cnOriginTopics && cnDeps) {
 }
 
 // --- 5. 依赖引用完整性 ----------------------------------------------------
+// 翻译文件只含翻译字段：审核状态（reviewStatus/reviewProvenance 等）永不落盘到 zh 文件
+const ZH_DEP_KEYS = new Set(['topicId', 'prerequisiteId', 'strength', 'reason']);
 for (const d of depsZh.dependencies) {
+  for (const key of Object.keys(d)) {
+    check(ZH_DEP_KEYS.has(key),
+      `dependencies.zh ${d.topicId}->${d.prerequisiteId}: 非翻译字段 "${key}"（翻译文件只含翻译字段，审核状态永不落盘）`);
+  }
   check(d.topicId !== d.prerequisiteId, `self-dependency on ${d.topicId}`);
   check(d.strength === 'hard' || d.strength === 'soft', `bad strength ${d.strength}`);
   if (hasUpstream) {

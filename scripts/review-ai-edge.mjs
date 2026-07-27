@@ -7,15 +7,21 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DEPS_PATH = resolve(ROOT, 'data', 'cn-dependencies.json');
 const BRIDGE_DEPS_PATH = resolve(ROOT, 'data', 'cn-bridge-dependencies.json');
 
+// 审核 CLI 只产出带审核人的两档证据；rule/upstream 由脚本与合并期负责，不允许人工声明。
+const REVIEWER_PROVENANCE = new Set(['human', 'ai-consensus']);
+
 export function reviewEdge(edge, decision) {
   if (!['reviewed', 'rejected'].includes(decision?.status)) throw new Error('status 必须为 reviewed 或 rejected');
   if (typeof decision.reviewer !== 'string' || !decision.reviewer.trim()) throw new Error('reviewer 不能为空');
+  const provenance = decision.provenance || 'human';
+  if (!REVIEWER_PROVENANCE.has(provenance)) throw new Error('provenance 必须为 human 或 ai-consensus');
   const reviewed = {
     ...edge,
     reviewStatus: decision.status,
     reviewedBy: decision.reviewer.trim(),
     reviewedAt: decision.reviewedAt || new Date().toISOString(),
     ...(decision.note?.trim() ? { reviewNote: decision.note.trim() } : {}),
+    reviewProvenance: provenance,
   };
   delete reviewed.rescopeRequired;
   delete reviewed.previousReviewStatus;
@@ -35,6 +41,7 @@ function main() {
   const status = opt(argv, '--status');
   const reviewer = opt(argv, '--reviewer');
   const note = opt(argv, '--note');
+  const provenance = opt(argv, '--provenance');
   const bridge = argv.includes('--bridge');
   const dryRun = argv.includes('--dry-run');
   if (!topicId || !prerequisiteId) throw new Error('需要 --topic 和 --prerequisite');
@@ -43,7 +50,7 @@ function main() {
   const doc = JSON.parse(readFileSync(path, 'utf8'));
   const index = doc.dependencies.findIndex(edge => edge.topicId === topicId && edge.prerequisiteId === prerequisiteId);
   if (index < 0) throw new Error(`找不到${bridge ? '桥接' : ''}边 ${topicId}<-${prerequisiteId}`);
-  doc.dependencies[index] = reviewEdge(doc.dependencies[index], { status, reviewer, note });
+  doc.dependencies[index] = reviewEdge(doc.dependencies[index], { status, reviewer, note, provenance });
   console.log(JSON.stringify(doc.dependencies[index], null, 2));
   if (!dryRun) writeFileSync(path, JSON.stringify(doc, null, 2) + '\n');
 }

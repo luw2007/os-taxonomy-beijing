@@ -18,7 +18,7 @@ import { createServer } from 'node:http';
 import { gzipSync } from 'node:zlib';
 import { createResolver } from './llm-resolve.mjs';
 import { createChatResponder, createSlidingWindowLimiter, validateChatRequest } from './llm-chat.mjs';
-import { filterPublishedDependencies, filterPublishedTopics } from './review-policy.mjs';
+import { filterPublishedDependencies, filterPublishedTopics, mergeDependencies, publishedGraph, PUBLISHED_EDGE_PROPS } from './review-policy.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = resolve(ROOT, 'data');
@@ -128,6 +128,7 @@ const textbookGapSummary = (() => {
 // --- 构建合并视图 ---------------------------------------------------------
 // 上游 topic 提供结构字段（subject/domain/ageRange/type/centrality），
 // 中文翻译覆盖文本字段（name/description/evidence/assessmentPrompt）。
+// 注意：topic 合并语义与 export-jsonl.mjs 的 mergeTopics 手工同步；改任一处必须同步另一处。
 const zhById = new Map();
 for (const t of zhTopics.topics) zhById.set(t.id, t);
 
@@ -187,33 +188,17 @@ if (cnOriginTopics) {
   }
 }
 
-// 合并依赖（中文 reason 优先，上游 fallback）
-const zhDepMap = new Map();
-for (const d of zhDeps.dependencies) {
-  zhDepMap.set(`${d.topicId}->${d.prerequisiteId}`, d);
-}
-const mergedDeps = [];
-if (upstreamDeps) {
-  // 上游全量依赖 + 中文翻译覆盖
-  for (const d of upstreamDeps.dependencies) {
-    const key = `${d.topicId}->${d.prerequisiteId}`;
-    const zh = zhDepMap.get(key);
-    mergedDeps.push(zh ? { ...d, reason: zh.reason } : d);
-  }
-} else {
-  mergedDeps.push(...zhDeps.dependencies);
-}
-// 中国特有微主题的依赖（mtc_ 之间）
-if (cnDeps) {
-  mergedDeps.push(...cnDeps.dependencies);
-}
-// 上游 mt_ → 中国 mtc_ 桥接依赖
-if (cnBridgeDeps) {
-  mergedDeps.push(...cnBridgeDeps.dependencies);
-}
+// 合并依赖（中文 reason 优先，上游 fallback；上游边贴 reviewProvenance: upstream）
+const mergedDeps = mergeDependencies({ upstreamDeps, zhDeps, cnDeps, bridgeDeps: cnBridgeDeps });
+
+// 发布图（reviewed 且非 rescope、两端都是可发布 topic 的边）：/api/path-data 与
+// /api/summary.publishedDeps 同源计算，避免两处过滤逻辑漂移。
+const publishedGraphData = publishedGraph(mergedTopics, mergedDeps);
 
 // --- 审核状态(reviewStatus)规范化 -----------------------------------------
-// 三态: machine(LLM/规则产出,未人工审核) / reviewed(人工通过) / rejected(人工拒绝)
+// 三态: machine(未经任何审核) / reviewed(已通过审核) / rejected(已拒绝)。
+// reviewed 不等于人工审核——证据等级看 reviewProvenance:
+//   upstream=上游发布态 / rule=确定性规则脚本 / ai-consensus=授权的 AI 复审 / human=人工审核
 // 字段缺失(老数据)按 machine 处理。rejected 永不返回给前端。
 const REVIEW_DEFAULT = 'machine';
 const reviewStatus = (d) => (d && (d.reviewStatus === 'machine' || d.reviewStatus === 'reviewed' || d.reviewStatus === 'rejected'))
@@ -224,11 +209,22 @@ const reviewStatus = (d) => (d && (d.reviewStatus === 'machine' || d.reviewStatu
 const reviewCounts = { reviewed: 0, machine: 0, rejected: 0 };
 for (const d of mergedDeps) reviewCounts[reviewStatus(d)]++;
 
+// 内部边（cn + bridge）审核覆盖率——README/BACKLOG 的口径；上游边不计入
+const internalReview = { reviewed: 0, machine: 0, rejected: 0 };
+for (const d of [...(cnDeps?.dependencies ?? []), ...(cnBridgeDeps?.dependencies ?? [])]) internalReview[reviewStatus(d)]++;
+
 // 儿童 API 只返回 reviewed、非 rescope 边；machine 仅供离线审核工具使用。
 const filterDepsByReview = filterPublishedDependencies;
 
-// 把单条依赖规范化为对外 API 的形态(带 reviewStatus,缺失补 machine)
-const withReviewStatus = (d) => ({ ...d, reviewStatus: reviewStatus(d) });
+// 把单条依赖投影为对外 API 的形态：只透出 PUBLISHED_EDGE_PROPS 白名单 + 端点 ID，
+// reviewedBy/reviewNote/rescopeBatchId/generationBatchId 等内部审核簿记不出网（与 JSONL 导出同一白名单）。
+const withReviewStatus = (d) => {
+  const edge = { topicId: d.topicId, prerequisiteId: d.prerequisiteId, reviewStatus: reviewStatus(d) };
+  for (const key of PUBLISHED_EDGE_PROPS) {
+    if (key !== 'reviewStatus' && d[key] !== undefined) edge[key] = d[key];
+  }
+  return edge;
+};
 
 // --- 「知识脉络」页数据(紧凑格式,一次性喂给前端) ----------------------------
 // 只是 mergedTopics/mergedDeps 的序列化视图,不含任何新逻辑。
@@ -237,12 +233,12 @@ const withReviewStatus = (d) => ({ ...d, reviewStatus: reviewStatus(d) });
 const pathData = (() => {
   const nodes = {};
   const subjMap = new Map();
-  for (const t of filterPublishedTopics(mergedTopics)) {
+  for (const t of publishedGraphData.topics) {
     nodes[t.id] = [t.name, t.subject, t.ageRangeStart ?? -1];
     subjMap.set(t.id, t.subject);
   }
   const edges = [];
-  for (const d of filterPublishedDependencies(mergedDeps)) {
+  for (const d of publishedGraphData.dependencies) {
     const s1 = subjMap.get(d.prerequisiteId), s2 = subjMap.get(d.topicId);
     if (!s1 || !s2) continue;
     edges.push({ f: d.prerequisiteId, t: d.topicId, r: d.reason || '', x: s1 !== s2 ? 1 : 0 });
@@ -385,6 +381,7 @@ function apiResponse(pathname, search) {
       totalTopics: topics.length,
       translatedTopics: topics.filter(t => t.translated).length,
       totalDeps: mergedDeps.length,
+      publishedDeps: publishedGraphData.dependencies.length,
       totalClusters: mergedClusters.length,
       cnCurricula: cnStandards.curricula.length,
       topicIds: topics.map(t => t.id),
@@ -444,11 +441,11 @@ function apiResponse(pathname, search) {
     const publishedIds = new Set(filterPublishedTopics(mergedTopics).map(item => item.id));
     const prerequisites = filterDepsByReview(
       mergedDeps.filter(dependency => dependency.topicId === id && publishedIds.has(dependency.prerequisiteId))
-    ).map(dependency => withReviewStatus({ ...dependency, prerequisiteTopic: annotate(mergedTopics.find(item => item.id === dependency.prerequisiteId)) }));
+    ).map(dependency => ({ ...withReviewStatus(dependency), prerequisiteTopic: annotate(mergedTopics.find(item => item.id === dependency.prerequisiteId)) }));
 
     const dependents = filterDepsByReview(
       mergedDeps.filter(dependency => dependency.prerequisiteId === id && publishedIds.has(dependency.topicId))
-    ).map(dependency => withReviewStatus({ ...dependency, dependentTopic: annotate(mergedTopics.find(item => item.id === dependency.topicId)) }));
+    ).map(dependency => ({ ...withReviewStatus(dependency), dependentTopic: annotate(mergedTopics.find(item => item.id === dependency.topicId)) }));
 
     // 课标详情
     const standards = (topic.cnStandards ?? []).map(key => {
@@ -634,6 +631,7 @@ const server = createServer((req, res) => {
       res.writeHead(200, {
         'Content-Type': 'application/json; charset=utf-8',
         'Cache-Control': isPathData ? 'public, max-age=3600' : 'no-cache',
+        ...(isPathData ? { Vary: 'Accept-Encoding' } : {}),
         ...(isPathData && acceptsGzip ? { 'Content-Encoding': 'gzip' } : {}),
       });
       res.end(isPathData && acceptsGzip ? gzipSync(body) : body);
@@ -667,7 +665,8 @@ server.listen(port, () => {
   console.log(`  ▸ 知识总量:    ${mergedTopics.length} 个微主题`);
   console.log(`  ▸ 已翻译:      ${translatedCount} 个`);
   console.log(`  ▸ 依赖关系:    ${mergedDeps.length} 条`);
-  console.log(`  ▸ 审核覆盖率:  reviewed ${reviewCounts.reviewed} / machine ${reviewCounts.machine} / rejected ${reviewCounts.rejected}`);
+  console.log(`  ▸ 发布图边:    ${publishedGraphData.dependencies.length} 条（reviewed 且两端可发布）`);
+  console.log(`  ▸ 审核覆盖率:  内部边 reviewed ${internalReview.reviewed} / machine ${internalReview.machine} / rejected ${internalReview.rejected}（全图含上游 reviewed ${reviewCounts.reviewed} / machine ${reviewCounts.machine} / rejected ${reviewCounts.rejected}）`);
   console.log(`  ▸ 领域聚类:    ${mergedClusters.length} 个`);
   console.log(`  ▸ 中国课标:    ${cnStandards.curricula.length} 套`);
   console.log(`  ▸ 维度切换:    ${Object.values(dimensionsConfig.dimensions).map(d => d.label).join(' / ')}（默认 ${dimensionsConfig.dimensions[dimensionsConfig.defaultDimension]?.label}）`);

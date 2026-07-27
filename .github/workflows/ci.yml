@@ -1,0 +1,59 @@
+# 发布闸门：单测 → 数据校验（含上游对齐）→ manifest 漂移检查 → 导出冒烟。
+# 顺序固定，见 docs/plans/os-taxonomy-beijing-20260727-release-hardening-final.md 裁决表 #6。
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout beijing taxonomy
+        uses: actions/checkout@v4
+        with:
+          path: os-taxonomy-beijing
+
+      # 上游必须存在：validate --upstream 与 export-jsonl 在找不到上游时会跳过对齐检查
+      - name: Checkout upstream marble taxonomy
+        uses: actions/checkout@v4
+        with:
+          repository: withmarbleapp/os-taxonomy
+          # 固定到 v1 数据版本的提交；升级上游时与 data/manifest.json 的 upstreamCounts 一起 bump
+          ref: 96a7933754af672e1bfdbf7ecb05c325860c6e0d
+          path: os-taxonomy
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # 零依赖项目：没有 lockfile，也不需要 npm ci
+      - name: Unit tests
+        working-directory: os-taxonomy-beijing
+        run: npm test
+
+      - name: Validate data (publish gate + upstream alignment)
+        working-directory: os-taxonomy-beijing
+        run: node scripts/validate.mjs --publish --upstream ../os-taxonomy
+
+      - name: Recompute manifest checksum
+        working-directory: os-taxonomy-beijing
+        run: node scripts/checksum.mjs
+
+      - name: Manifest drift
+        working-directory: os-taxonomy-beijing
+        run: git diff --exit-code data/manifest.json
+
+      - name: JSONL export smoke
+        working-directory: os-taxonomy-beijing
+        run: |
+          node scripts/export-jsonl.mjs --upstream ../os-taxonomy
+          test -s exports/nodes.jsonl
+          test -s exports/relationships.jsonl
+          jq -e --argjson n "$(wc -l < exports/nodes.jsonl)" --argjson r "$(wc -l < exports/relationships.jsonl)" '.counts.nodes == $n and .counts.relationships == $r' exports/manifest.json
+          ! jq -se 'any(.[].properties; has("reviewNote") or has("rescopeRequired") or has("generationBatchId") or has("reviewedBy"))' exports/relationships.jsonl

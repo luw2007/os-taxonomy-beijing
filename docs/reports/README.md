@@ -36,17 +36,25 @@
 
 ## 草案 → 落地的粒度拆解
 
+> **历史快照**：本节的 674 / 1,640 / 809 是 gap 分析草案首次落地时点的计数，记录当次
+> 拆解过程，不随后续数据治理更新——当前实测数字见本节末尾。
+
 proposed CSV 共 674 条草案（小学 132 + 初中 354 + 高中 188），实际落地到
-`data/cn-topics.json` 的微主题有 **1,640 条**。差异来自两个拆解过程：
+`data/cn-topics.json` 的微主题当时为 **1,640 条**。差异来自两个拆解过程：
 
 1. **微技能级粒度拆解**：proposed CSV 的一条草案（如“物理·物态变化”）落地时按
    课标内容要求拆解为多条可独立评估的微技能（熔化凝固 / 汽化液化 / 升华凝华），
    每条 `description` 聚焦一个单一概念、`evidence` 可观测、`assessment_prompt` 可评估。
-2. **课本补充知识点**（`origin: textbook`，共 809 条）：来自 `textbook-gap-report.csv` +
+2. **课本补充知识点**（`origin: textbook`，落地时共 809 条）：来自 `textbook-gap-report.csv` +
    `textbook-topics.json` 的北京课本目录解析，覆盖课本有但课标微主题遗漏的具体知识点。
 
-落地后 cn-topics 的 origin 分布：`cn_only` 531 / `textbook` 809 / `progression` 154 /
+落地时点 cn-topics 的 origin 分布：`cn_only` 531 / `textbook` 809 / `progression` 154 /
 `upstream_adapt` 119 / `cross_domain` 27。
+
+**当前实测**（`jq` 直读 `data/cn-topics.json`，随后续治理变化）：`data/cn-topics.json`
+共 **2,008 条**，origin 分布 `cn_only` 578 / `textbook` 1,069 / `progression` 188 /
+`upstream_adapt` 142 / `cross_domain` 31。textbook 条目里 `nodeKind: text`（具体阅读文本）
+290 条，全库 `nodeKind: text` 291 条。
 
 ## 与上游 os-taxonomy 的关系
 
@@ -170,7 +178,7 @@ proposed CSV 共 674 条草案（小学 132 + 初中 354 + 高中 188），实�
 - `data/cn-curriculum-standards.json` 已落地 **17 套课标 / 1,423 条编号**，覆盖小学到高中全部学科
   （语文/数学/科学/英语/物理/化学/生物/历史/地理/道德与法治/思想政治/体育/艺术/信息科技/劳动/通用技术/综合实践），
   均遵守 `textIncluded: false`（codes-only）。
-- `data/cn-topics.json` 已落地 **1,640 条中国特有微主题**（`mtc_` 前缀），不与上游 `mt_` 关联——
+- `data/cn-topics.json` 当前共 **2,008 条中国特有微主题**（`mtc_` 前缀），不与上游 `mt_` 关联——
   它们是中国特有、跨领域新建、进阶延伸或课本补充的主题。
 - 上游 `mt_` 翻译对应 gap 表中 `coverage_pending` 类型，走 `scripts/sync-upstream.mjs` 翻译流程，
   **不在本报告的 proposed 范围内**——本报告只产出"上游没有、需新建"的主题。
@@ -180,11 +188,14 @@ proposed CSV 共 674 条草案（小学 132 + 初中 354 + 高中 188），实�
 | 步骤 | 状态 |
 |---|---|
 | proposed-topics 草案生成（小学 132 + 初中 354 + 高中 188 = 674 条） | ✅ 完成 |
-| 微技能级粒度拆解（674 条 → 1,640 条） | ✅ 完成 |
-| 课本补充知识点（textbook origin，809 条） | ✅ 完成 |
+| 微技能级粒度拆解（674 条 → 落地时点 1,640 条） | ✅ 完成 |
+| 课本补充知识点（textbook origin，落地时点 809 条） | ✅ 完成 |
 | 课标编号落地（17 套 / 1,423 条） | ✅ 完成 |
 | 依赖关系 + 聚类摘要 | ⬜ 待补 |
 | 接入 `scripts/validate.mjs` 完整校验 | ✅ 完成 |
+
+> 以上「落地时点」计数为历史快照；`data/cn-topics.json` 经后续治理（如 `split-compound-topics.mjs`
+> 拆分 238 个初高中宽泛主题）已增至当前实测的 2,008 条，见上一节「当前实测」段落。
 
 ## 合规说明
 

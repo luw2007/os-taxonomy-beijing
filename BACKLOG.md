@@ -5,12 +5,15 @@ v1.2.0-zh.0 发版时已确认的已知问题/增量改进。经 opus + omp 双�
 
 ## 中优先级
 
-### 1. C1a-2 跳过的 68 条 low 置信度数学节点未对齐
-- **现状**：398 个小学数学节点中 329 条已对齐（high 213 + medium 116），68 条 low 被跳过
+### 1. C1a-2 跳过的 109 条 low 置信度数学节点未对齐
+- **现状**：446 个小学数学节点中 335 条已对齐（`alignedMathHigh` 215 + `alignedMathMedium` 120），
+  109 条 low 被跳过（`alignedMathLowExcluded`）
 - **原因**：含结构性错位（age 5-7 的"一半/四分之一"分数概念被分到 S1 而非 S2；时间/金钱类节点塞进容量比较）
-- **manifest 字段**：`alignedMathLowExcluded: 68`
+- **manifest 字段**：`alignedMathLowExcluded: 109`
 - **处理**：逐条判断是"几何分割概念"还是"真分数"，重新对齐或新建中国特有节点
-- **缓存位置**：`data/.align-work/`（gitignored）里有完整 398 条原始 LLM 响应
+- **缓存位置**：`data/.align-work/`（gitignored）里有完整对齐节点的原始 LLM 响应
+- 口径以 `data/manifest.json` 为准；CHANGELOG 1.2.0 里的 68/398 是 Mathematical Thinking 扩展前的旧口径
+- 注：high 215 + medium 120 + low 109 = 444，距总量 446 尚有 2 条未归入任一档的节点，待对齐时一并清点归档
 
 ### 2. 审核覆盖率 50.6%，873 条内部 machine 边待人工核对
 - **现状**：761 条内部和 4 条 bridge `rescopeRequired` 已由用户授权的两轮独立 Claude Opus 审核处理；两轮一致 724 条，41 条分歧按保守策略拒绝，最终 reviewed 344 / rejected 421。该 provenance 明确为 AI 委托审核，不冒充教师审核

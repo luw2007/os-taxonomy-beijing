@@ -5,7 +5,6 @@
   "private": true,
   "type": "module",
   "license": "SEE LICENSE IN LICENSES.md",
-  "homepage": "https://withmarble.com",
   "scripts": {
     "test": "node --test scripts/test/*.test.mjs",
     "start": "node scripts/serve.mjs",

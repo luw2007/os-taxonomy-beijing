@@ -29,7 +29,7 @@ https://github.com/TapXWorld/ChinaTextbook
 The released Git repository does not contain textbook PDFs, converted Markdown,
 prose, illustrations, exercises, page layouts, or page numbers.
 `data/cn-topics.json` contains textbook-derived knowledge-topic metadata,
-including 209 records classified as specific reading texts. Work titles,
+including 290 records classified as specific reading texts. Work titles,
 some author names, and source references are retained as factual metadata for
 identification, indexing, and provenance; this project claims no exclusive
 copyright in those facts. Project-authored teaching text and database

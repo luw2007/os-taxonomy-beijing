@@ -61,10 +61,12 @@ const cnDeps = existsSync(cnDepsPath) ? load(DATA, 'cn-dependencies.json') : nul
 
 // --- 加载上游（如可用） ---------------------------------------------------
 let upstreamTopics = null;
+let upstreamClusters = null;
 let upstreamTopicIds = new Set();
 let upstreamEvidenceLens = new Map();
 if (hasUpstream) {
   upstreamTopics = load(UPSTREAM_DATA, 'topics.json');
+  upstreamClusters = load(UPSTREAM_DATA, 'clusters.json');
   for (const t of upstreamTopics.topics) {
     upstreamTopicIds.add(t.id);
     upstreamEvidenceLens.set(t.id, t.evidence.length);
@@ -80,6 +82,20 @@ check(clustersZh.clusterCount === clustersZh.clusters.length,
   `clusters.zh: clusterCount ${clustersZh.clusterCount} != ${clustersZh.clusters.length}`);
 check(cnStandards.curriculumCount === cnStandards.curricula.length,
   `cn-curriculum: curriculumCount != length`);
+
+// clusters.zh 与上游按 subject|domain|ageRangeStart 一一对齐；orphan 会在 serve 合并时静默丢失，必须阻断。
+if (hasUpstream) {
+  const upstreamClusterKeys = new Set(upstreamClusters.clusters.map(cluster => `${cluster.subject}|${cluster.domain}|${cluster.ageRangeStart}`));
+  const zhClusterKeys = new Set();
+  for (const cluster of clustersZh.clusters) {
+    const key = `${cluster.subject}|${cluster.domain}|${cluster.ageRangeStart}`;
+    check(upstreamClusterKeys.has(key), `zh cluster missing upstream counterpart: ${key}`);
+    if (zhClusterKeys.has(key)) errors.push(`duplicate zh cluster: ${key}`);
+    zhClusterKeys.add(key);
+    check(cluster.translationStatus === undefined || cluster.translationStatus === 'machine' || cluster.translationStatus === 'reviewed',
+      `zh cluster ${key}: invalid translationStatus "${cluster.translationStatus}"`);
+  }
+}
 
 // --- 2/3. 中文 topic 完整性 -----------------------------------------------
 const zhTopicIds = new Set();

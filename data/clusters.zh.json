@@ -1,8 +1,352 @@
 {
   "version": "1.2.0-zh.0",
   "upstreamVersion": "v1",
-  "clusterCount": 4,
+  "clusterCount": 183,
   "clusters": [
+    {
+      "subject": "English",
+      "domain": "Grammar & Punctuation",
+      "domainZh": "语法和标点符号",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在学习写作的基础——如何组成完整的句子、正确使用大写字母和标点符号，以及理解名词和动词等基本单词类型。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Grammar & Punctuation",
+      "domainZh": "语法和标点符号",
+      "ageRangeStart": 6,
+      "summary": "您的孩子正在学习重要的语法技能——了解如何构建更复杂的句子、正确使用标点符号以及选择正确的单词以使他们的写作更清晰、更有趣。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Grammar & Punctuation",
+      "domainZh": "语法和标点符号",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在学习更复杂的语法——正确使用不规则动词和复数、标点符号、选择正确的代词和连词，以及理解何时使用不同的动词时态。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Grammar & Punctuation",
+      "domainZh": "语法和标点符号",
+      "ageRangeStart": 8,
+      "summary": "您的孩子正在掌握更复杂的语法——学习正确使用不同的动词时态，理解形容词和副词的工作原理，以及使用标点符号使他们的写作更清晰、更多样化。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Grammar & Punctuation",
+      "domainZh": "语法和标点符号",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在掌握高级语法和标点符号——使用带有关系从句的复杂句子结构，了解如何使用前缀和后缀改变单词含义，以及创造有凝聚力、连接良好的写作。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Grammar & Punctuation",
+      "domainZh": "语法和标点符号",
+      "ageRangeStart": 10,
+      "summary": "您的孩子正在学习高级语法和标点符号技能——掌握复杂的句子结构、复杂的标点符号（如冒号和分号）以及正式的写作技巧，为他们进入中学及以后的学习做好准备。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Handwriting & Transcription",
+      "domainZh": "手写和转录",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在掌握书写的身体技能——学习正确组成字母和数字、正确握笔以及书写整齐、清晰的笔迹。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Handwriting & Transcription",
+      "domainZh": "手写和转录",
+      "ageRangeStart": 6,
+      "summary": "您的孩子正在学习在书写时将字母连接在一起，通过用对角线和水平笔画连接字母，同时保持字母大小正确，从而培养流畅的笔迹。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Phonics & Word Reading",
+      "domainZh": "自然拼读法和单词阅读",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在为阅读打下基础——学习字母和声音如何协同工作，通过视觉识别常见单词，并培养独立发音新单词的技能。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Phonics & Word Reading",
+      "domainZh": "自然拼读法和单词阅读",
+      "ageRangeStart": 6,
+      "summary": "您的孩子正在通过识别相同声音的不同字母模式并将较长的单词分解为音节来学习阅读更复杂的单词，同时在朗读时培养流利度和表达能力。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Phonics & Word Reading",
+      "domainZh": "自然拼读法和单词阅读",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在通过了解前缀、后缀和词根如何协同工作来学习阅读更复杂的单词，帮助他们自信地处理不熟悉的单词。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Reading Comprehension",
+      "domainZh": "阅读理解",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在培养阅读技能——通过识别人物和事件来理解故事，针对他们所读的内容提出问题，并将书籍与自己的经历联系起来。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Reading Comprehension",
+      "domainZh": "阅读理解",
+      "ageRangeStart": 6,
+      "summary": "您的孩子正在发展更深入的阅读技能——理解故事的结构，识别信息文本中的主要思想，比较人物的观点，以及认识不同的文本特征如何帮助组织信息。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Reading Comprehension",
+      "domainZh": "阅读理解",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在发展更深入的阅读技能——识别多个段落的主要思想，对人物和主题进行推断，并理解作者如何使用语言和文本特征来创造意义和效果。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Reading Comprehension",
+      "domainZh": "阅读理解",
+      "ageRangeStart": 8,
+      "summary": "您的孩子正在学习深入思考文本——在想法之间建立联系，分析人物的动机，识别故事中的中心信息，以及区分他们自己的观点与作者或人物的观点。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Reading Comprehension",
+      "domainZh": "阅读理解",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在培养复杂的阅读技能——分析作者如何构建文本、比较不同的观点、理解主题和文学手法，以及整合多个来源的信息。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Reading Comprehension",
+      "domainZh": "阅读理解",
+      "ageRangeStart": 10,
+      "summary": "您的孩子正在培养复杂的阅读技能——比较文本、分析作者如何使用证据和观点、整合多个来源的信息，并通过引用和推理来支持他们的解释。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Speaking & Listening",
+      "domainZh": "口语和听力",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在发展基本的沟通技能——学习仔细倾听、清晰说话、参与对话以及自信地与他人表达自己的想法和想法。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Speaking & Listening",
+      "domainZh": "口语和听力",
+      "ageRangeStart": 6,
+      "summary": "您的孩子正在建立大声说话的信心——通过表达来记忆和表演诗歌，并学习在向他人展示时清晰地说出完整的句子。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Speaking & Listening",
+      "domainZh": "口语和听力",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在培养作为演讲者和听众的信心——学习吸引听众、考虑不同的观点并针对不同情况选择适当的语言。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Speaking & Listening",
+      "domainZh": "口语和听力",
+      "ageRangeStart": 8,
+      "summary": "您的孩子正在培养更强的讨论和表达能力——学习准备对话、清晰地分享想法以及以有组织的方式呈现信息。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Speaking & Listening",
+      "domainZh": "口语和听力",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在培养批判性的倾听技能，学习从听到的内容中识别关键想法，并评估演讲者是否为自己的观点提供了充分的理由和证据。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Speaking & Listening",
+      "domainZh": "口语和听力",
+      "ageRangeStart": 10,
+      "summary": "您的孩子正在培养复杂的沟通技巧——学习根据不同的受众调整自己的演讲风格，深思熟虑地参与讨论，并创建有效地将口语与视觉元素结合起来的演示文稿。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Spelling & Word Study",
+      "domainZh": "拼写和单词研究",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在通过将声音与字母连接来学习拼写 - 构建简单的单词，添加常见的词尾（例如 -ing 和 -ed），以及记住不遵循常规拼写模式的重要单词。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Spelling & Word Study",
+      "domainZh": "拼写和单词研究",
+      "ageRangeStart": 6,
+      "summary": "您的孩子正在学习更高级的拼写规则，包括如何添加改变词根的后缀、在缩写和所有格中正确使用撇号，以及如何使用替代字母模式拼写熟悉的声音的单词。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Spelling & Word Study",
+      "domainZh": "拼写和单词研究",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在学习重要的拼写规则 - 正确使用撇号表示所有，区分发音相同的单词，以及了解前缀和后缀的工作原理。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Spelling & Word Study",
+      "domainZh": "拼写和单词研究",
+      "ageRangeStart": 8,
+      "summary": "您的孩子正在学习拼写来自其他语言的单词，了解希腊语、法语和拉丁语的起源如何影响英语单词的书写方式。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Spelling & Word Study",
+      "domainZh": "拼写和单词研究",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在解决具有挑战性的拼写模式 - 区分令人困惑的单词对，理解拉丁语和法语单词结尾，以及掌握无声字母和复杂的后缀。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Vocabulary",
+      "domainZh": "词汇",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在建立他们的单词知识——询问未知单词，理解反义词，识别单词部分如何提供意义线索，以及在自己的演讲和写作中使用新词汇。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Vocabulary",
+      "domainZh": "词汇",
+      "ageRangeStart": 6,
+      "summary": "您的孩子正在学习单词是如何构建和连接的 - 发现词根如何随着不同的结尾（例如外观/外观/看起来）而变化，并学习通过描述单词所属的类别及其主要特征来定义单词。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Vocabulary",
+      "domainZh": "词汇",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在学习语言如何根据谈话对象和情况而变化，同时探索单词如何通过共享的词根和部分连接起来。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Vocabulary",
+      "domainZh": "词汇",
+      "ageRangeStart": 8,
+      "summary": "您的孩子正在学习理解比喻语言——识别单词何时与它们所说的含义不完全一致，并解释故事和对话中的常见短语和习语。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Vocabulary",
+      "domainZh": "词汇",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在发展复杂的语言技能——理解隐喻和明喻等比喻语言，通过同义词和反义词学习单词关系，以及使用希腊语和拉丁语单词部分来找出不熟悉的单词。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Vocabulary",
+      "domainZh": "词汇",
+      "ageRangeStart": 10,
+      "summary": "您的孩子通过学习针对不同情况选择正确的单词，了解语言如何根据他们是正式还是非正式的讲话而变化，从而扩展他们的词汇技能。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Writing Composition",
+      "domainZh": "写作文",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在学习写自己的故事和解释——计划要说什么、按顺序排列事件以及与他人分享他们的写作以获得反馈。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Writing Composition",
+      "domainZh": "写作文",
+      "ageRangeStart": 6,
+      "summary": "您的孩子正在学习为故事以外的不同目的写作——包括观点、解释和诗歌——同时发展计划技能、增强写作耐力，并学习修改和校对他们的作品。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Writing Composition",
+      "domainZh": "写作文",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在成长为一名作家——学习将他们的想法组织成段落，写出具有成熟人物的引人入胜的故事，并编辑他们的作品以使其更清晰、更有效。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Writing Composition",
+      "domainZh": "写作文",
+      "ageRangeStart": 8,
+      "summary": "您的孩子正在发展更复杂的写作技能——选择精确而生动的词语来创造特定的效果，并学习研究主题和组织来自各种来源的信息。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Writing Composition",
+      "domainZh": "写作文",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在发展复杂的写作技能——为不同的受众和目的创作清晰、组织良好的作品，并用他们所读过的文本中的证据来支持他们的想法。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "English",
+      "domain": "Writing Composition",
+      "domainZh": "写作文",
+      "ageRangeStart": 10,
+      "summary": "您的孩子正在发展高级写作技能 - 规划具有良好人物的故事，通过标题和布局清晰地组织信息，以及学习研究和总结来自不同来源的信息。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "History",
+      "domain": "Ancient Egypt",
+      "domainZh": "古埃及",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在探索古埃及的迷人世界 - 发现金字塔和法老，了解象形文字和尼罗河，并了解考古学家如何帮助我们了解过去。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "History",
+      "domain": "Ancient Egypt",
+      "domainZh": "古埃及",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在探索古埃及的迷人世界——了解法老和金字塔、诸神和木乃伊、象形文字以及尼罗河沿岸 3,000 多年的历史。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "History",
+      "domain": "Ancient Egypt",
+      "domainZh": "古埃及",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在深入学习古埃及文明——探索法老如何作为神王进行统治，经济和社会如何运作，并审视埃及在艺术、建筑和科学方面数千年来影响世界的卓越成就。",
+      "translationStatus": "machine"
+    },
     {
       "subject": "Mathematics",
       "domain": "Addition & Subtraction",
@@ -18,6 +362,542 @@
       "summary": "您的孩子正在学习 20 以内的进位加法和退位减法，开始理解加减运算的算理，并能用不同方法解决问题。"
     },
     {
+      "subject": "Mathematics",
+      "domain": "Addition & Subtraction",
+      "domainZh": "加法和减法",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在提高他们的计算技能——学习 1000 以内的较大数字的加减法、掌握心算策略以及解决更复杂的文字问题。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Addition & Subtraction",
+      "domainZh": "加法和减法",
+      "ageRangeStart": 8,
+      "summary": "您的孩子正在掌握更复杂的加法和减法——处理最多四位数的数字，解决多步骤的文字问题，以及使用正式的书面方法和心理策略。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Addition & Subtraction",
+      "domainZh": "加法和减法",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在掌握大量的心算，并使用正式的书面方法进行复杂的计算，同时学习为不同类型的问题选择最有效的方法。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Addition & Subtraction",
+      "domainZh": "加法和减法",
+      "ageRangeStart": 10,
+      "summary": "您的孩子正在掌握复杂的加法和减法——解决具有大数字和小数的多步骤问题，并选择最佳策略来完成具有挑战性的计算。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Algebra",
+      "domainZh": "代数",
+      "ageRangeStart": 10,
+      "summary": "您的孩子开始学习代数——使用字母代表未知数字，创建并遵循数字模式规则，以及将应用题转化为数学方程。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Counting & Cardinality",
+      "domainZh": "计数和基数",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在培养基本的计数技能——了解数字具有意义，每个数字代表一个特定的数量，并开始比较各组，看看哪一组的物体较多或较少。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Counting & Cardinality",
+      "domainZh": "计数和基数",
+      "ageRangeStart": 6,
+      "summary": "您的孩子正在建立计数信心——学习跳过 3 秒数，并从任何起始数字开始向前和向后数十。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Counting & Cardinality",
+      "domainZh": "计数和基数",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在培养计算较大数字的信心，练习跳跃计数模式以及以不同的数量数到 1000。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Counting & Cardinality",
+      "domainZh": "计数和基数",
+      "ageRangeStart": 8,
+      "summary": "您的孩子正在练习以较大的数字模式进行跳数，培养流利地计算 6、7、9、25 和 1000 的倍数。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Data & Statistics",
+      "domainZh": "数据与统计",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在学习通过将物体分类并比较哪些组有更多或更少的项目来组织和计算信息。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Data & Statistics",
+      "domainZh": "数据与统计",
+      "ageRangeStart": 6,
+      "summary": "您的孩子正在学习使用数据 - 创建和阅读简单的图表、图表和表格来组织信息并回答有关数据显示内容的问题。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Data & Statistics",
+      "domainZh": "数据与统计",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在学习创建和阅读简单的图表 - 制作图片图表和条形图来显示信息，然后使用这些图表来解决数学问题。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Data & Statistics",
+      "domainZh": "数据与统计",
+      "ageRangeStart": 8,
+      "summary": "您的孩子正在学习收集信息并使用图表和图表直观地呈现信息，然后使用这些显示来解决问题并回答有关数据的问题。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Data & Statistics",
+      "domainZh": "数据与统计",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在学习处理数据——阅读时间表和图表，并通过解释图表和折线图中呈现的信息来解决问题。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Data & Statistics",
+      "domainZh": "数据与统计",
+      "ageRangeStart": 10,
+      "summary": "您的孩子正在学习解释和创建不同类型的图形和图表，并开始计算平均值以了解数据告诉我们有关现实世界的情况。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Fractions",
+      "domainZh": "分数",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在发现他们的第一个分数——学习识别并命名作为形状、物体和群体的相等部分的一半和四分之一。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Fractions",
+      "domainZh": "分数",
+      "ageRangeStart": 6,
+      "summary": "您的孩子开始通过将形状和物体分成相等的部分来理解分数，学习识别和书写简单的分数，如二分之一、四分之一和三分之一。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Fractions",
+      "domainZh": "分数",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在发现分数作为整体的一部分——理解二分之一、三分之一和四分之一，将分数放在数轴上，并开始进行简单分数的加减法。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Fractions",
+      "domainZh": "分数",
+      "ageRangeStart": 8,
+      "summary": "您的孩子正在加深对分数和小数的理解——学习分数加法和减法、分数和小数之间的转换，并用它们解决涉及测量和金钱的实际问题。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Fractions",
+      "domainZh": "分数",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在探索分数、小数和百分比——了解它们之间的关系、分数的加法和减法，以及解决涉及这些概念的现实问题。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Fractions",
+      "domainZh": "分数",
+      "ageRangeStart": 10,
+      "summary": "您的孩子正在掌握高级分数运算——不同分母的分数加法、减法和乘法、分数除法，以及使用视觉模型和数学推理解决现实世界的问题。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Geometry",
+      "domainZh": "几何学",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在探索形状和空间 - 识别圆形、三角形和正方形，使用立方体和球体等 3D 形状进行构建，并使用上方、下方和旁边等词语描述事物的位置。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Geometry",
+      "domainZh": "几何学",
+      "ageRangeStart": 6,
+      "summary": "您的孩子正在探索形状的世界 - 识别 2D 和 3D 形状的属性，学习如何组合形状来制作新形状，以及使用数学语言描述位置和运动。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Geometry",
+      "domainZh": "几何学",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在学习形状、角度和线条 - 识别不同类型的角度和线条，绘制 2D 形状和构建 3D 模型，并了解角度如何作为形状的转弯和属性。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Geometry",
+      "domainZh": "几何学",
+      "ageRangeStart": 8,
+      "summary": "您的孩子正在加深对形状和空间的理解——处理网格上的坐标、识别不同类型的角度、探索对称性以及根据形状对形状进行分类。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Geometry",
+      "domainZh": "几何学",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在学习使用量角器测量和处理角度、根据形状对形状进行分类、理解反射和平移等变换，同时探索角度之间的相互关系。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Geometry",
+      "domainZh": "几何学",
+      "ageRangeStart": 10,
+      "summary": "您的孩子正在发展高级空间技能 - 使用 3D 形状和网络、使用带负数的坐标网格、计算角度以及理解反射和平移等几何变换。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Mathematical Thinking",
+      "domainZh": "数学思维",
+      "ageRangeStart": 5,
+      "summary": "您的孩子开始像数学家一样思考——使用物体和图片来解决问题，解释他们的推理，注意模式，并将数学与现实世界的情况联系起来。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Mathematical Thinking",
+      "domainZh": "数学思维",
+      "ageRangeStart": 6,
+      "summary": "您的孩子正在发展数学推理技能——学习规划解决问题的方法、清楚地解释他们的想法、发现模式以及将现实世界的情况与数学解决方案联系起来。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Mathematical Thinking",
+      "domainZh": "数学思维",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在学习像数学家一样思考 - 解决多步骤问题，解释其推理，识别数字模式，并为不同的数学挑战选择最佳工具和策略。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Mathematical Thinking",
+      "domainZh": "数学思维",
+      "ageRangeStart": 8,
+      "summary": "您的孩子正在培养强大的数学推理能力——学习清楚地解释他们的想法，发现模式和联系，并选择解决复杂问题的最佳策略。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Mathematical Thinking",
+      "domainZh": "数学思维",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在培养高级解决问题的技能，学习为复杂问题选择最好的数学工具和方法，并清晰地表达他们的数学推理。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Mathematical Thinking",
+      "domainZh": "数学思维",
+      "ageRangeStart": 10,
+      "summary": "您的孩子正在发展高级数学推理技能——学习构建逻辑论证，在不同的数学概念之间建立联系，并解决涉及分数、代数和比率的复杂的现实问题。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Measurement",
+      "domainZh": "测量",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在学习日常生活中的测量知识——以整点和半点来表示时间，比较物体的长度和重量，了解金钱，以及使用“昨天”和“明天”等时间词。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Measurement",
+      "domainZh": "测量",
+      "ageRangeStart": 6,
+      "summary": "您的孩子正在学习实用的测量技能——以五分钟为间隔读取时钟，使用标准单位测量长度和容量，以及使用金钱，包括找钱。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Measurement",
+      "domainZh": "测量",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在学习实用的测量技能——使用尺子和其他工具准确测量长度、重量和体积，使用金钱，以及精确到分钟的报时。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Measurement",
+      "domainZh": "测量",
+      "ageRangeStart": 8,
+      "summary": "您的孩子正在学习测量周围的世界 - 计算面积和周长，在米和公里等不同单位之间进行转换，以及使用模拟时钟和数字时钟解决时间问题。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Measurement",
+      "domainZh": "测量",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在掌握高级测量技能——计算形状的面积和周长、使用测量中的分数、不同单位之间的转换以及解决涉及距离、时间和体积的现实问题。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Measurement",
+      "domainZh": "测量",
+      "ageRangeStart": 10,
+      "summary": "您的孩子正在掌握高级测量技能 - 使用公式计算体积和面积、不同测量单位之间的转换以及解决涉及长度、质量和容量的现实问题。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Multiplication & Division",
+      "domainZh": "乘法和除法",
+      "ageRangeStart": 5,
+      "summary": "您的孩子将学习乘法和除法，将其作为与平等群体合作的方式——将乘法理解为重复加法，将除法理解为平等分享。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Multiplication & Division",
+      "domainZh": "乘法和除法",
+      "ageRangeStart": 6,
+      "summary": "您的孩子正在构建乘法和除法的基础——学习 2、5 和 10 乘法表，理解这些运算的含义，并使用数组和重复加法解决问题。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Multiplication & Division",
+      "domainZh": "乘法和除法",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在掌握乘法和除法——学习乘法表（尤其是 3、4 和 8），了解乘法如何与数组连接以及重复加法，并解决涉及这些运算的应用题。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Multiplication & Division",
+      "domainZh": "乘法和除法",
+      "ageRangeStart": 8,
+      "summary": "您的孩子正在培养乘法和除法的流利程度——记忆高达 12×12 的乘法表，理解乘法和除法之间的关系，并解决涉及相等组和数组的应用题。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Multiplication & Division",
+      "domainZh": "乘法和除法",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在掌握更复杂的乘法和除法——处理更大的数字，理解因数和倍数，解决多步骤问题，并开始使用正式的书面方法。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Multiplication & Division",
+      "domainZh": "乘法和除法",
+      "ageRangeStart": 10,
+      "summary": "您的孩子正在进步到复杂的乘法和除法——使用正式的书面方法进行复杂的计算，使用小数，并应用运算顺序来解决多步骤问题。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Number Representation & Place Value",
+      "domainZh": "数字表示法和位值",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在打好数字基础——学习读写 100 以内的数字，理解数字单词，并开始了解数字是如何由十和个组成的。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Number Representation & Place Value",
+      "domainZh": "数字表示法和位值",
+      "ageRangeStart": 6,
+      "summary": "您的孩子正在通过理解位值来学习数字的工作原理 - 发现在两位数中，每个数字都有不同的值，具体取决于它代表的是十还是个。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Number Representation & Place Value",
+      "domainZh": "数字表示法和位值",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在掌握更大的数字——通过了解百、十和个如何协同工作，学习读、写和处理 1000 以内的数字。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Number Representation & Place Value",
+      "domainZh": "数字表示法和位值",
+      "ageRangeStart": 8,
+      "summary": "您的孩子正在处理 10,000 以内的较大数字 - 理解四位数的位值，学习对数字进行四舍五入，并探索负数和罗马数字。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Number Representation & Place Value",
+      "domainZh": "数字表示法和位值",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在处理高达 100 万的数字 - 理解位值、四舍五入到不同的精度级别，并开始在日常环境中处理负数。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Number Representation & Place Value",
+      "domainZh": "数字表示法和位值",
+      "ageRangeStart": 10,
+      "summary": "您的孩子正在掌握大数和小数——阅读、写作和比较高达 1000 万的数字，了解小数位数的工作原理，以及在温度和金钱等现实世界中使用负数。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Mathematics",
+      "domain": "Ratio & Proportion",
+      "domainZh": "比率与比例",
+      "ageRangeStart": 10,
+      "summary": "您的孩子正在学习比较数量并解决涉及比率、比例、百分比和比例的问题，这是理解现实世界中数字之间关系的基本技能。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Personal & Social Development",
+      "domain": "Emotional Literacy",
+      "domainZh": "情感素养",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在学习情绪 - 命名不同的情绪，了解每个人都有情绪，用言语而不是行动表达情绪，并识别是什么触发了他们的情绪。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Personal & Social Development",
+      "domain": "Emotional Literacy",
+      "domainZh": "情感素养",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在对情绪有更深入的理解——学习更具体的情绪词汇，认识情绪强度的变化，以及理解情绪和身体感觉之间的联系。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Personal & Social Development",
+      "domain": "Emotional Literacy",
+      "domainZh": "情感素养",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在发展更深入的情感理解——识别复杂和复杂的感受，理解情绪如何影响决策，并随着时间的推移反思自己的情绪模式和成长。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Personal & Social Development",
+      "domain": "Empathy & Social Awareness",
+      "domainZh": "同理心和社会意识",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在发展情商和社交技能——学习向他人表达善意，欣赏社区的多样性，并理解人们有不同的想法和感受。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Personal & Social Development",
+      "domain": "Empathy & Social Awareness",
+      "domainZh": "同理心和社会意识",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在培养同理心和对公平的理解——学习从他人的角度看待情况，认识到每个人都有不同的经历和挑战，并理解公平有时意味着给予人们他们需要的东西，而不是每个人都得到同样的东西。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Personal & Social Development",
+      "domain": "Empathy & Social Awareness",
+      "domainZh": "同理心和社会意识",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在加深对公平和多样性的理解——学习识别刻板印象和偏见，了解偏见如何影响人们，并欣赏不同文化和观点的价值。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Personal & Social Development",
+      "domain": "Friendship & Cooperation",
+      "domainZh": "友谊与合作",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在培养基本的友谊技能——学会在需要时寻求帮助、了解什么是好朋友、正确倾听他人的意见、分享和轮流参与小组活动。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Personal & Social Development",
+      "domain": "Friendship & Cooperation",
+      "domainZh": "友谊与合作",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在了解友谊会随着时间的推移而自然变化，并培养在团队中良好合作、和平解决分歧以及理解人们在团队合作中扮演的不同角色的技能。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Personal & Social Development",
+      "domain": "Friendship & Cooperation",
+      "domainZh": "友谊与合作",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在发展高级社交技能——学习自信地沟通、帮助解决朋友之间的冲突、反思自己在人际关系中的行为以及给予和接受有用的反馈。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Personal & Social Development",
+      "domain": "Responsible Decision-Making",
+      "domainZh": "负责任的决策",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在学习做出正确的选择——区分是非、保证自己的安全、考虑后果以及遵守规则，因为他们明白规则的重要性。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Personal & Social Development",
+      "domain": "Responsible Decision-Making",
+      "domainZh": "负责任的决策",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在学习做出深思熟虑的选择并坚持正义——理解欺凌和数字公民，培养成为正直者的勇气，并在做出决定之前进行思考。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Personal & Social Development",
+      "domain": "Responsible Decision-Making",
+      "domainZh": "负责任的决策",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在学习应对同侪压力并了解自己在社区中的权利和责任，同时培养从多个角度思考道德困境的技能。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Personal & Social Development",
+      "domain": "Self-Regulation & Resilience",
+      "domainZh": "自我调节和弹性",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在学习管理情绪和挑战的重要生活技能——在不安时使用平静策略、练习耐心、适应变化以及理解错误是学习的正常部分。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Personal & Social Development",
+      "domain": "Self-Regulation & Resilience",
+      "domainZh": "自我调节和弹性",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在学习，他们可以通过练习和努力把事情做得更好，同时制定保持积极态度并将大挑战分解为更小、可管理的步骤的策略。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Personal & Social Development",
+      "domain": "Self-Regulation & Resilience",
+      "domainZh": "自我调节和弹性",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在培养重要的生活技能——学习管理自己的情绪和行为、设定目标并努力实现目标，以及培养从挑战和挫折中恢复过来的韧性。",
+      "translationStatus": "machine"
+    },
+    {
       "subject": "Science",
       "domain": "Animals of the World",
       "domainZh": "世界各地的动物",
@@ -27,9 +907,562 @@
     {
       "subject": "Science",
       "domain": "Animals of the World",
-      "domainZh": "世界各地的动物",
+      "domainZh": "世界上的动物",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在探索世界各地动物的惊人多样性，了解不同生物如何在从雨林到沙漠到极地的各种栖息地中交流、迁徙、狩猎和生存。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Animals of the World",
+      "domainZh": "世界上的动物",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在探索动物如何进化出惊人的适应能力以在其环境中生存，探索复杂的动物行为和智力，并了解保护濒危物种和生物多样性的保护工作。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Dinosaurs & Paleontology",
+      "domainZh": "恐龙与古生物学",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在探索迷人的恐龙世界 - 了解不同的物种，了解化石告诉我们有关这些古代生物的信息，并发现科学家如何研究很久以前的生命。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Dinosaurs & Paleontology",
+      "domainZh": "恐龙与古生物学",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在成为一名年轻的古生物学家 - 了解化石是如何形成的，它们告诉我们有关古代生命的信息，并发现有关恐龙和研究恐龙的科学家的有趣事实。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Dinosaurs & Paleontology",
+      "domainZh": "恐龙与古生物学",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在探索科学家如何通过化石研究恐龙——了解恐龙分类、鸟类进化、灭绝事件，以及古生物学家如何发现和解释数百万年前的证据。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Earth & Human Activity",
+      "domainZh": "地球与人类活动",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在探索人类如何与环境互动——了解天气模式、动物和植物如何依赖其栖息地，以及我们如何保护当地环境。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Earth & Human Activity",
+      "domainZh": "地球与人类活动",
+      "ageRangeStart": 8,
+      "summary": "您的孩子正在学习如何解决现实世界的问题 - 设计解决方案来保护人员和财产免受洪水、风暴和极端温度等天气灾害的影响。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Earth & Human Activity",
+      "domainZh": "地球与人类活动",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在学习自然灾害和环境影响 - 探索我们如何保护自己免受地震和洪水的影响，并了解我们的能源使用如何影响地球。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Earth & Human Activity",
+      "domainZh": "地球与人类活动",
+      "ageRangeStart": 10,
+      "summary": "您的孩子正在探索人们利用科学知识来保护地球资源和环境的不同方式，从而学习科学如何帮助社区保护我们的星球。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Earth's Systems",
+      "domainZh": "地球系统",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在学习观察和描述天气模式和季节，同时探索植物和动物如何改变环境以满足其需求。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Earth's Systems",
+      "domainZh": "地球系统",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在学习地球的结构 - 探索不同类型的岩石和土壤，了解地球上哪里可以找到水，并发现土地形状如何随时间变化。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Earth's Systems",
+      "domainZh": "地球系统",
+      "ageRangeStart": 8,
+      "summary": "您的孩子通过收集和显示天气数据来探索天气和气候，学习区分世界各地不同地区的日常天气模式和长期气候条件。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Earth's Systems",
+      "domainZh": "地球系统",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在学习地球表面如何随时间变化——研究风、水和冰如何通过风化和侵蚀塑造我们的景观，并解释地图以了解地质模式。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Earth's Systems",
+      "domainZh": "地球系统",
+      "ageRangeStart": 10,
+      "summary": "您的孩子正在了解地球作为一个相互连接的系统，探索水如何在我们的星球上分布以及土地、水、空气和生物如何相互作用。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Ecosystems & Habitats",
+      "domainZh": "生态系统与栖息地",
       "ageRangeStart": 6,
-      "summary": "您的孩子正在学习动物的多样性和适应特征——了解不同动物如何通过身体结构和行为来适应环境。"
+      "summary": "您的孩子正在探索生物如何与环境相互作用——了解不同的栖息地、简单的食物链，以及活物、死物和死物之间的区别。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Ecosystems & Habitats",
+      "domainZh": "生态系统与栖息地",
+      "ageRangeStart": 8,
+      "summary": "您的孩子正在探索生物之间如何相互作用以及它们的环境如何相互作用——了解食物链、动物分类以及科学家如何对自然界中的不同物种进行分类和识别。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Ecosystems & Habitats",
+      "domainZh": "生态系统与栖息地",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在学习生物如何繁殖和生长——比较从哺乳动物到昆虫的不同生命周期，并了解植物和动物创造新一代的各种方式。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Ecosystems & Habitats",
+      "domainZh": "生态系统与栖息地",
+      "ageRangeStart": 10,
+      "summary": "您的孩子正在学习科学家如何根据生物的特征将其分类，并了解当植物、动物和分解者与环境相互作用时物质如何在生态系统中移动。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Energy",
+      "domainZh": "活力",
+      "ageRangeStart": 5,
+      "summary": "您的孩子开始了解能源——观察阳光如何使物体和表面变暖，并设计简单的结构来创造阴影并减少变暖效应。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Energy",
+      "domainZh": "活力",
+      "ageRangeStart": 8,
+      "summary": "您的孩子正在探索电的工作原理——用电池和灯泡搭建简单的电路，了解开关如何控制电流，以及了解哪些材料导电，哪些材料不导电。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Energy",
+      "domainZh": "活力",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在探索能量的工作原理——了解能量如何在物体之间移动、从一种形式转变为另一种形式，以及如何通过声音、光、热和电进行传递。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Energy",
+      "domainZh": "活力",
+      "ageRangeStart": 10,
+      "summary": "您的孩子正在学习电力在电路中的工作原理 - 了解电池如何为灯泡和蜂鸣器等不同组件供电，以及如何使用正确的符号绘制电路图。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Forces & Motion",
+      "domainZh": "力与运动",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在学习力 - 了解推和拉如何使物体移动得更快、更慢或改变方向，并测试影响运动的不同方式。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Forces & Motion",
+      "domainZh": "力与运动",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在探索周围的力 - 发现磁铁如何工作，了解某些力需要接触，而其他力则需要远距离工作，并研究不同的表面如何影响物体的移动方式。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Forces & Motion",
+      "domainZh": "力与运动",
+      "ageRangeStart": 8,
+      "summary": "您的孩子正在研究力如何影响运动 - 观察物体运动的模式并进行实验以了解平衡和不平衡的力如何改变物体的运动。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Forces & Motion",
+      "domainZh": "力与运动",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在学习重力和抵抗运动的力​​（例如摩擦力和空气阻力），同时发现杠杆和滑轮等简单的机器如何使任务变得更容易。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Heredity & Evolution",
+      "domainZh": "遗传与进化",
+      "ageRangeStart": 6,
+      "summary": "您的孩子正在观察小动物和植物与父母的相似之处和独特之处——开始了解遗传特征和个体差异的基本概念。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Heredity & Evolution",
+      "domainZh": "遗传与进化",
+      "ageRangeStart": 8,
+      "summary": "您的孩子正在学习特征如何从父母传递给后代，环境因素如何影响特征，以及特征的变化如何帮助物种随着时间的推移生存和进化，利用化石证据来了解过去的生命。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Heredity & Evolution",
+      "domainZh": "遗传与进化",
+      "ageRangeStart": 10,
+      "summary": "随着时间的推移，您的孩子正在了解地球上的生命——了解生物在整个历史中如何变化，以及化石如何帮助我们了解古代生物。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Matter & Materials",
+      "domainZh": "物质与材料",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在探索周围的材料 - 识别不同的物质，如木材、塑料和金属，并发现它们的特性，例如它们是硬还是软、粗糙还是光滑。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Matter & Materials",
+      "domainZh": "物质与材料",
+      "ageRangeStart": 6,
+      "summary": "您的孩子正在探索材料的行为方式 - 研究如何通过弯曲、扭曲或拉伸来改变固体物体，并了解为什么为不同的工作选择不同的材料。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Matter & Materials",
+      "domainZh": "物质与材料",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在研究材料的行为方式 - 根据物质的属性对物质进行分类，了解为什么不同的材料用于特定目的，并探索加热和冷却如何改变材料。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Matter & Materials",
+      "domainZh": "物质与材料",
+      "ageRangeStart": 8,
+      "summary": "您的孩子正在探索物质的状态——学习识别固体、液体和气体，并发现水如何通过蒸发和冷凝而改变形式。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Matter & Materials",
+      "domainZh": "物质与材料",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在探索材料的行为和变化 - 研究哪些物质溶解在水中，学习分离混合物，并区分可以逆转的变化和创造全新材料的变化。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Matter & Materials",
+      "domainZh": "物质与材料",
+      "ageRangeStart": 10,
+      "summary": "您的孩子正在探索物质的基本性质——了解到一切都是由他们看不见的微小粒子组成的，并发现物质即使通过加热、冷却或混合而改变形式，也是守恒的。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Ocean Life",
+      "domainZh": "海洋生物",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在探索海洋生物——了解海洋生物的惊人多样性、它们如何相互依赖食物，并探索特殊的海洋栖息地，如岩石池和珊瑚礁。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Ocean Life",
+      "domainZh": "海洋生物",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在深入研究海洋科学 - 了解海洋生物如何分类，了解复杂的海洋食物网，并探索广阔海洋的不同区域和特征。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Ocean Life",
+      "domainZh": "海洋生物",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在深入研究海洋科学——了解海洋生态系统、动物迁徙、人类活动如何影响海洋以及海洋在地球气候中发挥的重要作用。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Organisms & Life Processes",
+      "domainZh": "生物体与生命过程",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在了解生命的惊人多样性——识别不同的动物和植物，了解身体部位如何帮助动物生存，并发现所有生物需要什么才能生存。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Organisms & Life Processes",
+      "domainZh": "生物体与生命过程",
+      "ageRangeStart": 6,
+      "summary": "您的孩子正在探索生物如何生长——观察种子如何变成植物，了解植物茁壮成长需要什么，并探索动物如何从婴儿发育成成年人。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Organisms & Life Processes",
+      "domainZh": "生物体与生命过程",
+      "ageRangeStart": 7,
+      "summary": "您的孩子将更深入地了解生物的运作方式——了解植物从花到种子的生命周期，发现植物如何输送水分，并了解骨骼、肌肉和适当营养的重要作用。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Organisms & Life Processes",
+      "domainZh": "生物体与生命过程",
+      "ageRangeStart": 8,
+      "summary": "您的孩子正在探索人体的运作方式——了解消化系统以及不同类型的牙齿如何帮助我们进食和分解食物。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Organisms & Life Processes",
+      "domainZh": "生物体与生命过程",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在学习植物和动物的身体部位如何帮助他们生存和成长，同时探索人类的生命周期以及我们的感官如何帮助我们理解和应对世界。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Organisms & Life Processes",
+      "domainZh": "生物体与生命过程",
+      "ageRangeStart": 10,
+      "summary": "您的孩子正在探索生物如何获取和使用能量——从了解植物如何利用阳光和空气制造食物，到了解人体循环系统以及生活方式选择如何影响我们的身体。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Scientific Inquiry",
+      "domainZh": "科学探究",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在学习成为一名年轻的科学家——提出问题，仔细观察，用简单的图表和图画记录他们所看到的内容，并测试想法以找到答案。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Scientific Inquiry",
+      "domainZh": "科学探究",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在通过设置公平的测试、仔细观察和测量、在图表和表格中记录数据以及从调查中得出结论来学习像科学家一样思考和工作。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Scientific Inquiry",
+      "domainZh": "科学探究",
+      "ageRangeStart": 8,
+      "summary": "您的孩子正在学习像工程师一样思考——设计问题的解决方案，规划公平的测试，并根据最有效的方法改进他们的想法。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Scientific Inquiry",
+      "domainZh": "科学探究",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在培养先进的科学研究技能——计划公平的测试、进行精确的测量、记录复杂的数据以及评估证据以得出可靠的结论。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Space Exploration",
+      "domainZh": "太空探索",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在开始他们的太空科学之旅 - 了解宇航员和月相，识别天空中的物体，并发现我们与其他行星生活在太阳系中。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Space Exploration",
+      "domainZh": "太空探索",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在探索我们的太阳系是如何运作的 - 了解地球的运动创造了白天和黑夜，探索八颗行星及其特征，并了解我们如何使用机器人和望远镜来研究太空。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Space Exploration",
+      "domainZh": "太空探索",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在发现太空的奇迹——了解恒星、行星和星系，了解我们对太阳系的看法如何随着时间的推移而改变，并探索人类的太空之旅。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Space Systems & Earth's History",
+      "domainZh": "空间系统与地球历史",
+      "ageRangeStart": 5,
+      "summary": "您的孩子通过观察夏季白天更长、冬季更短，了解日照在一年中的变化。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Space Systems & Earth's History",
+      "domainZh": "空间系统与地球历史",
+      "ageRangeStart": 6,
+      "summary": "您的孩子正在学习天空中可预测的模式 - 观察太阳每天如何升起和落下，月亮如何改变形状，以及星星如何在夜间出现。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Space Systems & Earth's History",
+      "domainZh": "空间系统与地球历史",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在了解地球会随着时间的推移而发生变化——有些变化发生得很快，比如地震和火山，而另一些变化，比如侵蚀和造山，则需要数百万年的时间。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Space Systems & Earth's History",
+      "domainZh": "空间系统与地球历史",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在探索我们的太阳系和地球在其中的位置 - 了解地球的自转如何创造白天和黑夜，行星如何绕太阳运行，以及我们如何通过岩石和化石了解地球的历史。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Space Systems & Earth's History",
+      "domainZh": "空间系统与地球历史",
+      "ageRangeStart": 10,
+      "summary": "您的孩子正在探索地球如何融入太阳系——了解为什么太阳看起来比遥远的星星更亮，并观察阴影的模式、昼夜循环以及天空的季节变化。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "The Human Body",
+      "domainZh": "人体",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在发现他们神奇的身体是如何运作的——了解心脏、肺、大脑、骨骼和五种感官，并了解他们的身体需要什么来保持健康和强壮。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "The Human Body",
+      "domainZh": "人体",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在探索他们的身体如何运作——了解不同类型的牙齿、食物如何通过消化系统、骨骼和肌肉如何协同工作，以及了解均衡饮食的重要性。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "The Human Body",
+      "domainZh": "人体",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在探索他们的身体如何运作——详细探索呼吸、循环和神经系统，并了解生活方式的选择如何影响他们的健康和发育。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Volcanoes & Earthquakes",
+      "domainZh": "火山与地震",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在学习塑造地球的强大力量——了解什么是火山和地震、它们如何改变地貌以及地震期间要遵循的重要安全规则。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Volcanoes & Earthquakes",
+      "domainZh": "火山与地震",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在了解火山和地震的内部结构、地球如何具有不同的层次，并探索庞贝和海啸等戏剧性的地质事件。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Volcanoes & Earthquakes",
+      "domainZh": "火山与地震",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在探索地球强大力量的运作方式 - 了解火山和地震的成因、科学家如何监测它们以及社区如何为这些自然事件做好准备。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Waves, Light & Sound",
+      "domainZh": "波浪、光和声音",
+      "ageRangeStart": 6,
+      "summary": "您的孩子正在研究光和声音 - 发现我们如何看待物体，尝试透明和不透明的材料，并学习振动如何产生声音。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Waves, Light & Sound",
+      "domainZh": "波浪、光和声音",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在探索光的行为方式 - 了解阳光可能对眼睛造成危险，了解光线被阻挡时如何形成阴影，以及观察不同的表面如何反射光。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Waves, Light & Sound",
+      "domainZh": "波浪、光和声音",
+      "ageRangeStart": 8,
+      "summary": "您的孩子正在探索声音的工作原理——理解声音是通过空气、水和固体传播的振动，并探索音调和音量与这些振动强度的关系。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Waves, Light & Sound",
+      "domainZh": "波浪、光和声音",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在学习光如何让我们看到物体以及波如何工作，包括探索使用图案和代码发送信息的不同方式。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Waves, Light & Sound",
+      "domainZh": "波浪、光和声音",
+      "ageRangeStart": 10,
+      "summary": "您的孩子正在学习光如何沿直线传播，并利用这种理解来解释日常现象，例如我们如何看待事物以及为什么阴影与投射它们的物体的形状相匹配。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Weather & Climate",
+      "domainZh": "天气与气候",
+      "ageRangeStart": 5,
+      "summary": "您的孩子正在探索天气的运作方式——了解不同类型的天气、如何在暴风雨期间保持安全，以及了解天气模式如何随季节变化。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Weather & Climate",
+      "domainZh": "天气与气候",
+      "ageRangeStart": 7,
+      "summary": "您的孩子正在学习天气科学——气象学家如何预测天气、导致风和风暴等不同天气模式的原因，以及了解为我们带来雨和雪的水循环。",
+      "translationStatus": "machine"
+    },
+    {
+      "subject": "Science",
+      "domain": "Weather & Climate",
+      "domainZh": "天气与气候",
+      "ageRangeStart": 9,
+      "summary": "您的孩子正在探索太阳如何驱动天气模式并在地球周围创建不同的气候带，了解极端天气事件、气候变化以及人们如何设计解决方案来保护社区免受天气危害。",
+      "translationStatus": "machine"
     }
   ]
 }

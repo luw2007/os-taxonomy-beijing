@@ -149,6 +149,17 @@ node scripts/translate.mjs --concurrency 8      # 8 并发（默认 5）
 （中断后重跑自动跳过已翻译）、Google→MyMemory 自动降级。翻译质量标记为
 `"translationStatus": "machine"`，手工校对过的标 `"reviewed"`（不会被覆盖）。
 
+### 领域聚类翻译
+
+领域聚类是面向家长的学科/领域/年龄段摘要，按 `(subject, domain, ageRangeStart)` 与上游严格对齐：
+
+```bash
+node scripts/translate-clusters.mjs --dry-run  # 预览；不写数据
+node scripts/translate-clusters.mjs            # 翻译缺失条目，保留已有译文，剔除 orphan
+```
+
+中断进度保存在 `data/.translate-clusters-progress.json`（gitignore）；新译文标记 `machine`，人工校对后改为 `reviewed`。
+
 ### 中国特有依赖图（cn-dependencies）重建
 
 `data/cn-dependencies.json` 描述 `mtc_` 中国特有微主题之间的知识依赖，由三层建图
@@ -186,9 +197,10 @@ raw 响应缓存在 `data/.llm-deps-work/raw/`（gitignore），支持断点续�
 微主题、依赖关系、领域聚类、课标对齐一目了然。
 
 ```bash
-npm start                    # 默认端口 3000，自动从 ../os-taxonomy 读上游
+npm start                    # 默认只绑定 127.0.0.1:3000，自动从 ../os-taxonomy 读上游
 # 或
 node scripts/serve.mjs --port 8080 --upstream /path/to/os-taxonomy
+# 仅 LAN 调试时显式开放：node scripts/serve.mjs --host 0.0.0.0
 ```
 
 然后浏览器打开 **http://localhost:3000**：
@@ -230,7 +242,7 @@ node scripts/serve.mjs --port 8080 --upstream /path/to/os-taxonomy
 
 ## Roadmap
 
-- [x] 项目骨架 + 合规文件 + 校验工具
+- [x] **领域聚类翻译**（183 / 183 条与上游 key 严格对齐；180 条新机翻、3 条既有译文保留；翻译器会阻断/清理 orphan）
 - [x] 数学 + 科学示例数据
 - [x] **全部翻译**（1,590 微主题 + 3,221 依赖说明，Google API 机翻）
 - [x] 本地知识浏览器（零依赖 Web 服务）

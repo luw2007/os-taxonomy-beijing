@@ -19,7 +19,8 @@
           "domain": { "type": "string", "description": "保持与上游相同的英文 domain" },
           "domainZh": { "type": ["string", "null"], "description": "中文领域名（可选）" },
           "ageRangeStart": { "type": "integer" },
-          "summary": { "type": "string", "description": "中文领域摘要" }
+          "summary": { "type": "string", "description": "中文领域摘要" },
+          "translationStatus": { "type": "string", "enum": ["machine", "reviewed"], "description": "machine=翻译流水线生成；reviewed=人工校对，不会被翻译器覆盖" }
         },
         "additionalProperties": false
       }

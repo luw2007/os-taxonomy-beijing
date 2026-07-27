@@ -18,6 +18,7 @@ docs/reports/textbook-gap-report.csv
 
 # 缓存文件
 data/.terminology-cache.json
+data/.translate-clusters-progress.json
 
 # LLM 建图中间产物（raw 响应、dry-run 摘要）
 data/.llm-deps-work/

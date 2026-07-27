@@ -25,6 +25,15 @@
 - 新增 CI（test → validate --publish → checksum → manifest 漂移 → 导出冒烟，上游 pin 至 Marble v1 提交）、CONTRIBUTING（codes-only 红线 + 边审核工作流）、SECURITY。
 - 新增 `scripts/test/docs-stats.test.mjs`：文档数字对数据实测的可执行断言。测试 26 → 73 个。
 
+### Round 2：本地安全、证据可见性与 CASE 互操作
+- 本地服务默认绑定 `127.0.0.1`；开放 LAN 必须显式 `--host 0.0.0.0`。修复匿名 AI 端点随 `server.listen(port)` 意外暴露所有网卡的风险。
+- `path-data` 恢复紧凑 provenance 字段 `p`，知识脉络卡片显示上游·Marble / 规则 / AI 共识 / 人工审核；移除永远不会出现的 machine badge。
+- 抽取共享 `mergeTopics`，serve、JSONL、CASE 三个消费者统一合并语义并阻断 cn ID collision。
+- 新增 `scripts/export-case.mjs`：基于 1EdTech CASE v1.1 JSON Schema 导出 CFPackage（CFDocument / CFItems / CFAssociations）；先修边以 prerequisite → topic 的 `precedes` 关联表达，需显式给 `--base-url`。
+- 领域聚类 4→183，新增可恢复的 `translate-clusters.mjs`；移除 1 条上游不存在、此前启动时被静默丢弃的 orphan。
+- 新增 `audit-math-alignment.mjs`，只读报告 446 数学候选的分档缺口，不推断 2 条未处置候选。
+- 增加 bridge 描述性 schema；CI 扩展 CASE v1.1 导出冒烟。
+
 ## [1.2.0-zh.0] — 2026-07-20
 
 **DAG 完整性 + 审核闸门 + 核心度 + 课标对齐**。经 omp + opus 多轮双审迭代完成。

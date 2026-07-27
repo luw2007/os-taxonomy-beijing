@@ -12,7 +12,7 @@
     "topicsZh": 1590,
     "cnTopics": 2008,
     "dependenciesZh": 3221,
-    "clustersZh": 4,
+    "clustersZh": 183,
     "cnCurricula": 17,
     "cnCurriculumEntries": 1423,
     "cnDeps": 2619,
@@ -51,8 +51,8 @@
       "sha256": "f0ac0eddcd44ed409162b2bab1103f0d89ec0eb8c1153861dc781b1289a0d341"
     },
     "clusters.zh.json": {
-      "bytes": 1359,
-      "sha256": "35e4e663927c487f4e942c24744b992b5aa9dcf357645fa8efa5b1d9d4ebf6ee"
+      "bytes": 68963,
+      "sha256": "5369f4f80b6a96c9217533aa24482ae2d4930be2faf72a0bff2a4211d7894ab4"
     },
     "cn-curriculum-standards.json": {
       "bytes": 274900,

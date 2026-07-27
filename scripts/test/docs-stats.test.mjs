@@ -37,6 +37,7 @@ const bridgeReview = tally(cnBridgeDependencies.dependencies, (e) => e.reviewSta
 const translationStatus = tally(topicsZh.topics, (t) => t.translationStatus);
 const origin = tally(cnTopics.topics, (t) => t.origin);
 const textbookTextCount = cnTopics.topics.filter((t) => t.origin === 'textbook' && t.nodeKind === 'text').length;
+const clusterStatus = tally(readData('clusters.zh.json').clusters, (cluster) => cluster.translationStatus);
 
 // README 状态行是一段以 "> **状态：**" 开头、后续行都以 "> " 续行的块
 function readmeStatusBlock() {
@@ -97,6 +98,12 @@ test('README 教材来源节点数字与 cn-topics.json 实测一致', () => {
 test('README Roadmap 的 cn-deps / bridge 审核数字与实测一致', () => {
   assert.ok(readme.includes(`reviewed ${fmt(depsReview.reviewed ?? 0)} / machine ${fmt(depsReview.machine ?? 0)} / rejected ${fmt(depsReview.rejected ?? 0)}`));
   assert.ok(readme.includes(`reviewed ${fmt(bridgeReview.reviewed ?? 0)} / rejected ${fmt(bridgeReview.rejected ?? 0)}`));
+});
+
+test('README Roadmap 的领域聚类完成数与 data/clusters.zh.json 实测一致', () => {
+  const clusters = readData('clusters.zh.json');
+  assert.ok(readme.includes(`${fmt(clusters.clusterCount)} / ${fmt(clusters.clusterCount)} 条与上游 key 严格对齐`));
+  assert.ok(readme.includes(`${fmt(clusterStatus.machine ?? 0)} 条新机翻`));
 });
 
 test('BACKLOG.md 的 alignedMathLowExcluded 与 manifest.json 一致（该口径来自人工对齐工作，无法从原始数组重算）', () => {

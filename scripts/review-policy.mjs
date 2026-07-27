@@ -45,3 +45,36 @@ export function mergeDependencies({ upstreamDeps, zhDeps, cnDeps, bridgeDeps }) 
   if (bridgeDeps) merged.push(...bridgeDeps.dependencies);
   return merged;
 }
+
+/**
+ * 合并完整 topic 核心字段：上游提供结构，中文平行文件覆盖文本，中国特有主题直接追加。
+ * enrich 仅供展示层补 subjectZh/domainZh 等派生字段，导出层保持原始核心数据。
+ */
+export function mergeTopics({ upstreamTopics, zhTopics, cnTopics, enrich = (topic) => topic }) {
+  const zhById = new Map((zhTopics?.topics ?? []).map(topic => [topic.id, topic]));
+  const upstreamById = new Map((upstreamTopics?.topics ?? []).map(topic => [topic.id, topic]));
+  const ids = new Set([...zhById.keys(), ...upstreamById.keys()]);
+  const merged = [];
+
+  for (const id of ids) {
+    const upstream = upstreamById.get(id);
+    const zh = zhById.get(id);
+    if (upstream && zh) {
+      const topic = { ...upstream, name: zh.name, description: zh.description, cnStandards: zh.cnStandards ?? [],
+        translationStatus: zh.translationStatus ?? 'untranslated', translated: true };
+      if (zh.evidence !== undefined) topic.evidence = zh.evidence;
+      if (zh.assessmentPrompt !== undefined) topic.assessmentPrompt = zh.assessmentPrompt;
+      merged.push(enrich(topic, 'translated'));
+    } else if (upstream) {
+      merged.push(enrich({ ...upstream, cnStandards: [], translationStatus: 'untranslated', translated: false }, 'upstream'));
+    } else if (zh) {
+      merged.push(enrich({ ...zh, translated: true, orphaned: true }, 'zh-orphan'));
+    }
+  }
+
+  for (const topic of cnTopics?.topics ?? []) {
+    if (ids.has(topic.id)) throw new Error(`cn-origin topic id collides with upstream/zh id: ${topic.id}`);
+    merged.push(enrich({ ...topic, translated: true, translationStatus: 'cn-origin', cnOrigin: true }, 'cn-origin'));
+  }
+  return merged;
+}

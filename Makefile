@@ -1,6 +1,6 @@
 .PHONY: all install serve translate validate checksum term-lint check clean help
 .PHONY: normalize-domains dedupe-topics build-deps deps-plan deps-dryrun
-.PHONY: snapshot snapshot-pre snapshot-list snapshot-diff export-jsonl
+.PHONY: snapshot snapshot-pre snapshot-list snapshot-diff export-jsonl export-case audit-math-alignment
 
 NODE ?= node
 
@@ -86,6 +86,15 @@ check: checksum validate term-lint-strict
 #   先跑 validate：未通过校验的图不应导出分发
 export-jsonl: validate
 	$(NODE) scripts/export-jsonl.mjs $(if $(UPSTREAM),--upstream $(UPSTREAM)) $(if $(OUT),--out $(OUT))
+
+# --- 互操作导出（CASE v1.1；必须显式给可解析发布基址）---
+#   make export-case BASE_URL=https://example.org/taxonomy
+export-case: validate
+	$(NODE) scripts/export-case.mjs --base-url "$(BASE_URL)" $(if $(UPSTREAM),--upstream $(UPSTREAM)) $(if $(OUT),--out $(OUT))
+
+# --- 数据审计（只读）---
+audit-math-alignment:
+	$(NODE) scripts/audit-math-alignment.mjs
 
 # --- 数据快照（本地备份，gitignore，作为大改动前的回滚点）---
 #   make snapshot              默认标签 manual

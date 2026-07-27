@@ -13,7 +13,10 @@ test('stableUuid is deterministic and UUID-shaped', () => {
 
 test('buildCasePackage emits CASE 1.1 prerequisite association direction', () => {
   const output = buildCasePackage({
-    topics: [{ id: 'mt_a', name: 'A中文', description: '描述', subject: 'Math', ageRangeStart: 7 }],
+    topics: [
+      { id: 'mt_a', name: 'A中文', description: '描述', subject: 'Math', ageRangeStart: 7 },
+      { id: 'mt_b', name: 'B中文', description: '基础', subject: 'Math', ageRangeStart: 6 },
+    ],
     dependencies: [{ topicId: 'mt_a', prerequisiteId: 'mt_b', strength: 'hard', reason: '需要 B', reviewStatus: 'reviewed', reviewProvenance: 'upstream' }],
     baseUrl,
     version: '1.2.0-zh.0',

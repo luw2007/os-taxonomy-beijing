@@ -166,7 +166,10 @@ body.sb-open #graph-pane { left: 290px; }
 .tcard .nm { font-size: 14px; font-weight: 500; }
 .tag { font-size: 10.5px; padding: 1px 8px; border-radius: 9px; background: var(--bg); color: var(--text-muted); white-space: nowrap; }
 .tag.x { background: var(--primary); color: #fff; }
-.tag.machine { background: var(--orange-light); color: var(--orange); }
+.tag.provenance.upstream { background: var(--accent-light); color: var(--accent); }
+.tag.provenance.rule { background: var(--bg); color: var(--text-light); border: 1px solid var(--border); }
+.tag.provenance.ai-consensus { background: var(--orange-light); color: var(--orange); }
+.tag.provenance.human { background: var(--green-light); color: var(--green); }
 .tag.ok { background: var(--green); color: #fff; }
 .tcard .rsn { font-size: 12px; color: var(--text-light); margin-top: 5px; line-height: 1.5; }
 .tcard.xcard { background: var(--orange-light); border-color: #ecd9bc; }

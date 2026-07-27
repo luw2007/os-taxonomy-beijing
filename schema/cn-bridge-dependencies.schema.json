@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://os-taxonomy-beijing.github.io/schema/cn-bridge-dependencies.schema.json",
+  "title": "Beijing Skill Taxonomy — 跨图桥接依赖（cn-bridge-dependencies）",
+  "description": "上游 mt_ 与中国特有 mtc_ 主题之间的桥接依赖。schema 为描述性文档；scripts/validate.mjs 是权威校验器。",
+  "type": "object",
+  "required": ["version", "edgeCount", "dependencies"],
+  "properties": {
+    "version": { "type": "string" },
+    "upstreamVersion": { "type": "string" },
+    "locale": { "type": "string" },
+    "edgeCount": { "type": "integer", "minimum": 0 },
+    "note": { "type": "string" },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["topicId", "prerequisiteId", "strength"],
+        "properties": {
+          "topicId": { "type": "string", "pattern": "^mtc_", "description": "中国特有依赖方" },
+          "prerequisiteId": { "type": "string", "pattern": "^mt_", "description": "上游先修主题" },
+          "strength": { "type": "string", "enum": ["hard", "soft"] },
+          "reason": { "type": ["string", "null"] },
+          "reviewStatus": { "type": "string", "enum": ["machine", "reviewed", "rejected"] },
+          "reviewProvenance": { "type": "string", "enum": ["rule", "ai-consensus", "human"], "description": "upstream 仅在合并期标记，不写入数据文件" },
+          "rescopeRequired": { "type": "boolean" },
+          "previousReviewStatus": { "type": "string", "enum": ["reviewed"] },
+          "rescopeBatchId": { "type": "string" },
+          "reviewedBy": { "type": "string" },
+          "reviewedAt": { "type": "string" },
+          "reviewNote": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

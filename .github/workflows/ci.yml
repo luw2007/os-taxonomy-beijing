@@ -57,3 +57,9 @@ jobs:
           test -s exports/relationships.jsonl
           jq -e --argjson n "$(wc -l < exports/nodes.jsonl)" --argjson r "$(wc -l < exports/relationships.jsonl)" '.counts.nodes == $n and .counts.relationships == $r' exports/manifest.json
           ! jq -se 'any(.[].properties; has("reviewNote") or has("rescopeRequired") or has("generationBatchId") or has("reviewedBy"))' exports/relationships.jsonl
+
+      - name: CASE v1.1 export smoke
+        working-directory: os-taxonomy-beijing
+        run: |
+          node scripts/export-case.mjs --base-url https://example.invalid/taxonomy --upstream ../os-taxonomy
+          jq -e '.CFDocument.caseVersion == "1.1" and (.CFItems | length > 0) and (.CFAssociations | length > 0)' exports/case-v1.1.json

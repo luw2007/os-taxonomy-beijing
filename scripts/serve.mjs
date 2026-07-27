@@ -18,7 +18,8 @@ import { createServer } from 'node:http';
 import { gzipSync } from 'node:zlib';
 import { createResolver } from './llm-resolve.mjs';
 import { createChatResponder, createSlidingWindowLimiter, validateChatRequest } from './llm-chat.mjs';
-import { filterPublishedDependencies, filterPublishedTopics, mergeDependencies, publishedGraph, PUBLISHED_EDGE_PROPS } from './review-policy.mjs';
+import { filterPublishedDependencies, filterPublishedTopics, mergeDependencies, mergeTopics, publishedGraph, PUBLISHED_EDGE_PROPS } from './review-policy.mjs';
+import { parseHost } from './serve-config.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = resolve(ROOT, 'data');
@@ -28,6 +29,8 @@ const VIEWER = resolve(ROOT, 'viewer');
 let port = 3000;
 const portIdx = process.argv.indexOf('--port');
 if (portIdx !== -1 && process.argv[portIdx + 1]) port = parseInt(process.argv[portIdx + 1], 10);
+
+const host = parseHost(process.argv.slice(2));
 
 let upstreamPath = resolve(ROOT, '..', 'os-taxonomy');
 const upIdx = process.argv.indexOf('--upstream');
@@ -126,67 +129,13 @@ const textbookGapSummary = (() => {
 })();
 
 // --- 构建合并视图 ---------------------------------------------------------
-// 上游 topic 提供结构字段（subject/domain/ageRange/type/centrality），
-// 中文翻译覆盖文本字段（name/description/evidence/assessmentPrompt）。
-// 注意：topic 合并语义与 export-jsonl.mjs 的 mergeTopics 手工同步；改任一处必须同步另一处。
-const zhById = new Map();
-for (const t of zhTopics.topics) zhById.set(t.id, t);
-
-const upstreamById = new Map();
-if (upstreamTopics) {
-  for (const t of upstreamTopics.topics) upstreamById.set(t.id, t);
-}
-
-// 合并后的 topic 列表：如果同时有上游和中文，则合并；只有上游则用英文原文并标记未翻译
-const mergedTopics = [];
-const allIds = new Set([...zhById.keys(), ...(upstreamTopics ? upstreamById.keys() : [])]);
-
-for (const id of allIds) {
-  const up = upstreamById.get(id);
-  const zh = zhById.get(id);
-  if (up && zh) {
-    // 优先中文，结构字段来自上游
-    mergedTopics.push({
-      ...up,
-      name: zh.name,
-      description: zh.description,
-      evidence: zh.evidence,
-      assessmentPrompt: zh.assessmentPrompt,
-      cnStandards: zh.cnStandards ?? [],
-      translationStatus: zh.translationStatus ?? 'untranslated',
-      translated: true,
-      subjectZh: subjectZh(up.subject),
-      domainZh: domainZh(up.subject, up.domain),
-    });
-  } else if (up) {
-    // 只有上游——未翻译
-    mergedTopics.push({
-      ...up,
-      cnStandards: [],
-      translationStatus: 'untranslated',
-      translated: false,
-      subjectZh: subjectZh(up.subject),
-      domainZh: domainZh(up.subject, up.domain),
-    });
-  } else if (zh) {
-    // 只有中文（上游已删除的孤儿）
-    mergedTopics.push({ ...zh, translated: true, orphaned: true });
-  }
-}
-
-// 中国特有微主题（mtc_）：自带完整结构字段，直接加入合并视图
-if (cnOriginTopics) {
-  for (const t of cnOriginTopics.topics) {
-    mergedTopics.push({
-      ...t,
-      translated: true,
-      translationStatus: 'cn-origin',
-      subjectZh: subjectZh(t.subject),
-      domainZh: domainZh(t.subject, t.domain),
-      cnOrigin: true, // 标记为中国特有，供维度过滤识别
-    });
-  }
-}
+// mergeTopics 统一上游结构与中文文本；viewer 在 enrich 阶段补展示字段。
+const mergedTopics = mergeTopics({
+  upstreamTopics,
+  zhTopics,
+  cnTopics: cnOriginTopics,
+  enrich: (topic) => ({ ...topic, subjectZh: subjectZh(topic.subject), domainZh: domainZh(topic.subject, topic.domain) }),
+});
 
 // 合并依赖（中文 reason 优先，上游 fallback；上游边贴 reviewProvenance: upstream）
 const mergedDeps = mergeDependencies({ upstreamDeps, zhDeps, cnDeps, bridgeDeps: cnBridgeDeps });
@@ -216,8 +165,8 @@ for (const d of [...(cnDeps?.dependencies ?? []), ...(cnBridgeDeps?.dependencies
 // 儿童 API 只返回 reviewed、非 rescope 边；machine 仅供离线审核工具使用。
 const filterDepsByReview = filterPublishedDependencies;
 
-// 把单条依赖投影为对外 API 的形态：只透出 PUBLISHED_EDGE_PROPS 白名单 + 端点 ID，
-// reviewedBy/reviewNote/rescopeBatchId/generationBatchId 等内部审核簿记不出网（与 JSONL 导出同一白名单）。
+// nodes: id → [name, subject, ageRangeStart]; edges: {f,t,r,x,p}
+// x=1 跨学科边；p=审核证据等级（upstream/rule/ai-consensus/human）。
 const withReviewStatus = (d) => {
   const edge = { topicId: d.topicId, prerequisiteId: d.prerequisiteId, reviewStatus: reviewStatus(d) };
   for (const key of PUBLISHED_EDGE_PROPS) {
@@ -227,9 +176,9 @@ const withReviewStatus = (d) => {
 };
 
 // --- 「知识脉络」页数据(紧凑格式,一次性喂给前端) ----------------------------
-// 只是 mergedTopics/mergedDeps 的序列化视图,不含任何新逻辑。
-// nodes: id → [name, subject, ageRangeStart];  edges: {f,t,r,x,m}
-//   x=1 跨学科边  m=1 未审核(machine)边  rejected 边不输出
+// 只是发布图的序列化视图，不含新的推荐逻辑。
+// nodes: id → [name, subject, ageRangeStart]; edges: {f,t,r,x,p}
+// x=1 跨学科边；p=审核证据等级（upstream/rule/ai-consensus/human）。
 const pathData = (() => {
   const nodes = {};
   const subjMap = new Map();
@@ -241,7 +190,7 @@ const pathData = (() => {
   for (const d of publishedGraphData.dependencies) {
     const s1 = subjMap.get(d.prerequisiteId), s2 = subjMap.get(d.topicId);
     if (!s1 || !s2) continue;
-    edges.push({ f: d.prerequisiteId, t: d.topicId, r: d.reason || '', x: s1 !== s2 ? 1 : 0 });
+    edges.push({ f: d.prerequisiteId, t: d.topicId, r: d.reason || '', x: s1 !== s2 ? 1 : 0, p: d.reviewProvenance });
   }
   // preset 入口: 跨学科度最高的节点(排除 Learning to Learn 的元技能噪音)
   const xdeg = new Map();
@@ -654,13 +603,13 @@ const server = createServer((req, res) => {
   }
 });
 
-server.listen(port, () => {
+server.listen(port, host, () => {
   console.log('');
   console.log('  ╔══════════════════════════════════════════════╗');
   console.log('  ║   Beijing Skill Taxonomy · 知识浏览器      ║');
   console.log('  ╚══════════════════════════════════════════════╝');
   console.log('');
-  console.log(`  ▸ 浏览器打开:  http://localhost:${port}`);
+  console.log(`  ▸ 浏览器打开:  http://${host}:${port}`);
   console.log('');
   console.log(`  ▸ 知识总量:    ${mergedTopics.length} 个微主题`);
   console.log(`  ▸ 已翻译:      ${translatedCount} 个`);

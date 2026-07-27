@@ -448,15 +448,19 @@ function renderNext() {
 let trail = [];
 let curId = null;
 
+function provenanceTag(provenance) {
+  const labels = { upstream: '上游·Marble', rule: '规则', 'ai-consensus': 'AI 共识', human: '人工审核' };
+  return labels[provenance] ? `<span class="tag provenance ${esc(provenance)}">${labels[provenance]}</span>` : '';
+}
+
 function card(otherId, e, isX) {
   const n = N(otherId); if (!n) return '';
   const isM = mastered.has(otherId);
   const ageTag = n.age >= 0 ? `<span class="tag">${n.age}岁</span>` : '';
   const subjTag = isX ? `<span class="tag x">${sz(n.subject)}</span>` : '';
-  const machineTag = e.m ? `<span class="tag machine">AI 推测</span>` : '';
   const mTag = isM ? `<span class="tag ok">已掌握</span>` : '';
   return `<div class="tcard ${isX ? 'xcard' : ''} ${isM ? 'mastered' : ''}" data-id="${esc(otherId)}">
-    <div class="top">${subjTag}<span class="nm">${esc(n.name)}</span>${ageTag}${mTag}${machineTag}</div>
+    <div class="top">${subjTag}<span class="nm">${esc(n.name)}</span>${ageTag}${mTag}${provenanceTag(e.p)}</div>
     ${e.r ? `<div class="rsn">${esc(e.r)}</div>` : ''}
   </div>`;
 }

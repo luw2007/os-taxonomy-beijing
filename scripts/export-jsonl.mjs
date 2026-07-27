@@ -18,7 +18,8 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
-import { mergeDependencies, publishedGraph, PUBLISHED_EDGE_PROPS } from './review-policy.mjs';
+import { mergeDependencies, mergeTopics, publishedGraph, PUBLISHED_EDGE_PROPS } from './review-policy.mjs';
+export { mergeTopics } from './review-policy.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = resolve(ROOT, 'data');
@@ -59,34 +60,7 @@ export function toRelationshipRow(edge) {
   return { type: 'PREREQUISITE_OF', from: edge.prerequisiteId, to: edge.topicId, properties };
 }
 
-// topic 合并语义与 serve.mjs「构建合并视图」段手工同步；改任一处必须同步另一处。
-// 上游提供结构字段，中文翻译覆盖文本字段；中国特有微主题（mtc_）自带完整结构字段，直接加入。
-export function mergeTopics({ upstreamTopics, zhTopics, cnTopics }) {
-  const zhById = new Map(zhTopics.topics.map(topic => [topic.id, topic]));
-  const upstreamById = new Map((upstreamTopics?.topics ?? []).map(topic => [topic.id, topic]));
-  const allIds = new Set([...zhById.keys(), ...upstreamById.keys()]);
-
-  const topics = [];
-  for (const id of allIds) {
-    const up = upstreamById.get(id);
-    const zh = zhById.get(id);
-    if (up && zh) {
-      topics.push({
-        ...up,
-        name: zh.name,
-        description: zh.description,
-        cnStandards: zh.cnStandards ?? [],
-        translationStatus: zh.translationStatus ?? 'untranslated',
-      });
-    } else if (up) {
-      topics.push({ ...up, cnStandards: [], translationStatus: 'untranslated' });
-    } else if (zh) {
-      topics.push({ ...zh });
-    }
-  }
-  for (const topic of cnTopics?.topics ?? []) topics.push({ ...topic, translationStatus: 'cn-origin' });
-  return topics;
-}
+// mergeTopics 由 review-policy.mjs 共享，serve/CASE/JSONL 使用同一核心合并语义。
 
 export function buildExport({ upstreamTopics, zhTopics, cnTopics, upstreamDeps, zhDeps, cnDeps, bridgeDeps }) {
   const topics = mergeTopics({ upstreamTopics, zhTopics, cnTopics });

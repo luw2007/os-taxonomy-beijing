@@ -18,7 +18,7 @@ import { createServer } from 'node:http';
 import { gzipSync } from 'node:zlib';
 import { createResolver } from './llm-resolve.mjs';
 import { createChatResponder, createSlidingWindowLimiter, validateChatRequest } from './llm-chat.mjs';
-import { filterPublishedDependencies, filterPublishedTopics, mergeDependencies, mergeTopics, publishedGraph, publishedTopic, PUBLISHED_EDGE_PROPS } from './review-policy.mjs';
+import { filterPublishedDependencies, filterPublishedTopics, mergeDependencies, mergeTopics, publishedEdge, publishedGraph, publishedPathEdge, publishedTopic } from './review-policy.mjs';
 import { parseHost } from './serve-config.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -168,11 +168,7 @@ const filterDepsByReview = filterPublishedDependencies;
 // nodes: id → [name, subject, ageRangeStart]; edges: {f,t,r,x,p}
 // x=1 跨学科边；p=审核证据等级（upstream/rule/ai-consensus/human）。
 const withReviewStatus = (d) => {
-  const edge = { topicId: d.topicId, prerequisiteId: d.prerequisiteId, reviewStatus: reviewStatus(d) };
-  for (const key of PUBLISHED_EDGE_PROPS) {
-    if (key !== 'reviewStatus' && d[key] !== undefined) edge[key] = d[key];
-  }
-  return edge;
+  return publishedEdge({ ...d, reviewStatus: reviewStatus(d) });
 };
 
 // --- 「知识脉络」页数据(紧凑格式,一次性喂给前端) ----------------------------
@@ -190,7 +186,7 @@ const pathData = (() => {
   for (const d of publishedGraphData.dependencies) {
     const s1 = subjMap.get(d.prerequisiteId), s2 = subjMap.get(d.topicId);
     if (!s1 || !s2) continue;
-    edges.push({ f: d.prerequisiteId, t: d.topicId, r: d.reason || '', x: s1 !== s2 ? 1 : 0, p: d.reviewProvenance, q: d.reviewerRole });
+    edges.push(publishedPathEdge(d, s1 !== s2));
   }
   // preset 入口: 跨学科度最高的节点(排除 Learning to Learn 的元技能噪音)
   const xdeg = new Map();

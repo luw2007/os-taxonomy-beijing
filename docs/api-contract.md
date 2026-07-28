@@ -12,7 +12,7 @@
 
 以下内部构建簿记不是 HTTP 契约，绝不出网：`splitFrom`、`coveredBy`、`status`、`splitPart`、`granularity`、`stage`、`origin`、`generationBatchId`。
 
-详情中的已审核边使用 `PUBLISHED_EDGE_PROPS`；审核人身份、时间、说明、rubric 和 evidence reference 不出网。`reviewProvenance` 不是教师资格证明。
+详情中的已审核边使用 `PUBLISHED_EDGE_PROPS`；审核 identity、时间、角色投票 reason、reference/citation、rubric 和 evidence reference 不出网。`reviewProvenance` 不是资格证明。
 
 ## 其他端点
 

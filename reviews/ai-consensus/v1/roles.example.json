@@ -1,0 +1,26 @@
+{
+  "format": "beijing-skill-taxonomy-ai-consensus-role-config/v1",
+  "roles": {
+    "necessity": {
+      "endpoint": "https://provider-one.example/v1",
+      "model": "provider-one/model-a",
+      "apiKeyEnv": "AI_CONSENSUS_NECESSITY_API_KEY",
+      "systemPrompt": "Evaluate whether each proposed prerequisite is genuinely necessary for learning the target topic.",
+      "timeoutMs": 60000
+    },
+    "direction": {
+      "endpoint": "https://provider-two.example/v1",
+      "model": "provider-two/model-b",
+      "apiKeyEnv": "AI_CONSENSUS_DIRECTION_API_KEY",
+      "systemPrompt": "Evaluate the prerequisite direction and resolve the edge strength without relying on another role's output.",
+      "timeoutMs": 60000
+    },
+    "adversary": {
+      "endpoint": "https://provider-three.example/v1",
+      "model": "provider-three/model-c",
+      "apiKeyEnv": "AI_CONSENSUS_ADVERSARY_API_KEY",
+      "systemPrompt": "Challenge each proposed prerequisite and reject edges that are merely related, reversed, or unsupported.",
+      "timeoutMs": 60000
+    }
+  }
+}

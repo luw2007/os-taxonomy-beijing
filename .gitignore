@@ -43,3 +43,10 @@ data/.split-relations-work/
 
 # JSONL 互操作导出产物（make export-jsonl，可重新生成，不入版本库）
 exports/
+
+# AI 共识原子写的瞬时文件；run JSON 审计证据应提交。
+reviews/ai-consensus/v1/runs/*.lock
+reviews/ai-consensus/v1/runs/.*.tmp-*
+reviews/ai-consensus/v1/runs/.fixture-scratch/
+data/*.ai-consensus.lock
+data/.cn-dependencies.json.tmp-*

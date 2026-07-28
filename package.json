@@ -13,6 +13,9 @@
     "validate": "node scripts/validate.mjs",
     "sync-upstream": "node scripts/sync-upstream.mjs",
     "checksum": "node scripts/checksum.mjs",
-    "term-lint": "node scripts/term-lint.mjs"
+    "term-lint": "node scripts/term-lint.mjs",
+    "consensus:review": "node scripts/consensus-review.mjs review",
+    "consensus:apply": "node scripts/consensus-review.mjs apply",
+    "test:consensus": "node --test scripts/test/consensus-*.test.mjs scripts/test/export-review-packet.test.mjs scripts/test/review-ai-edge.test.mjs"
   }
 }

@@ -50,7 +50,7 @@ CI 的 `Manifest drift` 步骤失败。
 边必须带 `reviewedBy` + `reviewedAt`；`rule` 边则禁止携带 `reviewedBy`（迁移与校验脚本对此做
 双向强制）。`rejected` 且没有 `reviewedBy` 会被判定为不合规数据，直接报错。
 
-**不要手改 JSON**。人工或 AI 复审一条边走 `scripts/review-ai-edge.mjs`：
+**不要手改 JSON**。具名人工来源的一条边走 `scripts/review-ai-edge.mjs`：
 
 ```bash
 node scripts/review-ai-edge.mjs \
@@ -66,8 +66,11 @@ node scripts/checksum.mjs
 node scripts/validate.mjs --publish --upstream ../os-taxonomy
 ```
 
-`--provenance` 默认 `human`；只有一次性批量 AI 复审脚本才允许写 `ai-consensus`，且必须
-在 PR 描述里写明所用模型、复审轮次和分歧处理策略，方便审阅者判断证据强度。
+`--provenance` 默认且仅允许 `human`。该单边命令明确拒绝 `ai-consensus`；三角色 AI 共识只能走
+[`scripts/consensus-review.mjs`](scripts/consensus-review.mjs) 的独立 review/apply 路径，完整操作与限制见
+[`docs/ai-consensus-workflow.md`](docs/ai-consensus-workflow.md)。
+人工审核的 `reviewEvidenceRef` 不得指向 `reviews/ai-consensus/`。AI consensus 写入后必须运行
+`make consensus-postapply UPSTREAM=../os-taxonomy`，让 manifest、跨文件 evidence 发布闸门与完整校验链同步收口。
 
 对 873 条 `machine` 中国特有边进行人工审阅时，先导出**只读**、确定性分片；它不会产生任何审核结论：
 
@@ -77,10 +80,10 @@ make export-review-packet SUBJECT=Mathematics LIMIT=50 OFFSET=0 OUT=/tmp/math-re
 make export-review-packet GENERATION_BATCH=split-relations-20260721-historical LIMIT=50 OUT=/tmp/split-review.json
 ```
 
-审阅包只含 machine 边、两端的自拟教学上下文、来源 checksum 和可用的生成批次元数据；导出前会逐字节核验
+审阅包只含 machine 边、两端的自拟教学上下文、来源 checksum、逐边 content fingerprint 和可用的生成批次元数据；导出前会逐字节核验
 `cn-topics.json`、`cn-dependencies.json` 与 manifest 指纹，不一致时拒绝写包并要求先运行 `checksum`。包不含
-`reviewStatus`、`reviewProvenance` 或 reviewer 决策。逐条得出结论后，仍须使用上方
-`review-ai-edge.mjs` 命令写入，并按第二节顺序更新 checksum、校验与测试。不得将审阅包或
+`reviewStatus`、`reviewProvenance` 或 reviewer 决策。具名人工来源仍使用上方单边命令；AI 共识只使用独立 consensus 路径。
+任何写入后均按第二节顺序更新 checksum、校验与测试。不得将审阅包或
 批次元数据描述为教师审核证据。
 
 `schema/*.json` 仅为描述性文档；权威校验以 `scripts/validate.mjs` 为准（CI 强制执行）。

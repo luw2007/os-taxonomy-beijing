@@ -1,6 +1,7 @@
 .PHONY: all install serve translate validate checksum term-lint check clean help
 .PHONY: normalize-domains dedupe-topics build-deps deps-plan deps-dryrun
 .PHONY: snapshot snapshot-pre snapshot-list snapshot-diff export-jsonl export-case export-review-packet audit-math-alignment
+.PHONY: consensus-plan consensus-dryrun consensus-apply-plan consensus-apply-dryrun consensus-postapply
 
 NODE ?= node
 
@@ -97,6 +98,25 @@ export-case: validate
 export-review-packet: validate
 	$(NODE) scripts/export-review-packet.mjs $(if $(SUBJECT),--subject $(SUBJECT)) $(if $(DOMAIN),--domain $(DOMAIN)) $(if $(GENERATION_BATCH),--generation-batch $(GENERATION_BATCH)) $(if $(LIMIT),--limit $(LIMIT)) $(if $(OFFSET),--offset $(OFFSET)) $(if $(OUT),--out $(OUT))
 
+# --- 三角色 AI 共识（Make 只提供离线预检；真实写操作必须显式调用 CLI）---
+consensus-plan:
+	$(NODE) scripts/consensus-review.mjs review --packet "$(PACKET)" --config "$(CONFIG)" --plan $(if $(RUN_ID),--run-id "$(RUN_ID)")
+
+consensus-dryrun:
+	$(NODE) scripts/consensus-review.mjs review --packet "$(PACKET)" --config "$(CONFIG)" --dry-run $(if $(RUN_ID),--run-id "$(RUN_ID)")
+
+consensus-apply-plan:
+	$(NODE) scripts/consensus-review.mjs apply --evidence "$(EVIDENCE)" --plan
+
+consensus-apply-dryrun:
+	$(NODE) scripts/consensus-review.mjs apply --evidence "$(EVIDENCE)" --dry-run
+
+# 手工完成 apply --write 后运行：更新 manifest，再走发布校验、测试与术语闸门。
+consensus-postapply: checksum
+	$(NODE) scripts/validate.mjs --publish $(if $(UPSTREAM),--upstream "$(UPSTREAM)")
+	npm test
+	$(NODE) scripts/term-lint.mjs --strict
+
 # --- 数据审计（只读）---
 audit-math-alignment:
 	$(NODE) scripts/audit-math-alignment.mjs
@@ -153,6 +173,11 @@ help:
 	@echo ""
 	@echo "  导出："
 	@echo "    make export-jsonl         导出发布图为 JSONL（UPSTREAM= / OUT= 可选）"
+	@echo "    make consensus-plan       离线检查三角色 review 计划（PACKET= CONFIG=）"
+	@echo "    make consensus-dryrun     离线构造三角色请求，不调用 provider（PACKET= CONFIG=）"
+	@echo "    make consensus-apply-plan 离线检查证据摘要（EVIDENCE=）"
+	@echo "    make consensus-apply-dryrun 预演 CAS/topic drift，不写数据（EVIDENCE=）"
+	@echo "    make consensus-postapply  实际 apply 后执行 checksum→publish validate→test→term-lint"
 	@echo ""
 	@echo "  数据快照（本地备份）："
 	@echo "    make snapshot             创建快照（默认标签 manual）"

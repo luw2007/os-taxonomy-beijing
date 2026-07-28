@@ -5,17 +5,17 @@
  *   node scripts/export-review-packet.mjs --subject Mathematics --limit 50 --out /tmp/math-review.json
  *   node scripts/export-review-packet.mjs --generation-batch split-relations-20260721-historical --offset 100 --limit 50
  *
- * 包不含任何审核结论或 reviewer 声明。审阅完成后必须逐条使用 review-ai-edge.mjs 写入终态。
+ * 包不含任何审核结论或 reviewer 声明。AI 共识只能由独立 consensus-review 命令处理与应用。
  */
 import { createHash } from 'node:crypto';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { edgeContentFingerprint, projectPacketTopic } from './consensus-roles.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = resolve(ROOT, 'data');
 const FORMAT = 'beijing-skill-taxonomy-edge-review-packet/v1';
-const TOPIC_FIELDS = ['id', 'name', 'description', 'subject', 'domain', 'ageRangeStart', 'ageRangeEnd', 'evidence', 'cnStandards'];
 
 const load = (name) => JSON.parse(readFileSync(resolve(DATA, name), 'utf8'));
 const option = (args, flag, fallback = null) => {
@@ -26,12 +26,6 @@ const option = (args, flag, fallback = null) => {
 function nonNegativeInteger(value, flag) {
   if (!/^\d+$/.test(value)) throw new Error(`${flag} 必须为非负整数`);
   return Number(value);
-}
-
-function reviewTopic(topic) {
-  const result = {};
-  for (const field of TOPIC_FIELDS) if (topic[field] !== undefined) result[field] = topic[field];
-  return result;
 }
 
 function normalizedOptions(options = {}) {
@@ -62,6 +56,7 @@ export function buildReviewPacket({ topics, dependencies, source, options }) {
   const batchById = new Map((dependencies.generationBatches ?? []).map(batch => [batch.id, batch]));
   const machineEdges = dependencies.dependencies
     .filter(edge => edge.reviewStatus === 'machine')
+    .filter(edge => edge.ageRegression === undefined && edge.rescopeRequired === undefined && edge.previousReviewStatus === undefined)
     .filter(edge => !selection.subject || topicById.get(edge.topicId)?.subject === selection.subject)
     .filter(edge => !selection.domain || topicById.get(edge.topicId)?.domain === selection.domain)
     .filter(edge => !selection.generationBatchId || edge.generationBatchId === selection.generationBatchId)
@@ -80,9 +75,10 @@ export function buildReviewPacket({ topics, dependencies, source, options }) {
       prerequisiteId: edge.prerequisiteId,
       strength: edge.strength,
       reason: edge.reason ?? null,
+      contentFingerprint: edgeContentFingerprint(edge),
       ...(edge.generationBatchId === undefined ? {} : { generationBatchId: edge.generationBatchId, generationBatch }),
-      topic: reviewTopic(topic),
-      prerequisite: reviewTopic(prerequisite),
+      topic: projectPacketTopic(topic),
+      prerequisite: projectPacketTopic(prerequisite),
     };
   });
 

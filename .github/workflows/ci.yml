@@ -70,6 +70,16 @@ jobs:
           cmp /tmp/taxonomy-review-a.json /tmp/taxonomy-review-b.json
           jq -e '.format == "beijing-skill-taxonomy-edge-review-packet/v1" and (.edges | length == 10) and ([.edges[] | has("reviewStatus") or has("reviewProvenance") or has("reviewedBy") or has("reviewerRole")] | any | not)' /tmp/taxonomy-review-a.json
 
+      - name: AI consensus offline review smoke (no secrets)
+        working-directory: os-taxonomy-beijing
+        env:
+          AI_CONSENSUS_NECESSITY_API_KEY: ''
+          AI_CONSENSUS_DIRECTION_API_KEY: ''
+          AI_CONSENSUS_ADVERSARY_API_KEY: ''
+        run: |
+          node scripts/consensus-review.mjs review --packet /tmp/taxonomy-review-a.json --config reviews/ai-consensus/v1/roles.example.json --run-id ci-offline-plan --plan
+          node scripts/consensus-review.mjs review --packet /tmp/taxonomy-review-a.json --config reviews/ai-consensus/v1/roles.example.json --run-id ci-offline-dryrun --dry-run | jq -e '.writes == false and .networkCalls == false'
+
       - name: CASE v1.1 export smoke
         working-directory: os-taxonomy-beijing
         run: |

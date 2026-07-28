@@ -40,12 +40,11 @@ test('review defaults to curator role for human provenance', () => {
   assert.equal(reviewed.reviewerRole, 'curator');
 });
 
-test('review honors an explicit ai-consensus provenance', () => {
-  const reviewed = reviewEdge(edge, {
+test('single-edge review command rejects ai-consensus provenance', () => {
+  assert.throws(() => reviewEdge(edge, {
     status: 'reviewed', reviewer: 'user-delegated-claude-opus-consensus',
     reviewedAt: '2026-07-21T00:00:00.000Z', provenance: 'ai-consensus',
-  });
-  assert.equal(reviewed.reviewProvenance, 'ai-consensus');
+  }), /dedicated consensus command/i);
 });
 
 test('teacher role requires rubric and evidence reference', () => {
@@ -57,4 +56,34 @@ test('teacher role requires rubric and evidence reference', () => {
 test('review rejects rule and upstream as a declared provenance', () => {
   assert.throws(() => reviewEdge(edge, { status: 'reviewed', reviewer: 'teacher-1', provenance: 'rule' }), /provenance/);
   assert.throws(() => reviewEdge(edge, { status: 'reviewed', reviewer: 'teacher-1', provenance: 'upstream' }), /provenance/);
+});
+
+test('generic human review rejects consensus evidence references', () => {
+  assert.throws(() => reviewEdge(edge, {
+    status: 'reviewed', reviewer: 'teacher-1', reviewerRole: 'teacher', reviewRubric: 'edge-review-v1',
+    reviewEvidenceRef: 'reviews/other/../ai-consensus/v1/runs/run.json',
+  }), /不得引用 reviews\/ai-consensus/i);
+});
+
+test('human re-review removes inherited v1 consensus evidence and may replace it with human evidence', () => {
+  const consensusEdge = {
+    ...edge,
+    reviewStatus: 'reviewed',
+    reviewProvenance: 'ai-consensus',
+    reviewedBy: `ai-consensus-v1:${'a'.repeat(64)}`,
+    reviewedAt: '2026-07-27T00:00:00.000Z',
+    reviewEvidenceRef: 'reviews/ai-consensus/v1/runs/old-run.json',
+  };
+  const curatorReview = reviewEdge(consensusEdge, {
+    status: 'reviewed', reviewer: 'curator-2', reviewedAt: '2026-07-28T00:00:00.000Z',
+  });
+  assert.equal(curatorReview.reviewProvenance, 'human');
+  assert.equal(curatorReview.reviewedBy, 'curator-2');
+  assert.equal(curatorReview.reviewEvidenceRef, undefined);
+
+  const teacherReview = reviewEdge(consensusEdge, {
+    status: 'reviewed', reviewer: 'teacher-2', reviewedAt: '2026-07-28T00:00:00.000Z',
+    reviewerRole: 'teacher', reviewRubric: 'edge-review-v1', reviewEvidenceRef: 'reviews/teacher/t-002.json',
+  });
+  assert.equal(teacherReview.reviewEvidenceRef, 'reviews/teacher/t-002.json');
 });

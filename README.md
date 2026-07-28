@@ -208,6 +208,8 @@ manifest 的 `generatedAt` 固定取 `data/manifest.json`，同一版本可逐�
 
 剩余 `machine` 中国特有依赖可用 `make export-review-packet SUBJECT=Mathematics LIMIT=50 OUT=/tmp/review.json` 导出可复现的人工审阅分片；它不写入决策，也不构成教师审核证据，详见 [CONTRIBUTING.md](CONTRIBUTING.md)。
 
+三角色 AI 共识使用独立、失败关闭的 review/apply 命令；旧的单边审核命令不接受 `ai-consensus`。角色配置、离线 plan/dry-run、版本化审计证据、fingerprint CAS 与 OMP 隔离限制见 [三角色 AI 共识工作流](docs/ai-consensus-workflow.md)。
+
 
 ## 本地知识浏览器
 

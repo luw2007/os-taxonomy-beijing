@@ -26,6 +26,25 @@ export const UPSTREAM_EDGE_REVIEW = Object.freeze({ reviewStatus: 'reviewed', re
 // reviewerRole 仅为经验证的公开角色，不含身份信息或审核记录。
 export const PUBLISHED_EDGE_PROPS = Object.freeze(['strength', 'reason', 'reviewStatus', 'reviewProvenance', 'reviewerRole']);
 
+export function publishedEdge(edge) {
+  const published = { topicId: edge.topicId, prerequisiteId: edge.prerequisiteId };
+  for (const key of PUBLISHED_EDGE_PROPS) {
+    if (edge[key] !== undefined) published[key] = edge[key];
+  }
+  return published;
+}
+
+export function publishedPathEdge(edge, crossSubject) {
+  return {
+    f: edge.prerequisiteId,
+    t: edge.topicId,
+    r: edge.reason || '',
+    x: crossSubject ? 1 : 0,
+    p: edge.reviewProvenance,
+    q: edge.reviewerRole,
+  };
+}
+
 // HTTP 主题 API 的公开字段。保留本地浏览器所需的教学载荷与显示派生字段；
 // split/coverage/generation 等内部构建簿记绝不通过 API 暴露。
 export const PUBLISHED_TOPIC_PROPS = Object.freeze([

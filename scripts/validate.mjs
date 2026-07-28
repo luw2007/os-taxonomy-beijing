@@ -23,6 +23,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { publicationProblems } from './publication-safety.mjs';
+import { consensusPublishProblems } from './consensus-publish-gate.mjs';
 import { REVIEW_PROVENANCE } from './review-policy.mjs';
 import { validateReviewerEvidence } from './reviewer-evidence.mjs';
 
@@ -269,7 +270,7 @@ if (cnDeps) {
     if (hasReviewAudit) {
       check((rs === 'reviewed' || rs === 'rejected') && typeof d.reviewedBy === 'string' && d.reviewedBy.length > 0
         && typeof d.reviewedAt === 'string' && d.reviewedAt.length > 0,
-      `cn-dep ${d.topicId}->${d.prerequisiteId}: incomplete human review audit metadata`);
+      `cn-dep ${d.topicId}->${d.prerequisiteId}: incomplete review audit metadata`);
     }
     checkReviewProvenance(d, rs, 'cn-dep');
     if (publishMode && (rs === 'reviewed' || rs === 'rejected')) {
@@ -349,7 +350,7 @@ if (cnBridgeDeps) {
       check((bridgeReviewStatus === 'reviewed' || bridgeReviewStatus === 'rejected')
         && typeof d.reviewedBy === 'string' && d.reviewedBy.length > 0
         && typeof d.reviewedAt === 'string' && d.reviewedAt.length > 0,
-      `cn-bridge ${d.topicId}->${d.prerequisiteId}: incomplete human review audit metadata`);
+      `cn-bridge ${d.topicId}->${d.prerequisiteId}: incomplete review audit metadata`);
     }
     checkReviewProvenance(d, bridgeReviewStatus, 'cn-bridge');
     if (publishMode && (bridgeReviewStatus === 'reviewed' || bridgeReviewStatus === 'rejected')) {
@@ -376,6 +377,12 @@ if (publishMode && cnOriginTopics && cnDeps) {
   for (const problem of publicationProblems(
     cnOriginTopics.topics, cnDeps.dependencies, cnBridgeDeps?.dependencies,
   )) errors.push(`publish: ${problem}`);
+}
+if (publishMode && (cnDeps || cnBridgeDeps)) {
+  for (const problem of consensusPublishProblems({
+    cnDependencies: cnDeps?.dependencies,
+    bridgeDependencies: cnBridgeDeps?.dependencies,
+  })) errors.push(`publish: ${problem}`);
 }
 
 // --- 5. 依赖引用完整性 ----------------------------------------------------

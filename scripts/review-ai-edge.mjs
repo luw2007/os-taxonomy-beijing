@@ -3,21 +3,26 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { validateReviewerEvidence } from './reviewer-evidence.mjs';
+import { isConsensusEvidenceRef } from './consensus-roles.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DEPS_PATH = resolve(ROOT, 'data', 'cn-dependencies.json');
 const BRIDGE_DEPS_PATH = resolve(ROOT, 'data', 'cn-bridge-dependencies.json');
 
-// 审核 CLI 只产出带审核人的两档证据；rule/upstream 由脚本与合并期负责，不允许人工声明。
-const REVIEWER_PROVENANCE = new Set(['human', 'ai-consensus']);
+// 单边 CLI 只处理具名的人工来源；AI 共识只能走独立的 consensus-review apply 命令。
+const REVIEWER_PROVENANCE = new Set(['human']);
 
 export function reviewEdge(edge, decision) {
   if (!['reviewed', 'rejected'].includes(decision?.status)) throw new Error('status 必须为 reviewed 或 rejected');
   if (typeof decision.reviewer !== 'string' || !decision.reviewer.trim()) throw new Error('reviewer 不能为空');
   const provenance = decision.provenance || 'human';
-  if (!REVIEWER_PROVENANCE.has(provenance)) throw new Error('provenance 必须为 human 或 ai-consensus');
+  if (provenance === 'ai-consensus') throw new Error('ai-consensus 必须使用 dedicated consensus command');
+  if (!REVIEWER_PROVENANCE.has(provenance)) throw new Error('provenance 必须为 human');
+  if (isConsensusEvidenceRef(decision.reviewEvidenceRef)) throw new Error('人工审核不得引用 reviews/ai-consensus/ 证据');
+  const reviewBase = { ...edge };
+  if (isConsensusEvidenceRef(reviewBase.reviewEvidenceRef)) delete reviewBase.reviewEvidenceRef;
   const reviewed = {
-    ...edge,
+    ...reviewBase,
     reviewStatus: decision.status,
     reviewedBy: decision.reviewer.trim(),
     reviewedAt: decision.reviewedAt || new Date().toISOString(),

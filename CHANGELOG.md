@@ -5,6 +5,8 @@
 
 ## [Unreleased]
 
+- 新增失败关闭的 necessity/direction/adversary 三角色 AI 共识专用路径：审阅包教学上下文白名单、严格一致提案、canonical hash-sealed evidence、machine-edge fingerprint/topic-context CAS、隔离字段保护、防重放与 cn/bridge 跨文件发布闸门；公开 HTTP/JSONL/CASE 继续排除全部共识审计身份与证据字段。
+
 **发布加固：provenance 证据分级 + 上游边回归发布图 + 互操作导出**。
 对抗式双规划（Opus/Codex 互评）+ 4 路并行开发 + Sonnet review 完成。
 

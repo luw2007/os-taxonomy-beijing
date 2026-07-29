@@ -101,8 +101,12 @@ function renderDimensionBar() {
   const bar = document.getElementById('dimension-bar');
   const entries = Object.entries(dimensionsData.dimensions);
   bar.innerHTML = '<span class="dimension-label">维度</span><div class="dimension-btns">' +
-    entries.map(([id, dim]) => `<button class="dimension-btn ${id === route.dim ? 'active' : ''}" data-dimension="${id}" title="${escapeHtml(dim.description || '')}" onclick="setDimension('${id}')">${escapeHtml(dim.label)}</button>`).join('') +
+    entries.map(([id, dim]) => `<button class="dimension-btn ${id === route.dim ? 'active' : ''}" data-dimension="${escapeHtml(id)}" title="${escapeHtml(dim.description || '')}">${escapeHtml(dim.label)}</button>`).join('') +
     '</div>';
+  bar.onclick = (event) => {
+    const button = event.target.closest('.dimension-btn');
+    if (button) setDimension(button.dataset.dimension);
+  };
 }
 
 function setDimension(dim) {
@@ -110,7 +114,6 @@ function setDimension(dim) {
   // 切换维度:清空列表筛选(学科/领域/搜索因目录树变化可能失效),保留在概览
   location.hash = buildHash({ id: null, dim, subject: null, domain: null, q: null, ageRange: route.ageRange });
 }
-window.setDimension = setDimension;
 
 // === 年龄段筛选按钮同步 ===
 function syncFilterButtons() {
@@ -178,14 +181,17 @@ async function loadTree() {
   container.innerHTML = subjects.map(([subject, data]) => {
     const subjZh = data.subjectZh || SUBJECT_ZH_FALLBACK(subject);
     const domains = Object.entries(data.domains).sort((a, b) => b[1].count - a[1].count);
-    const domainItems = domains.map(([domain, dd]) => `<a class="tree-domain" href="${buildHash({ id: null, subject, domain, q: null })}" onclick="event.preventDefault();event.stopPropagation();location.hash='${buildHash({ id: null, subject, domain, q: null })}';"><span>${dd.domainZh || domain}</span><span class="tree-domain-count">${dd.count}</span></a>`).join('');
+    const domainItems = domains.map(([domain, dd]) => `<a class="tree-domain" href="${buildHash({ id: null, subject, domain, q: null })}"><span>${dd.domainZh || domain}</span><span class="tree-domain-count">${dd.count}</span></a>`).join('');
     const isCurrent = route.subject === subject && !route.domain;
-    return `<div class="tree-subject ${route.subject === subject ? 'open' : ''}" onclick="toggleSubject(this)"><div class="tree-subject-header ${isCurrent ? 'current' : ''}"><span class="arrow">▶</span><span>${subjZh}</span><span class="tree-subject-count"><span class="translated">${data.translated}</span>/${data.count}</span></div><div class="tree-domains">${domainItems}</div></div>`;
+    return `<div class="tree-subject ${route.subject === subject ? 'open' : ''}"><div class="tree-subject-header ${isCurrent ? 'current' : ''}"><span class="arrow">▶</span><span>${subjZh}</span><span class="tree-subject-count"><span class="translated">${data.translated}</span>/${data.count}</span></div><div class="tree-domains">${domainItems}</div></div>`;
   }).join('');
+  container.onclick = (event) => {
+    if (event.target.closest('.tree-domain')) return;
+    const subject = event.target.closest('.tree-subject');
+    if (subject) subject.classList.toggle('open');
+  };
 }
 
-function toggleSubject(el) { el.classList.toggle('open'); }
-window.toggleSubject = toggleSubject;
 
 // === 渲染:列表页 ===
 function listTitle() {
@@ -247,7 +253,6 @@ function setGapFilter(key, val) {
     : { [key === 'gap_type' ? 'gapType' : key]: val || null };
   location.hash = buildHash({ view: 'textbook-gaps', ...patch });
 }
-window.setGapFilter = setGapFilter;
 
 async function loadTextbookGaps() {
   const table = document.getElementById('gap-table');
@@ -299,13 +304,15 @@ function renderGapFilters(summary) {
   const byGrade = Object.entries(summary.byGrade).sort((a, b) => a[0] < b[0] ? -1 : 1);
   const byType = Object.entries(summary.byGapType);
   // 学科
-  const subjBtns = bySubject.map(([s, n]) => `<button class="filter-btn ${route.subject === s ? 'active' : ''}" onclick="setGapFilter('subject','${s}')">${escapeHtml(s)} <span class="filter-n">${n}</span></button>`).join('');
-  // 年级
-  const gradeBtns = byGrade.map(([g, n]) => `<button class="filter-btn ${route.grade === g ? 'active' : ''}" onclick="setGapFilter('grade','${g}')">${escapeHtml(g)} <span class="filter-n">${n}</span></button>`).join('');
-  // 状态
-  const typeBtns = byType.map(([t, n]) => `<button class="filter-btn ${route.gapType === t ? 'active' : ''}" onclick="setGapFilter('gap_type','${t}')">${escapeHtml(GAP_TYPE_LABEL[t] || t)} <span class="filter-n">${n}</span></button>`).join('');
-  const clearBtn = (route.subject || route.gapType || route.grade) ? `<button class="filter-btn" onclick="setGapFilter('clear')">✕ 清除</button>` : '';
+  const subjBtns = bySubject.map(([s, n]) => `<button class="filter-btn ${route.subject === s ? 'active' : ''}" data-gap-filter="subject" data-gap-value="${escapeHtml(s)}">${escapeHtml(s)} <span class="filter-n">${n}</span></button>`).join('');
+  const gradeBtns = byGrade.map(([g, n]) => `<button class="filter-btn ${route.grade === g ? 'active' : ''}" data-gap-filter="grade" data-gap-value="${escapeHtml(g)}">${escapeHtml(g)} <span class="filter-n">${n}</span></button>`).join('');
+  const typeBtns = byType.map(([t, n]) => `<button class="filter-btn ${route.gapType === t ? 'active' : ''}" data-gap-filter="gap_type" data-gap-value="${escapeHtml(t)}">${escapeHtml(GAP_TYPE_LABEL[t] || t)} <span class="filter-n">${n}</span></button>`).join('');
+  const clearBtn = (route.subject || route.gapType || route.grade) ? '<button class="filter-btn" data-gap-filter="clear">✕ 清除</button>' : '';
   el.innerHTML = `<div class="gap-filter-row"><span class="filter-label">状态</span><div class="gap-filter-btns">${typeBtns}</div></div><div class="gap-filter-row"><span class="filter-label">学科</span><div class="gap-filter-btns">${subjBtns}</div></div><div class="gap-filter-row"><span class="filter-label">年级</span><div class="gap-filter-btns">${gradeBtns}</div></div>${clearBtn}`;
+  el.onclick = (event) => {
+    const button = event.target.closest('[data-gap-filter]');
+    if (button) setGapFilter(button.dataset.gapFilter, button.dataset.gapValue);
+  };
 }
 
 // === 渲染:详情页 ===
@@ -439,9 +446,9 @@ document.getElementById('detail-back').addEventListener('click', () => {
   location.hash = buildHash({ id: null });
 });
 
-// 顶部 list 的返回按钮是 <a onclick="goOverview()">
 function goOverview() { location.hash = buildHash({ id: null, subject: null, domain: null, q: null, ageRange: route.ageRange }); }
-window.goOverview = goOverview;
+document.getElementById('list-back').addEventListener('click', goOverview);
+document.getElementById('gap-back').addEventListener('click', goOverview);
 
 // === 工具 ===
 window.addEventListener('masterychanged', () => {

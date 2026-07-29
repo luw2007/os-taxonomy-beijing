@@ -1,5 +1,6 @@
 import { findNextUnmastered } from './path-navigation.js';
 import { HORIZONTAL_GESTURE_THRESHOLD, buildPathSequence, classifyPathGesture, applyKnowledgeDecision } from './mobile-path-state.js';
+import { withAgreement } from './ai-consent.js';
 
 'use strict';
 
@@ -41,8 +42,7 @@ function toast(msg) {
 // === 本地状态(全部 localStorage) ===
 // 多用户档案: kg-demo-users = { list: [{id,name}], activeId }
 // 每个用户独立命名空间: kg-demo-u-<id>-mastered / kg-demo-u-<id>-profile
-// 协议同意是浏览器级(整机一次即可),不随档案。
-const AKEY = 'kg-demo-agreed', UKEY = 'kg-demo-users';
+const AKEY = 'kg-demo-agreed-v2', UKEY = 'kg-demo-users';
 const LEGACY_KEYS = ['kg-demo-mastered', 'kg-demo-role', 'kg-demo-profile'];
 let agreed = localStorage.getItem(AKEY) === '1';
 
@@ -971,6 +971,7 @@ function setupMobileAI() {
   const contextEl = mobEl('mobile-ai-context');
   if (!openBtn || !mask || !closeBtn || !form || !input || !sendBtn || !log) return;
   let activeChatTopicId = null;
+  let lastTrigger = null;
   const history = [];
   const renderMessages = () => {
     const empty = mobEl('mobile-chat-empty'); if (empty) empty.hidden = history.length > 0;
@@ -991,7 +992,7 @@ function setupMobileAI() {
     errorEl.hidden = true;
   };
   const closeAI = () => { mask.hidden = true; lastTrigger?.focus(); };
-  openBtn.addEventListener('click', () => {
+  const openAI = () => {
     lastTrigger = document.activeElement;
     const topicId = mobileSeq[mobilePos];
     const topic = topicId ? N(topicId) : null;
@@ -999,6 +1000,9 @@ function setupMobileAI() {
     if (contextEl) contextEl.textContent = topic ? `当前：${topic.name} · ${sz(topic.subject)} · 档案「${activeUser().name}」` : '';
     mask.hidden = false;
     mobEl('mobile-ai-title')?.focus();
+  };
+  openBtn.addEventListener('click', () => {
+    withAgreement(agreed, () => { pendingAfterAgree = openAI; openMask('agreement-mask'); }, openAI);
   });
   closeBtn.addEventListener('click', closeAI);
   mobEl('mobile-profile-open')?.addEventListener('click', () => { renderProfileModal(); openMask('profile-mask'); });
@@ -1015,7 +1019,7 @@ function setupMobileAI() {
     e.preventDefault();
     const message = input.value.trim();
     const topicId = mobileSeq[mobilePos];
-    if (!message || !topicId || sendBtn.disabled) return;
+    if (!withAgreement(agreed, () => { pendingAfterAgree = () => form.requestSubmit(); openMask('agreement-mask'); }, () => {}) || !message || !topicId || sendBtn.disabled) return;
     errorEl.hidden = true;
     history.push({ role: 'user', content: message });
     input.value = '';

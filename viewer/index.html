@@ -11,7 +11,7 @@
 <header class="topbar">
   <div class="topbar-inner">
     <button class="sb-toggle" id="sb-toggle" title="目录">☰</button>
-    <a class="brand" href="#" onclick="return false">
+    <a class="brand" href="#">
       <h1>🧭 知识脉络</h1><span class="sub">实验功能</span>
     </a>
     <nav class="tabs">
@@ -94,7 +94,7 @@
     <div class="modal-body">
       <p><b>这是一个实验性功能,可能随时下线。</b></p>
       <p>1. <b>数据只存你本地。</b>你标记的知识点、孩子的画像信息(年龄、年级、地区等)全部只保存在你浏览器的 localStorage 里,不上传、不建账号、没有服务器数据库。换浏览器或清缓存即丢失。</p>
-      <p>2. <b>AI 解析需要把你输入的文字发给大模型。</b>点「AI 解析」时,你输入的描述(以及已有画像,用于理解语境)会发送给 DeepSeek API 处理,用完即弃。不要输入真实姓名、联系方式等敏感信息。</p>
+      <p>2. <b>AI 功能会把你输入的文字发给大模型。</b>使用「AI 解析」或「AI 学习伙伴」时，提问、最多 8 条对话历史、当前知识点和筛选上下文会发送给 DeepSeek API；学习档案、掌握记录不会上传。不要输入真实姓名、联系方式等敏感信息。</p>
       <p>3. <b>AI 结果仅供参考。</b>知识点匹配与学习建议由 AI 推测,未经教师审核,不构成教育建议。</p>
       <p>4. 你可以随时通过顶栏「清除数据」删除本地全部记录。</p>
     </div>
@@ -200,7 +200,7 @@
     <div class="modal mobile-ai-sheet" role="dialog" aria-modal="true" aria-labelledby="mobile-ai-title" aria-describedby="mobile-ai-note">
       <h3 id="mobile-ai-title" tabindex="-1">💬 AI 学习伙伴</h3>
       <p class="mobile-ai-context" id="mobile-ai-context"></p>
-      <p class="mobile-ai-note" id="mobile-ai-note">无需登录。AI 将结合当前知识点与档案信息回答；结果仅供学习参考。</p>
+      <p class="mobile-ai-note" id="mobile-ai-note">无需登录。发送提问时会把提问、最多 8 条对话历史、当前知识点和筛选上下文发送给 DeepSeek；本地学习档案和掌握记录不会上传。结果仅供学习参考。</p>
       <div class="mobile-chat-log" id="mobile-chat-log" role="log" aria-live="polite" aria-label="AI 对话记录">
         <p class="mobile-chat-empty" id="mobile-chat-empty">可以询问概念解释、生活例子、练习建议或判断依据。</p>
       </div>

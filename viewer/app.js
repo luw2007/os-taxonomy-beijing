@@ -110,6 +110,7 @@ function setDimension(dim) {
   // 切换维度:清空列表筛选(学科/领域/搜索因目录树变化可能失效),保留在概览
   location.hash = buildHash({ id: null, dim, subject: null, domain: null, q: null, ageRange: route.ageRange });
 }
+window.setDimension = setDimension;
 
 // === 年龄段筛选按钮同步 ===
 function syncFilterButtons() {
@@ -184,6 +185,7 @@ async function loadTree() {
 }
 
 function toggleSubject(el) { el.classList.toggle('open'); }
+window.toggleSubject = toggleSubject;
 
 // === 渲染:列表页 ===
 function listTitle() {
@@ -245,6 +247,7 @@ function setGapFilter(key, val) {
     : { [key === 'gap_type' ? 'gapType' : key]: val || null };
   location.hash = buildHash({ view: 'textbook-gaps', ...patch });
 }
+window.setGapFilter = setGapFilter;
 
 async function loadTextbookGaps() {
   const table = document.getElementById('gap-table');
@@ -438,6 +441,7 @@ document.getElementById('detail-back').addEventListener('click', () => {
 
 // 顶部 list 的返回按钮是 <a onclick="goOverview()">
 function goOverview() { location.hash = buildHash({ id: null, subject: null, domain: null, q: null, ageRange: route.ageRange }); }
+window.goOverview = goOverview;
 
 // === 工具 ===
 window.addEventListener('masterychanged', () => {

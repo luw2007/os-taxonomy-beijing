@@ -42,7 +42,7 @@ function toast(msg) {
 // === 本地状态(全部 localStorage) ===
 // 多用户档案: kg-demo-users = { list: [{id,name}], activeId }
 // 每个用户独立命名空间: kg-demo-u-<id>-mastered / kg-demo-u-<id>-profile
-const AKEY = 'kg-demo-agreed-v2', UKEY = 'kg-demo-users';
+const AKEY = 'kg-demo-agreed-v3', UKEY = 'kg-demo-users';
 const LEGACY_KEYS = ['kg-demo-mastered', 'kg-demo-role', 'kg-demo-profile'];
 let agreed = localStorage.getItem(AKEY) === '1';
 
@@ -137,6 +137,7 @@ document.getElementById('disagree-btn').addEventListener('click', () => {
   closeMask('agreement-mask'); pendingAfterAgree = null;
 });
 document.getElementById('ub-agreement').addEventListener('click', () => openMask('agreement-mask'));
+document.getElementById('brand').addEventListener('click', (event) => event.preventDefault());
 
 // 用户档案管理
 function renderProfileModal() {

@@ -7,4 +7,4 @@
 - 安全问题：遵循 [SECURITY.md](SECURITY.md)，不要公开披露细节。
 - 行为事件：遵循 [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) 的私密报告渠道。
 
-当前工作副本没有公开 remote；模板、GitHub Actions 和私密报告入口会在公开托管并启用对应 GitHub 功能后生效。
+GitHub Issue 模板与 Actions 已启用；私密安全报告入口的可用性以仓库 Security 页面为准。

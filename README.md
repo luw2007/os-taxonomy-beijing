@@ -14,7 +14,7 @@
 > `data/cn-curriculum-standards.json` 里的课标编号是**项目自建的映射标识符**，不是教育部
 > 官方代码，详见 [PROVENANCE.md](PROVENANCE.md)。
 
-> **协作状态：** 当前工作副本没有公开 remote，因此没有可核验的 GitHub Actions run、issue/PR 历史或发布标签。公开托管后，贡献者入口见 [CONTRIBUTING.md](CONTRIBUTING.md)、[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) 与 [SUPPORT.md](SUPPORT.md)。
+> **协作状态：** 贡献者入口见 [CONTRIBUTING.md](CONTRIBUTING.md)、[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) 与 [SUPPORT.md](SUPPORT.md)。GitHub Actions 会在 push 与 pull request 上执行发布闸门；只有 CI 全绿的候选提交才可打发布 tag。
 
 ## 这是什么
 
@@ -273,7 +273,6 @@ node scripts/serve.mjs --port 8080 --upstream /path/to/os-taxonomy
 - [x] **AI 安全闸门**（260 个复用 ID 家族的 761 条内部继承边和 4 条 bridge 边全部隔离；49 个 covered 父主题退出儿童视图；儿童路径只使用 reviewed 且非 rescope 的边）
 - [x] **用户授权的双 Opus 重审**（765 条隔离边经两轮独立审核，724 条一致、41 条分歧保守拒绝；最终 reviewed 344 / rejected 421；该记录不冒充教师审核）
 - [ ] **人工校对**（内部边当前 reviewed 1,326 / machine 873 / rejected 420，覆盖率 50.6%；剩余 machine 边继续不进入儿童路径）
-- [ ] 领域聚类（clusters.zh.json）翻译
 - [ ] bridge 依赖扩展（mt_↔mtc_ 跨图桥接，当前 reviewed 46 / rejected 1）
 
 ## 贡献

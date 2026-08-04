@@ -19,6 +19,6 @@ test('community contribution entry points are present and link the conduct polic
   assert.match(read('.github/ISSUE_TEMPLATE/bug-report.yml'), /Code of Conduct/);
   assert.match(read('.github/pull_request_template.md'), /CONTRIBUTING\.md/);
   assert.match(read('CODE_OF_CONDUCT.md'), /Contributor Covenant 2\.1/);
-  assert.match(read('SUPPORT.md'), /没有公开 remote/);
-  assert.match(read('docs/release-process.md'), /没有公开 remote/);
+  assert.match(read('SUPPORT.md'), /GitHub Issue 模板与 Actions 已启用/);
+  assert.match(read('docs/release-process.md'), /首次 push 触发 CI 后/);
 });

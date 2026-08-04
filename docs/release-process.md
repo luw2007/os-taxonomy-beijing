@@ -1,6 +1,6 @@
 # 发布流程
 
-本项目目前没有公开 remote 或已执行的 GitHub Actions run；下列流程定义公开托管后的可复现发布闸门，不能作为既有发布记录。
+下列流程定义公开托管后的可复现发布闸门；首次 push 触发 CI 后，才能把其结果作为发布证据。
 
 1. 从干净工作树的候选提交运行 `npm test`。
 2. 用固定上游 checkout 运行 `node scripts/validate.mjs --publish --upstream ../os-taxonomy`。

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>知识脉络 · Beijing Skill Taxonomy</title>
-<link rel="stylesheet" href="/path.css">
+<link rel="stylesheet" href="/static/path.css">
 </head>
 <body>
 
@@ -244,6 +244,9 @@
 </div>
 
 <div id="toast"></div>
-<script type="module" src="/path.js"></script>
+<script type="module" src="/static/path.js"></script>
+<script>
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/service-worker.js', { scope: '/' });
+</script>
 </body>
 </html>

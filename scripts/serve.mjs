@@ -21,6 +21,7 @@ import { createChatResponder, createSlidingWindowLimiter, validateChatRequest } 
 import { createAssessmentResponder, validateAssessmentRequest } from './llm-assessment.mjs';
 import { filterPublishedDependencies, filterPublishedTopics, mergeDependencies, mergeTopics, publishedEdge, publishedGraph, publishedPathEdge, publishedTopic } from './review-policy.mjs';
 import { parseHost } from './serve-config.mjs';
+import { cachePolicyForRequest, staticPathForRequest } from './cache-policy.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = resolve(ROOT, 'data');
@@ -487,8 +488,7 @@ const MIME = {
 };
 
 function serveStatic(pathname) {
-  // 默认 index.html
-  let filePath = pathname === '/' ? '/index.html' : pathname;
+  const filePath = pathname.replace(/^\/static\//, '/');
   const abs = resolve(VIEWER, '.' + filePath);
   // 防止目录穿越
   if (!abs.startsWith(VIEWER)) return null;
@@ -502,6 +502,24 @@ function serveStatic(pathname) {
 const server = createServer((req, res) => {
   const url = new URL(req.url, `http://localhost:${port}`);
   const pathname = url.pathname;
+  const cachePolicy = cachePolicyForRequest({ method: req.method, pathname });
+  res.setHeader('Cache-Control', cachePolicy.cacheControl);
+
+  if (req.method === 'GET' && pathname === '/service-worker.js') {
+    const worker = serveStatic('/static/service-worker.js');
+    if (!worker) {
+      res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
+      res.end('404 Not Found');
+      return;
+    }
+    res.writeHead(200, {
+      'Content-Type': worker.mime,
+      'Cache-Control': 'no-cache',
+      'Service-Worker-Allowed': '/',
+    });
+    res.end(worker.body);
+    return;
+  }
 
   // POST /api/chat — 匿名 AI 学习伙伴。会话不落盘，按 IP 限流。
   if (req.method === 'POST' && pathname === '/api/chat') {
@@ -613,7 +631,7 @@ const server = createServer((req, res) => {
       const acceptsGzip = req.headers['accept-encoding']?.includes('gzip');
       res.writeHead(200, {
         'Content-Type': 'application/json; charset=utf-8',
-        'Cache-Control': isPathData ? 'public, max-age=3600' : 'no-cache',
+        'Cache-Control': cachePolicy.cacheControl,
         ...(isPathData ? { Vary: 'Accept-Encoding' } : {}),
         ...(isPathData && acceptsGzip ? { 'Content-Encoding': 'gzip' } : {}),
       });
@@ -622,9 +640,10 @@ const server = createServer((req, res) => {
     }
 
     // 静态文件
-    const file = serveStatic(pathname);
+    const staticPath = staticPathForRequest(pathname);
+    const file = staticPath && serveStatic(staticPath);
     if (file) {
-      res.writeHead(200, { 'Content-Type': file.mime });
+      res.writeHead(200, { 'Content-Type': file.mime, 'Cache-Control': pathname === '/' ? 'no-cache' : cachePolicy.cacheControl });
       res.end(file.body);
       return;
     }

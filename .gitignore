@@ -3,6 +3,8 @@ node_modules/
 .DS_Store
 .zcode/
 __pycache__/
+.agent/
+dist/
 
 # PDF→MD 转换工具与教材 — 本地 source，不提交
 scripts/pdf2md.py

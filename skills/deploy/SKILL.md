@@ -1,5 +1,5 @@
 ---
-name: deploy-os-taxonomy-beijing
+name: deploy
 description: Deploy, check, or roll back the os-taxonomy-beijing service at http://69.5.7.240:3000 through SSH host arkbot. Use when publishing the current project, checking its production revision or health, restarting the service, or rolling it back.
 ---
 

@@ -337,7 +337,9 @@ async function loadDetail() {
   const data = await api(`/api/topic/${encodeURIComponent(route.id)}`);
   const t = data.topic;
   const dimHidden = t.dimensionVisible === false;
-  badges.innerHTML = `<span class="tag tag-subject">${SUBJECT_ZH_FALLBACK(t.subject)}</span>${t.domainZh ? `<span class="tag tag-age">${escapeHtml(t.domainZh)}</span>` : ''}${t.ageRangeStart != null ? `<span class="tag tag-age">${t.ageRangeStart}-${t.ageRangeEnd} 岁</span>` : ''}${dimHidden ? `<span class="tag tag-us">美版</span>` : ''}`;
+  const subjectLink = buildHash({ id: null, subject: t.subject, domain: null, q: null });
+  const domainLink = t.domainZh ? buildHash({ id: null, subject: t.subject, domain: t.domain, q: null }) : null;
+  badges.innerHTML = `<a class="tag tag-subject detail-filter-link" href="${subjectLink}" aria-label="查看${escapeHtml(SUBJECT_ZH_FALLBACK(t.subject))}知识点">${escapeHtml(SUBJECT_ZH_FALLBACK(t.subject))}</a>${domainLink ? `<a class="tag tag-age detail-filter-link" href="${domainLink}" aria-label="查看${escapeHtml(t.domainZh)}知识点">${escapeHtml(t.domainZh)}</a>` : ''}${t.ageRangeStart != null ? `<span class="tag tag-age">${t.ageRangeStart}-${t.ageRangeEnd} 岁</span>` : ''}${dimHidden ? `<span class="tag tag-us">美版</span>` : ''}`;
   const assessment = escapeHtml(t.assessmentPrompt || '(无)').replace(/\{\{name\}\}/g, '<span class="placeholder">孩子名字</span>');
   const standardsHtml = (data.standards && data.standards.length > 0)
     ? `<div class="standards-list">${data.standards.map(s => `<div class="standard-item"><div class="std-key">${escapeHtml(s.key)}</div><div class="std-strand">${escapeHtml(s.strand || '')}</div><div class="std-note">${escapeHtml(s.note || '')}</div></div>`).join('')}</div>`

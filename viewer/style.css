@@ -107,6 +107,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC"
 .tag-untranslated { background: var(--orange-light); color: var(--orange); }
 .tag-dim-hidden { background: var(--orange-light); color: var(--orange); border: 1px dashed var(--orange); }
 .tag-us { background: var(--primary-light); color: var(--primary); border: 1px solid var(--primary); }
+.detail-filter-link { text-decoration: none; }
+.detail-filter-link:hover, .detail-filter-link:focus-visible { outline: none; text-decoration: underline; }
 
 .detail-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
 .detail-badges { display: flex; gap: 6px; flex-wrap: wrap; }

@@ -5,29 +5,40 @@ export function parseRoute(hash) {
   const params = new URLSearchParams(query);
   const idMatch = path.match(/^\/(mtc?_[A-Za-z0-9_-]+)$/);
   const subject = params.get('subject') || null;
-  return {
+  const view = path === '/textbook-gaps' ? 'textbook-gaps' : null;
+  const base = {
     id: idMatch ? idMatch[1] : null,
     tab: params.get('tab') === 'graph' ? 'graph' : 'path',
     dim: params.get('dim') || null,
     subject,
-    domain: subject ? params.get('domain') || null : null,
+    domain: view || subject ? params.get('domain') || null : null,
     ageRange: params.get('ageRange') || null,
     q: params.get('q') || null,
   };
+  return view ? { ...base, view, gapType: params.get('gap_type') || null, grade: params.get('grade') || null } : base;
 }
 
 export function buildRoute(parts = {}, current = {}) {
-  const merged = { tab: 'path', id: null, dim: null, subject: null, domain: null, ageRange: null, q: null, ...current, ...parts };
+  const merged = {
+    tab: 'path', id: null, dim: null, subject: null, domain: null, ageRange: null, q: null,
+    view: null, gapType: null, grade: null, ...current, ...parts,
+  };
   if (merged.tab !== 'graph') merged.tab = 'path';
   if (!merged.subject) merged.domain = null;
+  if (merged.view !== 'textbook-gaps') { merged.view = null; merged.gapType = null; merged.grade = null; }
   const params = new URLSearchParams();
   for (const key of ROUTE_KEYS) {
     const value = merged[key];
     if (key === 'tab' && value === 'path') continue;
     if (value != null && value !== '') params.set(key, value);
   }
+  if (merged.view === 'textbook-gaps') {
+    if (merged.gapType) params.set('gap_type', merged.gapType);
+    if (merged.grade) params.set('grade', merged.grade);
+  }
   const query = params.toString();
-  return `#/${merged.id || ''}${query ? `?${query}` : ''}`;
+  const base = merged.view === 'textbook-gaps' ? '/textbook-gaps' : `/${merged.id || ''}`;
+  return `#${base}${query ? `?${query}` : ''}`;
 }
 
 export function navigate(parts, current = parseRoute(location.hash)) {
@@ -35,6 +46,5 @@ export function navigate(parts, current = parseRoute(location.hash)) {
   if (location.hash !== next) location.hash = next;
 }
 
-// Backward-compatible aliases for callers outside the workspace shell.
 export const parsePathRoute = parseRoute;
 export function buildPathHash(parts) { return buildRoute(parts); }

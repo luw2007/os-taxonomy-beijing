@@ -1,5 +1,5 @@
 import { formatMasteryProgress } from './mastery-progress.js';
-import { toggleMastery } from './mastery-state.js';
+import { toggleMastery, addMastery } from './mastery-state.js';
 import { ageRangeForAge } from './age-filter.js';
 
 /* === Beijing Skill Taxonomy 知识浏览器前端 (2D 列表布局) ===
@@ -27,6 +27,8 @@ let subjectsTree = null;
 
 // 精确年龄筛选复用现有 ageRange=<age>-<age> API 语义。
 const ageFilter = document.getElementById('age-filter');
+let bulkMasteryMode = false;
+let bulkMasterySelection = new Set();
 
 async function api(path) {
   const url = new URL(path, location.origin);
@@ -204,6 +206,11 @@ function listTitle() {
 async function loadTopicList() {
   document.getElementById('list-title').textContent = listTitle();
   const grid = document.getElementById('topic-grid');
+  const toggle = document.getElementById('bulk-mastery-toggle');
+  const apply = document.getElementById('bulk-mastery-apply');
+  toggle.hidden = false;
+  apply.hidden = !bulkMasteryMode;
+  toggle.textContent = bulkMasteryMode ? '取消批量标记' : '批量标记';
   grid.innerHTML = '<p class="tree-loading">加载中…</p>';
   const params = new URLSearchParams();
   if (route.subject) params.set('subject', route.subject);
@@ -214,7 +221,16 @@ async function loadTopicList() {
   document.getElementById('list-count').textContent = `${data.count} 个`;
   if (data.topics.length === 0) { grid.innerHTML = '<p style="color:var(--text-muted);padding:20px;">没有匹配的微主题。</p>'; return; }
   data.topics.sort((a, b) => (a.ageRangeStart || 0) - (b.ageRangeStart || 0));
-  grid.innerHTML = data.topics.map(t => `<a class="topic-card" href="#/${t.id}?dim=${route.dim}"><div class="card-name">${escapeHtml(t.name)}</div><div class="card-desc">${escapeHtml(t.description || '(无描述)')}</div><div class="card-meta"><span class="tag tag-subject">${SUBJECT_ZH_FALLBACK(t.subject)}</span>${t.domainZh ? `<span class="tag tag-age">${escapeHtml(t.domainZh)}</span>` : ''}${t.ageRangeStart != null ? `<span class="tag tag-age">${t.ageRangeStart}-${t.ageRangeEnd} 岁</span>` : ''}</div></a>`).join('');
+  const mastered = currentMasteredIds();
+  const selected = bulkMasterySelection;
+  grid.innerHTML = data.topics.map(t => `<a class="topic-card ${bulkMasteryMode ? 'bulk-selecting' : ''} ${mastered.has(t.id) ? 'is-mastered' : ''}" href="#/${t.id}?dim=${route.dim}" data-topic-id="${escapeHtml(t.id)}">${bulkMasteryMode ? `<input class="bulk-mastery-check" type="checkbox" aria-label="标记 ${escapeHtml(t.name)} 为已掌握" ${selected.has(t.id) ? 'checked' : ''}>` : ''}<div class="card-name">${escapeHtml(t.name)}</div><div class="card-desc">${escapeHtml(t.description || '(无描述)')}</div><div class="card-meta"><span class="tag tag-subject">${SUBJECT_ZH_FALLBACK(t.subject)}</span>${t.domainZh ? `<span class="tag tag-age">${escapeHtml(t.domainZh)}</span>` : ''}${t.ageRangeStart != null ? `<span class="tag tag-age">${t.ageRangeStart}-${t.ageRangeEnd} 岁</span>` : ''}${mastered.has(t.id) ? '<span class="tag tag-translated">已掌握</span>' : ''}</div></a>`).join('');
+  apply.disabled = selected.size === 0;
+  grid.querySelectorAll('.bulk-mastery-check').forEach(check => check.addEventListener('click', event => event.stopPropagation()));
+  grid.querySelectorAll('.bulk-mastery-check').forEach(check => check.addEventListener('change', event => {
+    const id = event.target.closest('.topic-card').dataset.topicId;
+    if (event.target.checked) selected.add(id); else selected.delete(id);
+    apply.disabled = selected.size === 0;
+  }));
 }
 
 // === 渲染:课本目录对比(概览页入口卡) ===
@@ -358,8 +374,9 @@ async function render() {
   // 同步年龄筛选按钮
   syncFilterButtons();
 
-  // 课本目录对比视图
   if (route.view === 'textbook-gaps') {
+    document.getElementById('bulk-mastery-toggle').hidden = true;
+    document.getElementById('bulk-mastery-apply').hidden = true;
     showView('textbook-gaps');
     await loadTextbookGaps();
     return;
@@ -369,6 +386,8 @@ async function render() {
   const isOverview = !route.id && !route.subject && !route.domain && !route.q && !route.ageRange;
 
   if (route.id) {
+    document.getElementById('bulk-mastery-toggle').hidden = true;
+    document.getElementById('bulk-mastery-apply').hidden = true;
     showView('detail');
     await loadDetail();
     return;
@@ -383,6 +402,8 @@ async function render() {
   }
 
   if (isOverview) {
+    document.getElementById('bulk-mastery-toggle').hidden = true;
+    document.getElementById('bulk-mastery-apply').hidden = true;
     showView('overview');
   } else {
     showView('list');
@@ -427,6 +448,17 @@ ageFilter.addEventListener('change', () => {
   location.hash = buildHash({ id: null, ageRange: ageRangeForAge(ageFilter.value) });
 });
 
+document.getElementById('bulk-mastery-toggle').addEventListener('click', () => {
+  bulkMasteryMode = !bulkMasteryMode;
+  bulkMasterySelection.clear();
+  loadTopicList();
+});
+document.getElementById('bulk-mastery-apply').addEventListener('click', () => {
+  saveMasteredIds(addMastery(currentMasteredIds(), bulkMasterySelection));
+  bulkMasterySelection.clear();
+  bulkMasteryMode = false;
+  loadTopicList();
+});
 // === 返回按钮 ===
 document.getElementById('detail-back').addEventListener('click', () => {
   // 详情返回:恢复之前的列表/概览(去掉 id)

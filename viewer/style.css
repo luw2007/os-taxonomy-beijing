@@ -87,6 +87,12 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC"
 .back-btn:hover { border-color: var(--accent); color: var(--accent); }
 .list-header h2 { font-size: 22px; font-weight: 600; }
 .list-count { font-size: 13px; color: var(--text-muted); }
+.list-spacer { flex: 1; }
+.bulk-mastery-apply { padding: 6px 14px; border: 1px solid var(--green); border-radius: 8px; background: var(--green); color: #fff; font: inherit; font-size: 13px; cursor: pointer; }
+.bulk-mastery-apply:disabled { opacity: .5; cursor: default; }
+.topic-card.bulk-selecting { position: relative; }
+.bulk-mastery-check { position: absolute; top: 12px; right: 12px; width: 18px; height: 18px; accent-color: var(--green); cursor: pointer; }
+.topic-card.is-mastered { border-color: var(--green); }
 .topic-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
 .topic-card { display: block; text-decoration: none; color: inherit; background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; cursor: pointer; transition: all 0.15s; box-shadow: var(--shadow); }
 .topic-card:hover { box-shadow: var(--shadow-lg); border-color: var(--accent); transform: translateY(-1px); }

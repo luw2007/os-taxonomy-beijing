@@ -4,3 +4,7 @@ export function toggleMastery(mastered, id) {
   else next.add(id);
   return next;
 }
+
+export function addMastery(mastered, ids) {
+  return new Set([...mastered, ...ids]);
+}

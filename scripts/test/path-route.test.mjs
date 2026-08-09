@@ -1,40 +1,37 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
-import { buildPathHash, parsePathRoute } from '../../viewer/path-route.js';
+import test from 'node:test';
+import { buildRoute, parseRoute } from '../../viewer/path-route.js';
 
-let passed = 0;
-let failed = 0;
-function test(name, fn) {
-  try { fn(); passed++; console.log(`  ✓ ${name}`); }
-  catch (error) { failed++; console.error(`  ✗ ${name}\n    ${error.message}`); }
-}
-
-console.log('=== path route unit tests ===\n');
-
-test('restores dimension, subject, and domain from a legacy viewer hash', () => {
-  assert.deepEqual(
-    parsePathRoute('#/?dim=bj-primary&subject=Mathematics&domain=Geometry'),
-    { id: null, dim: 'bj-primary', subject: 'Mathematics', domain: 'Geometry', tab: 'path' },
-  );
+test('parses the complete single-route workspace contract', () => {
+  assert.deepEqual(parseRoute('#/mt_KJeEeTutJI?tab=graph&dim=bj-primary&subject=Mathematics&domain=Geometry&ageRange=8-8&q=%E5%88%86%E6%95%B0'), {
+    id: 'mt_KJeEeTutJI', tab: 'graph', dim: 'bj-primary', subject: 'Mathematics',
+    domain: 'Geometry', ageRange: '8-8', q: '分数',
+  });
 });
 
-test('builds a shareable path topic URL that preserves its catalog context', () => {
-  assert.equal(
-    buildPathHash({ id: 'mt_KJeEeTutJI', dim: 'bj-primary', subject: 'Mathematics', domain: 'Geometry', tab: 'path' }),
-    '#/mt_KJeEeTutJI?dim=bj-primary&subject=Mathematics&domain=Geometry',
-  );
+test('defaults invalid tabs to path and permits subject without domain', () => {
+  assert.deepEqual(parseRoute('#/?tab=other&subject=Mathematics'), {
+    id: null, tab: 'path', dim: null, subject: 'Mathematics', domain: null, ageRange: null, q: null,
+  });
 });
 
-test('builds and restores a graph topic URL', () => {
-  const hash = buildPathHash({ id: 'mt_KJeEeTutJI', dim: 'bj-primary', subject: 'Mathematics', domain: 'Geometry', tab: 'graph' });
-  assert.equal(hash, '#/mt_KJeEeTutJI?dim=bj-primary&subject=Mathematics&domain=Geometry&tab=graph');
-  assert.deepEqual(parsePathRoute(hash), { id: 'mt_KJeEeTutJI', dim: 'bj-primary', subject: 'Mathematics', domain: 'Geometry', tab: 'graph' });
+test('drops a domain that has no subject', () => {
+  assert.deepEqual(parseRoute('#/?domain=Geometry'), {
+    id: null, tab: 'path', dim: null, subject: null, domain: null, ageRange: null, q: null,
+  });
 });
 
-test('treats partial or unrelated route fields as no catalog selection', () => {
-  assert.deepEqual(parsePathRoute('#/?dim=bj-primary&subject=Mathematics'), { id: null, dim: 'bj-primary', subject: null, domain: null, tab: 'path' });
-  assert.deepEqual(parsePathRoute('#/mt_KJeEeTutJI?dim=bj-primary'), { id: 'mt_KJeEeTutJI', dim: 'bj-primary', subject: null, domain: null, tab: 'path' });
+test('buildRoute preserves context while switching tabs and never emits query id', () => {
+  const current = parseRoute('#/mt_KJeEeTutJI?dim=bj-primary&subject=Mathematics&domain=Geometry&ageRange=8-8&q=%E5%88%86%E6%95%B0');
+  const hash = buildRoute({ tab: 'graph' }, current);
+  assert.equal(hash, '#/mt_KJeEeTutJI?tab=graph&dim=bj-primary&subject=Mathematics&domain=Geometry&ageRange=8-8&q=%E5%88%86%E6%95%B0');
+  assert.doesNotMatch(hash, /[?&]id=/);
+  assert.deepEqual(parseRoute(hash), { ...current, tab: 'graph' });
 });
 
-console.log(`\n=== result: ${passed} passed, ${failed} failed ===`);
-if (failed) process.exit(1);
+test('subject selection clears domain and dimension selection clears unreliable filters', () => {
+  const current = parseRoute('#/mt_KJeEeTutJI?tab=graph&dim=us&subject=Mathematics&domain=Geometry&ageRange=8-8&q=x');
+  assert.equal(buildRoute({ subject: 'Science', domain: null }, current), '#/mt_KJeEeTutJI?tab=graph&dim=us&subject=Science&ageRange=8-8&q=x');
+  assert.equal(buildRoute({ dim: 'bj-primary', subject: null, domain: null, q: null }, current), '#/mt_KJeEeTutJI?tab=graph&dim=bj-primary&ageRange=8-8');
+});

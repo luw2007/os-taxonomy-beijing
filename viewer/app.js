@@ -1,4 +1,5 @@
 import { formatMasteryProgress } from './mastery-progress.js';
+import { renderAssessmentForm, renderAssessmentResult } from './graph-assessment-ui.js';
 import { toggleMastery, addMastery } from './mastery-state.js';
 import { ageRangeForAge } from './age-filter.js';
 
@@ -361,8 +362,41 @@ async function loadDetail() {
   const masteryAction = currentMasteredIds().has(t.id)
     ? '<button class="mastery-action mastered" id="detail-mastery-action">↩︎ 取消掌握标记</button>'
     : '<button class="mastery-action" id="detail-mastery-action">✓ 标记为已掌握</button>';
-  body.innerHTML = `<div class="detail-title-row"><h2>${escapeHtml(t.name)}</h2>${masteryAction}</div><div class="detail-id">${t.id}</div><div class="detail-section"><h3>📖 描述</h3><div class="detail-desc">${escapeHtml(t.description || '(无描述)')}</div></div>${t.evidence && t.evidence.length > 0 ? `<div class="detail-section"><h3>✓ 掌握证据</h3><ul class="evidence-list">${t.evidence.map(e => `<li>${escapeHtml(e)}</li>`).join('')}</ul></div>` : ''}<div class="detail-section"><h3>🎯 评估话术</h3><div class="assessment-box">${assessment}</div></div><div class="detail-section"><h3>📋 中国课标对齐</h3>${standardsHtml}</div><div class="detail-section"><h3>🔗 已审核知识依赖</h3><div class="dep-section"><div class="dep-box"><h4>前置(学这个之前要先掌握)</h4>${prereqHtml}</div><div class="dep-box"><h4>后续(掌握后可继续学习)</h4>${dependentsHtml}</div></div></div>`;
+  const assessmentSection = t.assessmentPrompt
+    ? `<div class="detail-section"><h3>🎯 评估话术</h3><div class="assessment-box">${assessment}</div>${renderAssessmentForm(t.id)}</div>`
+    : '';
+  body.innerHTML = `<div class="detail-title-row"><h2>${escapeHtml(t.name)}</h2>${masteryAction}</div><div class="detail-id">${t.id}</div><div class="detail-section"><h3>📖 描述</h3><div class="detail-desc">${escapeHtml(t.description || '(无描述)')}</div></div>${t.evidence && t.evidence.length > 0 ? `<div class="detail-section"><h3>✓ 掌握证据</h3><ul class="evidence-list">${t.evidence.map(e => `<li>${escapeHtml(e)}</li>`).join('')}</ul></div>` : ''}${assessmentSection}<div class="detail-section"><h3>📋 中国课标对齐</h3>${standardsHtml}</div><div class="detail-section"><h3>🔗 已审核知识依赖</h3><div class="dep-section"><div class="dep-box"><h4>前置(学这个之前要先掌握)</h4>${prereqHtml}</div><div class="dep-box"><h4>后续(掌握后可继续学习)</h4>${dependentsHtml}</div></div></div>`;
   document.getElementById('detail-mastery-action').addEventListener('click', toggleCurrentTopicMastery);
+  bindAssessment(body);
+}
+
+function bindAssessment(root) {
+  const form = root.querySelector('.assessment-form');
+  if (!form) return;
+  const answer = form.querySelector('.assessment-answer');
+  const submit = form.querySelector('.assessment-submit');
+  const result = form.querySelector('.assessment-result');
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const text = answer.value.trim();
+    if (!text) { answer.focus(); return; }
+    submit.disabled = true; submit.textContent = '评分中…';
+    result.className = 'assessment-result pending'; result.textContent = 'AI 正在评分，请稍候…';
+    try {
+      const response = await fetch('/api/assessment', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ topicId: form.dataset.topicId, answer: text }),
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || `HTTP ${response.status}`);
+      result.className = 'assessment-result success';
+      result.innerHTML = renderAssessmentResult(data);
+    } catch (error) {
+      result.className = 'assessment-result error'; result.textContent = error.message || '评分失败，请稍后重试';
+    } finally {
+      submit.disabled = false; submit.textContent = '提交 AI 评分';
+    }
+  });
 }
 
 

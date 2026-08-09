@@ -4901,7 +4901,7 @@
       "topicId": "mtc_450",
       "prerequisiteId": "mtc_1106",
       "strength": "soft",
-      "reason": "Contemporary Chinese History 渐进：香港 → 中华人民共",
+      "reason": "Contemporary Chinese History 渐进：香港 → 中华人民共和国成立",
       "reviewStatus": "reviewed",
       "reviewProvenance": "rule"
     },
@@ -4909,12 +4909,12 @@
       "topicId": "mtc_451",
       "prerequisiteId": "mtc_450",
       "strength": "soft",
-      "reason": "Contemporary Chinese History 渐进：中华人民共 → 社会主义制度的建立",
+      "reason": "Contemporary Chinese History 渐进：中华人民共和国成立 → 社会主义制度的建立",
       "reviewStatus": "reviewed",
       "rescopeBatchId": "granularity-rescope-20260721",
       "reviewedBy": "user-delegated-claude-opus-consensus",
       "reviewedAt": "2026-07-21T15:09:11.145734Z",
-      "reviewNote": "双 Opus 独立审核 一致判为 reviewed。R1（high）：新中国成立 (mtc_450) is the founding basis that made 第一个五年计划 (narrowed topic, 1953) possible; understanding PRC establishment materially supports learning the first Five-Year Plan. Soft calibrated correctly. R2（high）：Prereq (新中国成立, name truncated as '中华人民共') establishes the PRC whose founding is the precondition for 第一个五年计划 (1953). Target evidence presupposes the new state. Soft correct.",
+      "reviewNote": "双 Opus 独立审核 一致判为 reviewed。R1（high）：新中国成立 (mtc_450) is the founding basis that made 第一个五年计划 (narrowed topic, 1953) possible; understanding PRC establishment materially supports learning the first Five-Year Plan. Soft calibrated correctly. R2（high）：Prereq (新中国成立, name '中华人民共和国成立') establishes the PRC whose founding is the precondition for 第一个五年计划 (1953). Target evidence presupposes the new state. Soft correct.",
       "reviewProvenance": "ai-consensus"
     },
     {

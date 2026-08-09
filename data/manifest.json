@@ -67,16 +67,16 @@
       "sha256": "714a4e99631ec293f09d11b41f3e93bf2d31d3d2c0ea3d252350f088e3f91987"
     },
     "cn-topics.json": {
-      "bytes": 1716629,
-      "sha256": "7528319563f3d80413e6287b20e54620b8b180c7fdb5351ee534f49ddb629bef"
+      "bytes": 1716641,
+      "sha256": "ac1e2cdcfe4549945ebd3917170fce1b688acae5ab933246021e5047b18edf73"
     },
     "terminology.json": {
       "bytes": 4006,
       "sha256": "2c631de7157436f5c732b6ed4fa83447c52fe4e00a7ac6ef0278ed19cdc3c2a8"
     },
     "cn-dependencies.json": {
-      "bytes": 1254927,
-      "sha256": "21fd3166e456f3d78ccc118b858fc208ee781b119073b2145fa61c25f5b5821b"
+      "bytes": 1254950,
+      "sha256": "9e698d6f27a0da06e833627ddf47976278712f139ed00fa22adc30c9b7825f30"
     },
     "cn-bridge-dependencies.json": {
       "bytes": 21788,

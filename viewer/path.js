@@ -590,7 +590,7 @@ applySb();
 // 点知识点 → 当前 tab 是脉络就 show(),是图谱就驱动 iframe 路由。
 // 维度与主 viewer 相同(us=美版 / bj-primary / bj-junior / bj-senior),切维度重载树并同步 iframe。
 let curDim = 'us';
-let dimsCfg = null;
+let curAge = '';
 async function loadDims() {
   try {
     dimsCfg = await (await fetch('/api/dimensions')).json();
@@ -611,6 +611,11 @@ function renderDims() {
     if (graphLoaded) { try { graphFrame.contentWindow.location.hash = `#/?dim=${curDim}`; } catch { } }
   }));
 }
+document.getElementById('sidebar-age-filter').addEventListener('change', (event) => {
+  curAge = event.target.value;
+  treeLoaded = false;
+  loadTree();
+});
 
 let treeLoaded = false;
 async function loadTree() {
@@ -646,7 +651,8 @@ async function fillTopics(dEl) {
   const box = dEl.querySelector('.sb-topics');
   box.innerHTML = '<p class="sb-loading" style="padding:4px 48px">…</p>';
   try {
-    const data = await (await fetch(`/api/topics?dimension=${curDim}&subject=${encodeURIComponent(dEl.dataset.s)}&domain=${encodeURIComponent(dEl.dataset.d)}`)).json();
+    const age = curAge ? `&age=${encodeURIComponent(curAge)}` : '';
+    const data = await (await fetch(`/api/topics?dimension=${curDim}&subject=${encodeURIComponent(dEl.dataset.s)}&domain=${encodeURIComponent(dEl.dataset.d)}${age}`)).json();
     const tops = data.topics.sort((a, b) => (a.ageRangeStart ?? 99) - (b.ageRangeStart ?? 99));
     box.innerHTML = tops.map(t =>
       `<a class="sb-topic" data-id="${esc(t.id)}">${esc(t.name)}${t.ageRangeStart != null ? `<span class="age">${t.ageRangeStart}岁</span>` : ''}</a>`).join('');

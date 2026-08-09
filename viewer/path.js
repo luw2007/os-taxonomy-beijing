@@ -1,5 +1,5 @@
 import { findNextUnmastered } from './path-navigation.js';
-import { buildPathHash, parsePathRoute } from './path-route.js';
+import { buildRoute, parseRoute, navigate } from './path-route.js';
 import { withAgreement } from './ai-consent.js';
 import { HORIZONTAL_GESTURE_THRESHOLD, buildPathSequence, classifyPathGesture, applyKnowledgeDecision } from './mobile-path-state.js';
 
@@ -101,9 +101,7 @@ function mergeProfile(mem) {
   return true;
 }
 
-function notifyMasteryChange() {
-  if (graphLoaded) graphFrame.contentWindow.dispatchEvent(new Event('masterychanged'));
-}
+function notifyMasteryChange() { window.dispatchEvent(new Event('masterychanged')); }
 
 // 档案切换后的全量刷新
 function switchUser(id) {
@@ -451,9 +449,7 @@ let trail = [];
 let routeSubject = null;
 let routeDomain = null;
 
-function syncRoute(id, tab = activeTab) {
-  location.hash = buildPathHash({ id, dim: curDim, subject: routeSubject, domain: routeDomain, tab });
-}
+function syncRoute(id, tab = currentRoute.tab) { navigate({ id, dim: curDim, subject: routeSubject, domain: routeDomain, tab }, currentRoute); }
 let curId = null;
 
 function provenanceTag(provenance, reviewerRole) {
@@ -638,7 +634,8 @@ applySb();
 let curDim = 'us';
 let curAge = '';
 let dimsCfg;
-const initialRoute = parsePathRoute(location.hash);
+let currentRoute = parseRoute(location.hash);
+const initialRoute = currentRoute;
 async function loadDims() {
   try {
     dimsCfg = await (await fetch('/api/dimensions')).json();
@@ -657,8 +654,7 @@ function renderDims() {
     curDim = b.dataset.dim;
     renderDims();
     treeLoaded = false; loadTree();
-    // 图谱 iframe 同步维度(主 viewer 路由含 ?dim=)
-    if (graphLoaded) { try { graphFrame.contentWindow.location.hash = `#/?dim=${curDim}`; } catch { } }
+    navigate({ dim: curDim, subject: null, domain: null, q: null }, currentRoute);
   }));
 }
 document.getElementById('sidebar-age-filter').addEventListener('change', (event) => {
@@ -729,74 +725,33 @@ async function fillTopics(dEl) {
 // 统一入口: 按当前 tab 决定去脉络还是图谱
 function openTopic(id, context) {
   if (context) { routeSubject = context.subject; routeDomain = context.domain; }
-  if (activeTab === 'graph') showGraphTopic(id);
+  if (currentRoute.tab === 'graph') showGraphTopic(id);
   else if (NODES[id]) show(id);
   else showGraphTopic(id); // 脉络数据没有的节点(不该发生)兜底进图谱
   if (window.innerWidth <= 900) { sbOpen = false; applySb(); }
 }
 
-// === Tab 切换: 知识脉络 / 知识图谱 ===
-// 图谱 = iframe 懒加载主 viewer(同源)。首次切换才加载;之后隐藏保留状态。
-// 同源可直接驱动 iframe 内 hash 路由,实现"在图谱中查看"联动。
-const graphFrame = document.getElementById('graph-frame');
-let graphLoaded = false;
-let pendingGraphTopicId = null;
-let activeTab = 'path';
-// 图谱 hero 标题 = 当前维度标签(美版 / 小学·北京 / 初中·北京 / 高中·北京)
-function updateGraphHero() {
-  try {
-    const doc = graphFrame.contentDocument;
-    const hero = doc.querySelector('.overview-hero h2');
-    if (!hero) return;
-    const m = graphFrame.contentWindow.location.hash.match(/[?&]dim=([\w-]+)/);
-    const dim = (m && m[1]) || curDim;
-    const label = dimsCfg?.dimensions?.[dim]?.label;
-    if (label) hero.textContent = label;
-  } catch { }
+// === 单文档路由与视图切换 ===
+function dispatchRoute() {
+  currentRoute = parseRoute(location.hash);
+  curDim = currentRoute.dim || curDim;
+  routeSubject = currentRoute.subject;
+  routeDomain = currentRoute.domain;
+  const graph = currentRoute.tab === 'graph';
+  document.querySelectorAll('.tab-btn').forEach(button => button.classList.toggle('active', button.dataset.tab === currentRoute.tab));
+  document.getElementById('path-pane').hidden = graph;
+  document.getElementById('graph-pane').hidden = !graph;
+  document.body.classList.toggle('graph-active', graph);
+  if (graph) window.dispatchEvent(new CustomEvent('workspace-route', { detail: { route: currentRoute, navigate: (parts) => navigate(parts, currentRoute) } }));
+  else if (currentRoute.id && NODES[currentRoute.id] && currentRoute.id !== curId) show(currentRoute.id, false, false);
 }
 
+function switchTab(tab) { navigate({ tab }, currentRoute); }
+document.querySelectorAll('.tab-btn').forEach(button => button.addEventListener('click', () => switchTab(button.dataset.tab)));
+window.addEventListener('workspace-navigate', event => navigate(event.detail, currentRoute));
+window.addEventListener('hashchange', dispatchRoute);
 
-function switchTab(tab, sync = true) {
-  activeTab = tab;
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
-  document.getElementById('path-pane').style.display = tab === 'path' ? '' : 'none';
-  document.getElementById('graph-pane').hidden = tab !== 'graph';
-  if (sync && curId) syncRoute(curId, tab);
-  if (tab === 'graph' && !graphLoaded) {
-    graphFrame.addEventListener('load', () => {
-      try {
-        const doc = graphFrame.contentDocument;
-        const st = doc.createElement('style');
-        st.textContent = '.sidebar{display:none!important}.content{max-width:none!important}';
-        doc.head.appendChild(st);
-        // hero 标题跟随维度,iframe 内 hash 变化也同步
-        updateGraphHero();
-        graphFrame.contentWindow.addEventListener('hashchange', () => {
-          updateGraphHero();
-          const graphRoute = parsePathRoute(graphFrame.contentWindow.location.hash);
-          if (graphRoute.id) syncRoute(graphRoute.id, 'graph');
-        });
-        const id = pendingGraphTopicId || curId;
-        pendingGraphTopicId = null;
-        if (id) graphFrame.contentWindow.location.hash = `#/${id}?dim=${curDim}`;
-      } catch { }
-    }, { once: true });
-    graphFrame.src = '/static/graph.html';
-    graphLoaded = true;
-  }
-}
-document.querySelectorAll('.tab-btn').forEach(b => b.addEventListener('click', () => switchTab(b.dataset.tab)));
-
-// 脉络 → 图谱联动: 切 tab 并把 iframe 路由到该知识点详情
-function showGraphTopic(id) {
-  pendingGraphTopicId = id;
-  switchTab('graph', false);
-  syncRoute(id, 'graph');
-  if (graphFrame.contentDocument?.readyState === 'complete' && graphFrame.src) {
-    pendingGraphTopicId = null;
-    graphFrame.contentWindow.location.hash = `#/${id}?dim=${curDim}`;
-  }
-}
+function showGraphTopic(id) { navigate({ id, tab: 'graph' }, currentRoute); }
 
 // === 移动端知识路径 ===
 const mobEl = (id) => document.getElementById(id);
@@ -1029,7 +984,8 @@ function setupMobileBottomNav() {
   document.querySelectorAll('#mobile-bottom-nav [data-mobile-tab]').forEach(btn => btn.addEventListener('click', () => {
     const tab = btn.dataset.mobileTab;
     activate(tab);
-    if (tab === 'path') {
+    if (tab === 'path' || tab === 'graph') {
+      if (tab === 'graph') { switchTab('graph'); return; }
       sbOpen = false; applySb();
       document.querySelectorAll('.modal-mask:not([hidden])').forEach(mask => { if (mask.id !== 'agreement-mask') mask.hidden = true; });
     } else if (tab === 'catalog') {
@@ -1169,7 +1125,7 @@ loadDims().then(async () => {
   await loadTree();
   const restored = await restoreInitialPath();
   if (!restored && initialRoute.id && NODES[initialRoute.id]) show(initialRoute.id, false, false);
-  if (initialRoute.tab === 'graph') showGraphTopic(initialRoute.id || curId);
+  dispatchRoute();
 });
 setupMobilePath();
 

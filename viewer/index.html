@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>知识脉络 · Beijing Skill Taxonomy</title>
 <link rel="stylesheet" href="/static/path.css">
+<link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
 
@@ -56,10 +57,24 @@
   <nav class="sb-tree" id="sb-tree"><p class="sb-loading">加载目录…</p></nav>
 </aside>
 
-<!-- 知识图谱子页(iframe 懒加载主 viewer,复用本页顶栏/用户体系) -->
-<div id="graph-pane" hidden>
-  <iframe id="graph-frame" title="知识图谱"></iframe>
-</div>
+<!-- 知识图谱与知识脉络共享同一文档与路由。 -->
+<main id="graph-pane" class="graph-workspace" hidden>
+  <section class="graph-toolbar surface-container" aria-label="图谱筛选">
+    <div class="search-box"><label class="mobile-sr-only" for="search">搜索微主题</label><input type="search" id="search" placeholder="搜索微主题…" autocomplete="off"></div>
+    <div class="sidebar-stats" id="stats"><span class="stat-loading">加载中…</span></div>
+    <div class="dimension-bar" id="dimension-bar"><span class="dimension-label">维度</span></div>
+    <label class="filter-bar" for="age-filter"><span class="filter-label">年龄</span><select id="age-filter" aria-label="按年龄筛选"><option value="">全部</option><option value="4">4 岁</option><option value="5">5 岁</option><option value="6">6 岁</option><option value="7">7 岁</option><option value="8">8 岁</option><option value="9">9 岁</option><option value="10">10 岁</option><option value="11">11 岁</option><option value="12">12 岁</option><option value="13">13 岁</option><option value="14">14 岁</option><option value="15">15 岁</option></select></label>
+  </section>
+  <div class="graph-layout">
+    <nav class="tree graph-tree surface-container" id="tree" aria-label="图谱目录"><p class="tree-loading">加载中…</p></nav>
+    <div class="content graph-content">
+      <section id="graph-overview" class="view active"><div class="overview-hero surface-container-high"><p class="eyebrow">学习工作台</p><h2>知识图谱</h2><p class="hero-desc" id="hero-desc"></p></div><div class="overview-stats" id="overview-stats"></div><div class="overview-section"><h3>学科概览</h3><div class="subject-cards" id="subject-cards"></div></div><div class="overview-section"><h3>课本目录对比</h3><div class="subject-cards" id="textbook-gaps-cards"><p class="stat-loading">加载中…</p></div></div></section>
+      <section id="graph-list" class="view"><div class="list-header"><button class="back-btn" id="list-back">返回</button><h2 id="list-title">微主题</h2><span class="list-count" id="list-count"></span><span class="list-spacer"></span><button class="back-btn" id="bulk-mastery-toggle">批量标记</button><button class="bulk-mastery-apply" id="bulk-mastery-apply" hidden>标记已掌握</button></div><div class="topic-grid" id="topic-grid"></div></section>
+      <section id="graph-detail" class="view"><div class="detail-header"><button class="back-btn" id="detail-back">返回</button><div class="detail-badges" id="detail-badges"></div></div><div class="detail-body surface-container-high" id="detail-body"></div></section>
+      <section id="textbook-gaps" class="view"><div class="list-header"><button class="back-btn" id="gap-back">返回</button><h2>课本目录对比</h2><span class="list-count" id="gap-count"></span></div><div class="gap-filters" id="gap-filters"></div><div class="gap-search"><input type="search" id="gap-search" placeholder="搜索课本知识点…" autocomplete="off"></div><div class="gap-table-wrap"><table class="gap-table" id="gap-table"></table></div></section>
+    </div>
+  </div>
+</main>
 
 <div class="main" id="path-pane">
 
@@ -238,6 +253,7 @@
 
   <nav class="mobile-bottom-nav" id="mobile-bottom-nav" aria-label="移动端导航">
     <button class="mobile-nav-btn" type="button" data-mobile-tab="path" aria-current="page">脉络</button>
+    <button class="mobile-nav-btn" type="button" data-mobile-tab="graph">图谱</button>
     <button class="mobile-nav-btn" type="button" data-mobile-tab="catalog">目录</button>
     <button class="mobile-nav-btn" type="button" data-mobile-tab="profile">我的</button>
   </nav>
@@ -245,6 +261,7 @@
 
 <div id="toast"></div>
 <script type="module" src="/static/path.js"></script>
+<script type="module" src="/static/app.js"></script>
 <script>
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('/service-worker.js', { scope: '/' });
 </script>

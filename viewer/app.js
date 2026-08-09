@@ -2,14 +2,15 @@ import { formatMasteryProgress } from './mastery-progress.js';
 import { renderAssessmentForm, renderAssessmentResult } from './graph-assessment-ui.js';
 import { toggleMastery, addMastery } from './mastery-state.js';
 import { ageRangeForAge } from './age-filter.js';
+import { buildRoute } from './path-route.js';
 
 /* === Beijing Skill Taxonomy 知识浏览器前端 (2D 列表布局) ===
- * 路由设计:location.hash 是唯一状态源。
+ * 路由状态由单文档 workspace shell 注入。
  *   #/                              概览
  *   #/?dim=bj-primary&subject=Mathematics&ageRange=8-10&q=...   列表(筛选状态)
  *   #/mt_AzTrT5ySCx                 详情(topic id 唯一定位)
  *   #/mt_AzTrT5ySCx?dim=bj-primary  详情 + 维度(返回时恢复)
- * 所有导航函数只改 hash,渲染由 hashchange 统一驱动。
+ * 所有导航通过注入的 navigate 回调交给 shell。
  */
 'use strict';
 
@@ -21,7 +22,7 @@ const SUBJECT_ZH = {
 const SUBJECT_ZH_FALLBACK = (s) => SUBJECT_ZH[s] || s;
 
 // --- 路由状态(由 hash 解析而来,只读) ---
-let route = { view: 'overview', id: null, dim: 'us', subject: null, domain: null, ageRange: null, q: null, gapType: null, grade: null };
+let route = { id: null, tab: 'graph', dim: 'us', subject: null, domain: null, ageRange: null, q: null };
 let dimensionsData = null;
 let subjectsTree = null;
 
@@ -39,59 +40,9 @@ async function api(path) {
   return res.json();
 }
 
-// === hash 解析与序列化 ===
-function parseHash() {
-  const raw = location.hash.replace(/^#/, '') || '/';
-  const [path, query] = raw.split('?');
-  const params = new URLSearchParams(query || '');
-  // 课本对比:#/textbook-gaps
-  if (path === '/textbook-gaps') {
-    return {
-      view: 'textbook-gaps', id: null,
-      dim: params.get('dim') || 'us',
-      subject: params.get('subject'), domain: null, ageRange: null,
-      q: params.get('q'), gapType: params.get('gap_type'), grade: params.get('grade'),
-    };
-  }
-  // 详情:#/mt_xxx 或 #/mtc_xxx  其余视为概览/列表(#/ 或空)
-  const idMatch = path.match(/^\/(mtc?_[A-Za-z0-9_-]+)$/);
-  return {
-    view: idMatch ? 'detail' : 'list',
-    id: idMatch ? idMatch[1] : null,
-    dim: params.get('dim') || 'us',
-    subject: params.get('subject'),
-    domain: params.get('domain'),
-    ageRange: params.get('ageRange'),
-    q: params.get('q'),
-    gapType: null, grade: null,
-  };
-}
-
-// 构造 hash(不触发跳转,用于拼链接)
-function buildHash(parts) {
-  const isGap = (parts.view || route.view) === 'textbook-gaps';
-  const merged = isGap
-    ? { dim: route.dim, subject: route.subject, q: route.q, gap_type: route.gapType, grade: route.grade, ...parts }
-    : { dim: route.dim, subject: route.subject, domain: route.domain, ageRange: route.ageRange, q: route.q, ...parts };
-  // 清掉空值与非路由字段
-  for (const k of Object.keys(merged)) {
-    if (k === 'view' || k === 'id') {
-      delete merged[k];
-      continue;
-    }
-    if (merged[k] == null || merged[k] === '') delete merged[k];
-  }
-  const params = new URLSearchParams();
-  for (const [k, v] of Object.entries(merged)) params.set(k, v);
-  const qs = params.toString();
-  let base;
-  if (parts.view === 'textbook-gaps') base = '/textbook-gaps';
-  else if (parts.id != null) base = `/${parts.id}`;
-  else base = '/';
-  return '#' + base + (qs ? '?' + qs : '');
-}
-
-// === 导航:只改 hash,不直接渲染(实现见文末 goOverview) ===
+// The shell owns browser routing. This view receives route snapshots and a navigation callback.
+let navigateRoute = (parts) => { window.dispatchEvent(new CustomEvent('workspace-navigate', { detail: parts })); };
+function graphHash(parts) { return buildRoute(parts, route); }
 
 // === 维度切换 ===
 async function loadDimensions() {
@@ -117,7 +68,7 @@ function renderDimensionBar() {
 function setDimension(dim) {
   if (dim === route.dim) return;
   // 切换维度:清空列表筛选(学科/领域/搜索因目录树变化可能失效),保留在概览
-  location.hash = buildHash({ id: null, dim, subject: null, domain: null, q: null, ageRange: route.ageRange });
+  navigateRoute({ id: null, dim, subject: null, domain: null, q: null, ageRange: route.ageRange });
 }
 
 function syncFilterButtons() {
@@ -168,7 +119,7 @@ async function loadSubjectCards() {
     const subjZh = data.subjectZh || SUBJECT_ZH_FALLBACK(subject);
     const domains = Object.entries(data.domains);
     const domainPreview = domains.slice(0, 4).map(([d, dd]) => dd.domainZh || d).join(' · ') + (domains.length > 4 ? ' …' : '');
-    return `<a class="subject-card" href="${buildHash({ id: null, subject, domain: null, q: null })}"><h4>${subjZh}</h4><div class="meta"><span>${data.count} 个微主题</span><span>${data.translated} 已译</span><span>${domains.length} 领域</span></div><div class="domains-preview">${domainPreview}</div></a>`;
+    return `<a class="subject-card" href="${graphHash({ id: null, subject, domain: null, q: null })}"><h4>${subjZh}</h4><div class="meta"><span>${data.count} 个微主题</span><span>${data.translated} 已译</span><span>${domains.length} 领域</span></div><div class="domains-preview">${domainPreview}</div></a>`;
   }).join('');
 }
 
@@ -180,7 +131,7 @@ async function loadTree() {
   container.innerHTML = subjects.map(([subject, data]) => {
     const subjZh = data.subjectZh || SUBJECT_ZH_FALLBACK(subject);
     const domains = Object.entries(data.domains).sort((a, b) => b[1].count - a[1].count);
-    const domainItems = domains.map(([domain, dd]) => `<a class="tree-domain" href="${buildHash({ id: null, subject, domain, q: null })}"><span>${dd.domainZh || domain}</span><span class="tree-domain-count">${dd.count}</span></a>`).join('');
+    const domainItems = domains.map(([domain, dd]) => `<a class="tree-domain" href="${graphHash({ id: null, subject, domain, q: null })}"><span>${dd.domainZh || domain}</span><span class="tree-domain-count">${dd.count}</span></a>`).join('');
     const isCurrent = route.subject === subject && !route.domain;
     return `<div class="tree-subject ${route.subject === subject ? 'open' : ''}"><div class="tree-subject-header ${isCurrent ? 'current' : ''}"><span class="arrow">▶</span><span>${subjZh}</span><span class="tree-subject-count"><span class="translated">${data.translated}</span>/${data.count}</span></div><div class="tree-domains">${domainItems}</div></div>`;
   }).join('');
@@ -227,7 +178,7 @@ async function loadTopicList() {
   data.topics.sort((a, b) => (a.ageRangeStart || 0) - (b.ageRangeStart || 0));
   const mastered = currentMasteredIds();
   const selected = bulkMasterySelection;
-  grid.innerHTML = data.topics.map(t => `<a class="topic-card ${bulkMasteryMode ? 'bulk-selecting' : ''} ${mastered.has(t.id) ? 'is-mastered' : ''}" href="${buildHash({ id: t.id })}" data-topic-id="${escapeHtml(t.id)}">${bulkMasteryMode ? `<input class="bulk-mastery-check" type="checkbox" aria-label="标记 ${escapeHtml(t.name)} 为已掌握" ${selected.has(t.id) ? 'checked' : ''}>` : ''}<div class="card-name">${escapeHtml(t.name)}</div><div class="card-desc">${escapeHtml(t.description || '(无描述)')}</div><div class="card-meta"><span class="tag tag-subject">${SUBJECT_ZH_FALLBACK(t.subject)}</span>${t.domainZh ? `<span class="tag tag-age">${escapeHtml(t.domainZh)}</span>` : ''}${t.ageRangeStart != null ? `<span class="tag tag-age">${t.ageRangeStart}-${t.ageRangeEnd} 岁</span>` : ''}${mastered.has(t.id) ? '<span class="tag tag-translated">已掌握</span>' : ''}</div></a>`).join('');
+  grid.innerHTML = data.topics.map(t => `<a class="topic-card ${bulkMasteryMode ? 'bulk-selecting' : ''} ${mastered.has(t.id) ? 'is-mastered' : ''}" href="${graphHash({ id: t.id })}" data-topic-id="${escapeHtml(t.id)}">${bulkMasteryMode ? `<input class="bulk-mastery-check" type="checkbox" aria-label="标记 ${escapeHtml(t.name)} 为已掌握" ${selected.has(t.id) ? 'checked' : ''}>` : ''}<div class="card-name">${escapeHtml(t.name)}</div><div class="card-desc">${escapeHtml(t.description || '(无描述)')}</div><div class="card-meta"><span class="tag tag-subject">${SUBJECT_ZH_FALLBACK(t.subject)}</span>${t.domainZh ? `<span class="tag tag-age">${escapeHtml(t.domainZh)}</span>` : ''}${t.ageRangeStart != null ? `<span class="tag tag-age">${t.ageRangeStart}-${t.ageRangeEnd} 岁</span>` : ''}${mastered.has(t.id) ? '<span class="tag tag-translated">已掌握</span>' : ''}</div></a>`).join('');
   apply.disabled = selected.size === 0;
   grid.querySelectorAll('.bulk-mastery-check').forEach(check => check.addEventListener('click', event => event.stopPropagation()));
   grid.querySelectorAll('.bulk-mastery-check').forEach(check => check.addEventListener('change', event => {
@@ -253,7 +204,7 @@ async function loadTextbookGapCards() {
   const cov = s.byGapType.covered || 0;
   const tbo = s.byGapType['textbook-only'] || 0;
   const subjects = Object.entries(s.bySubject).sort((a, b) => b[1] - a[1]).map(([k]) => k).join(' · ');
-  el.innerHTML = `<a class="subject-card" href="${buildHash({ view: 'textbook-gaps', subject: null, domain: null, q: null, gap_type: null, grade: null })}">
+  el.innerHTML = `<a class="subject-card" href="${graphHash({ view: 'textbook-gaps', subject: null, domain: null, q: null, gap_type: null, grade: null })}">
     <h4>课本 vs 微主题</h4>
     <div class="meta"><span>共 ${summary.total} 条</span><span class="tag ${GAP_TYPE_TAG.missing}">遗漏 ${miss}</span><span class="tag ${GAP_TYPE_TAG.covered}">已有 ${cov}</span><span class="tag ${GAP_TYPE_TAG['textbook-only']}">课本独有 ${tbo}</span></div>
     <div class="domains-preview">${escapeHtml(subjects)}</div>
@@ -264,7 +215,7 @@ async function loadTextbookGapCards() {
 function setGapFilter(key, val) {
   const patch = key === 'clear' ? { subject: null, gap_type: null, grade: null, q: null }
     : { [key === 'gap_type' ? 'gapType' : key]: val || null };
-  location.hash = buildHash({ view: 'textbook-gaps', ...patch });
+  navigateRoute({ view: 'textbook-gaps', ...patch });
 }
 
 async function loadTextbookGaps() {
@@ -337,8 +288,8 @@ async function loadDetail() {
   const data = await api(`/api/topic/${encodeURIComponent(route.id)}`);
   const t = data.topic;
   const dimHidden = t.dimensionVisible === false;
-  const subjectLink = buildHash({ id: null, subject: t.subject, domain: null, q: null });
-  const domainLink = t.domainZh ? buildHash({ id: null, subject: t.subject, domain: t.domain, q: null }) : null;
+  const subjectLink = graphHash({ id: null, subject: t.subject, domain: null, q: null });
+  const domainLink = t.domainZh ? graphHash({ id: null, subject: t.subject, domain: t.domain, q: null }) : null;
   badges.innerHTML = `<a class="tag tag-subject detail-filter-link" href="${subjectLink}" aria-label="查看${escapeHtml(SUBJECT_ZH_FALLBACK(t.subject))}知识点">${escapeHtml(SUBJECT_ZH_FALLBACK(t.subject))}</a>${domainLink ? `<a class="tag tag-age detail-filter-link" href="${domainLink}" aria-label="查看${escapeHtml(t.domainZh)}知识点">${escapeHtml(t.domainZh)}</a>` : ''}${t.ageRangeStart != null ? `<span class="tag tag-age">${t.ageRangeStart}-${t.ageRangeEnd} 岁</span>` : ''}${dimHidden ? `<span class="tag tag-us">美版</span>` : ''}`;
   const assessment = escapeHtml(t.assessmentPrompt || '(无)').replace(/\{\{name\}\}/g, '<span class="placeholder">孩子名字</span>');
   const standardsHtml = (data.standards && data.standards.length > 0)
@@ -405,9 +356,8 @@ function bindAssessment(root) {
 }
 
 
-// === hashchange:唯一渲染入口 ===
+// === 路由快照渲染 ===
 async function render() {
-  route = parseHash();
   // 同步维度按钮高亮
   document.querySelectorAll('.dimension-btn').forEach(b => b.classList.toggle('active', b.dataset.dimension === route.dim));
   // 同步年龄筛选按钮
@@ -427,7 +377,7 @@ async function render() {
   if (route.id) {
     document.getElementById('bulk-mastery-toggle').hidden = true;
     document.getElementById('bulk-mastery-apply').hidden = true;
-    showView('detail');
+    showView('graph-detail');
     await loadDetail();
     return;
   }
@@ -443,15 +393,15 @@ async function render() {
   if (isOverview) {
     document.getElementById('bulk-mastery-toggle').hidden = true;
     document.getElementById('bulk-mastery-apply').hidden = true;
-    showView('overview');
+    showView('graph-overview');
   } else {
-    showView('list');
+    showView('graph-list');
     await loadTopicList();
   }
 }
 
 function showView(id) {
-  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.querySelectorAll('#graph-pane .view').forEach(v => v.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 }
 
@@ -462,7 +412,7 @@ document.getElementById('search').addEventListener('input', (e) => {
   const q = e.target.value.trim();
   searchTimer = setTimeout(() => {
     // 清空搜索框 → 回到概览(或保留当前学科?这里回到概览)
-    location.hash = buildHash({ id: null, q: q || null, subject: null, domain: null });
+    navigateRoute({ id: null, q: q || null, subject: null, domain: null });
   }, 300);
 });
 
@@ -472,7 +422,7 @@ document.getElementById('gap-search').addEventListener('input', (e) => {
   clearTimeout(gapSearchTimer);
   const q = e.target.value.trim();
   gapSearchTimer = setTimeout(() => {
-    location.hash = buildHash({ view: 'textbook-gaps', q: q || null });
+    navigateRoute({ view: 'textbook-gaps', q: q || null });
   }, 300);
 });
 
@@ -484,7 +434,7 @@ function syncSearchBox() {
 }
 
 ageFilter.addEventListener('change', () => {
-  location.hash = buildHash({ id: null, ageRange: ageRangeForAge(ageFilter.value) });
+  navigateRoute({ id: null, ageRange: ageRangeForAge(ageFilter.value) });
 });
 
 document.getElementById('bulk-mastery-toggle').addEventListener('click', () => {
@@ -501,39 +451,37 @@ document.getElementById('bulk-mastery-apply').addEventListener('click', () => {
 // === 返回按钮 ===
 document.getElementById('detail-back').addEventListener('click', () => {
   // 详情返回:恢复之前的列表/概览(去掉 id)
-  location.hash = buildHash({ id: null });
+  navigateRoute({ id: null });
 });
 
-function goOverview() { location.hash = buildHash({ id: null, subject: null, domain: null, q: null, ageRange: route.ageRange }); }
+function goOverview() { navigateRoute({ id: null, subject: null, domain: null, q: null, ageRange: route.ageRange }); }
 document.getElementById('list-back').addEventListener('click', goOverview);
 document.getElementById('gap-back').addEventListener('click', goOverview);
 
 // === 工具 ===
-window.addEventListener('masterychanged', () => {
-  if (route.view === 'list' && !route.subject && !route.domain && !route.q) loadSummary();
-});
+window.addEventListener('masterychanged', () => { if (!route.id && !route.subject && !route.domain && !route.q) loadSummary(); });
 
 function escapeHtml(str) {
   if (str == null) return '';
   return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
 }
 
-// === 启动 ===
-window.addEventListener('hashchange', () => { render(); syncSearchBox(); });
-
-(async () => {
-  try {
+// === View lifecycle (called by the single workspace shell) ===
+let graphReady = false;
+export async function renderGraph(nextRoute, navigate = navigateRoute) {
+  navigateRoute = navigate;
+  route = { ...route, ...nextRoute, tab: 'graph', dim: nextRoute.dim || dimensionsData?.defaultDimension || 'us' };
+  if (!graphReady) {
     await loadDimensions();
-    // 首次加载:若无 hash,设置默认(触发 render);否则直接 render
-    if (!location.hash) {
-      const def = dimensionsData.defaultDimension || 'us';
-      location.hash = `#/?dim=${def}`;
-    } else {
-      await render();
-      syncSearchBox();
-    }
-  } catch (err) {
-    console.error('初始化失败:', err);
-    document.getElementById('stats').innerHTML = `<span style="color:var(--primary);">加载失败: ${err.message}</span>`;
+    graphReady = true;
   }
-})();
+  await render();
+  syncSearchBox();
+}
+
+window.addEventListener('workspace-route', (event) => {
+  if (event.detail?.route?.tab === 'graph') renderGraph(event.detail.route, event.detail.navigate).catch(error => {
+    console.error('图谱渲染失败:', error);
+    document.getElementById('stats').textContent = `加载失败: ${error.message}`;
+  });
+});

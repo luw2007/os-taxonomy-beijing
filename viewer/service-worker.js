@@ -1,4 +1,4 @@
-const VERSION = 'bst-cache-v1';
+const VERSION = 'bst-cache-v2';
 const STATIC_CACHE = `${VERSION}-static`;
 const DATA_CACHE = `${VERSION}-data`;
 const DATA_PATHS = new Set([

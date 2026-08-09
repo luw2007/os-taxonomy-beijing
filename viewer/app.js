@@ -1,6 +1,6 @@
 import { formatMasteryProgress } from './mastery-progress.js';
 import { toggleMastery } from './mastery-state.js';
-
+import { ageRangeForAge } from './age-filter.js';
 
 /* === Beijing Skill Taxonomy 知识浏览器前端 (2D 列表布局) ===
  * 路由设计:location.hash 是唯一状态源。
@@ -25,9 +25,8 @@ let dimensionsData = null;
 let subjectsTree = null;
 
 
-// 年龄段筛选按钮值 → ageRange 区间
-const FILTER_TO_RANGE = { young: '4-7', mid: '8-10', old: '11-15' };
-const RANGE_TO_FILTER = Object.fromEntries(Object.entries(FILTER_TO_RANGE).map(([k, v]) => [v, k]));
+// 精确年龄筛选复用现有 ageRange=<age>-<age> API 语义。
+const ageFilter = document.getElementById('age-filter');
 
 async function api(path) {
   const url = new URL(path, location.origin);
@@ -115,14 +114,8 @@ function setDimension(dim) {
   location.hash = buildHash({ id: null, dim, subject: null, domain: null, q: null, ageRange: route.ageRange });
 }
 
-// === 年龄段筛选按钮同步 ===
 function syncFilterButtons() {
-  document.querySelectorAll('.filter-btn').forEach(b => {
-    const want = b.dataset.filter === 'all'
-      ? route.ageRange == null
-      : FILTER_TO_RANGE[b.dataset.filter] === route.ageRange;
-    b.classList.toggle('active', want);
-  });
+  ageFilter.value = route.ageRange?.match(/^(\d+)-\1$/)?.[1] || '';
 }
 
 function currentMasteredIds() {
@@ -430,14 +423,8 @@ function syncSearchBox() {
   else if (inp.value) inp.value = '';
 }
 
-// === 年龄筛选按钮 ===
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const f = btn.dataset.filter;
-    const ageRange = f === 'all' ? null : FILTER_TO_RANGE[f];
-    // 在当前列表基础上叠加年龄筛选;若在概览页则切到列表
-    location.hash = buildHash({ id: null, ageRange });
-  });
+ageFilter.addEventListener('change', () => {
+  location.hash = buildHash({ id: null, ageRange: ageRangeForAge(ageFilter.value) });
 });
 
 // === 返回按钮 ===

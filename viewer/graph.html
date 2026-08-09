@@ -19,11 +19,22 @@
       <div class="sidebar-stats" id="stats"><span class="stat-loading">加载中…</span></div>
       <div class="dimension-bar" id="dimension-bar"><span class="dimension-label">维度</span></div>
       <div class="filter-bar">
-        <span class="filter-label">年龄</span>
-        <button class="filter-btn active" data-filter="all">全部</button>
-        <button class="filter-btn" data-filter="young" title="4-7 岁">4–7 岁</button>
-        <button class="filter-btn" data-filter="mid" title="8-10 岁">8–10 岁</button>
-        <button class="filter-btn" data-filter="old" title="11-15 岁">11–15 岁</button>
+        <label class="filter-label" for="age-filter">年龄</label>
+        <select id="age-filter" aria-label="按年龄筛选">
+          <option value="">全部</option>
+          <option value="4">4 岁</option>
+          <option value="5">5 岁</option>
+          <option value="6">6 岁</option>
+          <option value="7">7 岁</option>
+          <option value="8">8 岁</option>
+          <option value="9">9 岁</option>
+          <option value="10">10 岁</option>
+          <option value="11">11 岁</option>
+          <option value="12">12 岁</option>
+          <option value="13">13 岁</option>
+          <option value="14">14 岁</option>
+          <option value="15">15 岁</option>
+        </select>
       </div>
       <nav class="tree" id="tree"><p class="tree-loading">加载中…</p></nav>
       <div class="sidebar-footer">

@@ -33,9 +33,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC"
 
 .filter-bar { display: flex; align-items: center; gap: 6px; padding: 10px 20px; border-bottom: 1px solid var(--border); }
 .filter-label { font-size: 11px; color: var(--text-muted); flex-shrink: 0; }
-.filter-btn { flex: 1; padding: 5px 8px; border: 1px solid var(--border); border-radius: 6px; background: #fff; color: var(--text-light); font-size: 12px; cursor: pointer; transition: all 0.15s; }
-.filter-btn:hover { border-color: var(--text-muted); }
-.filter-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+#age-filter { flex: 1; padding: 5px 8px; border: 1px solid var(--border); border-radius: 6px; background: #fff; color: var(--text-light); font: inherit; font-size: 12px; cursor: pointer; }
+#age-filter:focus { outline: none; border-color: var(--accent); }
 
 .tree { flex: 1; overflow-y: auto; padding: 8px 0; }
 .tree-subject { margin-bottom: 2px; }

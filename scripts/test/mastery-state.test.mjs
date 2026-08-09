@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import assert from 'node:assert/strict';
-import { toggleMastery } from '../../viewer/mastery-state.js';
+import { addMastery, toggleMastery } from '../../viewer/mastery-state.js';
 
 let passed = 0;
 let failed = 0;
@@ -20,6 +20,13 @@ test('adds an unmastered topic without mutating the input', () => {
 
 test('removes a mastered topic', () => {
   assert.deepEqual([...toggleMastery(new Set(['a', 'b']), 'a')], ['b']);
+});
+
+test('adds selected unmastered topics without removing existing mastery', () => {
+  const mastered = new Set(['a']);
+  const next = addMastery(mastered, ['a', 'b', 'b', 'c']);
+  assert.deepEqual([...next].sort(), ['a', 'b', 'c']);
+  assert.deepEqual([...mastered], ['a']);
 });
 
 console.log(`\n=== result: ${passed} passed, ${failed} failed ===`);

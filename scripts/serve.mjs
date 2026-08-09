@@ -18,6 +18,7 @@ import { createServer } from 'node:http';
 import { gzipSync } from 'node:zlib';
 import { createResolver } from './llm-resolve.mjs';
 import { createChatResponder, createSlidingWindowLimiter, validateChatRequest } from './llm-chat.mjs';
+import { createAssessmentResponder, validateAssessmentRequest } from './llm-assessment.mjs';
 import { filterPublishedDependencies, filterPublishedTopics, mergeDependencies, mergeTopics, publishedEdge, publishedGraph, publishedPathEdge, publishedTopic } from './review-policy.mjs';
 import { parseHost } from './serve-config.mjs';
 
@@ -206,6 +207,7 @@ const llmResolve = createResolver(
   subjectZh
 );
 const llmChat = createChatResponder();
+const llmAssessment = createAssessmentResponder();
 const allowChat = createSlidingWindowLimiter({ limit: 10, windowMs: 60_000 });
 const topicById = new Map(mergedTopics.map(topic => [topic.id, topic]));
 
@@ -537,6 +539,42 @@ const server = createServer((req, res) => {
     return;
   }
 
+  // POST /api/assessment — 形成性作答评分。与匿名 AI 共用按 IP 限流，不读写学习档案。
+  if (req.method === 'POST' && pathname === '/api/assessment') {
+    if (!llmAssessment) {
+      res.writeHead(503, { 'Content-Type': 'application/json; charset=utf-8' });
+      res.end(JSON.stringify({ error: 'AI 评分未启用' }));
+      return;
+    }
+    const ip = req.socket.remoteAddress || 'unknown';
+    if (!allowChat(ip)) {
+      res.writeHead(429, { 'Content-Type': 'application/json; charset=utf-8', 'Retry-After': '60' });
+      res.end(JSON.stringify({ error: '提交太频繁，请稍后再试' }));
+      return;
+    }
+    let body = '';
+    req.on('data', chunk => { body += chunk; if (body.length > 32 * 1024) req.destroy(); });
+    req.on('end', async () => {
+      try {
+        const input = validateAssessmentRequest(JSON.parse(body));
+        const topic = topicById.get(input.topicId);
+        if (!topic) {
+          res.writeHead(404, { 'Content-Type': 'application/json; charset=utf-8' });
+          res.end(JSON.stringify({ error: '知识点不存在' }));
+          return;
+        }
+        const result = await llmAssessment(topic, input);
+        res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' });
+        res.end(JSON.stringify(result));
+      } catch (error) {
+        const invalid = error instanceof SyntaxError || /invalid (request|topicId|answer)/.test(error.message);
+        res.writeHead(invalid ? 400 : 502, { 'Content-Type': 'application/json; charset=utf-8' });
+        res.end(JSON.stringify({ error: invalid ? '请求格式不正确' : 'AI 暂时无法评分，请稍后重试' }));
+      }
+    });
+    return;
+  }
+
   // POST /api/resolve — AI 标记解析(实验)。同源无需 CORS。
   if (req.method === 'POST' && pathname === '/api/resolve') {
     if (!llmResolve) {
@@ -617,6 +655,7 @@ server.listen(port, host, () => {
   console.log(`  ▸ 维度切换:    ${Object.values(dimensionsConfig.dimensions).map(d => d.label).join(' / ')}（默认 ${dimensionsConfig.dimensions[dimensionsConfig.defaultDimension]?.label}）`);
   console.log(`  ▸ AI 标记解析: ${llmResolve ? '✓ 已启用(deepseek-v4-flash)' : '✗ 未启用(缺 DEEPSEEK_API_KEY)'}`);
   console.log(`  ▸ AI 学习伙伴: ${llmChat ? '✓ 匿名可用(deepseek-v4-flash)' : '✗ 未启用(缺 DEEPSEEK_API_KEY)'}`);
+  console.log(`  ▸ AI 作答评分: ${llmAssessment ? '✓ 匿名可用(deepseek-v4-flash)' : '✗ 未启用(缺 DEEPSEEK_API_KEY)'}`);
   console.log(`  ▸ 上游数据:    ${hasUpstream ? '✓ 已加载' : '✗ 未找到（仅显示中文数据）'}`);
   if (hasUpstream) console.log(`                ${upstreamPath}`);
   console.log('');

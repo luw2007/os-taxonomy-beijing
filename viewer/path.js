@@ -490,13 +490,51 @@ function renderMeDetail(d) {
   }
   if (t.assessmentPrompt) {
     const a = esc(t.assessmentPrompt).replace(/\{\{name\}\}/g, `<span class="me-ph">${esc(activeUser().name)}</span>`);
-    html += `<div class="me-sec"><h4>🎯 评估话术</h4><div class="me-assess">${a}</div></div>`;
+    html += `<div class="me-sec"><h4>🎯 评估话术</h4><div class="me-assess">${a}</div>
+      <form class="assessment-form" data-topic-id="${esc(t.id)}">
+        <label class="assessment-label">输入作答（可使用系统语音输入）
+          <textarea class="assessment-answer" maxlength="500" rows="4" placeholder="请根据上面的评估话术作答"></textarea>
+        </label>
+        <div class="assessment-actions"><button class="assessment-submit" type="submit">提交 AI 评分</button><span class="assessment-note">评分仅供学习参考，不改变掌握状态</span></div>
+        <div class="assessment-result" aria-live="polite"></div>
+      </form></div>`;
   }
   if (d.standards && d.standards.length) {
     html += `<div class="me-sec"><h4>📋 中国课标对齐</h4>${d.standards.map(s =>
       `<div class="me-std"><span class="me-std-k">${esc(s.key)}</span>${s.strand ? `<span class="me-std-s">${esc(s.strand)}</span>` : ''}${s.note ? `<span class="me-std-n">${esc(s.note)}</span>` : ''}</div>`).join('')}</div>`;
   }
   return html || '<p class="me-empty">(暂无详情)</p>';
+}
+
+function bindAssessment(root) {
+  const form = root?.querySelector('.assessment-form');
+  if (!form) return;
+  const answer = form.querySelector('.assessment-answer');
+  const submit = form.querySelector('.assessment-submit');
+  const result = form.querySelector('.assessment-result');
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const text = answer.value.trim();
+    if (!text) { answer.focus(); return; }
+    submit.disabled = true; submit.textContent = '评分中…';
+    result.className = 'assessment-result pending'; result.textContent = 'AI 正在评分，请稍候…';
+    try {
+      const response = await fetch('/api/assessment', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ topicId: form.dataset.topicId, answer: text }),
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || `HTTP ${response.status}`);
+      result.className = 'assessment-result success';
+      result.innerHTML = `<div class="assessment-score"><strong>${data.score}</strong><span>/ 100</span></div><p>${esc(data.summary)}</p>`
+        + (data.strengths.length ? `<h5>做得好的地方</h5><ul>${data.strengths.map(item => `<li>${esc(item)}</li>`).join('')}</ul>` : '')
+        + (data.improvements.length ? `<h5>可以改进</h5><ul>${data.improvements.map(item => `<li>${esc(item)}</li>`).join('')}</ul>` : '');
+    } catch (error) {
+      result.className = 'assessment-result error'; result.textContent = error.message || '评分失败，请稍后重试';
+    } finally {
+      submit.disabled = false; submit.textContent = '提交 AI 评分';
+    }
+  });
 }
 
 function show(id, pushTrail = true) {
@@ -525,7 +563,7 @@ function show(id, pushTrail = true) {
   fetch(`/api/topic/${encodeURIComponent(id)}`).then(r => r.json()).then(d => {
     if (curId !== id) return;
     const el = document.getElementById('me-detail');
-    if (el) el.innerHTML = renderMeDetail(d);
+    if (el) { el.innerHTML = renderMeDetail(d); bindAssessment(el); }
   }).catch(() => {
     if (curId !== id) return;
     const el = document.getElementById('me-detail');
@@ -787,7 +825,7 @@ function renderMobileCard() {
     if (!r.ok) throw new Error(`HTTP ${r.status}`);
     return r.json();
   }).then(d => {
-    if (mobileSeq[mobilePos] === id && detail) detail.innerHTML = renderMeDetail(d);
+    if (mobileSeq[mobilePos] === id && detail) { detail.innerHTML = renderMeDetail(d); bindAssessment(detail); }
   }).catch(() => {
     if (mobileSeq[mobilePos] !== id) return;
     if (detail) detail.hidden = true;

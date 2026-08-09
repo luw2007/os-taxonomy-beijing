@@ -1,6 +1,7 @@
 import { findNextUnmastered } from './path-navigation.js';
-import { HORIZONTAL_GESTURE_THRESHOLD, buildPathSequence, classifyPathGesture, applyKnowledgeDecision } from './mobile-path-state.js';
+import { buildPathHash, parsePathRoute } from './path-route.js';
 import { withAgreement } from './ai-consent.js';
+import { HORIZONTAL_GESTURE_THRESHOLD, buildPathSequence, classifyPathGesture, applyKnowledgeDecision } from './mobile-path-state.js';
 
 'use strict';
 
@@ -447,6 +448,12 @@ function renderNext() {
 
 // === ego 三栏 ===
 let trail = [];
+let routeSubject = null;
+let routeDomain = null;
+
+function syncRoute(id, tab = activeTab) {
+  location.hash = buildPathHash({ id, dim: curDim, subject: routeSubject, domain: routeDomain, tab });
+}
 let curId = null;
 
 function provenanceTag(provenance, reviewerRole) {
@@ -537,9 +544,10 @@ function bindAssessment(root) {
   });
 }
 
-function show(id, pushTrail = true) {
+function show(id, pushTrail = true, sync = true) {
   const me = N(id); if (!me) return;
   curId = id;
+  if (sync) syncRoute(id, 'path');
   if (pushTrail) {
     trail = trail.filter(t => t !== id); trail.push(id);
     if (trail.length > 8) trail.shift();
@@ -629,10 +637,14 @@ applySb();
 // 维度与主 viewer 相同(us=美版 / bj-primary / bj-junior / bj-senior),切维度重载树并同步 iframe。
 let curDim = 'us';
 let curAge = '';
+let dimsCfg;
+const initialRoute = parsePathRoute(location.hash);
 async function loadDims() {
   try {
     dimsCfg = await (await fetch('/api/dimensions')).json();
-    curDim = dimsCfg.defaultDimension || 'us';
+    curDim = initialRoute.dim && dimsCfg.dimensions[initialRoute.dim]
+      ? initialRoute.dim
+      : dimsCfg.defaultDimension || 'us';
   } catch { dimsCfg = { dimensions: { us: { label: '美版' } } }; }
   renderDims();
 }
@@ -683,6 +695,21 @@ async function loadTree() {
     el.innerHTML = '<p class="sb-loading">目录加载失败</p>';
   }
 }
+
+async function restoreInitialPath() {
+  if (!initialRoute.subject || !initialRoute.domain) return false;
+  const domain = [...document.querySelectorAll('.sb-domain')].find((el) =>
+    el.dataset.s === initialRoute.subject && el.dataset.d === initialRoute.domain);
+  if (!domain) return false;
+  routeSubject = initialRoute.subject;
+  routeDomain = initialRoute.domain;
+  domain.closest('.sb-subject').classList.add('open');
+  domain.classList.add('open');
+  await fillTopics(domain);
+  const topicId = initialRoute.id || domain.querySelector('.sb-topic')?.dataset.id;
+  if (topicId && NODES[topicId]) show(topicId, false, false);
+  return Boolean(topicId && NODES[topicId]);
+}
 // 领域下的知识点: 调 /api/topics?dimension=&subject=&domain= 拉该桶列表(一次一桶,量小)。
 async function fillTopics(dEl) {
   dEl.dataset.filled = '1';
@@ -694,13 +721,14 @@ async function fillTopics(dEl) {
     const tops = data.topics.sort((a, b) => (a.ageRangeStart ?? 99) - (b.ageRangeStart ?? 99));
     box.innerHTML = tops.map(t =>
       `<a class="sb-topic" data-id="${esc(t.id)}">${esc(t.name)}${t.ageRangeStart != null ? `<span class="age">${t.ageRangeStart}岁</span>` : ''}</a>`).join('');
-    box.querySelectorAll('.sb-topic').forEach(a => a.addEventListener('click', () => openTopic(a.dataset.id)));
+    box.querySelectorAll('.sb-topic').forEach(a => a.addEventListener('click', () => openTopic(a.dataset.id, { subject: dEl.dataset.s, domain: dEl.dataset.d })));
   } catch {
     box.innerHTML = '<p class="sb-loading" style="padding:4px 48px">加载失败</p>';
   }
 }
 // 统一入口: 按当前 tab 决定去脉络还是图谱
-function openTopic(id) {
+function openTopic(id, context) {
+  if (context) { routeSubject = context.subject; routeDomain = context.domain; }
   if (activeTab === 'graph') showGraphTopic(id);
   else if (NODES[id]) show(id);
   else showGraphTopic(id); // 脉络数据没有的节点(不该发生)兜底进图谱
@@ -712,6 +740,7 @@ function openTopic(id) {
 // 同源可直接驱动 iframe 内 hash 路由,实现"在图谱中查看"联动。
 const graphFrame = document.getElementById('graph-frame');
 let graphLoaded = false;
+let pendingGraphTopicId = null;
 let activeTab = 'path';
 // 图谱 hero 标题 = 当前维度标签(美版 / 小学·北京 / 初中·北京 / 高中·北京)
 function updateGraphHero() {
@@ -727,15 +756,13 @@ function updateGraphHero() {
 }
 
 
-function switchTab(tab) {
+function switchTab(tab, sync = true) {
   activeTab = tab;
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
   document.getElementById('path-pane').style.display = tab === 'path' ? '' : 'none';
   document.getElementById('graph-pane').hidden = tab !== 'graph';
+  if (sync && curId) syncRoute(curId, tab);
   if (tab === 'graph' && !graphLoaded) {
-    graphFrame.src = '/graph.html';
-    graphLoaded = true;
-    // 壳层已提供共享侧栏,注入 CSS 隐藏 iframe 内主 viewer 自己的侧栏,避免双侧栏
     graphFrame.addEventListener('load', () => {
       try {
         const doc = graphFrame.contentDocument;
@@ -744,19 +771,31 @@ function switchTab(tab) {
         doc.head.appendChild(st);
         // hero 标题跟随维度,iframe 内 hash 变化也同步
         updateGraphHero();
-        graphFrame.contentWindow.addEventListener('hashchange', updateGraphHero);
+        graphFrame.contentWindow.addEventListener('hashchange', () => {
+          updateGraphHero();
+          const graphRoute = parsePathRoute(graphFrame.contentWindow.location.hash);
+          if (graphRoute.id) syncRoute(graphRoute.id, 'graph');
+        });
+        const id = pendingGraphTopicId || curId;
+        pendingGraphTopicId = null;
+        if (id) graphFrame.contentWindow.location.hash = `#/${id}?dim=${curDim}`;
       } catch { }
     }, { once: true });
+    graphFrame.src = '/static/graph.html';
+    graphLoaded = true;
   }
 }
 document.querySelectorAll('.tab-btn').forEach(b => b.addEventListener('click', () => switchTab(b.dataset.tab)));
 
 // 脉络 → 图谱联动: 切 tab 并把 iframe 路由到该知识点详情
 function showGraphTopic(id) {
-  switchTab('graph');
-  const nav = () => { try { graphFrame.contentWindow.location.hash = `#/${id}?dim=${curDim}`; } catch { } };
-  if (graphFrame.contentDocument?.readyState === 'complete' && graphFrame.src) nav();
-  else graphFrame.addEventListener('load', nav, { once: true });
+  pendingGraphTopicId = id;
+  switchTab('graph', false);
+  syncRoute(id, 'graph');
+  if (graphFrame.contentDocument?.readyState === 'complete' && graphFrame.src) {
+    pendingGraphTopicId = null;
+    graphFrame.contentWindow.location.hash = `#/${id}?dim=${curDim}`;
+  }
 }
 
 // === 移动端知识路径 ===
@@ -1125,8 +1164,13 @@ function setupMobilePath() {
 // === 启动 ===
 renderUserBar();
 renderMasteredBar(); renderNext();
-show(PRESETS[0]);
-loadDims().then(loadTree);
+show(PRESETS[0], true, false);
+loadDims().then(async () => {
+  await loadTree();
+  const restored = await restoreInitialPath();
+  if (!restored && initialRoute.id && NODES[initialRoute.id]) show(initialRoute.id, false, false);
+  if (initialRoute.tab === 'graph') showGraphTopic(initialRoute.id || curId);
+});
 setupMobilePath();
 
 }

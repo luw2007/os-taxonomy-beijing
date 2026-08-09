@@ -293,7 +293,9 @@ body.sb-open #graph-pane { left: 290px; }
 .mobile-sidebar-close { display: none; }
 
 @media (max-width: 767px) {
-  .topbar, #path-pane .panel, .explorer-head, #trail, .cols, #next-panel, #graph-pane { display: none !important; }
+  .topbar, #path-pane .panel, .explorer-head, #trail, .cols, #next-panel { display: none !important; }
+  body.graph-active .mobile-shell { display: none; }
+  body.graph-active #graph-pane { display: block !important; top: 0; padding-bottom: 72px; }
 
   .mobile-shell {
     display: flex;

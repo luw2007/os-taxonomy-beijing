@@ -738,6 +738,10 @@ function dispatchRoute() {
   routeSubject = currentRoute.subject;
   routeDomain = currentRoute.domain;
   const graph = currentRoute.tab === 'graph';
+  document.querySelectorAll('#mobile-bottom-nav [data-mobile-tab]').forEach(button => {
+    if (button.dataset.mobileTab === currentRoute.tab) button.setAttribute('aria-current', 'page');
+    else button.removeAttribute('aria-current');
+  });
   document.querySelectorAll('.tab-btn').forEach(button => button.classList.toggle('active', button.dataset.tab === currentRoute.tab));
   document.getElementById('path-pane').hidden = graph;
   document.getElementById('graph-pane').hidden = !graph;
@@ -891,7 +895,7 @@ function applyMobileFilters() {
   const firstUnmastered = mobileSeq.findIndex(id => !mastered.has(id));
   mobilePos = mobileSeq.length ? (firstUnmastered === -1 ? 0 : firstUnmastered) : 0;
   mobileUndo = null;
-  if (mobileSeq.length) show(mobileSeq[mobilePos], false); else renderMobileCard();
+  if (mobileSeq.length) show(mobileSeq[mobilePos], false, false); else renderMobileCard();
   mobileAnnounce(mobileSeq.length ? `筛选范围已更新，共 ${mobileSeq.length} 个知识点` : '当前筛选范围没有知识点');
 }
 

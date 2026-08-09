@@ -75,7 +75,10 @@ function buildHash(parts) {
     : { dim: route.dim, subject: route.subject, domain: route.domain, ageRange: route.ageRange, q: route.q, ...parts };
   // 清掉空值与非路由字段
   for (const k of Object.keys(merged)) {
-    if (k === 'view') continue;
+    if (k === 'view' || k === 'id') {
+      delete merged[k];
+      continue;
+    }
     if (merged[k] == null || merged[k] === '') delete merged[k];
   }
   const params = new URLSearchParams();
@@ -224,7 +227,7 @@ async function loadTopicList() {
   data.topics.sort((a, b) => (a.ageRangeStart || 0) - (b.ageRangeStart || 0));
   const mastered = currentMasteredIds();
   const selected = bulkMasterySelection;
-  grid.innerHTML = data.topics.map(t => `<a class="topic-card ${bulkMasteryMode ? 'bulk-selecting' : ''} ${mastered.has(t.id) ? 'is-mastered' : ''}" href="#/${t.id}?dim=${route.dim}" data-topic-id="${escapeHtml(t.id)}">${bulkMasteryMode ? `<input class="bulk-mastery-check" type="checkbox" aria-label="标记 ${escapeHtml(t.name)} 为已掌握" ${selected.has(t.id) ? 'checked' : ''}>` : ''}<div class="card-name">${escapeHtml(t.name)}</div><div class="card-desc">${escapeHtml(t.description || '(无描述)')}</div><div class="card-meta"><span class="tag tag-subject">${SUBJECT_ZH_FALLBACK(t.subject)}</span>${t.domainZh ? `<span class="tag tag-age">${escapeHtml(t.domainZh)}</span>` : ''}${t.ageRangeStart != null ? `<span class="tag tag-age">${t.ageRangeStart}-${t.ageRangeEnd} 岁</span>` : ''}${mastered.has(t.id) ? '<span class="tag tag-translated">已掌握</span>' : ''}</div></a>`).join('');
+  grid.innerHTML = data.topics.map(t => `<a class="topic-card ${bulkMasteryMode ? 'bulk-selecting' : ''} ${mastered.has(t.id) ? 'is-mastered' : ''}" href="${buildHash({ id: t.id })}" data-topic-id="${escapeHtml(t.id)}">${bulkMasteryMode ? `<input class="bulk-mastery-check" type="checkbox" aria-label="标记 ${escapeHtml(t.name)} 为已掌握" ${selected.has(t.id) ? 'checked' : ''}>` : ''}<div class="card-name">${escapeHtml(t.name)}</div><div class="card-desc">${escapeHtml(t.description || '(无描述)')}</div><div class="card-meta"><span class="tag tag-subject">${SUBJECT_ZH_FALLBACK(t.subject)}</span>${t.domainZh ? `<span class="tag tag-age">${escapeHtml(t.domainZh)}</span>` : ''}${t.ageRangeStart != null ? `<span class="tag tag-age">${t.ageRangeStart}-${t.ageRangeEnd} 岁</span>` : ''}${mastered.has(t.id) ? '<span class="tag tag-translated">已掌握</span>' : ''}</div></a>`).join('');
   apply.disabled = selected.size === 0;
   grid.querySelectorAll('.bulk-mastery-check').forEach(check => check.addEventListener('click', event => event.stopPropagation()));
   grid.querySelectorAll('.bulk-mastery-check').forEach(check => check.addEventListener('change', event => {

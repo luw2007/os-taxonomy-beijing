@@ -82,6 +82,33 @@ test('calls deepseek-v4-flash in JSON mode with fixed scoring parameters', async
   assert.deepEqual(request.body.response_format, { type: 'json_object' });
 });
 
+test('retries one transient upstream failure', async () => {
+  let attempts = 0;
+  const responder = createAssessmentResponder({
+    apiKey: 'test-key',
+    fetchImpl: async () => {
+      attempts++;
+      if (attempts === 1) return { ok: false, status: 502, text: async () => 'temporary upstream failure' };
+      return { ok: true, json: async () => ({ choices: [{ message: { content: '{"score":90,"summary":"完整。","strengths":["准确"],"improvements":[]}' } }] }) };
+    },
+  });
+  assert.equal((await responder(topic, validRequest)).score, 90);
+  assert.equal(attempts, 2);
+});
+
+test('does not retry a non-transient upstream failure', async () => {
+  let attempts = 0;
+  const responder = createAssessmentResponder({
+    apiKey: 'test-key',
+    fetchImpl: async () => {
+      attempts++;
+      return { ok: false, status: 400, text: async () => 'invalid request' };
+    },
+  });
+  await assert.rejects(() => responder(topic, validRequest), /AI HTTP 400/);
+  assert.equal(attempts, 1);
+});
+
 test('disables assessment when no API key is configured', () => {
   assert.equal(createAssessmentResponder({ apiKey: '' }), null);
 });

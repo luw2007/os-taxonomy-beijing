@@ -54,7 +54,7 @@ export function createAssessmentResponder({ apiKey = process.env.DEEPSEEK_API_KE
   if (!apiKey) return null;
   return async function assess(topic, input) {
     const request = validateAssessmentRequest(input);
-    const response = await fetchImpl(API_URL, {
+    const options = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
       body: JSON.stringify({
@@ -64,7 +64,17 @@ export function createAssessmentResponder({ apiKey = process.env.DEEPSEEK_API_KE
         temperature: 0,
         max_tokens: 500,
       }),
-    });
+    };
+    let response;
+    for (let attempt = 0; attempt < 2; attempt++) {
+      try {
+        response = await fetchImpl(API_URL, options);
+      } catch (error) {
+        if (attempt === 1) throw error;
+        continue;
+      }
+      if (response.ok || response.status < 500 || attempt === 1) break;
+    }
     if (!response.ok) throw new Error(`AI HTTP ${response.status}: ${(await response.text()).slice(0, 160)}`);
     const data = await response.json();
     const content = data.choices?.[0]?.message?.content;

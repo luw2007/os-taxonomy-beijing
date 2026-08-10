@@ -295,7 +295,7 @@ function resolveDimension(params) {
 }
 
 // --- JSON API 响应 --------------------------------------------------------
-function apiResponse(pathname, search) {
+export function apiResponse(pathname, search) {
   const params = new URLSearchParams(search);
   const dimension = resolveDimension(params);
 
@@ -656,28 +656,30 @@ const server = createServer((req, res) => {
   }
 });
 
-server.listen(port, host, () => {
-  console.log('');
-  console.log('  ╔══════════════════════════════════════════════╗');
-  console.log('  ║   Beijing Skill Taxonomy · 知识浏览器      ║');
-  console.log('  ╚══════════════════════════════════════════════╝');
-  console.log('');
-  console.log(`  ▸ 浏览器打开:  http://${host}:${port}`);
-  console.log('');
-  console.log(`  ▸ 知识总量:    ${mergedTopics.length} 个微主题`);
-  console.log(`  ▸ 已翻译:      ${translatedCount} 个`);
-  console.log(`  ▸ 依赖关系:    ${mergedDeps.length} 条`);
-  console.log(`  ▸ 发布图边:    ${publishedGraphData.dependencies.length} 条（reviewed 且两端可发布）`);
-  console.log(`  ▸ 审核覆盖率:  内部边 reviewed ${internalReview.reviewed} / machine ${internalReview.machine} / rejected ${internalReview.rejected}（全图含上游 reviewed ${reviewCounts.reviewed} / machine ${reviewCounts.machine} / rejected ${reviewCounts.rejected}）`);
-  console.log(`  ▸ 领域聚类:    ${mergedClusters.length} 个`);
-  console.log(`  ▸ 中国课标:    ${cnStandards.curricula.length} 套`);
-  console.log(`  ▸ 维度切换:    ${Object.values(dimensionsConfig.dimensions).map(d => d.label).join(' / ')}（默认 ${dimensionsConfig.dimensions[dimensionsConfig.defaultDimension]?.label}）`);
-  console.log(`  ▸ AI 标记解析: ${llmResolve ? '✓ 已启用(deepseek-v4-flash)' : '✗ 未启用(缺 DEEPSEEK_API_KEY)'}`);
-  console.log(`  ▸ AI 学习伙伴: ${llmChat ? '✓ 匿名可用(deepseek-v4-flash)' : '✗ 未启用(缺 DEEPSEEK_API_KEY)'}`);
-  console.log(`  ▸ AI 作答评分: ${llmAssessment ? '✓ 匿名可用(deepseek-v4-flash)' : '✗ 未启用(缺 DEEPSEEK_API_KEY)'}`);
-  console.log(`  ▸ 上游数据:    ${hasUpstream ? '✓ 已加载' : '✗ 未找到（仅显示中文数据）'}`);
-  if (hasUpstream) console.log(`                ${upstreamPath}`);
-  console.log('');
-  console.log('  按 Ctrl+C 停止服务。');
-  console.log('');
-});
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  server.listen(port, host, () => {
+    console.log('');
+    console.log('  ╔══════════════════════════════════════════════╗');
+    console.log('  ║   Beijing Skill Taxonomy · 知识浏览器      ║');
+    console.log('  ╚══════════════════════════════════════════════╝');
+    console.log('');
+    console.log(`  ▸ 浏览器打开:  http://${host}:${port}`);
+    console.log('');
+    console.log(`  ▸ 知识总量:    ${mergedTopics.length} 个微主题`);
+    console.log(`  ▸ 已翻译:      ${translatedCount} 个`);
+    console.log(`  ▸ 依赖关系:    ${mergedDeps.length} 条`);
+    console.log(`  ▸ 发布图边:    ${publishedGraphData.dependencies.length} 条（reviewed 且两端可发布）`);
+    console.log(`  ▸ 审核覆盖率:  内部边 reviewed ${internalReview.reviewed} / machine ${internalReview.machine} / rejected ${internalReview.rejected}（全图含上游 reviewed ${reviewCounts.reviewed} / machine ${reviewCounts.machine} / rejected ${reviewCounts.rejected}）`);
+    console.log(`  ▸ 领域聚类:    ${mergedClusters.length} 个`);
+    console.log(`  ▸ 中国课标:    ${cnStandards.curricula.length} 套`);
+    console.log(`  ▸ 维度切换:    ${Object.values(dimensionsConfig.dimensions).map(d => d.label).join(' / ')}（默认 ${dimensionsConfig.dimensions[dimensionsConfig.defaultDimension]?.label}）`);
+    console.log(`  ▸ AI 标记解析: ${llmResolve ? '✓ 已启用(deepseek-v4-flash)' : '✗ 未启用(缺 DEEPSEEK_API_KEY)'}`);
+    console.log(`  ▸ AI 学习伙伴: ${llmChat ? '✓ 匿名可用(deepseek-v4-flash)' : '✗ 未启用(缺 DEEPSEEK_API_KEY)'}`);
+    console.log(`  ▸ AI 作答评分: ${llmAssessment ? '✓ 匿名可用(deepseek-v4-flash)' : '✗ 未启用(缺 DEEPSEEK_API_KEY)'}`);
+    console.log(`  ▸ 上游数据:    ${hasUpstream ? '✓ 已加载' : '✗ 未找到（仅显示中文数据）'}`);
+    if (hasUpstream) console.log(`                ${upstreamPath}`);
+    console.log('');
+    console.log('  按 Ctrl+C 停止服务。');
+    console.log('');
+  });
+}

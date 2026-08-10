@@ -9,6 +9,7 @@
     "test": "node --test scripts/test/*.test.mjs",
     "start": "node scripts/serve.mjs",
     "serve": "node scripts/serve.mjs",
+    "build:static": "node scripts/export-static-site.mjs",
     "translate": "node scripts/translate.mjs",
     "validate": "node scripts/validate.mjs",
     "sync-upstream": "node scripts/sync-upstream.mjs",

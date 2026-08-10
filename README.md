@@ -234,6 +234,10 @@ node scripts/serve.mjs --port 8080 --upstream /path/to/os-taxonomy
 浏览器会自动合并上游结构数据（subject/domain/ageRange/type）和中文翻译，
 未翻译的微主题显示英文原文并标注「未译」，已翻译的优先显示中文。
 
+### GitHub Pages 静态版
+
+`main` 分支会通过 GitHub Actions 构建并部署零后端静态浏览器。仓库管理员须在 **Settings → Pages** 将发布源设为 **GitHub Actions**。静态版保留图谱、知识脉络、筛选、搜索、本地档案与本地掌握状态；不提供 AI 解析、AI 学习伙伴或 AI 作答评分。需要这些可选 AI 功能时，请在本地使用 `npm start` 并配置服务端密钥。
+
 ## 许可证
 
 本项目按材料类型分层许可，完整的逐路径边界见 [LICENSES.md](LICENSES.md)，

@@ -1,0 +1,30 @@
+name: Question
+description: Ask for help using the taxonomy or its local viewer.
+title: "[Question]: "
+labels: ["type:question", "area:viewer"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For vulnerabilities, use the [private security reporting link](https://github.com/luw2007/os-taxonomy-beijing/security/advisories/new) rather than a public issue. Do not include secrets, tenant or personal data, or restricted curriculum, textbook, or source text.
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Describe what you are trying to do, using stable identifiers and public, redistributable references where relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected behavior
+      description: State the result you expected without quoting restricted curriculum, textbook, or source text.
+    validations:
+      required: true
+  - type: checkboxes
+    id: data-governance
+    attributes:
+      label: Data governance
+      options:
+        - label: I confirm this question contains no secrets, personal data, or restricted curriculum, textbook, or source text.
+          required: true

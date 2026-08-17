@@ -1,0 +1,37 @@
+name: Feature request
+description: Propose an improvement to the taxonomy, its data governance, or the local viewer.
+title: "[Feature]: "
+labels: ["type:feature", "status:needs-design", "area:curriculum"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include secrets, tenant or personal data, or restricted curriculum, textbook, or source text. Describe records by stable identifiers and use only public, redistributable evidence.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What user, maintainer, or data-governance problem would this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposed-outcome
+    attributes:
+      label: Proposed outcome
+      description: Describe the observable result without reproducing restricted curriculum, textbook, or source text.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope and non-goals
+      description: Identify affected stable IDs, exports, or viewer surfaces, and state what is deliberately out of scope. Do not submit restricted curricum or textbook text.
+    validations:
+      required: true
+  - type: checkboxes
+    id: data-governance
+    attributes:
+      label: Data governance
+      options:
+        - label: I confirm this request contains no secrets, personal data, or restricted curriculum, textbook, or source text.
+          required: true

@@ -1,1 +1,5 @@
 blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability privately
+    url: https://github.com/luw2007/os-taxonomy-beijing/security/advisories/new
+    about: Report vulnerabilities privately. Do not disclose sensitive details in a public issue.

@@ -25,7 +25,7 @@ body:
     id: scope
     attributes:
       label: Scope and non-goals
-      description: Identify affected stable IDs, exports, or viewer surfaces, and state what is deliberately out of scope. Do not submit restricted curricum or textbook text.
+      description: Identify affected stable IDs, exports, or viewer surfaces, and state what is deliberately out of scope. Do not submit restricted curriculum or textbook text.
     validations:
       required: true
   - type: checkboxes
